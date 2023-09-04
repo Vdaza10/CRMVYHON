@@ -6,9 +6,11 @@ export const DivContainer = styled.div`
 
 export const Container = styled.div`
     width: 100%;
-    height: 100%;
+    height: 120%;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    z-index: 1 ;
 `;
 
 export const Caja1 = styled.div`
