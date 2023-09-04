@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Select from "react-select";
 
 
 export const Container = styled.div`
@@ -110,40 +109,9 @@ export const ContainerInput = styled.div`
     border: solid gray 1px ;
     outline: none;
 `
-    const options = [
-        { value: '1', label: 'opción1' },
-        { value: '2', label: 'opción2' },
-        { value: '3', label: 'opción3' },
-    ];
-    
-    export const ContactoSelect = () => (
-        <div style={{height:"6%", width:"96%" , border:"solid gray 1px"}}>
-            <Select
-        placeholder="Seleccionar"
-        options={options}
-        styles={{
-            control: (provided) => ({
-            ...provided,
-            // border: 'solid 1px gray',
-            height: '110%',
-            border:"none",
-            fontSize:"17px",
-            width: '100%', // Cambia la altura según tus necesidades
-            // Otras propiedades de estilo
-            }),
-            // Puedes personalizar otros estilos aquí
-        }}
-        theme={(theme) => ({
-            ...theme,
-            borderRadius: 0,
-            colors: {
-            ...theme.colors,
-            primary25: '#80808025',
-            primary: 'black',
-            },
-        })}
-        />
-        </div>
-    );
-    
-    export default ContactoSelect;
+
+export const Select = styled.select`
+    width: 97%;
+    height: 7%;
+    border: solid 1px gray;
+`

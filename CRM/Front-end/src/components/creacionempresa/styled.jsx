@@ -1,102 +1,6 @@
 import styled from "styled-components";
 
-import { useState } from "react";
-import Select, { components } from "react-select";
-
-// Componente personalizado para las opciones del Select
-const InputOption = ({
-  getStyles,
-  Icon,
-  isDisabled,
-  isFocused,
-  isSelected,
-  children,
-  innerProps,
-  ...rest
-}) => {
-  const [isActive, setIsActive] = useState(false);
-  // Funciones para gestionar el estado del checkbox
-  const onMouseDown = () => setIsActive(true);
-  const onMouseUp = () => setIsActive(false);
-  const onMouseLeave = () => setIsActive(false);
-
-  // Estilos condicionales para resaltar la opción seleccionada
-  let bg = "transparent";
-  if (isFocused) bg = "#eee";
-  if (isActive) bg = "#0069f2";
-
-  const style = {
-    alignItems: "center",
-    backgroundColor: bg,
-    color: "inherit",
-    display: "flex ",
-  };
-
-  //Propiedades del componente Option
-  const props = {
-    ...innerProps,
-    onMouseDown,
-    onMouseUp,
-    onMouseLeave,
-    style
-  };
-
-  return (
-    <components.Option
-      {...rest}
-      isDisabled={isDisabled}
-      isFocused={isFocused}
-      isSelected={isSelected}
-      getStyles={getStyles}
-      innerProps={props}
-    >
-      <input type="checkbox" checked={isSelected} />
-      {children}
-    </components.Option>
-  );
-};
-// Opciones para el Select
-const allOptions = [
-  { value: "option 1", label: "option 1" },
-  { value: "option 2", label: "option 2" },
-  { value: "option 3", label: "option 3" },
-  { value: "option 4", label: "option 4" }
-];
-// Componente principal
-export  function App() {
-  // const [selectedOptions, setSelectedOptions] = useState([]);
-
-  return (
-    <div className="App" style={{width:"90%",height:"5.9%", outline: "none", fontSize:"17px" ,border:"solid gray 1px"}}>
-      <Select
-        defaultValue={[]}
-        isMulti
-        placeholder = 'Selecionar'
-        closeMenuOnSelect={false}
-        hideSelectedOptions={false}
-        onChange={(options) => {
-          if (Array.isArray(options)) {
-            // setSelectedOptions(options.map((opt) => opt.value));
-          }
-        }}
-        options={allOptions}
-        components={{
-          Option: InputOption
-        }}
-        theme={(theme) => ({
-          ...theme,
-          
-          colors: {
-            ...theme.colors,
-            primary25: 'red',
-            primary: 'black',
-            },
-          })}
-      />
-    </div>
-  );
-}
-
+// 
 // Estilo para el contenedor principal
 export const Div1 = styled.div`
 position: absolute;
@@ -211,4 +115,7 @@ export const Caja2 = styled.div`
     align-items: center;
     right: auto;
 `
-
+export const SelectEmpresa = styled.select`
+    height: 5.5%;
+    width: 92%;
+`

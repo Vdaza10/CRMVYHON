@@ -1,6 +1,5 @@
 import { pool } from "../db.js";
 
-
 export const createEmpresa = async (req, res) =>{
     try {
         const {nombreEmpresa, url, descripcion} = req.body;
@@ -17,11 +16,9 @@ export const createEmpresa = async (req, res) =>{
             });
 
     } catch (error) {
-        return req.status(500).json({messege: "algo va mal"})
+        return res.status(500).json({messege: "algo va mal"})
     }
 };
-
-
 
 export const getEmpresas = async (req, res) => {
     try {
@@ -33,8 +30,6 @@ export const getEmpresas = async (req, res) => {
     }
 };
 
-
-
 export const getEmpresaId = async (req, res) => {
     const idEmpresa = req.params.id;
     try {
@@ -45,8 +40,6 @@ export const getEmpresaId = async (req, res) => {
         res.status(500).json({ error: 'Error obteniendo segmento por ID' });
     }
 };
-
-
 
 export const updateEmpresas = async (req, res) => {
     try {
@@ -64,8 +57,6 @@ export const updateEmpresas = async (req, res) => {
     }
 };
 
-
-
 export const deleteEmpresas = async (req, res) => {
     try {
         const deletedata = await pool.query('DELETE FROM empresa WHERE idEmpresa = ?',
@@ -75,9 +66,6 @@ export const deleteEmpresas = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la empresa' });
     }
 };
-
-
-
 
 // Actualizar un empresa por su ID
 
