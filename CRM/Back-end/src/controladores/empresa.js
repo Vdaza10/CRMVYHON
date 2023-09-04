@@ -17,7 +17,7 @@ export const createEmpresa = async (req, res) =>{
             });
 
     } catch (error) {
-        return req.status(500).json({messege: "algo va mal"})
+        return res.status(500).json({messege: "algo va mal"})
     }
 };
 

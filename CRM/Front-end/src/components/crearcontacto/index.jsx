@@ -19,17 +19,13 @@ function Retorno4() {
         } else {
             // setEmail(""); // Establece el email en blanco si no es válido
         }
-    }
-    
-        
-
-;
+    };
 
 const datosIngresados = (e) => {
     e.preventDefault();
 
     if (nombreUsuario && cargo && telefono && empresaContacto) {
-        axios.post("http://localhost:3005/contactos",{
+        axios.post("http://localhost:3005/contacto",{
             nombreUsuario : nombreUsuario,
             cargo : cargo,
             telefono: telefono,
@@ -45,7 +41,7 @@ const datosIngresados = (e) => {
         })}else{
             alert('ingrese todos los valores')
         };
-    }
+    };
 
 
     // Estado para controlar si el componente está cerrado o abierto
