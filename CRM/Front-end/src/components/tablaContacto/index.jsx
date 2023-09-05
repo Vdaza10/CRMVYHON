@@ -4,11 +4,22 @@ import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 
 import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
 import { BiSolidEditAlt } from 'react-icons/bi'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Retorno4 from "../crearcontacto";
+import  Axios  from "axios";
 
 function TablaContacto() {
     const [active, setActive] = useState(false)
+    const [contacto, setContacto] = useState([])
+
+    const TablagetContacto = async () => {
+        const contactos = await Axios.get("http://localhost:3005/contactotabla");
+        setContacto(contactos.data)
+    }
+
+    useEffect(() => {
+        TablagetContacto();
+    }, [setContacto]);
 
     return (
         <>
@@ -30,17 +41,31 @@ function TablaContacto() {
                         <Caja1><Parrafo>Contacto de la empresa</Parrafo></Caja1>
                         <Caja1><Parrafo>Accion</Parrafo></Caja1>
                     </HederTabla>
-                    <BodyTabla>
-                        <Caja1></Caja1>
-                        <Caja1></Caja1>
-                        <Caja1></Caja1>
-                        <Caja1></Caja1>
-                        <Caja1></Caja1>
+                    {contacto.map((item, i) => (
+                    <BodyTabla key={i} >
                         <Caja1>
-                            <CajaIcono style={{justifyContent:"end"}}><MdDelete style={{fontSize:"30px"}}/></CajaIcono>
-                            <CajaIcono> <BiSolidEditAlt style={{fontSize:"30px"}}/></CajaIcono>
+                            <Parrafo>{item.nombreContacto}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.cargo}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.telefono}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.correo}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.nombreEmpresa}</Parrafo>
+                        </Caja1>
+                        
+                        <Caja1>
+                            <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
+                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
                         </Caja1>
                     </BodyTabla>
+                ))}
+
                     <FooterTabla>
                         <Boton onClick={() => setActive(!active)}>Crear Contacto</Boton>
                     </FooterTabla>

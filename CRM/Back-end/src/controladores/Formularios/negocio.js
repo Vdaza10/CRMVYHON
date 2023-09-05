@@ -1,4 +1,4 @@
-import { pool } from "../db.js";
+import { pool } from "../../db.js";
 export const crearNegocio = async (req, res) => {
     try {
         const {nombreNegocio, etapas, fuente, empresa, contacto} = req.body;
@@ -26,6 +26,7 @@ export const crearNegocio = async (req, res) => {
 
 export const getNegocio = async (req, res) => {
     try {
+        
         const [rows] = await pool.query('SELECT * FROM Negocio')
 
         res.json(rows)
@@ -34,6 +35,7 @@ export const getNegocio = async (req, res) => {
         return res.status(500).json({ message: "Algo anda mal" });
     }
 };
+
 
 
 
@@ -47,7 +49,6 @@ export const getNegocioId = async (req, res) => {
         res.status(500).json({ error: 'Error obteniendo segmento por ID' });
     }
 };
-
 
 
 export const updateNegocio = async (req, res) => {

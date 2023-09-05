@@ -1,4 +1,4 @@
-import { pool } from "../db.js";
+import { pool } from "../../db.js";
 
 
 export const createEmpresa = async (req, res) =>{
@@ -32,6 +32,7 @@ export const getEmpresas = async (req, res) => {
         return res.status(500).json({message: 'Algo va mal'})
     }
 };
+
 
 
 
