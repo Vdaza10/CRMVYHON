@@ -1,4 +1,4 @@
-import { pool } from "../db.js";
+import { pool } from "../../db.js";
 
 
 export const crearContacto = async (req, res) => {
@@ -49,6 +49,7 @@ export const getContactoId = async (req, res) => {
         res.status(500).json({ error: 'Error obteniendo segmento por ID' });
     }
 };
+
 
 
 

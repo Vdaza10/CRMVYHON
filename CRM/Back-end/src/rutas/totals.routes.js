@@ -1,11 +1,15 @@
 import { Router } from "express";
-import * as userCrtl from "../controladores/user.controllers.js";//registro//
-import * as empresaCrtl from "../controladores/empresa.js";//empresa//
-import * as contactoCrtl from "../controladores/contacto.js"; //contacto//
-import * as negocioCrtl from "../controladores/negocio.js"; //negocio//
-import * as segmentoCrtl from "../controladores/segmento.js"; //segmento//
-import * as tareaCrtl from "../controladores/tarea.js"; //tareas// */
-import * as logincrtl from "../controladores/login.js"
+import * as userCrtl from "../controladores/Formularios/user.controllers.js";//registro//
+import * as empresaCrtl from "../controladores/Formularios/empresa.js";//empresa//
+import * as contactoCrtl from "../controladores/Formularios/contacto.js"; //contacto//
+import * as negocioCrtl from "../controladores/Formularios/negocio.js"; //negocio//
+import * as segmentoCrtl from "../controladores/Formularios/segmento.js"; //segmento//
+import * as tareaCrtl from "../controladores/Formularios/tarea.js"; //tareas// */
+import * as logincrtl from "../controladores/Formularios/login.js"
+import * as tablaEmpresa from "../controladores/Tablas/empresa.js"
+import * as tablaContacto from "../controladores/Tablas/contacto.js"
+import * as tablaNegocio from "../controladores/Tablas/negocio.js"
+import * as tablaTarea from "../controladores/Tablas/tareas.js"
 
 
 //registro
@@ -28,6 +32,8 @@ router.post('/company', empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
 
+router.get('/companytabla',tablaEmpresa.getTablaEmpresa)
+
 router.get('/company/:id', empresaCrtl.getEmpresaId);
 
 router.patch('/company/:id', empresaCrtl.updateEmpresas)
@@ -38,6 +44,8 @@ router.delete('/company/:id', empresaCrtl.deleteEmpresas);
 router.post('/contacto', contactoCrtl.crearContacto)
 
 router.get('/contacto', contactoCrtl.getContacto);
+
+router.get('/contactotabla',tablaContacto.getTablaContacto);
 
 router.get('/contacto/:id', contactoCrtl.getContactoId);
 
@@ -52,6 +60,8 @@ router.get('/negocio', negocioCrtl.getNegocio);
 
 router.get('/negocio/:id', negocioCrtl.getNegocioId);
 
+router.get('/negociotabla', tablaNegocio.getTablaNegocio);
+
 router.patch('/negocio/:id', negocioCrtl.updateNegocio);
 
 router.delete('/negocio/:id', negocioCrtl.deleteNegocio); 
@@ -64,6 +74,8 @@ router.get('/segmento', segmentoCrtl.getSegmento)
 
 
 router.get('/tareas', tareaCrtl.getTareas);
+
+router.get('/tareastabla',tablaTarea.getTablaTarea)
 
 router.post('/tareas', tareaCrtl.createTarea);
 

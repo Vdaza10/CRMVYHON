@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ContainerPrincipal = styled.div`
 height: 90vh;
 width: 100%;
@@ -56,7 +55,7 @@ export const HederTabla = styled.div`
 `
 export const Caja1 = styled.div`
     height: 90%;
-    width: 17%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,7 +86,6 @@ export const Logo = styled.img`
     height: 80%;
     width: 20%;
 `;
-
 
 export const FooterTabla = styled.div`
     height: 8%;
