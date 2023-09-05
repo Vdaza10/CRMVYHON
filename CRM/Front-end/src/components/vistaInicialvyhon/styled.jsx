@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+`
 export const ContenedorInicial = styled.div`
     height: 10vh;
     width: 100%;
@@ -48,9 +56,9 @@ color: #000000;
 `;
 
 export const Informacion = styled.div`
-    height: 1000px;
+    height: 100vh;
     width: 100%;
-    background-color: blue; 
+    /* background-color: blue;  */ 
 `
 export const OpcionesCrm = styled.div`
     height: 700px;
@@ -62,8 +70,8 @@ export const OpcionesCrm = styled.div`
     align-items: center;
 `
 export const ContainerTarjetas = styled.div`
-    height: 10050%;
-    height: 50%;
+    /* height: 10050%; */
+    height: 80%;
     /* background-color: #c41f1f; */
     display : flex;
     justify-items: center;
@@ -76,15 +84,15 @@ export const ContenedorImagen = styled.div`
     width: 60%;
     display: flex;
     align-items: center;
-    
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 export const TarjetasInformativas = styled.div`
-    height: 130%;
+    height: 80%;
     width: 30%;
     background-color: #4ea9f9;
-    margin-top: 50px;
     opacity: .9;
-    margin-top: 20%;
+    /* margin-top: 5%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,4 +101,13 @@ export const TarjetasInformativas = styled.div`
     font-weight: 300;
     font-family: 'DM Sans', sans-serif;
 `
-
+export const Footer = styled.div`
+    color: black;
+    text-align: center;
+    /* padding: 10px; */
+    height: 10em;
+`
+export const TextoFooter = styled.p`
+    margin: 0;
+    font-size: 50px;
+`
