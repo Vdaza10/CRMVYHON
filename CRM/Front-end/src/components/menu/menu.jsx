@@ -82,13 +82,14 @@ export const Flecha = styled.li`
 // Contenedor para el ícono de búsqueda y menú de usuario
 export const ContenedorBusqueda = styled.div`
     height: 60px;
-    width: 200px;
+    width: 400px;
     color: white;
     display: flex;
     align-items: center;
     position: absolute;
     right: 0px;
-    margin-inline-end: 170px;
+    margin-right: 4em;
+    /* margin-inline-end: 120px; */
     justify-content: flex-end;
     @media screen and (max-width:60%) {
         
@@ -97,6 +98,8 @@ export const ContenedorBusqueda = styled.div`
 // Contenedor para el ícono de perfil de usuario y nombre
 export const PerfilUsiario = styled.div`
     margin-left: 10px;
+    width: 180px;
+    display: flex;
     align-items: center;
     right: 20px;
 `
@@ -124,6 +127,7 @@ export const ImagenPerfil = styled.div`
 // Nombre de usuario
 export const NombreUsuario = styled.span`
     margin-left: 10px;
+    width: 120px;
     color: white;
 `;
 
