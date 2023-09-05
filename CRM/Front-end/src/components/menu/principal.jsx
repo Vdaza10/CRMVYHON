@@ -1,5 +1,5 @@
-import React, {useState}from "react";
-import { Link } from "react-router-dom"
+import React, {useState, useEffect}from "react";
+import {NavLink } from "react-router-dom"
 import { Contenedor, ContenedorBusqueda, ImagenPerfil, Logo, MenuItem, Menucontainer, Menudesplegable, Navegacion, NombreUsuario, PerfilUsiario,Buscar} from "./menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +17,17 @@ const Menu = () => {
     };
     
     // const [busca, setBusca] = useState("")
+
+    const [selectedOption, setSelectedOption] = useState('inicio');
+    const opcionElegida = (Option) =>{
+    console.log ("opcionElegida:", Option)
+        setSelectedOption(Option);
+    }
+
+    useEffect(() => {
+
+    }, [selectedOption]);
+
     return (
         <Contenedor >
             {/* Barra de navegación */}
@@ -25,12 +36,16 @@ const Menu = () => {
             </Navegacion>
             <Menucontainer>
                 {/*utilizamos el <link> de react para asi indicar la navegacion */}
-                    <Link to="/negocios" style={{textDecoration:"none", color: "white"}}><MenuItem>Negocios</MenuItem></Link> 
-                    <Link to="/empresas" style={{textDecoration:"none", color: "white"}}><MenuItem >Empresas</MenuItem></Link>
-                    <Link to="/contactos" style={{ textDecoration: "none", color: "white" }}><MenuItem >Contactos</MenuItem></Link>
-                    <Link to="/tareas" style={{ textDecoration: "none", color: "white" }}><MenuItem>Tareas</MenuItem></Link>
-                    
-                    <Link to="/campaña" style={{textDecoration: "none", color:"white"}}><MenuItem>Marketing</MenuItem></Link> {/* Otro ítem del menú */}
+                    {/* <Link ></Link> 
+                    <Link ></Link>
+                    <Link ></Link>
+                    <Link ></Link>
+                    <Link ></Link> Otro ítem del menú */}
+                    <NavLink to="/negocios" style={{ color: selectedOption === 'negocios' ? "#000000" : "#ffffff", textDecoration: "none" }} onClick={() => opcionElegida('negocios')}><MenuItem>Negocios</MenuItem></NavLink>
+                    <NavLink to="/empresas"  style={{ color: selectedOption === 'empresas' ? "#000000" : "#ffffff", textDecoration: "none" }} onClick={() => opcionElegida('empresas')}><MenuItem>Empresas</MenuItem></NavLink>
+                    <NavLink to="/contactos" style={{ color: selectedOption === 'contactos' ? "#000000" : "#ffffff", textDecoration: "none" }} onClick={() => opcionElegida('contactos')}><MenuItem>Contactos</MenuItem></NavLink>
+                    <NavLink to="/tareas" style={{ color: selectedOption === 'tareas' ? "#000000" : "#ffffff", textDecoration: "none" }} onClick={() => opcionElegida('tareas')} ><MenuItem>Tareas</MenuItem></NavLink>
+                    <NavLink to="/campaña" style={{ color: selectedOption === 'marketing' ? "#000000" : "#ffffff", textDecoration: "none" }} onClick={() => opcionElegida('marketing')} ><MenuItem >Marketing</MenuItem></NavLink>
             </Menucontainer>
             <ContenedorBusqueda>
             <Buscar
