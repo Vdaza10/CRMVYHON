@@ -20,16 +20,17 @@ const CampañaCorreo = () =>{
                             <TextoTarjeta>Arquitectura</TextoTarjeta>
                     </TarjetasEditablesCorreo>
                     <TarjetasEditablesCorreo>
-                    <TextoTarjeta>Bancos</TextoTarjeta>
+                        <TextoTarjeta>Bancos</TextoTarjeta>
                     </TarjetasEditablesCorreo>
                     <TarjetasEditablesCorreo>
-                    <TextoTarjeta>Clinica/salud</TextoTarjeta>
+                        <TextoTarjeta>Clinica/salud</TextoTarjeta>
                     </TarjetasEditablesCorreo>
                     <TarjetasEditablesCorreo>
-                    <TextoTarjeta>Concesionarios</TextoTarjeta>
+                        <TextoTarjeta>Concesionarios</TextoTarjeta>
                     </TarjetasEditablesCorreo>
                     <TarjetasEditablesCorreo>
-                    <TextoTarjeta>Contabilidad</TextoTarjeta>
+                        <TextoTarjeta>Contabilidad</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
                     <TarjetasEditablesCorreo>
                     <TextoTarjeta>Ingenieria</TextoTarjeta>
                     </TarjetasEditablesCorreo>
@@ -38,7 +39,6 @@ const CampañaCorreo = () =>{
                     </TarjetasEditablesCorreo>
                     <TarjetasEditablesCorreo>
                     <TextoTarjeta>Fotografia</TextoTarjeta>
-                    </TarjetasEditablesCorreo>
                     </TarjetasEditablesCorreo>
                 </Contenedorcampaña1>
         </Contenedor>

@@ -22,16 +22,20 @@ export const Contenedorcampaña1 = styled.div`
     background: -webkit-linear-gradient(180deg, #0099ffac 0%, #72c4fa 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#ffffff",GradientType=1);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    justify-content: space-evenly;
-    gap: 10px;
+    justify-content: space-evenly; 
+    gap: 10px; 
 `
 export const TarjetasEditablesCorreo = styled.div`
     height: 40%;
-    width: 20%;
+    width: 15%;
     background-color: white; 
-    margin-right: 10px; 
-    margin-top: 5%;
+    margin-right: 25px; 
+    margin-left: 25px;
+    margin-top: 2%;
+    flex-grow: 1;
+    flex-basis: 15%;
 `
 export const TextoTarjeta = styled.div`
     height: 13%;

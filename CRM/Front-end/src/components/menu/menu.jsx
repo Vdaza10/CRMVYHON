@@ -29,9 +29,11 @@ export const Menucontainer = styled.ul`
     @media screen and (max-width: 700px) {
         display: flex;
         flex-direction: column;
-
     }
-
+    .active-link{
+        background-color: #00000092;
+        color: #333;
+    }
 `
 // Ítem individual del menú
 export const MenuItem = styled.li`
@@ -156,4 +158,3 @@ export const Buscar = styled.input`
         width: 1px;
     }
 `
-
