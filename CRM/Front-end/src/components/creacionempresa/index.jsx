@@ -84,7 +84,6 @@ function Retorno8() {
                     <Area placeholder="Describe la empresa" onChange={(e) => setDescripcion(e.target.value)} />
                 </Caja1>
                 <hr />
-                {/* Botones para cancelar o crear la empresa */}
                 <Caja2>
                     <Boton2>Cancelar</Boton2>
                     <Boton1 onClick={createEmpresa}>Crear empresa</Boton1>

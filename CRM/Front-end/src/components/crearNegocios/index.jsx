@@ -6,7 +6,7 @@ import Axios from "axios";
 function CrearNegocios() {
     const [nombreNegocio, setNombreNegocio] = useState("");
     const [etapas, setEtapas] = useState("");
-    const [fuentes, setFuentes] = useState("");
+    const [fuente, setFuente] = useState("");
     const [selectEmpresa, setSelectEmpresa] = useState("");
     const [selectContacto, setSelectContacto] = useState("");
     const [empresa, setEmpresa] = useState([]);
@@ -49,7 +49,7 @@ function CrearNegocios() {
             const response = await Axios.post("http://localhost:3005/negocio", {
                 nombreNegocio,
                 etapas,
-                fuentes,
+                fuente,
                 empresa: selectEmpresa,
                 contacto: selectContacto,
             });
@@ -78,7 +78,7 @@ function CrearNegocios() {
                         <Parrafo1><h3>Etapa del embudo</h3></Parrafo1>
                         <Input placeholder="Ingresar la etapa del embudo" onChange={(e) => setEtapas(e.target.value)} />
                         <Parrafo1><h3>Fuente</h3></Parrafo1>
-                        <Input placeholder="Ingresar la fuente" onChange={(e) => setFuentes(e.target.value)} />
+                        <Input placeholder="Ingresar la fuente" onChange={(e) => setFuente(e.target.value)} />
                         <Parrafo1><h3>Campaña</h3></Parrafo1>
                         <Select value={selectEmpresa} onChange={(e) => setSelectEmpresa(e.target.value)}>
                             <option value="">Seleccionar campaña...</option>
