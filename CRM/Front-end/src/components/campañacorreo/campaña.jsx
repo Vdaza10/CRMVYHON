@@ -1,0 +1,48 @@
+import React from "react";
+import { Contenedor, Contenedorcampaña1, TarjetasEditablesCorreo, TextoTarjeta } from "./styled";
+import Menu from "../menu/principal";
+// import Campaña from "../markenting/markentingp";
+
+const CampañaCorreo = () =>{
+    
+    return(
+    <>
+    <Menu/>
+        <Contenedor>
+            <Contenedorcampaña1>
+                    <TarjetasEditablesCorreo>
+                            <TextoTarjeta>Abogacia</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                            <TextoTarjeta>Agricultura</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                            <TextoTarjeta>Arquitectura</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Bancos</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Clinica/salud</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Concesionarios</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Contabilidad</TextoTarjeta>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Ingenieria</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Eventos y Entretenimiento</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    <TarjetasEditablesCorreo>
+                    <TextoTarjeta>Fotografia</TextoTarjeta>
+                    </TarjetasEditablesCorreo>
+                    </TarjetasEditablesCorreo>
+                </Contenedorcampaña1>
+        </Contenedor>
+        </>
+    )   
+}
+export default CampañaCorreo;

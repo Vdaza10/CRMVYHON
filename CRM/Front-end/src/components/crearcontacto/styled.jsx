@@ -1,40 +1,5 @@
-import styled from "styled-components";
-import React from "react";
-import Select from "react-select";
+import styled from "styled-components"
 
-// Opciones para el Select
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-];
-
-// Componente para el Select
-export const ContactoSelect = () => (
-        <Select
-        placeholder="Seleccionar"
-        options={options}
-        styles={{
-            control: (provided) => ({
-                ...provided,
-                border:'solid 1px gray',
-                width: '92%', // Cambia la altura según tus necesidades
-                // Otras propiedades de estilo
-            }),
-            // Puedes personalizar otros estilos aquí
-        }}
-        theme={(theme) => ({
-            ...theme,
-            borderRadius: 0,
-            outline: 'none',
-            colors: {
-                ...theme.colors,
-                primary25: '#80808025',
-                primary: 'black',
-            },
-        })}
-    />
-);
 // Estilo para un div absoluto que contiene otros elementos
 export const Div1 = styled.div`
 position: absolute;
@@ -153,3 +118,9 @@ export const Caja2 = styled.div`
     align-items: center;
     right: auto;
 `;
+
+export const Select = styled.select`
+    width: 92%;
+    height: 6%;
+    border: solid 1px gray;
+`

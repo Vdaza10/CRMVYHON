@@ -30,7 +30,7 @@ const Menu = () => {
                     <Link to="/contactos" style={{ textDecoration: "none", color: "white" }}><MenuItem >Contactos</MenuItem></Link>
                     <Link to="/tareas" style={{ textDecoration: "none", color: "white" }}><MenuItem>Tareas</MenuItem></Link>
                     
-                    <MenuItem style={{ textDecoration: "none", color: "white" }}>Marketing</MenuItem>  {/* Otro ítem del menú */}
+                    <Link to="/campaña" style={{textDecoration: "none", color:"white"}}><MenuItem>Marketing</MenuItem></Link> {/* Otro ítem del menú */}
             </Menucontainer>
             <ContenedorBusqueda>
             <Buscar
