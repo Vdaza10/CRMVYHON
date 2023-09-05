@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Div1, Container1, Caja, Parrafo, Img, Parrafo1, Caja1, Input, Caja2, Boton1, Boton2, Area, SelectEmpresa } from "./styled.jsx";
 import imagen from "../img/img_x.webp";
-import Axios from "axios";
+import axios from 'axios'
 
 function Retorno8() {
     const [nombreEmpresa, setNombreEmpresa] = useState("");
@@ -13,7 +13,7 @@ function Retorno8() {
     // Función para obtener los segmentos desde la base de datos
     const fetchSegmentos = async () => {
         try {
-            const response = await Axios.get("http://localhost:3005/segmento");
+            const response = await axios.get("http://localhost:3005/segmento");
             setSegmento(response.data);
             console.log(response.data);
         } catch (error) {
@@ -41,14 +41,14 @@ function Retorno8() {
     const createEmpresa = async (ev) => {
         ev.preventDefault();
         try {
-            const response = await Axios.post("http://localhost:3005/company", {
+            const response = await axios.post("http://localhost:3005/company", {
                 nombreEmpresa,
                 segmento: selectedSegmento, // Usando el valor seleccionado
                 url,
                 descripcion
             });
             console.log("Empresa creada:", response.data);
-        } catch (error) {
+        } catch (error) { 
             console.log("Error al crear empresa:", error);
         }
     };

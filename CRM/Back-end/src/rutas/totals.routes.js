@@ -27,7 +27,7 @@ router.delete('/users', userCrtl.deleteUsers);
 
 router.post('/login',  logincrtl.Login);
 
-//empresa//
+//empresa// 
 router.post('/company', empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
