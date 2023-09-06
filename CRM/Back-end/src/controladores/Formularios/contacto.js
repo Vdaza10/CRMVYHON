@@ -40,9 +40,9 @@ export const getContacto = async (req, res) => {
 
 
 export const getContactoId = async (req, res) => {
-    const idEmpresa = req.params.id;
+    const idContacto = req.params.id;
     try {
-        const [row] = await pool.query('SELECT * FROM empresa WHERE idContacto = ?', [idEmpresa]);
+        const [row] = await pool.query('SELECT * FROM contacto WHERE idContacto = ?', [idContacto]);
 
         res.json(row);
     } catch (error) {
@@ -58,7 +58,7 @@ export const updateContacto = async (req, res) => {
         const {nombreContacto, cargo, telefono, correo, contactoEmpresa} = req.body;
 
         const updateData = await pool.query(
-            'UPDATE empresa SET nombreContacto = ?, cargo = ?, telefono = ?, correo = ?, contactoEmpresa = ?, WHERE idContacto = ?',
+            'UPDATE contacto SET nombreContacto = ?, cargo = ?, telefono = ?, correo = ?, contactoEmpresa = ?, WHERE idContacto = ?',
             [nombreContacto, cargo, telefono, correo, contactoEmpresa, req.params.id]
         );
             res.json(updateData)

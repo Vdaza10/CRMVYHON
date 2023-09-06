@@ -1,9 +1,8 @@
 import { pool } from "../../db.js";
 
-
 export const createEmpresa = async (req, res) =>{
     try {
-        const {nombreEmpresa, segmento, url, descripcion} = req.body;
+        const {nombreEmpresa, url, descripcion, segmento} = req.body;
         const [rows] = await pool.query(
             "INSERT INTO empresa (nombreEmpresa, segmento, url, descripcion) VALUES (?,?,?,?)",
             [nombreEmpresa, segmento, url, descripcion])
@@ -23,8 +22,6 @@ export const createEmpresa = async (req, res) =>{
     }
 };
 
-
-
 export const getEmpresas = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM empresa')
@@ -34,9 +31,6 @@ export const getEmpresas = async (req, res) => {
         return res.status(500).json({message: 'Algo va mal'})
     }
 };
-
-
-
 
 export const getEmpresaId = async (req, res) => {
     const idEmpresa = req.params.id;
@@ -48,8 +42,6 @@ export const getEmpresaId = async (req, res) => {
         res.status(500).json({ error: 'Error obteniendo segmento por ID' });
     }
 };
-
-
 
 export const updateEmpresas = async (req, res) => {
     try {
@@ -67,8 +59,6 @@ export const updateEmpresas = async (req, res) => {
     }
 };
 
-
-
 export const deleteEmpresas = async (req, res) => {
     try {
         const deletedata = await pool.query('DELETE FROM empresa WHERE idEmpresa = ?',
@@ -78,9 +68,6 @@ export const deleteEmpresas = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la empresa' });
     }
 };
-
-
-
 
 // Actualizar un empresa por su ID
 
