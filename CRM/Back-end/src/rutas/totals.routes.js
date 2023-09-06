@@ -32,8 +32,6 @@ router.post('/company', empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
 
-router.get('/companytabla',tablaEmpresa.getTablaEmpresa)
-
 router.get('/company/:id', empresaCrtl.getEmpresaId);
 
 router.patch('/company/:id', empresaCrtl.updateEmpresas)
@@ -44,8 +42,6 @@ router.delete('/company/:id', empresaCrtl.deleteEmpresas);
 router.post('/contacto', contactoCrtl.crearContacto)
 
 router.get('/contacto', contactoCrtl.getContacto);
-
-router.get('/contactotabla',tablaContacto.getTablaContacto);
 
 router.get('/contacto/:id', contactoCrtl.getContactoId);
 
@@ -59,8 +55,6 @@ router.post('/negocio', negocioCrtl.crearNegocio)
 router.get('/negocio', negocioCrtl.getNegocio);
 
 router.get('/negocio/:id', negocioCrtl.getNegocioId);
-
-router.get('/negociotabla', tablaNegocio.getTablaNegocio);
 
 router.patch('/negocio/:id', negocioCrtl.updateNegocio);
 
@@ -83,3 +77,38 @@ router.patch('/tareas', tareaCrtl.updateTarea);
 
 router.delete('/tareas', tareaCrtl.deleteTarea);
 
+//tabla contacto
+
+
+router.get('/contactotabla',tablaContacto.getTablaContacto);
+
+router.patch('/contactotabla/:idContacto',tablaContacto.updatetablaContacto)
+
+router.delete('/contactotabla/:id',tablaContacto.deleteTablaContacto);
+
+//tabla empresa
+
+
+router.get('/companytabla',tablaEmpresa.getTablaEmpresa)
+
+router.patch('/company/:idContacto',tablaEmpresa.updatetablaEmpresa)
+
+router.delete('/companytabla/:id', tablaEmpresa.deleteTablaEmpresa)
+
+
+//tabla negocio
+
+router.get('/negociotabla', tablaNegocio.getTablaNegocio);
+
+router.patch('/negociotabla/:idNegocio',tablaNegocio.updatetablaNegocio)
+
+router.delete('/negociotabla/:id', tablaNegocio.deleteTablaNegocio);
+
+//tabla tarea
+
+router.get('/tareastabla',tablaTarea.getTablaTarea)
+
+
+router.patch('/tareastabla/:idTareas',tablaTarea.updatetablaTareas)
+
+router.delete('/tareastabla/:id',tablaTarea.deleteTablaTareas)
