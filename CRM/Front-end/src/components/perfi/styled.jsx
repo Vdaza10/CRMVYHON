@@ -17,6 +17,7 @@ export const Container = styled.div`
 
 export const Caja1 = styled.div`
     height: 30%;
+    
 `
 export const Caja2 = styled.div`
     height: 10%;
