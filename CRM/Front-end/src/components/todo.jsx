@@ -53,7 +53,7 @@ const Todo = () => {
                 <Route path="/tablaEmpresa" element = {<TablaEmpresa/>}></Route>
                 <Route path="/tablaNegocio" element = {<TablaNegocio/>}></Route>
                 <Route path="/tablaTarea" element = {<TablaTarea/>}></Route>
-                <Route path="/campaña" element = {<Campaña/>}></Route>
+                <Route path="/Marketing" element={<Campaña/>}></Route>
                 <Route path="/campañacorreo" element = {<CampañaCorreo/>}></Route>
                 <Route path="/camunicacion" element = {<Comunicacion/>}></Route>
                 <Route path="/promocion" element = {<Promocion/>}></Route>
