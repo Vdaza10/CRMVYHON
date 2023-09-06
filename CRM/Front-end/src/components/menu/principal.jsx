@@ -21,7 +21,7 @@ const Menu = () => {
     
     // const [busca, setBusca] = useState("")
 
-    const [selectedOption, setSelectedOption] = useState('inicio');
+    const [/* selectedOption */, setSelectedOption] = useState('inicio');
     const opcionElegida = (Option) =>{
     console.log ("opcionElegida:", Option)
         setSelectedOption(Option);
