@@ -45,7 +45,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
                 </Idioma>
             </ContainerSelect>
             {/* <p style={{marginRight:"10px"}}></p> */}
-            <Link to={"/"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
+            <Link to={"/principal"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
 
             <VentanaModal1 
                 estado={estadoModal}
