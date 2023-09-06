@@ -72,7 +72,7 @@ export const updateContacto = async (req, res) => {
 
 export const deleteContacto = async (req, res) => {
     try {
-        const deletedata = await pool.query('DELETE FROM empresa WHERE idContacto = ?',
+        const deletedata = await pool.query('DELETE FROM contacto WHERE idContacto = ?',
         [req.params.id]);
         res.status(200).json({ message: 'Empresa eliminada correctamente' });
     } catch (error) {
