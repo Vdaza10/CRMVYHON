@@ -29,9 +29,7 @@ export const Menucontainer = styled.ul`
     @media screen and (max-width: 700px) {
         display: flex;
         flex-direction: column;
-
     }
-
 `
 // Ítem individual del menú
 export const MenuItem = styled.li`

@@ -6,18 +6,18 @@ import { IoIosCloseCircle } from "react-icons/io";
 
 const VentanaModal3 = ({ estado3, cambiarEstado3}) => {
 
-    const cerrarModalYRedirigir = () => {
-        // Cerrar el modal (cambiar estado)
-        cambiarEstado3(false);
-  
-        // Redirigir a una nueva ruta después de 2 segundos
-        setTimeout(() => {
-  
-          // Redirige a la página de inicio
-          window.location.href = "/"  
-          
-        }, 1000);
-      };
+        const cerrarModalYRedirigir = () => {
+            // Cerrar el modal (cambiar estado)
+            cambiarEstado3(false);
+    
+            // Redirigir a una nueva ruta después de 2 segundos
+            setTimeout(() => {
+    
+            // Redirige a la página de inicio
+            window.location.href = "/"  
+            
+            },1000);
+        };
 
 return (
     <>

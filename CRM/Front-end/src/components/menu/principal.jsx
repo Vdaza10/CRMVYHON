@@ -57,7 +57,7 @@ const Menu = () => {
                 <PerfilUsiario >
                     <ImagenPerfil onClick={desplegablePerfil}  isOpen={perfilDesplegable}></ImagenPerfil> {/* se veran reflejada las vistas al momento de darle click */}
                     <Menudesplegable perfilDesplegable = {perfilDesplegable}><Retorno1></Retorno1></Menudesplegable>
-                    <NombreUsuario>helena</NombreUsuario>
+                    <NombreUsuario>Nombre usuario</NombreUsuario>
                 </PerfilUsiario>
             </ContenedorBusqueda>
         </Contenedor>

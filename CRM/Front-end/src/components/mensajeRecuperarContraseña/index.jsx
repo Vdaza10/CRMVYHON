@@ -17,7 +17,7 @@ const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
         window.location.href = "/"  
         
       }, 2000);
-    };
+    };
 
   return (
     <>
