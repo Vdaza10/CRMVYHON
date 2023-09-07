@@ -60,6 +60,10 @@ const CrearTarea = ()=> {
             } else {
                 alert('Ingresa todos los valores');
             }
+            setTimeout(() => {
+                        
+                window.location.href = "/tareas"  
+            }, 1000);
         };
         
 

@@ -57,6 +57,10 @@ function CrearNegocios() {
         } catch (error) {
             console.log("Error al crear negocio:", error);
         }
+        setTimeout(() => {
+                        
+            window.location.href = "/negocios"  
+        }, 1000);
     };
 
     if (!cerrar) {
