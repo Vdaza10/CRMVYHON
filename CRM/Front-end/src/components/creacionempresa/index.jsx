@@ -38,8 +38,7 @@ function Retorno8() {
     };
 
     // Función para crear una empresa
-    const createEmpresa = async (ev) => {
-        ev.preventDefault();
+    const createEmpresa = async (e) => {
         try {
             const response = await axios.post("http://localhost:3005/company", {
                 nombreEmpresa,
@@ -51,7 +50,13 @@ function Retorno8() {
         } catch (error) { 
             console.log("Error al crear empresa:", error);
         }
+        setTimeout(() => {
+                        
+            window.location.href = "/empresas"  
+        }, 1000);
     };
+
+
 
     return (
         <Div1>

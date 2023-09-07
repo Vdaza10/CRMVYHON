@@ -67,7 +67,7 @@ function TablaTarea() {
                         </Registros>
                         <Registros>
                             <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
-                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => setActive(!active)} /></CajaIcono>
                         </Registros>
                     </BodyTabla>
                 ))}

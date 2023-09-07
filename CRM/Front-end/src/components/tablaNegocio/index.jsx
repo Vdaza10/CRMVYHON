@@ -87,7 +87,7 @@ function TablaNegocio() {
             </Caja1>
             <Caja1>
               <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
-              <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+              <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => setActive(!active)} /></CajaIcono>
             </Caja1>
           </BodyTabla>
         ))}
