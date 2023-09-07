@@ -69,7 +69,7 @@ useEffect(() => {
                         
                         <Caja1>
                             <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }}
-                            onClick={()=> TabladeleteContacto()}
+                            onClick={()=> TabladeleteContacto(item)}
                             /></CajaIcono>
                             <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
                         </Caja1>
