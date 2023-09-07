@@ -36,6 +36,15 @@ export const Tarjeta2 = styled.div`
     width: 100%; 
     /* background-color: blue;  */
     align-items: center;
+    animation: rotateCard 3s linear infinite;
+    @keyframes rotateCard {
+    0% {
+    transform: rotateY(0deg);
+    }
+    100% {
+    transform: rotateY(360deg);
+    }
+}
 `
 // Contenedor para la información adicional (fuera del carrusel)
 export const ConInformacion = styled.div`
@@ -44,5 +53,10 @@ export const ConInformacion = styled.div`
     height: 60vh;
     `
 // Ejemplo de estilo para un título (puedes personalizarlo según tus necesidades)
-export const Titulo = styled.h1``
+export const Titulo = styled.h1`
+font-size: 24px; // Adjust the font size as needed
+  font-weight: bold; // Adjust the font weight as needed
+  color: #333; // Adjust the color as needed
+`
+
 
