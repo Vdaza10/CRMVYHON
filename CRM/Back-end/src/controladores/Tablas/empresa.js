@@ -3,7 +3,7 @@ import { pool } from "../../db.js"
 export const getTablaEmpresa = async(req, res) => {
     try{
 
-        const [rows]=await  pool.query('SELECT empresa.nombreEmpresa, segmento.segmento, empresa.url, empresa.descripcion FROM empresa INNER JOIN segmento ON empresa.segmento = segmento.idSegmento ')
+        const [rows]=await  pool.query('SELECT empresa.idEmpresa, empresa.nombreEmpresa, segmento.segmento, empresa.url, empresa.descripcion FROM empresa INNER JOIN segmento ON empresa.segmento = segmento.idSegmento ')
 
         res.json(rows)
 }catch(error){
@@ -29,7 +29,7 @@ export const updatetablaEmpresa = async (req, res) => {
 
 export const deleteTablaEmpresa = async (req, res) => {
     try {
-        const [row] = await pool.query('DELETE FROM empresa WHERE idEmpresa = ?', [req.params.id]);
+        const [row] = await pool.query('DELETE FROM empresa WHERE idEmpresa = ?', [req.params.idEmpresa]);
         res.status(200).json({message:' registro eliminado'})
     }catch (error){
         res.status(500).json({message:'No se pudo eliminar el registro'})

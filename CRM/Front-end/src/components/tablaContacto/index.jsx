@@ -9,71 +9,79 @@ import Retorno4 from "../crearcontacto";
 import Axios from "axios";
 
 function TablaContacto() {
-    const [active, setActive] = useState(false)
-    const [contacto, setContacto] = useState([])
+const [active, setActive] = useState(false);
+const [contacto, setContacto] = useState([]);
 
-    const TablagetContacto = async () => {
-        const contactos = await Axios.get("http://localhost:3005/contactotabla");
-        setContacto(contactos.data)
-    }
+  const TablagetContacto = async () => {
+    const contactos = await Axios.get("http://localhost:3005/contactotabla");
+    setContacto(contactos.data);
+    console.log(contactos.data);
+  };
+  const TabladeleteContacto = async (item) => {
+    const res = await Axios.delete(
+      `http://localhost:3005/contactotabla/${item.idContacto}`
+    );
+    console.log("Contacto eliminado con éxito.", res.data);
+  };
 
-    useEffect(() => {
-        TablagetContacto();
-    }, [setContacto]);
+useEffect(() => {
+    TablagetContacto();
+}, []);
 
     return (
         <>
-            <Menu /> {/* Muestra el componente Menu */}
-            <ContainerPrincipal>
-                <Heder>
-                    <h1>Tabla Contacto</h1>
-                    <ContainerInput>
-                        <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-                        <Input placeholder="Buscar ..."></Input>
-                        <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
-                    </ContainerInput>
-                </Heder>
-                <HederTabla>
-                    <Caja1><Parrafo>Nombre del contacto</Parrafo></Caja1>
-                    <Caja1><Parrafo>Cargo</Parrafo></Caja1>
-                    <Caja1><Parrafo>Telefono</Parrafo></Caja1>
-                    <Caja1><Parrafo>Correo</Parrafo></Caja1>
-                    <Caja1><Parrafo>Contacto de la empresa</Parrafo></Caja1>
-                    <Caja1><Parrafo>Accion</Parrafo></Caja1>
-                </HederTabla>
-                <ContainerSecundario>
+            <Menu/> {/* Muestra el componente Menu */}
+                <ContainerPrincipal>
+                    <Heder>
+                        <h1>Tabla Contacto</h1>
+                        <ContainerInput>
+                            <AiOutlineSearch style={{fontSize:"25px" , color:"#4b4848"}}/>
+                            <Input placeholder="Buscar ..."></Input>
+                            <AiOutlineClose style={{fontSize:"20px", color:"gray"}}/>
+                        </ContainerInput>
+                    </Heder>
+                    <HederTabla>
+                        <Caja1><Parrafo>Nombre del contacto</Parrafo></Caja1>
+                        <Caja1><Parrafo>Cargo</Parrafo></Caja1>
+                        <Caja1><Parrafo>Telefono</Parrafo></Caja1>
+                        <Caja1><Parrafo>Correo</Parrafo></Caja1>
+                        <Caja1><Parrafo>Contacto de la empresa</Parrafo></Caja1>
+                        <Caja1><Parrafo>Accion</Parrafo></Caja1>
+                    </HederTabla>
+                    <ContainerSecundario>
                     {contacto.map((item, i) => (
-                        <BodyTabla key={i} >
-                            <Caja1>
-                                <Parrafo>{item.nombreContacto}</Parrafo>
-                            </Caja1>
-                            <Caja1>
-                                <Parrafo>{item.cargo}</Parrafo>
-                            </Caja1>
-                            <Caja1>
-                                <Parrafo>{item.telefono}</Parrafo>
-                            </Caja1>
-                            <Caja1>
-                                <Parrafo>{item.correo}</Parrafo>
-                            </Caja1>
-                            <Caja1>
-                                <Parrafo>{item.nombreEmpresa}</Parrafo>
-                            </Caja1>
-
-                            <Caja1>
-                                <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
-                                <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => setActive(!active)} /></CajaIcono>
-                            </Caja1>
-                        </BodyTabla>
-                    ))}
-                </ContainerSecundario>
-                <FooterTabla>
-                    <Boton onClick={() => setActive(!active)}>Crear Contacto</Boton>
-                </FooterTabla>
-                {active && <Retorno4 />}
-
-            </ContainerPrincipal>
+                    <BodyTabla key={i} >
+                        <Caja1>
+                            <Parrafo>{item.nombreContacto}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.cargo}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.telefono}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.correo}</Parrafo>
+                        </Caja1>
+                        <Caja1>
+                            <Parrafo>{item.nombreEmpresa}</Parrafo>
+                        </Caja1>
+                        
+                        <Caja1>
+                            <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }}
+                            onClick={()=> TabladeleteContacto(item)}
+                            /></CajaIcono>
+                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+                        </Caja1>
+                    </BodyTabla>
+                ))}
+            </ContainerSecundario>
+                    <FooterTabla>
+                        <Boton onClick={() => setActive(!active)}>Crear Contacto</Boton>
+                    </FooterTabla>
+                    {active && <Retorno4/>}
+                </ContainerPrincipal>
         </>
     );
 }
-export default TablaContacto;  
+export default TablaContacto;   

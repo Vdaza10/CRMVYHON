@@ -27,7 +27,7 @@ import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
 
 const Todo = () => {
-    return(
+    return (
         <BrowserRouter>
             <Routes>
                 {/* Rutas para el menu principal */}
