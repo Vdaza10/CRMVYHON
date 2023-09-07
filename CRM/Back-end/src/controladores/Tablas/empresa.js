@@ -11,3 +11,27 @@ export const getTablaEmpresa = async(req, res) => {
     return res.status(500).json({ message: "Algo anda mal" });
 }
 }
+
+export const updatetablaEmpresa = async (req, res) => {
+    try {
+        const {nombreEmpresa, segmento, url, descripcion} = req.body;
+        const {idEmpresa}=req.params;
+        const updateData = await pool.query(
+            'UPDATE contacto SET nombreEmpresa = IFNULL(?, nombreEmpresa), segmento = IFNULL(?,segmento), url = IFNULL(?,url), descripcion = IFNULL(?,descripcion) WHERE idEmpresa = ?',
+            [nombreEmpresa, segmento, telefono, url, descripcion,idEmpresa]
+        );
+        res.status(200).json({ message: 'Actualizada' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'error al actualizar' });
+    }
+};
+
+export const deleteTablaEmpresa = async (req, res) => {
+    try {
+        const [row] = await pool.query('DELETE FROM empresa WHERE idEmpresa = ?', [req.params.id]);
+        res.status(200).json({message:' registro eliminado'})
+    }catch (error){
+        res.status(500).json({message:'No se pudo eliminar el registro'})
+    }
+}
