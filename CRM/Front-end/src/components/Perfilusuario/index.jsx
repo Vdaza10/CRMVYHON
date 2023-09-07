@@ -36,17 +36,17 @@ function PerfilUsuario() {
                             {/* <hr></hr> */}
                         </InformacionActivacion>
                         <DatosUsuario>
-                            <h3 style={{marginLeft:"30px",color:"#646262"}}>Datos personales</h3>
+                            <h3>Datos personales</h3>
                             <Container>
                                 <Informacion>
-                                    <Nombre style={{marginLeft:"20px"}}>Nombre:</Nombre>
-                                    <Nombre style={{marginLeft:"20px"}}>Email:</Nombre>
-                                    <Nombre style={{marginLeft:"20px"}}>contraseña:</Nombre>
+                                    <Nombre>Nombre:</Nombre>
+                                    <Nombre>Email:</Nombre>
+                                    <Nombre>contraseña:</Nombre>
                                 </Informacion>
                                 <Informacion>
-                                    <Nombre style={{ textAlign: "right" ,marginRight:"20px"}}>el nombre del usuario</Nombre>
-                                    <Nombre style={{ textAlign: "right" ,marginRight:"20px" }}>correo con inicio sesion</Nombre>
-                                    <Nombre style={{ textAlign: "right" ,marginRight:"20px"}}> ****** </Nombre>
+                                    <Nombre>el nombre del usuario</Nombre>
+                                    <Nombre>correo con inicio sesion</Nombre>
+                                    <Nombre> ****** </Nombre>
                                 </Informacion>
                             </Container>
                             <Editar>Editar</Editar>
