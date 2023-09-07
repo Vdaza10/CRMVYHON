@@ -38,10 +38,12 @@ export const MenuItem = styled.li`
     cursor: pointer;
     &:last-child {
     margin-right: 45px;
-    }    
+    }     
     &:hover{
-        background-color: #3eaaee93;
+        width: 65%;
+        background-color: #0e9af2;
         color: #333;
+        
     }
 `;
 

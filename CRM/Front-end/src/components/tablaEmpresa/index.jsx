@@ -1,21 +1,9 @@
 import React from "react";
 import Menu from "../menu/principal";
-import {
-  ContainerPrincipal,
-  Heder,
-  ContainerInput,
-  Input,
-  HederTabla,
-  Caja1,
-  Parrafo,
-  BodyTabla,
-  CajaIcono,
-  Boton,
-  FooterTabla,
-} from "./styled";
-import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
-import { MdDelete } from "react-icons/md";
-import { BiSolidEditAlt } from "react-icons/bi";
+import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla} from "./styled";
+import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
+import { MdDelete } from 'react-icons/md'
+import { BiSolidEditAlt } from 'react-icons/bi'
 import { useState, useEffect } from "react";
 import Retorno8 from "../creacionempresa";
 import Axios from "axios";

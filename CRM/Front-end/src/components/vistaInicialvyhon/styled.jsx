@@ -75,6 +75,7 @@ export const ContainerTarjetas = styled.div`
     /* background-color: #c41f1f; */
     display : flex;
     justify-items: center;
+    text-align: center;
     align-items: center;
     justify-content: space-around;
     margin-top: 0%;
@@ -88,7 +89,7 @@ export const ContenedorImagen = styled.div`
     background-size: cover;
 `
 export const TarjetasInformativas = styled.div`
-    height: 80%;
+    height: 90%;
     width: 30%;
     background-color: #4ea9f9;
     opacity: .9;
@@ -97,9 +98,10 @@ export const TarjetasInformativas = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    font-size: 30px;
-    font-weight: 300;
-    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    /* font-weight: 250px; */
+    /* font-family: 'DM Sans', sans-serif; */
+    font-family: 'Times New Roman', Times, serif;
 `
 export const Footer = styled.div`
     color: black;
