@@ -12,11 +12,19 @@ function TablaTarea() {
 
     const [active, setActive] = useState(false);
     const [tarea, setTarea] = useState([])
+
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const tareas = await Axios.get("http://localhost:3005/tareasTabla");
         console.log(tareas.data);
         setTarea(tareas.data);
+    };
+
+    const TabladeleteTarea = async (item) => {
+        const res = await Axios.delete(
+        `http://localhost:3005/tareastabla/${item.idTarea}`
+        );
+        console.log("Contacto eliminado con éxito.", res.data);
     };
     useEffect(() => {
         ReflejarDatos();
@@ -66,8 +74,10 @@ function TablaTarea() {
                             <Parrafo>{item.hora}</Parrafo>
                         </Registros>
                         <Registros>
-                            <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
-                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+                            <CajaIcono style={{ justifyContent: "end" }}>
+                                <MdDelete style={{ fontSize: "30px" }} onClick={()=> TabladeleteTarea(item)}/>
+                                </CajaIcono>
+                                <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
                         </Registros>
                     </BodyTabla>
                 ))}
