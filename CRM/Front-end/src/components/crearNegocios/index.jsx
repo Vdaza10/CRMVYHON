@@ -60,7 +60,7 @@ function CrearNegocios() {
         setTimeout(() => {
                         
             window.location.href = "/negocios"  
-        }, 1000);
+        },0);
     };
 
     if (!cerrar) {

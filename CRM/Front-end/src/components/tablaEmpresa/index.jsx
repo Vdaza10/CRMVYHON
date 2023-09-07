@@ -1,6 +1,6 @@
 import React from "react";
 import Menu from "../menu/principal";
-import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla} from "./styled";
+import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla , ContainerSecundario} from "./styled";
 import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
 import { BiSolidEditAlt } from 'react-icons/bi'
@@ -23,6 +23,10 @@ function TablaEmpresa() {
       `http://localhost:3005/companytabla/${item.idEmpresa}`
     );
     console.log("Contacto eliminado con éxito.", res.data);
+    setTimeout(() => {
+                        
+        window.location.href = "/empresas"  
+       },0);
   };
 
   useEffect(() => {
@@ -58,6 +62,7 @@ function TablaEmpresa() {
             <Parrafo>acción</Parrafo>
           </Caja1>
         </HederTabla>
+        <ContainerSecundario>
         {empresa.map((item, i) => (
           <BodyTabla key={i}>
             <Caja1>
@@ -80,12 +85,12 @@ function TablaEmpresa() {
                 />
               </CajaIcono>
               <CajaIcono>
-                {" "}
                 <BiSolidEditAlt style={{ fontSize: "30px" }} />
               </CajaIcono>
             </Caja1>
           </BodyTabla>
         ))}
+        </ContainerSecundario>
         <FooterTabla>
           <Boton onClick={() => setActive(!active)}>Crear Empresa</Boton>
         </FooterTabla>

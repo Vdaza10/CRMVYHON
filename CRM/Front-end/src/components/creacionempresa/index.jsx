@@ -53,7 +53,7 @@ function Retorno8() {
         setTimeout(() => {
                         
             window.location.href = "/empresas"  
-        }, 1000);
+        },0);
     };
 
 

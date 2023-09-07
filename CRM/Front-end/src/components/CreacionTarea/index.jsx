@@ -63,7 +63,7 @@ const CrearTarea = ()=> {
             setTimeout(() => {
                         
                 window.location.href = "/tareas"  
-            }, 1000);
+            },0);
         };
         
 
