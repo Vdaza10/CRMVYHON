@@ -122,7 +122,7 @@ const CrearTarea = ()=> {
                     </Caja2>
                         <hr />
                     <Caja3>
-                        <Boton1 onClick={Compromiso} >Crear tarea</Boton1>
+                        <Boton1 onClick={Compromiso}>Crear tarea</Boton1>
                         <Boton2>Cancelar</Boton2>
                     </Caja3>
                 </Principal>

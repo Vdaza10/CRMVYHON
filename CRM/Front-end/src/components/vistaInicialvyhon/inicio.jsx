@@ -28,7 +28,7 @@ const Inicio = () => {
                 <p><b>Jerarquía Visual:</b> Utilizar tamaños, colores y estilos para indicar la jerarquía de la información. Esto ayuda a los usuarios a identificar rápidamente lo más importante.</p>
                 </p></TarjetasInformativas>
             <TarjetasInformativas>SEGURIDAD <ContenedorImagen style={{backgroundImage: `url(${seguridad})`}}></ContenedorImagen><p style={{marginLeft:"1em", marginRight:"1em"}}/><p><b>Control de Acceso Basado en Roles(RBAC):</b> Permite asignar roles y permisos específicos a los usuarios, restringiendo su acceso solo a las funciones y datos necesarios para realizar su trabajo. Esto minimiza el riesgo de acceso no autorizado</p></TarjetasInformativas>
-            <TarjetasInformativas>HERRAMIENTAS<ContenedorImagen style={{backgroundImage: `url(${herramientas})`}}></ContenedorImagen></TarjetasInformativas>
+            <TarjetasInformativas>HERRAMIENTAS<ContenedorImagen style={{backgroundImage: `url(${herramientas})`}}></ContenedorImagen><p><b>Gestión de Contactos:</b> Estas herramientas permiten gestionar de manera eficiente la información de contacto de los clientes, incluyendo nombres, direcciones de correo electrónico, números de teléfono, historial de comunicación, etc.</p><p> <b>Gestión de Ventas:</b> Herramientas de automatización de ventas que ayudan a los equipos de ventas a rastrear oportunidades, gestionar el ciclo de ventas y cerrar tratos de manera efectiva.</p></TarjetasInformativas>
         </ContainerTarjetas>
     </Informacion> 
     <Footer>
