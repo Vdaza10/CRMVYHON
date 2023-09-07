@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
+import Axios from "axios";
 import {  Container, Caja1,Parrafo , Caja2, Boton , IconContainer, SelectParrafo} from "./styled";
 import imagen from "../img/tarea.jpg"
 import { FaUserAlt } from 'react-icons/fa'
@@ -6,6 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { BsFillCalendar2CheckFill, BsFillClipboard2CheckFill } from "react-icons/bs";
 import Menu from "../menu/principal";
 import CrearTarea from "../CreacionTarea";
+import TablaTarea from "../tablaTarea";
 import Retorno6 from "../creacionTareasOpciones";
 
 
@@ -14,11 +16,26 @@ function Retorno5() {
     
     const [active, setActive] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(false);
+    const [tarea, setTarea] = useState([])
+
+
+    const ReflejarDatos = async () => {
+        // ev.preventDefault();
+        const tareas = await Axios.get("http://localhost:3005/tareasTabla");
+        console.log(tareas.data);
+        setTarea(tareas.data);
+    };
+    useEffect(() => {
+        ReflejarDatos();
+    }, [setTarea]);
+
 
 
     return (
         <> 
-        <Menu/>
+        {tarea.length <= 0 ? (
+            <>
+            <Menu/>
                 <Container>
                     <Caja1>
 
@@ -52,7 +69,12 @@ function Retorno5() {
                     {active && <CrearTarea></CrearTarea>}
                     </Caja2>
                 </Container>
-
+            </>
+        ) : (
+            <>
+                <TablaTarea></TablaTarea>
+            </>
+        )}
         </>
     );
 }
