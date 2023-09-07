@@ -1,6 +1,6 @@
 import React  from "react";
 import Menu from "../menu/principal";
-import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla} from "./styled";
+import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla, ContainerSecundario} from "./styled";
 import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
 import { BiSolidEditAlt } from 'react-icons/bi'
@@ -42,6 +42,7 @@ function TablaEmpresa() {
                         <Caja1><Parrafo>Descripción</Parrafo></Caja1>
                         <Caja1><Parrafo>acción</Parrafo></Caja1>
                     </HederTabla>
+                    <ContainerSecundario>
                     {empresa.map((item, i) => (
                     <BodyTabla key={i} >
                         <Caja1>
@@ -62,6 +63,7 @@ function TablaEmpresa() {
                         </Caja1>
                     </BodyTabla>
                 ))} 
+                </ContainerSecundario>
                     <FooterTabla>
                         <Boton onClick={() => setActive(!active)}>Crear Empresa</Boton>
                     </FooterTabla>

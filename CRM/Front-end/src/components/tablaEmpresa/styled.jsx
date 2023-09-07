@@ -8,6 +8,14 @@ flex-direction: column;
 align-items: center;
 `;
 
+export const ContainerSecundario = styled.div`
+    width: 90%;
+    max-height: 75%;
+    min-height: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+`
+
 export const Heder = styled.div`
     height: 15%;
     width: 100%;
@@ -38,7 +46,7 @@ export const ContainerInput = styled.div`
     margin-bottom: 15px;
 `
 export const Input = styled.input`
-    height: 80%;
+    height: 90%;
     width:80%;
     background-color: transparent;
     font-size: 18px;
@@ -54,12 +62,13 @@ export const HederTabla = styled.div`
     border-bottom: 1px solid gray;
 `
 export const Caja1 = styled.div`
-    height: 90%;
+    height: 100%;
     width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 `
+
 export const Parrafo = styled.p`
     margin: 0;
     font-size: 18px;
@@ -68,8 +77,8 @@ export const Parrafo = styled.p`
 ` 
 
 export const BodyTabla = styled.div`
-    height: 8%;
-    width: 90%;
+    height: 50px;
+    width: 100%;
     display: flex;
     border-bottom: 1px solid gray;
 `
@@ -82,18 +91,13 @@ export const CajaIcono = styled.div`
     justify-content: baseline;
     margin-left: 5%;
 `
-export const Logo = styled.img`
-    height: 80%;
-    width: 20%;
-`;
 
-export const FooterTabla = styled.div`
+export const FooterTabla = styled.span`
     height: 8%;
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid gray;
 `
 
 export const Boton = styled.button`

@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Container, Parrafo, Boton } from "./styled";
 import imagen from "../img/contacto.jpg"
 import Menu from '../menu/principal';
+import TablaContacto from '../tablaContacto';
+import Axios from 'axios';
 import Retorno4 from '../crearcontacto'; // Importación del componente Retorno4 (¿crear contacto?)
 
 function Retorno3() {
     const [active, setActive] = useState(false) // Estado para controlar la visibilidad del componente Retorno4
-    
+    const [contacto, setContacto] = useState([])
+
+    const TablagetContacto = async () => {
+        const contactos = await Axios.get("http://localhost:3005/contactotabla");
+        setContacto(contactos.data)
+    }
+
+    useEffect(() => {
+        TablagetContacto();
+    }, [setContacto]);
+
     return (
         <>
+        {contacto.length <= 0 ? (
+            <>
             {/* Componente de menú */}
             <Menu />
                 <Container>
@@ -20,7 +34,14 @@ function Retorno3() {
                     {/* Renderiza el componente Retorno4 si active es true */}
                     {active && <Retorno4></Retorno4>}
                 </Container>
-        </>
+            </>
+        ) : (
+            <>
+                <TablaContacto/>
+            </>
+        )}
+            
+    </>
     );
 }
 export default Retorno3;
