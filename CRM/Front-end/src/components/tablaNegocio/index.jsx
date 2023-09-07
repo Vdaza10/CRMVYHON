@@ -12,6 +12,7 @@ import {
   CajaIcono,
   FooterTabla,
   Boton,
+  ContainerSecundario,
 } from "./styled";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
@@ -66,31 +67,31 @@ function TablaNegocio() {
             <Parrafo>Acción</Parrafo>
           </Caja1>
         </HederTabla>
-        
-          {negocios.map((item, i) => (
-            <BodyTabla key={i}>
-              <Caja1>
-                <Parrafo>{item.nombreNegocio}</Parrafo>
-              </Caja1>
-              <Caja1>
-                <Parrafo>{item.etapas}</Parrafo>
-              </Caja1>
-              <Caja1>
-              <Parrafo>{item.Fuente}</Parrafo>
-              </Caja1>
-              <Caja1>
-              <Parrafo>{item.nombreEmpresa}</Parrafo>
-              </Caja1>
-              <Caja1>
-              <Parrafo>{item.nombreContacto}</Parrafo>
-              </Caja1>
-              <Caja1>
-                <CajaIcono style={{justifyContent:"end"}}><MdDelete style={{fontSize:"30px"}}/></CajaIcono>
-                <CajaIcono> <BiSolidEditAlt style={{fontSize:"30px"}}/></CajaIcono>
+        <ContainerSecundario>
+        {negocios.map((item, i) => (
+          <BodyTabla key={i}>
+            <Caja1>
+              <Parrafo>{item.nombreNegocio}</Parrafo>
             </Caja1>
-            </BodyTabla>
-          ))}
-
+            <Caja1>
+              <Parrafo>{item.etapas}</Parrafo>
+            </Caja1>
+            <Caja1>
+              <Parrafo>{item.fuente}</Parrafo>
+            </Caja1>
+            <Caja1>
+              <Parrafo>{item.nombreEmpresa}</Parrafo>
+            </Caja1>
+            <Caja1>
+              <Parrafo>{item.nombreContacto}</Parrafo>
+            </Caja1>
+            <Caja1>
+              <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
+              <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+            </Caja1>
+          </BodyTabla>
+        ))}
+        </ContainerSecundario>
         <FooterTabla>
           <Boton onClick={() => setActive(!active)}>Crear negocio</Boton>
         </FooterTabla>

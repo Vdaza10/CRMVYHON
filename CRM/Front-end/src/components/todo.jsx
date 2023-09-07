@@ -43,7 +43,7 @@ const Todo = () => {
                 <Route path="/negocios" element = {<Retorno2/>}></Route>
                 <Route path="/contactos" element = {<Retorno3/>}></Route>
                 <Route path="/crearcontacto" element = {<Retorno4/>}></Route>
-                <Route path="/tareas" element = {<Retorno5/>}></Route>
+                <Route path="/tareas" element = {<Retorno5/>}></Route> 
                 <Route path="/creaciontareas" element = {<Retorno6/>}></Route>
                 <Route path="/empresas" element = {<Retorno7/>}></Route>
                 <Route path="/perfilusuario" element = {<PerfilUsuario/>}></Route>

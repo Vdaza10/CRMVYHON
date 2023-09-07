@@ -1,6 +1,6 @@
 import React from "react";
 import Menu from "../menu/principal";
-import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla, Caja1, Parrafo, BodyTabla, CajaIcono, FooterTabla, Boton } from "./styled";
+import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla, Registros, Campos , Parrafo, BodyTabla, CajaIcono, FooterTabla, Boton } from "./styled";
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
 import { BiSolidEditAlt } from 'react-icons/bi'
@@ -36,40 +36,42 @@ function TablaTarea() {
                     </ContainerInput>
                 </Heder>
                 <HederTabla>
-                    <Caja1><Parrafo>Asunto</Parrafo></Caja1>
-                    <Caja1><Parrafo>Responsable</Parrafo></Caja1>
-                    <Caja1><Parrafo>Tipo de tarea</Parrafo></Caja1>
-                    <Caja1><Parrafo>Fecha</Parrafo></Caja1>
-                    <Caja1><Parrafo>Hora</Parrafo></Caja1>
-                    <Caja1><Parrafo>Acción</Parrafo></Caja1>
+                    <Campos><Parrafo>Negocio</Parrafo></Campos>
+                    <Campos><Parrafo>Asunto</Parrafo></Campos>
+                    <Campos><Parrafo>Responsable</Parrafo></Campos>
+                    <Campos><Parrafo>Tipo de tarea</Parrafo></Campos>
+                    <Campos><Parrafo>Fecha</Parrafo></Campos>
+                    <Campos><Parrafo>Hora</Parrafo></Campos>
+                    <Campos><Parrafo>Acción</Parrafo></Campos>
                 </HederTabla>
+                <div className="ContainerSecundario">
                 {tarea.map((item, i) => (
                     <BodyTabla key={i} >
-                        <Caja1>
-                            <Parrafo>{item.negocio}</Parrafo>
-                        </Caja1>
-                        <Caja1>
+                        <Registros>
+                            <Parrafo>{item.nombreNegocio}</Parrafo>
+                        </Registros>
+                        <Registros>
                             <Parrafo>{item.asunto}</Parrafo>
-                        </Caja1>
-                        <Caja1>
+                        </Registros>
+                        <Registros>
                             <Parrafo>{item.responsable}</Parrafo>
-                        </Caja1>
-                        <Caja1>
+                        </Registros>
+                        <Registros>
                             <Parrafo>{item.tipoTarea}</Parrafo>
-                        </Caja1>
-                        <Caja1>
+                        </Registros>
+                        <Registros>
                             <Parrafo>{item.fecha}</Parrafo>
-                        </Caja1>
-                        <Caja1>
+                        </Registros>
+                        <Registros>
                             <Parrafo>{item.hora}</Parrafo>
-                        </Caja1>
-                        <Caja1>
+                        </Registros>
+                        <Registros>
                             <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
                             <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
-                        </Caja1>
+                        </Registros>
                     </BodyTabla>
                 ))}
-
+            </div>
                 <FooterTabla>
                     <Boton onClick={() => setActive(!active)}>Crear Tarea</Boton>
                 </FooterTabla>
