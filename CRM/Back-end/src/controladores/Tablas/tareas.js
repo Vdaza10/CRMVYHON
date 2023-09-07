@@ -3,7 +3,7 @@ import { pool } from "../../db.js";
 export const getTablaTarea = async(req, res) => {
     try{
 
-        const [rows]=await  pool.query('SELECT negocio.nombreNegocio , tarea.asunto , tarea.responsable , tarea.tipoTarea , tarea.fecha , tarea.hora FROM tarea INNER JOIN negocio ON tarea.negocio = negocio.idNegocio')
+        const [rows]=await  pool.query('SELECT tarea.idTarea, negocio.nombreNegocio , tarea.asunto , tarea.responsable , tarea.tipoTarea , tarea.fecha , tarea.hora FROM tarea INNER JOIN negocio ON tarea.negocio = negocio.idNegocio')
 
         res.json(rows)
 }catch(error){
@@ -29,7 +29,7 @@ export const updatetablaTareas = async (req, res) => {
 
 export const deleteTablaTareas = async (req, res) => {
     try {
-        const [row] = await pool.query('DELETE FROM tarea where idTarea = ?', [req.params.id]);
+        const [row] = await pool.query('DELETE FROM tarea where idTarea = ?', [req.params.idTareas]);
         res.status(200).json({message:' registro eliminado'})
     }catch (error){
         res.status(500).json({message:'No se pudo eliminar el registro'})

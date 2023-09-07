@@ -30,6 +30,14 @@ function TablaNegocio() {
     console.log(negociar.data);
     setNegocios(negociar.data);
   };
+
+  const TabladeleteNegocio = async (item) => {
+    const res = await Axios.delete(
+      `http://localhost:3005/negociotabla/${item.idNegocio}`
+    );
+    console.log("Contacto eliminado con éxito.", res.data);
+  };
+
   useEffect(() => {
     ReflejarDatos();
   }, [setNegocios]);
@@ -85,8 +93,12 @@ function TablaNegocio() {
               <Parrafo>{item.nombreContacto}</Parrafo>
               </Caja1>
               <Caja1>
-                <CajaIcono style={{justifyContent:"end"}}><MdDelete style={{fontSize:"30px"}}/></CajaIcono>
-                <CajaIcono> <BiSolidEditAlt style={{fontSize:"30px"}}/></CajaIcono>
+                <CajaIcono style={{justifyContent:"end"}}>
+                  <MdDelete style={{fontSize:"30px"}} onClick={() => TabladeleteNegocio(item)}/>
+                  </CajaIcono>
+                <CajaIcono> 
+                  <BiSolidEditAlt style={{fontSize:"30px"}}/>
+                  </CajaIcono>
             </Caja1>
             </BodyTabla>
           ))}

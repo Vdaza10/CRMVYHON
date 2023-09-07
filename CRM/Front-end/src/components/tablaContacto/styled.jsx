@@ -115,3 +115,8 @@ cursor: pointer;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 `;
+export const Icon = styled.div`
+  cursor: pointer;
+  margin-right: 20px;
+  color: black;
+`;

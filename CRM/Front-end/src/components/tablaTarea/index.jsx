@@ -12,11 +12,19 @@ function TablaTarea() {
 
     const [active, setActive] = useState(false);
     const [tarea, setTarea] = useState([])
+
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const tareas = await Axios.get("http://localhost:3005/tareasTabla");
         console.log(tareas.data);
         setTarea(tareas.data);
+    };
+
+    const TabladeleteTarea = async (item) => {
+        const res = await Axios.delete(
+        `http://localhost:3005/tareastabla/${item.idTarea}`
+        );
+        console.log("Contacto eliminado con éxito.", res.data);
     };
     useEffect(() => {
         ReflejarDatos();
@@ -46,7 +54,7 @@ function TablaTarea() {
                 {tarea.map((item, i) => (
                     <BodyTabla key={i} >
                         <Caja1>
-                            <Parrafo>{item.negocio}</Parrafo>
+                            <Parrafo>{item.nombreNegocio}</Parrafo>
                         </Caja1>
                         <Caja1>
                             <Parrafo>{item.asunto}</Parrafo>
@@ -64,7 +72,9 @@ function TablaTarea() {
                             <Parrafo>{item.hora}</Parrafo>
                         </Caja1>
                         <Caja1>
-                            <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }} /></CajaIcono>
+                            <CajaIcono style={{ justifyContent: "end" }}>
+                                <MdDelete style={{ fontSize: "30px" }} onClick={()=> TabladeleteTarea(item)}/>
+                                </CajaIcono>
                             <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
                         </Caja1>
                     </BodyTabla>
