@@ -22,6 +22,10 @@ const [contacto, setContacto] = useState([]);
       `http://localhost:3005/contactotabla/${item.idContacto}`
     );
     console.log("Contacto eliminado con éxito.", res.data);
+
+    setTimeout(() => {
+        window.location.href = "/contactos"  
+         },0)
   };
 
 useEffect(() => {
@@ -71,7 +75,7 @@ useEffect(() => {
                             <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }}
                             onClick={()=> TabladeleteContacto(item)}
                             /></CajaIcono>
-                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+                            <CajaIcono> <BiSolidEditAlt /></CajaIcono>
                         </Caja1>
                     </BodyTabla>
                 ))}

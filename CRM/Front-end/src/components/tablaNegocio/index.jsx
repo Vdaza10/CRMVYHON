@@ -37,6 +37,11 @@ function TablaNegocio() {
       `http://localhost:3005/negociotabla/${item.idNegocio}`
     );
     console.log("Contacto eliminado con éxito.", res.data);
+
+    setTimeout(() => {
+                        
+      window.location.href = "/negocios"  
+       },0);
   };
 
   useEffect(() => {
@@ -98,7 +103,7 @@ function TablaNegocio() {
                   <MdDelete style={{fontSize:"30px"}} onClick={() => TabladeleteNegocio(item)}/>
                   </CajaIcono>
                 <CajaIcono> 
-                  <BiSolidEditAlt style={{fontSize:"30px"}}/>
+                  <BiSolidEditAlt style={{fontSize:"30px"}} />
                   </CajaIcono>
             </Caja1>
           </BodyTabla>

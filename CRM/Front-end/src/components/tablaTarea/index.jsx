@@ -25,6 +25,12 @@ function TablaTarea() {
         `http://localhost:3005/tareastabla/${item.idTarea}`
         );
         console.log("Contacto eliminado con éxito.", res.data);
+
+
+        setTimeout(() => {
+                        
+            window.location.href = "/tareas"  
+        }, 0);
     };
     useEffect(() => {
         ReflejarDatos();
