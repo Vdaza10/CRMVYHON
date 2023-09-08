@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom"
+
 import Retorno2 from "./vista_negocios"
 import Retorno3 from "./contacto"
 import Retorno5 from "./tarea"
@@ -25,6 +26,8 @@ import Promocion from "./promocion/promocion"
 import Pedidos from "./pedidos/pedidos"
 import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
+
+
 
 const Todo = () => {
     return (
@@ -59,10 +62,8 @@ const Todo = () => {
                 <Route path="/pedidos" element = {<Pedidos/>}></Route>
                 <Route path="/llamadaaudio" element = {<Audiollamada/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
-
-
             </Routes>
         </BrowserRouter>
     )
 }
-export default Todo;
+export default Todo;     
