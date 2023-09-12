@@ -26,7 +26,7 @@ import Promocion from "./promocion/promocion"
 import Pedidos from "./pedidos/pedidos"
 import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
-
+import FormularioPedido from "./CrearPedido"
 
 
 const Todo = () => {
@@ -62,6 +62,7 @@ const Todo = () => {
                 <Route path="/pedidos" element = {<Pedidos/>}></Route>
                 <Route path="/llamadaaudio" element = {<Audiollamada/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
+                <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
             </Routes>
         </BrowserRouter>
     )

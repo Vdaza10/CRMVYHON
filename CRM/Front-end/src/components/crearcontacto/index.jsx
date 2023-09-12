@@ -66,7 +66,7 @@ function Retorno4({ setContactoCreado }) {
     }
     setTimeout(() => {
       window.location.href = "/contactos"  
-       },0)
+    },0)
   };
 
   // Estado para controlar si el componente está cerrado o abierto
