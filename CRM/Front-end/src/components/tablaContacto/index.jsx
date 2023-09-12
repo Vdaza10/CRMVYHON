@@ -7,10 +7,19 @@ import { BiSolidEditAlt } from 'react-icons/bi'
 import { useState, useEffect } from "react";
 import Retorno4 from "../crearcontacto";
 import Axios from "axios";
+import ContactoUpdate from "../updateContacto";
 
 function TablaContacto() {
 const [active, setActive] = useState(false);
+const [activeEditar, setActiveEditar] = useState(false);
+const [ContactoEditar, setContactoEditar] = useState(false);
 const [contacto, setContacto] = useState([]);
+
+const handleEditarClick = (item) => {
+    setContactoEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
+    setActiveEditar(true); // Activa el componente de edición
+  };
+
 
   const TablagetContacto = async () => {
     const contactos = await Axios.get("http://localhost:3005/contactotabla");
@@ -75,7 +84,8 @@ useEffect(() => {
                             <CajaIcono style={{ justifyContent: "end" }}><MdDelete style={{ fontSize: "30px" }}
                             onClick={()=> TabladeleteContacto(item)}
                             /></CajaIcono>
-                            <CajaIcono> <BiSolidEditAlt /></CajaIcono>
+                            <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => handleEditarClick(item)}/>
+                            </CajaIcono>
                         </Caja1>
                     </BodyTabla>
                 ))}
@@ -84,6 +94,7 @@ useEffect(() => {
                         <Boton onClick={() => setActive(!active)}>Crear Contacto</Boton>
                     </FooterTabla>
                     {active && <Retorno4/>}
+                    {activeEditar && <ContactoUpdate contacto ={ContactoEditar}></ContactoUpdate>}
                 </ContainerPrincipal>
         </>
     );

@@ -86,5 +86,6 @@ export const ContainerUltimo = styled.div`
 export const Message = styled.div`
     font-size: 10px;
     color: red;
+    margin-left: 20px;
     
 `
