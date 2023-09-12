@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import {FormContainer,FormGroup,Label,Input,Select,ConvertButton,ButtonState,CloseOpen,} from "./style";
+import Axios from "axios";
+import DateSelector from "../DatePedido/index.jsx";
 
 const FormularioPedido = () => {
     const [cliente, setCliente] = useState("");
     const [negocio, setNegocio] = useState("");
     const [monto, setMonto] = useState("");
     const [moneda, setMoneda] = useState("pesos");
-    const [correo, setCorreo] = useState("");
+    const [fecha, setFecha] = useState("");
 
     const handleConvert = () => {
     const tasaDolar = 0.045;
@@ -20,12 +22,31 @@ const FormularioPedido = () => {
         }
     };
 
+    const createPedidos = async (e) => {
+        try {
+            const response = await Axios.post("http://localhost:3005/pedidos", {
+                cliente
+            })
+        } catch (error) {
+            
+        }
+    }
 
+//const de la fecha 
+const [selectedDate, setSelectedDate] = useState({
+    day: "",
+    month: "",
+    year: "",
+});
+
+const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+};
 
     return (
         <FormContainer>
         <FormGroup>
-            <Label>Cliente:</Label>
+            <Label>Comerciante:</Label>
             <Input
             type="text"
             value={cliente}
@@ -34,7 +55,7 @@ const FormularioPedido = () => {
         </FormGroup>
 
         <FormGroup>
-            <Label>Negocio:</Label>
+            <Label>cliente:</Label>
             <Input
             type="text"
             value={negocio}
@@ -61,12 +82,12 @@ const FormularioPedido = () => {
         </FormGroup>
 
         <FormGroup>
-            <Label>Correo Electrónico:</Label>
-            <Input
-            type="email"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
-            />
+            <Label>fecha:</Label>
+            <DateSelector selectedDate={selectedDate} onDateChange={handleDateChange} />
+        </FormGroup>
+
+        <FormGroup>
+            <Input></Input>
         </FormGroup>
 
         <CloseOpen>
