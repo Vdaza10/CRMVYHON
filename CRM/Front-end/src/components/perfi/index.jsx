@@ -27,7 +27,7 @@ function Retorno1() {
     if (!userData) {
       navigate("/");
     }
-  }, [userData]);
+  }, [userData,navigate]);
 
   return (
     <>

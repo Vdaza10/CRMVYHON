@@ -10,6 +10,8 @@ import * as tablaEmpresa from "../controladores/Tablas/empresa.js"
 import * as tablaContacto from "../controladores/Tablas/contacto.js"
 import * as tablaNegocio from "../controladores/Tablas/negocio.js"
 import * as tablaTarea from "../controladores/Tablas/tareas.js"
+import { validatetoken } from "../middlewares/JwtAuth.js";
+
 
 
 //registro
@@ -26,9 +28,10 @@ router.delete('/users', userCrtl.deleteUsers);
 //Login
 
 router.post('/login',  logincrtl.Login);
+router.get('/login/getClient/',  logincrtl.getLogin);
 
 //empresa// 
-router.post('/company', empresaCrtl.createEmpresa);
+router.post('/company',[validatetoken] ,empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
 
