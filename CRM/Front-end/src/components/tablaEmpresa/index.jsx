@@ -6,11 +6,21 @@ import { MdDelete } from 'react-icons/md'
 import { BiSolidEditAlt } from 'react-icons/bi'
 import { useState, useEffect } from "react";
 import Retorno8 from "../creacionempresa";
+import EmpresaUpdate from "../updateEmpresa";
 import Axios from "axios";
 
 function TablaEmpresa() {
   const [active, setActive] = useState(false);
+  const [activeEditar, setActiveEditar] = useState(false);
   const [empresa, setEmpresa] = useState([]);
+  const [empresaEditar, setEmpresaEditar] = useState(null);
+
+
+  const handleEditarClick = (item) => {
+    setEmpresaEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
+    setActiveEditar(true); // Activa el componente de edición
+  };
+
 
   const Getempresa = async () => {
     const empresas = await Axios.get("http://localhost:3005/companytabla");
@@ -19,19 +29,21 @@ function TablaEmpresa() {
   };
 
   const TabladeleteEmpresa = async (item) => {
-    const res = await Axios.delete(
-      `http://localhost:3005/companytabla/${item.idEmpresa}`
-    );
-    console.log("Contacto eliminado con éxito.", res.data);
-    setTimeout(() => {
-                        
-        window.location.href = "/empresas"  
-       },0);
+    try {
+      const res = await Axios.delete(
+        `http://localhost:3005/companytabla/${item.idEmpresa}`
+      );
+      console.log("Contacto eliminado con éxito.", res.data);
+      Getempresa()
+    } catch (error) {
+      console.log("Error al eliminar la empresa:", error);
+    }
+    
   };
 
   useEffect(() => {
     Getempresa();
-  }, [setEmpresa]);
+  }, []);
 
   return (
     <>
@@ -85,7 +97,7 @@ function TablaEmpresa() {
                 />
               </CajaIcono>
               <CajaIcono>
-                <BiSolidEditAlt style={{ fontSize: "30px" }} />
+                <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => handleEditarClick(item)} />
               </CajaIcono>
             </Caja1>
           </BodyTabla>
@@ -95,6 +107,7 @@ function TablaEmpresa() {
           <Boton onClick={() => setActive(!active)}>Crear Empresa</Boton>
         </FooterTabla>
         {active && <Retorno8></Retorno8>}
+        {activeEditar && <EmpresaUpdate empresa={empresaEditar}></EmpresaUpdate>}
       </ContainerPrincipal>
     </>
   );

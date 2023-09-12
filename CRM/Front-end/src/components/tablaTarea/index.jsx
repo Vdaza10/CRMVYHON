@@ -7,11 +7,23 @@ import { BiSolidEditAlt } from 'react-icons/bi'
 import { useState, useEffect } from "react";
 import CrearTarea from "../CreacionTarea";
 import Axios from "axios";
+import UpdateTarea from "../updateTarea";
 
 function TablaTarea() {
 
     const [active, setActive] = useState(false);
-    const [tarea, setTarea] = useState([])
+    const [activeEditar, setActiveEditar] = useState(false);
+    const [tarea, setTarea] = useState([]);
+    const [tareaEditar, setTareaEditar] = useState(null);
+
+
+
+
+    const handleEditarClick = (item) => {
+        setTareaEditar(item); // Cuando se hace clic en Editar, almacena la tarea a editar en el estado
+        setActiveEditar(true); // Activa el componente de edición
+      };
+
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
@@ -83,7 +95,7 @@ function TablaTarea() {
                             <CajaIcono style={{ justifyContent: "end" }}>
                                 <MdDelete style={{ fontSize: "30px" }} onClick={()=> TabladeleteTarea(item)}/>
                                 </CajaIcono>
-                                <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} /></CajaIcono>
+                                <CajaIcono> <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => handleEditarClick(item)} /* llama a la funcion para actualizar */ /></CajaIcono>
                         </Registros>
                     </BodyTabla>
                 ))}
@@ -92,6 +104,7 @@ function TablaTarea() {
                     <Boton onClick={() => setActive(!active)}>Crear Tarea</Boton>
                 </FooterTabla>
                 {active && <CrearTarea></CrearTarea>}
+                {activeEditar && <UpdateTarea tarea={tareaEditar}></UpdateTarea>}
             </ContainerPrincipal>
         </>
     );
