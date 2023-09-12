@@ -17,8 +17,8 @@ export const updatetablaEmpresa = async (req, res) => {
         const {nombreEmpresa, segmento, url, descripcion} = req.body;
         const {idEmpresa}=req.params;
         const updateData = await pool.query(
-            'UPDATE contacto SET nombreEmpresa = IFNULL(?, nombreEmpresa), segmento = IFNULL(?,segmento), url = IFNULL(?,url), descripcion = IFNULL(?,descripcion) WHERE idEmpresa = ?',
-            [nombreEmpresa, segmento, telefono, url, descripcion,idEmpresa]
+            'UPDATE empresa SET nombreEmpresa = IFNULL(?, nombreEmpresa), segmento = IFNULL(?,segmento), url = IFNULL(?,url), descripcion = IFNULL(?,descripcion) WHERE idEmpresa = ?',
+            [nombreEmpresa, segmento, url, descripcion,idEmpresa]
         );
         res.status(200).json({ message: 'Actualizada' });
     } catch (error) {

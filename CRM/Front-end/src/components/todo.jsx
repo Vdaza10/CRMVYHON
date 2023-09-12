@@ -28,6 +28,7 @@ import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
 import FormularioPedido from "./CrearPedido"
 
+import NegocioUpdate from "./updateNegocio"
 
 const Todo = () => {
     return (
@@ -63,8 +64,12 @@ const Todo = () => {
                 <Route path="/llamadaaudio" element = {<Audiollamada/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
                 <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
+                <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
+
+
             </Routes>
         </BrowserRouter>
     )
 }
+
 export default Todo;     

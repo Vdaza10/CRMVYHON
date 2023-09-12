@@ -4,6 +4,7 @@ import IPerfil from "../img/perfil.jpg";
 import Menu from "../menu/principal";
 
 function PerfilUsuario() {
+    const userData = JSON.parse(localStorage.getItem('user'));
     return (
         <>
             <Fondo>
@@ -44,9 +45,9 @@ function PerfilUsuario() {
                                     <Nombre>contraseña:</Nombre>
                                 </Informacion>
                                 <Informacion>
-                                    <Nombre>el nombre del usuario</Nombre>
-                                    <Nombre>correo con inicio sesion</Nombre>
-                                    <Nombre> ****** </Nombre>
+                                    <Nombre>{userData?.nombreUsuario}</Nombre>
+                                    <Nombre>{userData?.correo}</Nombre>
+                                    <Nombre> {userData?.contraseña} </Nombre>
                                 </Informacion>
                             </Container>
                             <Editar>Editar</Editar>

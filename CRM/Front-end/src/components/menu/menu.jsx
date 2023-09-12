@@ -53,6 +53,7 @@ export const Despegable = styled.ul`
     background-color: #ffffff;
     height: 9%;
     width: 13%;
+    
     list-style: none;
     /* text-align: center; */
     position: absolute;
@@ -84,6 +85,7 @@ export const ContenedorBusqueda = styled.div`
     display: flex;
     align-items: center;
     position: absolute;
+    /* background-color: #640817; */
     right: 0px;
     margin-inline-end: 170px;
     justify-content: flex-end;
@@ -96,6 +98,7 @@ export const PerfilUsiario = styled.div`
     margin-left: 10px;
     align-items: center;
     right: 20px;
+    /* background-color: pink; */
 `
 
 // Imagen de perfil de usuario
@@ -122,6 +125,8 @@ export const ImagenPerfil = styled.div`
 export const NombreUsuario = styled.span`
     margin-left: 10px;
     color: white;
+    /* background-color: aqua; */
+    
 `;
 
 // Menú desplegable del perfil de usuario

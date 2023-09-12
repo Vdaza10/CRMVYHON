@@ -18,6 +18,10 @@ export const ContenedorInicial = styled.div`
     box-shadow: 2px 2px 10px 10px #0099ff4c;
     background: -webkit-linear-gradient(180deg, #0099ff 0%, #ffffff 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#ffffff",GradientType=1);
+    @media screen and (max-width: 700px){
+        height: auto;
+        padding: 20px;
+    }
 `
 export const Contenedor1 = styled.nav`
 /* background-color: aqua; */
