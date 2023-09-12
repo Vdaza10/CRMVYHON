@@ -11,6 +11,9 @@ import * as tablaContacto from "../controladores/Tablas/contacto.js"
 import * as tablaNegocio from "../controladores/Tablas/negocio.js"
 import * as tablaTarea from "../controladores/Tablas/tareas.js"
 
+//pedidos
+import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"
+
 
 //registro
 export const router = Router();
@@ -71,8 +74,6 @@ router.delete('/negocio/:id', negocioCrtl.deleteNegocio);
 router.get('/segmento', segmentoCrtl.getSegmento)
 
 //tareas//
-
-
 router.get('/tareas', tareaCrtl.getTareas);
 
 router.get('/tareastabla',tablaTarea.getTablaTarea)
@@ -83,3 +84,14 @@ router.patch('/tareas', tareaCrtl.updateTarea);
 
 router.delete('/tareas', tareaCrtl.deleteTarea);
 
+
+//pedidos
+router.post('/pedidos', pedidosCrtl.crearPedidos);
+
+router.get('/pedidos', pedidosCrtl.getPedidos);
+
+router.get('/pedidos/:id', pedidosCrtl.getPedidosId);
+
+router.patch('/pedidos/:id', pedidosCrtl.updatePedidos);
+
+router.delete('/pedidos/:id', pedidosCrtl.deletePedidos);
