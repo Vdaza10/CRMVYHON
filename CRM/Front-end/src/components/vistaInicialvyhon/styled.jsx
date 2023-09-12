@@ -75,7 +75,7 @@ export const ContainerTarjetas = styled.div`
     /* background-color: #c41f1f; */
     display : flex;
     justify-items: center;
-    text-align: center;
+    /* text-align: center; */
     align-items: center;
     justify-content: space-around;
     margin-top: 0%;
@@ -91,8 +91,9 @@ export const ContenedorImagen = styled.div`
 export const TarjetasInformativas = styled.div`
     height: 90%;
     width: 30%;
-    background-color: #4ea9f9;
-    opacity: .9;
+    /* background-color: #4ea9f9; */
+    background-color: #3ab0ffce;
+    /* opacity: .9; */
     /* margin-top: 5%; */
     display: flex;
     flex-direction: column;

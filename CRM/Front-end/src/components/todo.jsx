@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom"
+
 import Retorno2 from "./vista_negocios"
 import Retorno3 from "./contacto"
 import Retorno5 from "./tarea"
@@ -67,4 +68,5 @@ const Todo = () => {
         </BrowserRouter>
     )
 }
-export default Todo;
+
+export default Todo;     
