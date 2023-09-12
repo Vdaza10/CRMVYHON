@@ -20,6 +20,7 @@ export const Parrafo = styled.p`
     margin-left: 20px;
     font-size: 20px;
     font-weight: 100;
+    background-color: aqua;
 `
 //Contenedor del perfil
 export const Main = styled.div `

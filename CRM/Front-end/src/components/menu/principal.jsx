@@ -50,7 +50,10 @@ const Menu = () => {
                         <Menudesplegable perfilDesplegable = {perfilDesplegable}><Retorno1></Retorno1></Menudesplegable>
                         <NombreUsuario>Nombre usuario</NombreUsuario>
                     </PerfilUsiario>
+                    
             </ContenedorBusqueda>
+
+            
         </Contenedor>
     );
 };
