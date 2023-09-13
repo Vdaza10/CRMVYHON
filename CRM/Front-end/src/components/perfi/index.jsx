@@ -19,7 +19,7 @@ function Retorno1() {
     if (!userData) {
       navigate("/");
     }
-  }, [userData, navigate]);
+  }, [userData,navigate]);
 
   return (
     <>
