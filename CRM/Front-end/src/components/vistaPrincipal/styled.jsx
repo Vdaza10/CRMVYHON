@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Contenedor = styled.div`
-/* background-color: blueviolet; */
+background-color: #cfaaf1;
 height: 750px;
 display: grid;
 grid-gap: 10px;
@@ -24,7 +24,7 @@ width: 234em;
 export const Tarjeta1 = styled.div`
 width: 320px;
 height: 600px;
-background-color: #ff0000;
+background-color: #86e0ec;
 transition: all 0.3s ease;
 opacity: 0;
 transform: translateX(20px);

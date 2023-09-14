@@ -1,9 +1,9 @@
     import React, { useState } from "react";
     import { Link, NavLink, useLocation } from "react-router-dom";
-    import {Contenedor,ContenedorBusqueda,ImagenPerfil,Logo, MenuItem,Menucontainer,Menudesplegable,Navegacion,NombreUsuario,PerfilUsiario,Buscar,
+    import {Contenedor,ContenedorBusqueda,ImagenPerfil,Logo, MenuItem,Menucontainer,Menudesplegable,Navegacion,NombreUsuario,PerfilUsiario
     } from "./menu";
-    import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-    import { faSearch } from "@fortawesome/free-solid-svg-icons";
+    // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //para selecionar 
+    // import { faSearch } from "@fortawesome/free-solid-svg-icons"; //icono de buscar
     import imagen from "../img/logito.png";
     import Retorno1 from "../perfi";
 
@@ -85,9 +85,9 @@
         </Menucontainer>
 
         <ContenedorBusqueda>
-                <Buscar type="search" placeholder="buscar" />
-                <FontAwesomeIcon icon={faSearch} size="lg" style={{ color: "with" }} />
-            {/* Menú desplegable de perfil de usuario */}
+                {/* <Buscar type="search" placeholder="buscar" />  */}
+                {/* <FontAwesomeIcon icon={faSearch} size="lg" style={{ color: "with" }} /> comentado porque se va a utilizar en otro momento */}
+            {/* Menú desplegable de perfil de usuario*/}
             <PerfilUsiario>
                 <ImagenPerfil
                 onClick={desplegablePerfil}
