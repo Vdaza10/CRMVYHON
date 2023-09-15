@@ -11,6 +11,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endCo
   display: flex;
   align-items: center;
   justify-content: center;
+  /* @media screen {
+    width: 100%; 
+    height: 1000%;
+  } */
 `;
 
 export const Contenedor = styled.div`
@@ -20,7 +24,7 @@ export const Contenedor = styled.div`
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
-  width: 20%;
+  width: 25em;
   height: 52%;
   border-radius: 15px;
   box-shadow: 4px 4px 55px -29px rgba(0,0,0,0.77);

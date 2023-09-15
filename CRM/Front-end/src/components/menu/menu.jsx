@@ -43,7 +43,9 @@ export const MenuItem = styled.li`
         width: 65%;
         background-color: #0e9af2;
         color: #333;
-        
+    }
+    @media screen {
+        display: flex;
     }
 `;
 
@@ -53,6 +55,7 @@ export const Despegable = styled.ul`
     background-color: #ffffff;
     height: 9%;
     width: 13%;
+    
     list-style: none;
     /* text-align: center; */
     position: absolute;
@@ -84,6 +87,7 @@ export const Ajustes = styled.div`
     display: flex;
     align-items: center;
     position: absolute;
+    /* background-color: #640817; */
     right: 0px;
     margin-inline-end: 170px;
     justify-content: flex-end;
@@ -122,6 +126,5 @@ export const Menudesplegable = styled.div`
     border: 1px solid  gray;
     background-color: white;
 `
-
 
 

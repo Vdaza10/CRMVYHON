@@ -24,6 +24,8 @@ import Comunicacion from "./comunicacion/comunicacion"
 import Promocion from "./promocion/promocion"
 import Pedidos from "./pedidos/pedidos"
 import Campañasms from "./campañasms/campaña"
+import FormularioPedido from "./CrearPedido"
+
 import NegocioUpdate from "./updateNegocio"
 
 const Todo = () => {
@@ -56,6 +58,7 @@ const Todo = () => {
                 <Route path="/promocion" element = {<Promocion/>}></Route>
                 <Route path="/pedidos" element = {<Pedidos/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
+                <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
                 {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
             </Routes>

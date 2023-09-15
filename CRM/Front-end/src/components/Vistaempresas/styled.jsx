@@ -8,7 +8,6 @@ export const Container = styled.div`
     align-items: center;
     /* justify-content: center; */
     flex-direction: column;
-    cursor: pointer;
 `
 // Componente estilizado llamado Parrafo para párrafos
 export const Parrafo = styled.p`

@@ -1,53 +1,106 @@
-    import React from 'react';
-    import Menu from '../menu/principal';
-    import Formulario from './fromPedido';
-    import {
-    RootContainer,
-    Contenedor,
-    PanelStyled,
-    ButtonGroupStyled,
-    ButtonStyled,
-    } from './styled';
-    import { Steps, Placeholder } from 'rsuite';
+import React, { useEffect, useState } from "react";
+import Menu from "../menu/principal";
+import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,ListView,MontoData,PedidoData,StateData,TablePedidos,
+} from "./style";
 
-    const Pedidos = () => {
-    const [step, setStep] = React.useState(0);
+import { MdAdd } from "react-icons/md";
+import FormularioPedido from "../CrearPedido";
+import PedidoCard from "../PedidosCard/index.jsx";
+import axios from "axios";
+//
+const Pedidos = () => {
+    const [orders, setOrders] = useState([]);
+    const [showForms, setShowForms] = useState([false, false, false, false]);
+    const [cardPedidos, setCardPedidos] = useState([]);
 
-    const onChange = nextStep => {
-        setStep(nextStep < 0 ? 0 : nextStep > 3 ? 3 : nextStep);
+    const toggleForm = (index) => {
+        const updatedForms = [...showForms];
+        updatedForms[index] = !updatedForms[index];
+        setShowForms(updatedForms);
     };
 
-    const onNext = () => onChange(step + 1);
-    const onPrevious = () => onChange(step - 1);
+    const addCardPedido = (cliente, producto, monto, fecha, columna) => {
+        const newCardPedido = {
+            cliente,
+            producto,
+            monto,
+            fecha,
+            columna
+        };
+        setCardPedidos([...cardPedidos, newCardPedido]);
+    };
 
-        return (
+    const getDataPedido = async () => {
+        try {
+            const response = await axios.get("http://localhost:3005/pedidos/", {
+                //token, headers
+            });
+            setOrders(response.data);
+            console.log(response.data, 'orders');
+        } catch (error) {
+            // Manejar errores aquí
+        }
+    };
+
+    useEffect(() => {
+        getDataPedido();
+    }, []);
+
+    const orderbyColumns = (i) => {
+        const orderColumn = orders.filter((order) => order.Columna === i);
+        return orderColumn.map((pedido, index) => (
+            <ListView key={index}>
+                <PedidoCard
+                    cliente={pedido.cliente}
+                    producto={pedido.producto}
+                    monto={pedido.monto}
+                    fecha={pedido.fecha}
+                    columna={i}
+                />
+            </ListView>
+        ));
+    };
+
+    //funcion kanban
+
+    return (
         <>
             <Menu />
-            <RootContainer>
-                <Contenedor>
-                    <Steps current={step} className='Steps'>
-                    <Steps.Item title="Finished"/>
-                    <Steps.Item title="In Progress"/>
-                    <Steps.Item title="Waiting" />
-                    </Steps>
-                    <hr />
-                    <PanelStyled>
-                    <Placeholder.Paragraph />
-                    </PanelStyled>
-                    <hr />
-                    <ButtonGroupStyled>
-                    <ButtonStyled onClick={onPrevious} disabled={step === 0}>
-                        Previous
-                    </ButtonStyled>
-                    <ButtonStyled onClick={onNext} disabled={step === 3}>
-                        Next
-                    </ButtonStyled>
-                    </ButtonGroupStyled>
-                </Contenedor>
-            </RootContainer>
-            <Formulario/>
-            </>
-        );
-    };
+            <AdminPedido>
+                <EstadoPedido>
+                    {[1, 2, 3, 4].map((_, index) => (
+                        <ContArrow key={index}>
+                            <StateData className="letras">creacion</StateData>
+                        </ContArrow>
+                    ))}
+                </EstadoPedido>
 
-    export default Pedidos;
+                <TablePedidos>
+                    {[1, 2, 3, 4].map((table, index) => (
+                        <PedidoData key={index}>
+                            <HeadData>
+                                <MontoData></MontoData>
+
+                                <AddPedido onClick={() => toggleForm(index)}>
+                                    <MdAdd style={{ fontSize: "20px" }} />
+                                </AddPedido>
+                            </HeadData>
+
+                            <BodyData>{orderbyColumns(table)}</BodyData>
+
+                            {showForms[index] && (
+                                <FormularioPedido
+                                    isOpen={showForms[index]}
+                                    columna={index}
+                                    addCardPedido={addCardPedido}
+                                />
+                            )}
+                        </PedidoData>
+                    ))}
+                </TablePedidos>
+            </AdminPedido>
+        </>
+    );
+};
+
+export default Pedidos;

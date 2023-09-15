@@ -3,14 +3,68 @@ import { Fondo, Header, Parrafo, Parrafo1, Main, ContenedorPerfil, InformacionAc
 import IPerfil from "../img/perfil.jpg";
 import Menu from "../menu/principal";
 import UserEditar from "../ModalactualizarUser";
+import React,{useState,useEffect} from "react";
+import { Fondo, Header, Parrafo, Parrafo1, Main, ContenedorPerfil, InformacionActivacion, ImagenPerfil, Fecha, ContenedorRegistro, Registro, DatosUsuario, Informacion, Nombre, Editar, Caja , Container } from "./styled";
+import IPerfil from "../img/perfil.jpg";
+import Menu from "../menu/principal";
+// import jwt_decode from "jwt-decode"
+import { useNavigate } from "react-router-dom";
+// import axios from 'axios'
 
 function PerfilUsuario() {
     const [modalAbierta, setModalAbierta] = useState(false);
     const userData = JSON.parse(localStorage.getItem('user'));
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+    // const [oneClient, setOneClient] = useState({
+    //     nombreUsuario: "",
+    //     nombreEmpresa: "",
+    //     correo: "",
+    //     contraseña: ""
+    //   });
     
-    
+    //   const [error, setError] = useState();
+
+    const userName = localStorage.getItem("username");
+    console.log(userName,'');
+    //   const token = localStorage.getItem("accessToken");
+
+    //   const getInfoClient = async () => {
+    //     try{
+    //       await axios.patch(
+    //         `http://localhost:3000/user/personal_information/${userName}`,
+    //         // oneClient,
+    //         {
+    //           headers: {
+    //             accessToken: token,
+    //           },
+    //         }
+    //       )
+    //      alert('aqui traigo los datos')
+    //     } catch (error) {
+    //     //   setError(error);
+    //       console.log("Error al actualizar los datos:", error);
+    //     }
+    //   };
+
+    useEffect(() => {
+        if (localStorage.getItem("accessToken")) {
+        // console.log(jwt_decode(localStorage.getItem("accessToken")), "❤❤❤❤")
+        setLoading(false)
+        } else {
+        navigate('/')
+}
+},[navigate])
     return (
         <>
+            {loading ? (
+        <>
+            <h1>Cargando......</h1>
+        <h1>Cargando......</h1>
+        </>
+    ) : (
+
             <Fondo>
             <UserEditar
                 status={modalAbierta}
@@ -72,6 +126,7 @@ function PerfilUsuario() {
                 </Main>
                 
             </Fondo>
+    )}
         </>
     )
 }

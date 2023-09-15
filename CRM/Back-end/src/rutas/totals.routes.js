@@ -10,54 +10,48 @@ import * as tablaEmpresa from "../controladores/Tablas/empresa.js"
 import * as tablaContacto from "../controladores/Tablas/contacto.js"
 import * as tablaNegocio from "../controladores/Tablas/negocio.js"
 import * as tablaTarea from "../controladores/Tablas/tareas.js"
+import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"//pedidos
+import { validatetoken } from "../middlewares/JwtAuth.js";
 
 
-//registro
 export const router = Router();
 
-router.get('/users', userCrtl.getUsers);
+//registro
 
+router.get('/users', userCrtl.getUsers);
 router.post('/users', userCrtl.createUsers);
 
 router.patch('/users/:idRegistro', userCrtl.updateUsers);
 
 router.delete('/users', userCrtl.deleteUsers);
 
-//Login
 
+//Login
 router.post('/login',  logincrtl.Login);
+router.get('/login/getClient/',  logincrtl.getLogin);
+
 
 //empresa// 
 router.post('/company', empresaCrtl.createEmpresa);
+router.post('/company',[validatetoken] ,empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
-
 router.get('/company/:id', empresaCrtl.getEmpresaId);
-
 router.patch('/company/:id', empresaCrtl.updateEmpresas)
-
 router.delete('/company/:id', empresaCrtl.deleteEmpresas);
 
 //contacto//
 router.post('/contacto', contactoCrtl.crearContacto)
-
 router.get('/contacto', contactoCrtl.getContacto);
-
 router.get('/contacto/:id', contactoCrtl.getContactoId);
-
 router.patch('/contacto/:id', contactoCrtl.updateContacto);
-
 router.delete('/contacto/:id', contactoCrtl.deleteContacto);
 
 //negocio//
 router.post('/negocio', negocioCrtl.crearNegocio)
-
-router.get('/negocio', negocioCrtl.getNegocio);
-
+router.get('/negocio', negocioCrtl.getNegocio)
 router.get('/negocio/:id', negocioCrtl.getNegocioId);
-
 router.patch('/negocio/:id', negocioCrtl.updateNegocio);
-
 router.delete('/negocio/:id', negocioCrtl.deleteNegocio); 
 
 
@@ -65,50 +59,40 @@ router.delete('/negocio/:id', negocioCrtl.deleteNegocio);
 router.get('/segmento', segmentoCrtl.getSegmento)
 
 //tareas//
-
-
 router.get('/tareas', tareaCrtl.getTareas);
-
 router.get('/tareastabla',tablaTarea.getTablaTarea)
-
 router.post('/tareas', tareaCrtl.createTarea);
-
 router.patch('/tareas', tareaCrtl.updateTarea);
-
 router.delete('/tareas', tareaCrtl.deleteTarea);
 
+
 //tabla contacto
-
-
 router.get('/contactotabla',tablaContacto.getTablaContacto);
-
 router.patch('/contactotabla/:idContacto',tablaContacto.updatetablaContacto)
-
 router.delete('/contactotabla/:idContacto',tablaContacto.deleteTablaContacto);
 
+
 //tabla empresa
-
-
 router.get('/companytabla',tablaEmpresa.getTablaEmpresa)
-
 router.patch('/companytabla/:idEmpresa',tablaEmpresa.updatetablaEmpresa)
-
 router.delete('/companytabla/:idEmpresa', tablaEmpresa.deleteTablaEmpresa)
 
 
 //tabla negocio
-
 router.get('/negociotabla', tablaNegocio.getTablaNegocio);
-
 router.patch('/negociotabla/:idNegocio',tablaNegocio.updatetablaNegocio)
-
 router.delete('/negociotabla/:idNegocio', tablaNegocio.deleteTablaNegocio);
 
+
 //tabla tarea
-
 router.get('/tareastabla',tablaTarea.getTablaTarea)
-
-
 router.patch('/tareastabla/:idTareas',tablaTarea.updatetablaTareas)
-
 router.delete('/tareastabla/:idTareas',tablaTarea.deleteTablaTareas)
+
+
+//pedidos
+router.post('/pedidos', pedidosCrtl.crearPedidos);
+router.get('/pedidos', pedidosCrtl.getPedidos);
+router.get('/pedidos/:id', pedidosCrtl.getPedidosId);
+router.patch('/pedidos/:id', pedidosCrtl.updatePedidos);
+router.delete('/pedidos/:id', pedidosCrtl.deletePedidos);

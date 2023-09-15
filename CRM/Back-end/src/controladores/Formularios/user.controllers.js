@@ -1,5 +1,5 @@
 import { pool } from "../../db.js";
-
+import { encryptPassword } from "../../helpers/Bycrypt.js";
 export const getUsers = async(req,res) =>{
     try {
         const{correo}=req.body
@@ -23,14 +23,14 @@ export const createUsers = async (req, res) => {
         const existe = 'SELECT correo FROM registro where correo = ? '
         const evaluar = [correo];
         const [resultado] = await pool.query(existe, evaluar);
-
+        const encrypt = await encryptPassword(contraseña)
         if (resultado.length > 0) {
             return res.json({ error: "correo_existe" });
         }
 
         const [rows] = await pool.query(
             'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
-            [nombreUsuario, nombreEmpresa, correo, contraseña]
+            [nombreUsuario, nombreEmpresa, correo, encrypt]
         );
 
         return res.json({
