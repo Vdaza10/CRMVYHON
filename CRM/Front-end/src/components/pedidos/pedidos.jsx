@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../menu/principal";
-import {
-    AddPedido,
-    AdminPedido,
-    BodyData,
-    ContArrow,
-    EstadoPedido,
-    HeadData,
-    ListView,
-    MontoData,
-    PedidoData,
-    StateData,
-    TablePedidos,
+import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,ListView,MontoData,PedidoData,StateData,TablePedidos,
 } from "./style";
+
 import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
 import PedidoCard from "../PedidosCard/index.jsx";
 import axios from "axios";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
@@ -39,8 +30,6 @@ const Pedidos = () => {
         };
         setCardPedidos([...cardPedidos, newCardPedido]);
     };
-
-
 
     const getDataPedido = async () => {
         try {
@@ -73,6 +62,8 @@ const Pedidos = () => {
         ));
     };
 
+    //funcion kanban
+
     return (
         <>
             <Menu />
@@ -80,7 +71,7 @@ const Pedidos = () => {
                 <EstadoPedido>
                     {[1, 2, 3, 4].map((_, index) => (
                         <ContArrow key={index}>
-                            <StateData></StateData>
+                            <StateData className="letras">creacion</StateData>
                         </ContArrow>
                     ))}
                 </EstadoPedido>

@@ -20,8 +20,8 @@ function PerfilUsuario() {
     
     //   const [error, setError] = useState();
 
-      const userName = localStorage.getItem("username");
-      console.log(userName,'');
+    const userName = localStorage.getItem("username");
+    console.log(userName,'');
     //   const token = localStorage.getItem("accessToken");
 
     //   const getInfoClient = async () => {
@@ -44,19 +44,19 @@ function PerfilUsuario() {
 
     useEffect(() => {
         if (localStorage.getItem("accessToken")) {
-          console.log(jwt_decode(localStorage.getItem("accessToken")), "❤❤❤❤")
-          setLoading(false)
+            console.log(jwt_decode(localStorage.getItem("accessToken")), "❤❤❤❤")
+            setLoading(false)
         } else {
-          navigate('/')
+            navigate('/')
         }
       }, [navigate])
     return (
         <>
             {loading ? (
         <>
-          <h1>Cargando......</h1>
+            <h1>Cargando......</h1>
         </>
-      ) : (
+    ) : (
 
             <Fondo>
                 {/* header */}
@@ -106,7 +106,7 @@ function PerfilUsuario() {
                     </ContenedorPerfil>
                 </Main>
             </Fondo>
-      )}
+    )}
         </>
 
 

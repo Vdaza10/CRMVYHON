@@ -25,7 +25,7 @@ export const EstadoPedido = styled.div`
 export const TablePedidos = styled.div`
     height: 90%;
     width: 98%;
-    background-color: #50bfff;
+    background-color: #ffffff;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ export const TablePedidos = styled.div`
 export const PedidoData = styled.div`
     height: 98%;
     width: 30%;
-    background-color: #ffffff;
+    background-color: #50bfff;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
     display: flex;
@@ -56,13 +56,14 @@ export const HeadData = styled.div`
 `
 export const BodyData = styled.div`
     position: relative;
-    height: 80%;
+    height: 100%;
     width: 98%;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
-    background-color: #45ccee;
+    background-color: #50bfff;
     overflow: hidden;
-`;
+    overflow: scroll ;
+`
 
 export const MontoData = styled.div`
     height: 40%;
@@ -93,11 +94,12 @@ export const AddPedido = styled.button`
 `
 
 export const ListView = styled.div`
+    height: 20%;
     position: relative;
     border-radius: 5px;
     margin: 10px 10px 10px 10px;
     transition: all 0.1s ease;
-    background-color: #67daee;
+    background-color: #279277;
     border: solid white;
 `
 
@@ -107,11 +109,21 @@ export const ContArrow = styled.div`
 `
 
 export const StateData = styled.div`
-    width: 430px;
+    width: 414px;
     height: 70%;
+    left: 10px;
     background-color: #50bfff;
     margin: 5px 5px 5px 5px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.letras{
+        font-size: large;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+    }
 
     &::before {
         content: '';
