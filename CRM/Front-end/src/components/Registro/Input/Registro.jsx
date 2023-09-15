@@ -72,48 +72,30 @@ const Registrarse = () => {
         <Contenedor>
             <Contenedor2>
                 <Titulo>
-                    <h2 style={{ fontWeight: "500", fontStyle: "italic" }}>
-                        Registrate en Vyhon
-                    </h2>
+                    <h2 style={{ fontWeight: "500", fontStyle: "italic" }}>Registrate en Vyhon</h2>
                 </Titulo>
-
                 <Contenedor1 style={{ marginTop: "20px" }}>
                     <TextoImput>
-                        <h3 style={{ margin: "0", fontWeight: "500" }}>
-                            ¿Cuál es tu nombre?
-                        </h3>
+                        <h3 style={{ margin: "0", fontWeight: "500" }}>¿Cuál es tu nombre?</h3>
                     </TextoImput>
-                    <Input
-                        onChange={(event) => {
-                            setNombre(event.target.value);
-
-                        }}
-                        type="text"
-                        required
-                    ></Input>
+                        <Input
+                            onChange={(event) => {setNombre(event.target.value)}}type="text"required>
+                        </Input>
                 </Contenedor1>
 
                 <Contenedor1>
                     <TextoImput>
-                        <h3 style={{ margin: "0", fontWeight: "500" }}>
-                            ¿ Para que empresa trabajas ?
-                        </h3>
+                        <h3 style={{ margin: "0", fontWeight: "500" }}>¿ Para que empresa trabajas ?</h3>
                     </TextoImput>
                     <Input
-
                         onChange={(event) => {
-                            setEmpresa(event.target.value);
-                        }}
-                        type="text"
-                        required
-                    ></Input>
+                            setEmpresa(event.target.value)}}type="text"required>
+                    </Input>
                 </Contenedor1>
 
                 <Contenedor1>
                     <TextoImput>
-                        <h3 style={{ margin: "0", fontWeight: "500" }}>
-                            ¿Cuál es tu correo electrónico?
-                        </h3>
+                        <h3 style={{ margin: "0", fontWeight: "500" }}>¿Cuál es tu correo electrónico?</h3>
                     </TextoImput>
                     <Input
                         // placeholder="Ingrese su correo electronico"
@@ -178,4 +160,4 @@ const Registrarse = () => {
     );
 };
 
-export default Registrarse;
+export default Registrarse;

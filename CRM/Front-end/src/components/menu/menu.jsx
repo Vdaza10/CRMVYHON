@@ -43,7 +43,9 @@ export const MenuItem = styled.li`
         width: 65%;
         background-color: #0e9af2;
         color: #333;
-        
+    }
+    @media screen {
+        display: flex;
     }
 `;
 
@@ -143,21 +145,21 @@ export const Menudesplegable = styled.div`
     background-color: white;
 `
 
-export const Buscar = styled.input`
-    /* background-color: #3022ee; */
-    height: 30px;
-    width: 160px;
-    margin-right: 5px;
-    border-radius: 5px;
-    outline: none;
-    @media screen and (max-width: 900px) {
-        width: 100px;
-    }
-    @media screen and (max-width: 700px) {
-        width: 50px;
-    }
-    @media screen and (max-width: 500px) {
-        width: 1px;
-    }
-`
+// export const Buscar = styled.input`
+//     /* background-color: #3022ee; */
+//     height: 30px;
+//     width: 160px;
+//     margin-right: 5px;
+//     border-radius: 5px;
+//     outline: none;
+//     @media screen and (max-width: 900px) {
+//         width: 100px;
+//     }
+//     @media screen and (max-width: 700px) {
+//         width: 50px;
+//     }
+//     @media screen and (max-width: 500px) {
+//         width: 1px;
+//     }
+// `
 

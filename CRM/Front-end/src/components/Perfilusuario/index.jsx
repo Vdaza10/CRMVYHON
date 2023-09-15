@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import { Fondo, Header, Parrafo, Parrafo1, Main, ContenedorPerfil, InformacionActivacion, ImagenPerfil, Fecha, ContenedorRegistro, Registro, DatosUsuario, Informacion, Nombre, Editar, Caja , Container } from "./styled";
 import IPerfil from "../img/perfil.jpg";
 import Menu from "../menu/principal";
-import jwt_decode from "jwt-decode"
+// import jwt_decode from "jwt-decode"
 import { useNavigate } from "react-router-dom";
 // import axios from 'axios'
 
@@ -44,17 +44,18 @@ function PerfilUsuario() {
 
     useEffect(() => {
         if (localStorage.getItem("accessToken")) {
-            console.log(jwt_decode(localStorage.getItem("accessToken")), "❤❤❤❤")
-            setLoading(false)
+        // console.log(jwt_decode(localStorage.getItem("accessToken")), "❤❤❤❤")
+        setLoading(false)
         } else {
-            navigate('/')
-        }
-      }, [navigate])
+        navigate('/')
+}
+},[navigate])
     return (
         <>
             {loading ? (
         <>
             <h1>Cargando......</h1>
+        <h1>Cargando......</h1>
         </>
     ) : (
 
