@@ -7,8 +7,7 @@ import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
 import PedidoCard from "../PedidosCard/index.jsx";
 import axios from "axios";
-import { text } from "@fortawesome/fontawesome-svg-core";
-
+//
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
     const [showForms, setShowForms] = useState([false, false, false, false]);
