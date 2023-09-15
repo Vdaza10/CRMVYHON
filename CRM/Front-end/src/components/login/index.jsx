@@ -33,6 +33,7 @@ function Principal() {
             alert("el usuario no existe");
           } else {
             localStorage.setItem("user", JSON?.stringify(result));
+         ;
             setTimeout(() => {
       window.location.href = "/vistaprincipal";
     }, 1000)
@@ -46,6 +47,7 @@ function Principal() {
       setError(`ingrese tanto el usuario como la contraseña`);
     }
   };
+ 
   return (
     <Fondo>
       <Contenedor>

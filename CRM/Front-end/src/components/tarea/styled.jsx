@@ -26,13 +26,6 @@
     background-color: white;
 `
 
-    export const Caja1 = styled.div`
-    width: 100%;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    `;
     export const Parrafo = styled.p`
     font-size: 20px;
     font-style: italic;
@@ -72,23 +65,8 @@
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
     `;
-    export const IconContainer = styled.div`
-    border: gray solid 1px;
-    width: 13%;
-    height: 35%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    cursor: pointer;
-    `;
 
-export const SelectParrafo = styled.div`
-    color: gray;
-    font-size: 15px;
-    font-style: italic;
-    cursor: pointer;
-`
+
 export const OpcionesParrafo = styled.li`
     margin-right: 10%;
     margin-left: 10%;

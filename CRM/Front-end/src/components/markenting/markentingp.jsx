@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState}from "react";
 import { Contenedor, ContenedorCampañas, ContenedorCampañas1, Campañas, ContenedorCampañaImagen } from "./styled";
 import Menu from "../menu/principal";
 import imagen from "../img/inicio1.avif"
@@ -9,10 +9,18 @@ import campañasms from "../img/campañaSMS.png"
 import campañacorreo from "../img/campañaCorreo.jpg"
 import llamadaaudio from "../img/llamadaAudio.jpg"
 import { Link } from "react-router-dom";
+import Audiollamada from "../llamadaAudioModal";
+
 
 const Campaña = () => {
+
+    const [modalAbierta, setModalAbierta] = useState(false);
     return (
         <>
+        <Audiollamada 
+            estado={modalAbierta}
+            cambiarEstado={setModalAbierta}
+            ></Audiollamada>
             <Menu />
             <Contenedor>
                 <ContenedorCampañas>
@@ -40,8 +48,8 @@ const Campaña = () => {
 
                 </ContenedorCampañas1>
                 <ContenedorCampañas>
-                    <Campañas>
-                    LLAMADA DE AUDIO <Link to="/llamadaaudio"><ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen></Link>
+                    <Campañas onClick={() =>{ setModalAbierta(!modalAbierta)} }>
+                    LLAMADA DE AUDIO <ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen>
                     </Campañas>                    
 
                     <Campañas>
@@ -50,7 +58,7 @@ const Campaña = () => {
 
                 </ContenedorCampañas>
             </Contenedor>
-
+            
         </>
     )
 }

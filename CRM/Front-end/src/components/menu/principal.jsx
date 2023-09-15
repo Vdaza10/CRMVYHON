@@ -2,21 +2,16 @@ import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   Contenedor,
-  ContenedorBusqueda,
-  ImagenPerfil,
+  Ajustes,
   Logo,
   MenuItem,
   Menucontainer,
   Menudesplegable,
   Navegacion,
-  NombreUsuario,
-  PerfilUsiario,
-  Buscar,
 } from "./menu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import imagen from "../img/logito.png";
 import Retorno1 from "../perfi";
+import { RiSettings4Fill } from "react-icons/ri";
 
 const Menu = () => {
   // Estado para controlar la visibilidad del menú desplegable de perfil
@@ -100,22 +95,16 @@ const Menu = () => {
         </NavLink>
       </Menucontainer>
 
-      <ContenedorBusqueda>
-        <Buscar type="search" placeholder="buscar" />
-        <FontAwesomeIcon icon={faSearch} size="lg" style={{ color: "with" }} />
-        {/* Menú desplegable de perfil de usuario */}
-        <PerfilUsiario>
-          <ImagenPerfil
+      <Ajustes>
+          <RiSettings4Fill style={{fontSize:"35px"}}
             onClick={desplegablePerfil}
             isOpen={perfilDesplegable}
-          ></ImagenPerfil>
+          ></RiSettings4Fill>{" "}
           {/* se veran reflejada las vistas al momento de darle click */}
           <Menudesplegable perfilDesplegable={perfilDesplegable}>
-            <Retorno1/>
+            <Retorno1 />
           </Menudesplegable>
-          <NombreUsuario>{userData?.nombreUsuario}</NombreUsuario>
-        </PerfilUsiario>
-      </ContenedorBusqueda>
+      </Ajustes>
     </Contenedor>
   );
 };

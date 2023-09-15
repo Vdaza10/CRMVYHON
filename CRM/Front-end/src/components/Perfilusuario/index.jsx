@@ -1,13 +1,22 @@
-import React from "react";
-import { Fondo, Header, Parrafo, Parrafo1, Main, ContenedorPerfil, InformacionActivacion, ImagenPerfil, Fecha, ContenedorRegistro, Registro, DatosUsuario, Informacion, Nombre, Editar, Caja , Container } from "./styled";
+import React, { useState } from "react";
+import { Fondo, Header, Parrafo, Parrafo1, Main, ContenedorPerfil, InformacionActivacion, ImagenPerfil, Fecha, ContenedorRegistro, Registro, DatosUsuario, Informacion, Nombre, Editar, Caja, Container } from "./styled";
 import IPerfil from "../img/perfil.jpg";
 import Menu from "../menu/principal";
+import UserEditar from "../ModalactualizarUser";
 
 function PerfilUsuario() {
+    const [modalAbierta, setModalAbierta] = useState(false);
     const userData = JSON.parse(localStorage.getItem('user'));
+    
+    
     return (
         <>
             <Fondo>
+            <UserEditar
+                status={modalAbierta}
+                changeStatus={setModalAbierta}
+                userData={userData}
+            />
                 {/* header */}
                 <Menu />
                 <Header>
@@ -43,22 +52,28 @@ function PerfilUsuario() {
                                     <Nombre>Nombre:</Nombre>
                                     <Nombre>Email:</Nombre>
                                     <Nombre>contraseña:</Nombre>
+                                    <Nombre>Empresa:</Nombre>
                                 </Informacion>
                                 <Informacion>
                                     <Nombre>{userData?.nombreUsuario}</Nombre>
                                     <Nombre>{userData?.correo}</Nombre>
                                     <Nombre> {userData?.contraseña} </Nombre>
+                                    <Nombre> {userData?.nombreEmpresa} </Nombre>
                                 </Informacion>
                             </Container>
-                            <Editar>Editar</Editar>
+                            <Editar onClick={() => {
+                                setModalAbierta(!modalAbierta);
+                                console.log("modalAbierta:", modalAbierta);
+                                 // Agrega esta línea
+                            }}>Editar</Editar>
+                            
                         </DatosUsuario>
                     </ContenedorPerfil>
                 </Main>
+                
             </Fondo>
         </>
-
-
     )
 }
-export default PerfilUsuario;
 
+export default PerfilUsuario;

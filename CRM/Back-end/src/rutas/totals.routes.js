@@ -19,7 +19,7 @@ router.get('/users', userCrtl.getUsers);
 
 router.post('/users', userCrtl.createUsers);
 
-router.patch('/users', userCrtl.updateUsers);
+router.patch('/users/:idRegistro', userCrtl.updateUsers);
 
 router.delete('/users', userCrtl.deleteUsers);
 
