@@ -91,8 +91,9 @@ export const ContenedorBusqueda = styled.div`
     right: 0px;
     margin-inline-end: 170px;
     justify-content: flex-end;
-    @media screen and (max-width:60%) {
-        
+    @media screen and (max-width:700px) {
+        margin-inline-end: 40px;
+
     }
 ` 
 // Contenedor para el ícono de perfil de usuario y nombre

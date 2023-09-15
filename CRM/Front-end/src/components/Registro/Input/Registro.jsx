@@ -142,6 +142,7 @@ const Registrarse = () => {
 
                 <ContaienrBoton>
                     <Boton onClick={Registro}>Crear cuenta</Boton>
+
                 </ContaienrBoton>
             </Contenedor2>
         </Contenedor>
