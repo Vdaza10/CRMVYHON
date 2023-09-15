@@ -91,6 +91,10 @@ export const Ajustes = styled.div`
     right: 0px;
     margin-inline-end: 170px;
     justify-content: flex-end;
+    @media screen and (max-width:700px) {
+        margin-inline-end: 40px;
+
+    }
 ` 
 
 // Imagen de perfil de usuario

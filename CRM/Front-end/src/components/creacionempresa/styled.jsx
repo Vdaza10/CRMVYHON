@@ -6,7 +6,7 @@ export const Div1 = styled.div`
 position: absolute;
     height: 90vh;
     width: 18%;
-    top: 92px;
+    top: 97px;
     right: 0px;
     display: flex; 
     justify-content: center; 
@@ -15,7 +15,8 @@ position: absolute;
 export const Container1 = styled.div`
     height: 100%;
     width: 100%;
-    background-color: white;
+    /* background-color: white; */
+    background-color: aqua;
     border: solid 1px black;
 `
 // Estilo para una caja que contiene elementos

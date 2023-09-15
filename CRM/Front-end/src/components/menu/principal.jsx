@@ -37,7 +37,7 @@ import { RiSettings4Fill } from "react-icons/ri";
         <Contenedor>
         {/* Barra de navegación */}
             <Navegacion>
-                <Link to="/">
+                <Link to="/vistaprincipal">
                     <Logo src={imagen}></Logo>
                 </Link>
             </Navegacion>

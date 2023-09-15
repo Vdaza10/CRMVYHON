@@ -30,8 +30,8 @@ const VentanaModal1 = ({ estado, cambiarEstado }) => {
               </p>
             </Contenido>
             <ContainerBoton>
-              <button onClick={cerrarModalYRedirigir}>
-                <Link to="/principal" style={{ color: "white", textDecoration: "none" }}>OK</Link>
+              <button onClick={cerrarModalYRedirigir} style={{cursor: "pointer"}}>
+                <Link to="/principal" style={{ color: "white", textDecoration: "none"}}>OK</Link>
               </button>
             </ContainerBoton>
           </ContenedorModal>

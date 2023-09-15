@@ -13,7 +13,7 @@ return (
             <ContenedorModal>
                 <Encabezado>
                     <h1>¡Hola!</h1>
-                    <GrClose style={{marginRight:"20px"}} onClick={() => cambiarEstado(false)}
+                    <GrClose style={{marginRight:"20px", cursor:"pointer"}} onClick={() => cambiarEstado(false)}
                     />
                 </Encabezado>
                 <Body>
