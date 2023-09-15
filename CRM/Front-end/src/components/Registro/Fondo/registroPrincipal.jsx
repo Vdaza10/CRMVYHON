@@ -14,7 +14,6 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
 
     return (
         <>
-        
         <Fondo>
             <Ladero>
                 <Ladero1>
@@ -35,7 +34,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
             {/* </Fondo3> */}
             <ContainerSelect>
                 <BiWorld></BiWorld>
-                <Idioma name="idioma">
+                    <Idioma name="idioma">
                     <option value="spañol">spañol</option>
                     <option value="ingles">ingles</option>
                     <option value="portugal">portugal</option>
@@ -43,9 +42,13 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
                     <option value="germany">germany</option>
                     <option value="arabe">arabe</option>
                 </Idioma>
+                <Link to={"/principal"} style={{textDecoration:"none", color:"black",}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
             </ContainerSelect>
             {/* <p style={{marginRight:"10px"}}></p> */}
-            <Link to={"/principal"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
+            {/* <Fondo3> */}
+                <Registrarse></Registrarse>
+            {/* </Fondo3> */}
+            
 
             <VentanaModal1 
                 estado={estadoModal}

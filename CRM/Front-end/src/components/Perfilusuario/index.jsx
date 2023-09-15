@@ -103,9 +103,7 @@ function PerfilUsuario() {
                 </Fondo>
             )}
         </>
-
-
     )
 }
-export default PerfilUsuario;
 
+export default PerfilUsuario;

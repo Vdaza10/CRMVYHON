@@ -40,8 +40,29 @@ function TablaTarea() {
       
     },[navigate])
 
+      // barra de busqueda
+const [buscar, setBuscar] = useState("")
 
+//Funcion para traer los datos de la tabla, a buscar
 
+//Inicio, Función de busqueda
+  const BarraDeBusqueda = (e) => {
+  setBuscar(e.target.value);
+  console.log(e.target.value);
+};
+
+//Metodo de filtrado tabla empresa
+  let resBusqueda = [];
+
+  if (!buscar) {
+  resBusqueda = tarea|| [];
+} else {
+  resBusqueda = tarea.filter(
+      (dato) =>
+      dato.tipoTarea  &&
+      dato.tipoTarea.toLowerCase().includes(buscar.toLowerCase()),
+);
+}
 
     const handleEditarClick = (item) => {
         setTareaEditar(item); // Cuando se hace clic en Editar, almacena la tarea a editar en el estado
@@ -87,7 +108,7 @@ function TablaTarea() {
                     <h1>Tabla Tarea</h1>
                     <ContainerInput>
                         <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-                        <Input placeholder="Buscar ..."></Input>
+                        <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
                         <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
                     </ContainerInput>
                 </Heder>
@@ -101,7 +122,7 @@ function TablaTarea() {
                     <Campos><Parrafo>Acción</Parrafo></Campos>
                 </HederTabla>
                 <div className="ContainerSecundario">
-                {tarea.map((item, i) => (
+                {resBusqueda.map((item, i) => (
                     <BodyTabla key={i} >
                         <Registros>
                             <Parrafo>{item.nombreNegocio}</Parrafo>

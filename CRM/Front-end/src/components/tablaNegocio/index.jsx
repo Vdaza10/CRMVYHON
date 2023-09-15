@@ -52,6 +52,29 @@ function TablaNegocio() {
        
     },[navigate])
 
+  // barra de busqueda
+const [buscar, setBuscar] = useState("")
+
+//Funcion para traer los datos de la tabla, a buscar
+
+//Inicio, Función de busqueda
+  const BarraDeBusqueda = (e) => {
+  setBuscar(e.target.value);
+  console.log(e.target.value);
+};
+
+//Metodo de filtrado tabla negocio
+  let resBusqueda = [];
+
+  if (!buscar) {
+  resBusqueda = negocios|| [];
+} else {
+  resBusqueda = negocios.filter(
+      (dato) =>
+      dato.nombreNegocio &&
+      dato.nombreNegocio.toLowerCase().includes(buscar.toLowerCase())
+);
+}
 
   const handleEditarClick = (item) => {
     setNegocioAEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -75,6 +98,9 @@ function TablaNegocio() {
     } catch (error) {
       console.error("Error al eliminar el negocio:", error);
     }
+    setTimeout(() => {
+      window.location.href = "/negocios"  
+       },0)
   };
 
   useEffect(() => {
@@ -96,7 +122,7 @@ function TablaNegocio() {
           <h1>Tabla Negocio</h1>
           <ContainerInput>
             <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-            <Input placeholder="Buscar ..."></Input>
+            <Input placeholder="Buscar ..." value={buscar} onChange={BarraDeBusqueda}></Input>
             <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
           </ContainerInput>
         </Heder>
@@ -121,7 +147,7 @@ function TablaNegocio() {
           </Caja1>
         </HederTabla>
         <ContainerSecundario>
-          {negocios.map((item, i) => (
+          {resBusqueda.map((item, i) => (
             <BodyTabla key={i}>
               <Caja1>
                 <Parrafo>{item.nombreNegocio}</Parrafo>

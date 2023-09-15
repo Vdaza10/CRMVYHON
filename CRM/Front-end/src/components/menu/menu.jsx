@@ -43,7 +43,9 @@ export const MenuItem = styled.li`
         width: 65%;
         background-color: #0e9af2;
         color: #333;
-        
+    }
+    @media screen {
+        display: flex;
     }
 `;
 
@@ -78,7 +80,7 @@ export const Flecha = styled.li`
 `;
 
 // Contenedor para el ícono de búsqueda y menú de usuario
-export const ContenedorBusqueda = styled.div`
+export const Ajustes = styled.div`
     height: 60px;
     width: 200px;
     color: white;
@@ -89,17 +91,11 @@ export const ContenedorBusqueda = styled.div`
     right: 0px;
     margin-inline-end: 170px;
     justify-content: flex-end;
-    @media screen and (max-width:60%) {
-        
+    @media screen and (max-width:700px) {
+        margin-inline-end: 40px;
+
     }
 ` 
-// Contenedor para el ícono de perfil de usuario y nombre
-export const PerfilUsiario = styled.div`
-    margin-left: 10px;
-    align-items: center;
-    right: 20px;
-    /* background-color: pink; */
-`
 
 // Imagen de perfil de usuario
 export const ImagenPerfil = styled.div`
@@ -121,14 +117,6 @@ export const ImagenPerfil = styled.div`
     
 `;
 
-// Nombre de usuario
-export const NombreUsuario = styled.span`
-    margin-left: 10px;
-    color: white;
-    /* background-color: aqua; */
-    
-`;
-
 // Menú desplegable del perfil de usuario
 export const Menudesplegable = styled.div`
     display: ${({ perfilDesplegable }) => (perfilDesplegable ? "block" : "none")};
@@ -143,21 +131,4 @@ export const Menudesplegable = styled.div`
     background-color: white;
 `
 
-export const Buscar = styled.input`
-    /* background-color: #3022ee; */
-    height: 30px;
-    width: 160px;
-    margin-right: 5px;
-    border-radius: 5px;
-    outline: none;
-    @media screen and (max-width: 900px) {
-        width: 100px;
-    }
-    @media screen and (max-width: 700px) {
-        width: 50px;
-    }
-    @media screen and (max-width: 500px) {
-        width: 1px;
-    }
-`
 

@@ -67,6 +67,9 @@ export const ButtonState = styled.button`
     background-color: #007bff;
     border-radius: 5px;
     border: 0;
+    cursor: pointer;
 `
 
-
+export const InputDate = styled.data`
+    
+`

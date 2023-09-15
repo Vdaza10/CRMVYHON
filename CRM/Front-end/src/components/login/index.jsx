@@ -1,15 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Fondo,
-  Contenedor,
-  Titulo,
-  Parrafo,
-  Input,
-  Button,
-  Olvidar,
-  ContainerUltimo,
-  Message,
-} from "./styled";
+import React, { useState } from "react";
+import {Fondo,Contenedor,Titulo,Parrafo,Input,Button,Olvidar,ContainerUltimo,Message} from "./styled";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -32,7 +22,7 @@ function Principal() {
           if (response.data === "") {
             alert("el usuario no existe");
           } else {
-            localStorage.setItem('user',JSON?.stringify(result));
+            localStorage.setItem("user", JSON?.stringify(result));
             setTimeout(() => {
               window.location.href = "/vistaprincipal";
               // console.log(localStorage.setItem("user", JSON?.stringify(result)), '👌👌👌👌');

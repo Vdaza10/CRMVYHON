@@ -12,7 +12,7 @@ export const AdminPedido = styled.div`
 export const EstadoPedido = styled.div`
     height: 5%;
     width: 98%;
-    background-color: aquamarine;
+    background-color: #ffffff;
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -25,7 +25,7 @@ export const EstadoPedido = styled.div`
 export const TablePedidos = styled.div`
     height: 90%;
     width: 98%;
-    background-color: #fc2626;
+    background-color: #ffffff;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ export const TablePedidos = styled.div`
 export const PedidoData = styled.div`
     height: 98%;
     width: 30%;
-    background-color: yellow;
+    background-color: #50bfff;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
     display: flex;
@@ -52,36 +52,38 @@ export const HeadData = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #ccbebe;
+    background-color: #ffffff;
 `
 export const BodyData = styled.div`
     position: relative;
-    height: 80%;
+    height: 100%;
     width: 98%;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
-    background-color: #ffffff;
+    background-color: #50bfff;
     overflow: hidden;
-`;
+    overflow: scroll ;
+`
 
 export const MontoData = styled.div`
     height: 40%;
     width: 98%;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
-    background-color: #1d811078;
+    background-color: #50bfff;
 `
 
 export const AddPedido = styled.button`
     height: 40%;
     width: 98%;
     margin: 5px 5px 5px 5px;
-    background-color: #ffffff;
+    background-color: #59dbfc;
     transition: background-color 0.3s ease;
     cursor: pointer;
 
     &:hover {
-        background-color: #59dbfc;
+        background-color: #ffffff;
+        border: solid #59dbfc;
     }
 
     border-top-left-radius: 20px;
@@ -92,19 +94,13 @@ export const AddPedido = styled.button`
 `
 
 export const ListView = styled.div`
-    display: block;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    height: 20%;
     position: relative;
-    height: 50px;
-    margin: 10px 0;
-    margin-top: 10px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    margin-left: 0px;
+    border-radius: 5px;
+    margin: 10px 10px 10px 10px;
     transition: all 0.1s ease;
-    background-color: red;
+    background-color: #279277;
+    border: solid white;
 `
 
 export const ContArrow = styled.div`
@@ -113,11 +109,21 @@ export const ContArrow = styled.div`
 `
 
 export const StateData = styled.div`
-    width: 430px;
+    width: 414px;
     height: 70%;
-    background-color: coral;
+    left: 10px;
+    background-color: #50bfff;
     margin: 5px 5px 5px 5px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.letras{
+        font-size: large;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+    }
 
     &::before {
         content: '';
@@ -128,8 +134,15 @@ export const StateData = styled.div`
         height: 0;
         border-top: 15px solid transparent;
         border-bottom: 20px solid transparent; 
-        border-left: 15px solid coral;
+        border-left: 15px solid #50bfff;
     }
 `
 
+export const Pedidocard = styled.div`
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+`
 

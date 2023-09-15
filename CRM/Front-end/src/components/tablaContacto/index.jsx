@@ -39,6 +39,29 @@ const [loading, setLoading] = useState(true)
         }
    
     },[navigate])
+// barra de busqueda
+const [buscar, setBuscar] = useState("")
+
+  //Funcion para traer los datos de la tabla, a buscar
+
+  //Inicio, Función de busqueda
+    const BarraDeBusqueda = (e) => {
+    setBuscar(e.target.value);
+    console.log(e.target.value);
+};
+
+  //Metodo de filtrado tabla empresa
+    let resBusqueda = [];
+
+    if (!buscar) {
+    resBusqueda = contacto|| [];
+} else {
+    resBusqueda = contacto.filter(
+        (dato) =>
+        dato.nombreContacto &&
+        dato.nombreContacto.toLowerCase().includes(buscar.toLowerCase())
+);
+}
 
 const handleEditarClick = (item) => {
     setContactoEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -51,12 +74,17 @@ const handleEditarClick = (item) => {
     setContacto(contactos.data);
     console.log(contactos.data);
   };
-  const TabladeleteContacto = async (item) => {
-    const res = await Axios.delete(
-      `http://localhost:3005/contactotabla/${item.idContacto}`
-    );
-    console.log("Contacto eliminado con éxito.", res.data);
 
+
+  const TabladeleteContacto = async (item) => {
+    try {
+        const res = await Axios.delete(
+            `http://localhost:3005/contactotabla/${item.idContacto}`
+          );
+          console.log("Contacto eliminado con éxito.", res.data);
+    } catch (error) {
+        console.log("Error al eliminar el contacto", error);
+    }
     setTimeout(() => {
         window.location.href = "/contactos"  
         },0)
@@ -65,6 +93,10 @@ const handleEditarClick = (item) => {
 useEffect(() => {
     TablagetContacto();
 }, []);
+
+const Borrar = () =>{
+    setBuscar("")
+}
 
     return (
         <>
@@ -80,8 +112,8 @@ useEffect(() => {
                         <h1>Tabla Contacto</h1>
                         <ContainerInput>
                             <AiOutlineSearch style={{fontSize:"25px" , color:"#4b4848"}}/>
-                            <Input placeholder="Buscar ..."></Input>
-                            <AiOutlineClose style={{fontSize:"20px", color:"gray"}}/>
+                            <Input placeholder="Buscar ..." value={buscar} onChange={BarraDeBusqueda}></Input>
+                            <AiOutlineClose style={{fontSize:"20px", color:"gray"}} onClick={Borrar} />
                         </ContainerInput>
                     </Heder>
                     <HederTabla>
@@ -93,7 +125,7 @@ useEffect(() => {
                         <Caja1><Parrafo>Accion</Parrafo></Caja1>
                     </HederTabla>
                     <ContainerSecundario>
-                    {contacto.map((item, i) => (
+                    {resBusqueda.map((item, i) => (
                     <BodyTabla key={i} >
                         <Caja1>
                             <Parrafo>{item.nombreContacto}</Parrafo>

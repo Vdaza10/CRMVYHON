@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState}from "react";
 import { Contenedor, ContenedorCampañas, ContenedorCampañas1, Campañas, ContenedorCampañaImagen } from "./styled";
 import Menu from "../menu/principal";
 import imagen from "../img/inicio1.avif"
@@ -10,10 +10,12 @@ import campañacorreo from "../img/campañaCorreo.jpg"
 import llamadaaudio from "../img/llamadaAudio.jpg"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState} from "react";
+import { useEffect} from "react";
 import jwt_decode from "jwt-decode";
+import Audiollamada from "../llamadaAudioModal";
 
 const Campaña = () => {
+    const [modalAbierta, setModalAbierta] = useState(false);
     const [loading, setLoading] = useState(true)
 
     let navigate = useNavigate();
@@ -43,6 +45,10 @@ const Campaña = () => {
             </>
         ):(
         <>
+        <Audiollamada 
+            estado={modalAbierta}
+            cambiarEstado={setModalAbierta}
+            ></Audiollamada>
             <Menu />
             <Contenedor>
                 <ContenedorCampañas>
@@ -70,8 +76,8 @@ const Campaña = () => {
 
                 </ContenedorCampañas1>
                 <ContenedorCampañas>
-                    <Campañas>
-                    LLAMADA DE AUDIO <Link to="/llamadaaudio"><ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen></Link>
+                    <Campañas onClick={() =>{ setModalAbierta(!modalAbierta)} }>
+                    LLAMADA DE AUDIO <ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen>
                     </Campañas>                    
 
                     <Campañas>
@@ -80,10 +86,11 @@ const Campaña = () => {
 
                 </ContenedorCampañas>
             </Contenedor>
-
+            
         </>
         )}
         </>
     )
 }
+
 export default Campaña

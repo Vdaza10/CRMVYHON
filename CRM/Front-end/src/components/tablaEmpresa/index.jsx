@@ -37,6 +37,30 @@ function TablaEmpresa() {
         navigate('/');
     }
 },[navigate])
+  // barra de busqueda
+const [buscar, setBuscar] = useState("")
+
+//Funcion para traer los datos de la tabla, a buscar
+
+//Inicio, Función de busqueda
+  const BarraDeBusqueda = (e) => {
+  setBuscar(e.target.value);
+  console.log(e.target.value);
+};
+
+//Metodo de filtrado tabla empresa
+  let resBusqueda = [];
+
+  if (!buscar) {
+  resBusqueda = empresa|| [];
+} else {
+  resBusqueda = empresa.filter(
+      (dato) =>
+      dato.nombreEmpresa  &&
+      dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase()),
+);
+}
+
 
   const handleEditarClick = (item) => {
     setEmpresaEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -60,12 +84,18 @@ function TablaEmpresa() {
     } catch (error) {
       console.log("Error al eliminar la empresa:", error);
     }
-    
+    setTimeout(() => {
+      window.location.href = "/empresas"  
+       },0)
   };
 
   useEffect(() => {
     Getempresa();
   }, []);
+
+  const Borrar = () =>{
+    setBuscar("")
+}
 
   return (
     <>
@@ -81,8 +111,8 @@ function TablaEmpresa() {
           <h1>Tabla empresa</h1>
           <ContainerInput>
             <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-            <Input placeholder="Buscar ..."></Input>
-            <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
+            <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
+            <AiOutlineClose onClick={Borrar} style={{ fontSize: "20px", color: "gray" }} />
           </ContainerInput>
         </Heder>
         <HederTabla>
@@ -103,7 +133,7 @@ function TablaEmpresa() {
           </Caja1>
         </HederTabla>
         <ContainerSecundario>
-        {empresa.map((item, i) => (
+        {resBusqueda.map((item, i) => (
           <BodyTabla key={i}>
             <Caja1>
               <Parrafo>{item.nombreEmpresa}</Parrafo>

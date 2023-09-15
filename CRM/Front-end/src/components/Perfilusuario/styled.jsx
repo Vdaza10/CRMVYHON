@@ -100,8 +100,8 @@ export const Editar = styled.button`
     height: 35px;
     border:0;
     border-radius: 3px;
-    margin-top: 15px;
-    margin-left: 60%;
+    margin-top: 30px;
+    margin-left: 55%;
     color: white;
     &:hover {
     background-color: #3eabee76;

@@ -1,54 +1,67 @@
 import React, { useState, useEffect } from "react";
-import {Contenedor,ContenedorTarjeta,Tarjeta1,Tarjeta2,} from "./styled";
+import {Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
 import Menu from "../menu/principal";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
-const Vistaprincipal = () => {
-const [tarjetaActual, setTarjetaActual] = useState(0);
+    const Vistaprincipal = () => { // Declara un componente funcional llamado Vistaprincipal.
+    const [tarjetaActual, setTarjetaActual] = useState(0);  // Declara el estado 'tarjetaActual' con valor inicial 0 y una función para actualizarlo.
+    const [loading, setLoading] = useState(true)
+ 
+    
+    const tarjetas = [
+            {title: "card A", descripcion: "informacion empresas"},
+            {title: "card B", descripcion: "informacion contactos"},
+            {title: "card C", descripcion: "informacion negocios"},
+            {title: "card D", descripcion: "informacion tareas"},
+            {title: "card E", descripcion: "informacion markenting"},
+        ]
+        // Función para asignar animaciones a las tarjetas.
+    const asignarAnimacion = (claseActual, claseSiguiente) => {
+        const tarjetas = document.querySelectorAll(".tarjeta"); // Selecciona todos los elementos con la clase CSS "tarjeta".
 
-// Define an array of card content (you can replace this with your own data)
-const tarjetas = [
-    { title: "EMPRESA", description: "This is card A." },
-    { title: "Contactos", description: "This is card B." },
-    { title: "Negocios", description: "This is card C." },
-    { title: "Tareas", description: "This is card D." },
-    { title: "Markenting", description: "This is card E." },
-];
-
-const asignarAnimacion = (claseActual, claseSiguiente) => {
-    const tarjetas = document.querySelectorAll(".tarjeta");
-
-    tarjetas.forEach((tarjeta) => {
-    if (tarjeta.classList.contains(claseActual)) {
-        tarjeta.classList.remove(claseActual);
-        tarjeta.classList.add(claseSiguiente);
-    }
-    });
-};
+        tarjetas.forEach((tarjeta) => {// Itera sobre cada tarjeta seleccionada.
+        if (tarjeta.classList.contains(claseActual)) { // Comprueba si la tarjeta tiene la clase 'claseActual'.
+            tarjeta.classList.remove(claseActual);  // Si es así, elimina la clase 'claseActual'.
+            tarjeta.classList.add(claseSiguiente);// Agrega la clase 'claseSiguiente'.
+        }
+        });
+    };
+    // Función para manejar el clic en el botón "Next". este boton next esta oculto 
+    const handleClickNext = () => {
+        const nuevaTarjeta = (tarjetaActual + 1) % tarjetas.length; // Calcula el índice de la próxima tarjeta.
+        asignarAnimacion(tarjetas[tarjetaActual], tarjetas[nuevaTarjeta]);// Aplica animaciones a las tarjetas.
+        setTarjetaActual(nuevaTarjeta); // Actualiza el estado 'tarjetaActual' con el nuevo índice.
+    };
+    // Establece un temporizador para avanzar automáticamente a la siguiente tarjeta cada 2 segundos.
+    setTimeout(()=>{
+        handleClickNext() // Llama a la función 'handleClickNext' para avanzar.
+    }, 2000)
 
 
-
-const handleClickNext = () => {
-    const nuevaTarjeta = (tarjetaActual + 1) % tarjetas.length;
-    asignarAnimacion(tarjetas[tarjetaActual], tarjetas[nuevaTarjeta]);
-    setTarjetaActual(nuevaTarjeta);
-};
 
 setTimeout(() => {
     handleClickNext();
 }, 2000);
 
-const [loading, setLoading] = useState(true)
+let navigate = useNavigate();
 
-    let navigate = useNavigate();
+useEffect(() => {
 
-    useEffect(() => {
-        if (localStorage.getItem("user")) {
-            setLoading(false)
-        } else {
-            navigate('/')
+    const userToken = localStorage.getItem("user");
+    if(userToken){
+        try {
+        const token = jwt_decode(userToken);
+  console.log(token, "❤️❤️💕💕💕❤️");
+  setLoading(false);
+        } catch (error) {
+            console.error("Error al decodificar el token:", error);
+            navigate('/'); 
         }
-    },[])
+    }else{
+        navigate('/');
+    }
+},[navigate])
 
 return (
     <>
@@ -59,22 +72,22 @@ return (
     ):(
 
     <>
-    <Menu />
-    <Contenedor className="container">
-        <ContenedorTarjeta>
-        <Tarjeta2 className="carousel">
-            {tarjetas.map((tarjeta, index) => (
+        <Menu/> {/*Renderiza el componente Menu.*/}
+        <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
+        {/* <button onClick={handleClickPrev}>Prev</button> */}
+        <ContenedorTarjeta>{/*// Renderiza un componente llamado ContenedorTarjeta.*/}
+        <div className="carousel" style={{display: "flex", backgroundColor:"silver", height: "600px",  marginLeft:"1820px"}}>
+            {/*Mapea los objetos 'tarjeta' en el arreglo 'tarjetas'.*/}
+            {tarjetas.map((tarjeta, index) => ( 
             <Tarjeta1
                 key={index}
-                className={`tarjeta ${
-                index === tarjetaActual ? "active" : ""
-                }`}
+                className={`tarjeta ${tarjeta === tarjetas[tarjetaActual] ? "active" : ""}`}
             >
                 <h2>{tarjeta.title}</h2>
-                <p>{tarjeta.description}</p>
+                <p>{tarjeta.descripcion}</p>
             </Tarjeta1>
             ))}
-        </Tarjeta2>
+        </div>
         </ContenedorTarjeta>
     </Contenedor>
     </>

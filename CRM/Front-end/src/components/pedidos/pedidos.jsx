@@ -1,118 +1,104 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Menu from "../menu/principal";
-import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos, } from "./style";
-import { MdAdd } from 'react-icons/md';
+import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,ListView,MontoData,PedidoData,StateData,TablePedidos,
+} from "./style";
+
+import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
-
+import PedidoCard from "../PedidosCard/index.jsx";
+import axios from "axios";
+//
 const Pedidos = () => {
-    const [showForm1, setShowForm1] = useState(false);
-    const [showForm2, setShowForm2] = useState(false);
-    const [showForm3, setShowForm3] = useState(false);
-    const [showForm4, setShowForm4] = useState(false);
+    const [orders, setOrders] = useState([]);
+    const [showForms, setShowForms] = useState([false, false, false, false]);
+    const [cardPedidos, setCardPedidos] = useState([]);
 
-    const toggleForm1 = () => {
-        setShowForm1(!showForm1);
+    const toggleForm = (index) => {
+        const updatedForms = [...showForms];
+        updatedForms[index] = !updatedForms[index];
+        setShowForms(updatedForms);
     };
-    const toggleForm2 = () => {
-        setShowForm2(!showForm2);
+
+    const addCardPedido = (cliente, producto, monto, fecha, columna) => {
+        const newCardPedido = {
+            cliente,
+            producto,
+            monto,
+            fecha,
+            columna
+        };
+        setCardPedidos([...cardPedidos, newCardPedido]);
     };
-    const toggleForm3 = () => {
-        setShowForm3(!showForm3);
+
+    const getDataPedido = async () => {
+        try {
+            const response = await axios.get("http://localhost:3005/pedidos/", {
+                //token, headers
+            });
+            setOrders(response.data);
+            console.log(response.data, 'orders');
+        } catch (error) {
+            // Manejar errores aquí
+        }
     };
-    const toggleForm4 = () => {
-        setShowForm4(!showForm4);
+
+    useEffect(() => {
+        getDataPedido();
+    }, []);
+
+    const orderbyColumns = (i) => {
+        const orderColumn = orders.filter((order) => order.Columna === i);
+        return orderColumn.map((pedido, index) => (
+            <ListView key={index}>
+                <PedidoCard
+                    cliente={pedido.cliente}
+                    producto={pedido.producto}
+                    monto={pedido.monto}
+                    fecha={pedido.fecha}
+                    columna={i}
+                />
+            </ListView>
+        ));
     };
+
+    //funcion kanban
 
     return (
         <>
-        <Menu />
-        <AdminPedido> 
-            <EstadoPedido>
-                <ContArrow>
-                    <StateData>h</StateData>
-                </ContArrow>
+            <Menu />
+            <AdminPedido>
+                <EstadoPedido>
+                    {[1, 2, 3, 4].map((_, index) => (
+                        <ContArrow key={index}>
+                            <StateData className="letras">creacion</StateData>
+                        </ContArrow>
+                    ))}
+                </EstadoPedido>
 
-                <ContArrow>
-                    <StateData>g</StateData>
-                </ContArrow>
+                <TablePedidos>
+                    {[1, 2, 3, 4].map((table, index) => (
+                        <PedidoData key={index}>
+                            <HeadData>
+                                <MontoData></MontoData>
 
-                <ContArrow>
-                    <StateData>j</StateData>
-                </ContArrow>
+                                <AddPedido onClick={() => toggleForm(index)}>
+                                    <MdAdd style={{ fontSize: "20px" }} />
+                                </AddPedido>
+                            </HeadData>
 
-                <ContArrow>
-                    <StateData>k</StateData>
-                </ContArrow>
-            </EstadoPedido>
+                            <BodyData>{orderbyColumns(table)}</BodyData>
 
-            <TablePedidos>
-                <PedidoData>
-                    <HeadData>
-                        <MontoData></MontoData>
-
-                        <AddPedido onClick={toggleForm1}>
-                            <MdAdd style={{ fontSize: "20px" }} /> oscar1
-                        </AddPedido>
-                    </HeadData>
-
-                    <BodyData>
-                        <ListView></ListView>
-                    </BodyData>
-
-                    {showForm1 && <FormularioPedido isOpen={showForm1} />}
-                </PedidoData>
-
-
-                <PedidoData>
-                    <HeadData>
-                        <MontoData></MontoData>
-
-                        <AddPedido onClick={toggleForm2}>
-                            <MdAdd style={{ fontSize: "20px" }} /> oscar2
-                        </AddPedido>
-                    </HeadData>
-
-                    <BodyData>
-                        <ListView></ListView>
-                    </BodyData>
-
-                    {showForm2 && <FormularioPedido isOpen={showForm2} />}
-                </PedidoData>
-
-                <PedidoData>
-                    <HeadData>
-                        <MontoData></MontoData>
-
-                        <AddPedido onClick={toggleForm3}>
-                            <MdAdd style={{ fontSize: "20px" }} /> oscar3
-                        </AddPedido>
-                    </HeadData>
-
-                    <BodyData>
-                        <ListView></ListView>
-                    </BodyData>
-
-                    {showForm3 && <FormularioPedido isOpen={showForm3} />}
-                </PedidoData>
-
-                <PedidoData>
-                    <HeadData>
-                        <MontoData></MontoData>
-
-                        <AddPedido onClick={toggleForm4}>
-                            <MdAdd style={{ fontSize: "20px" }} /> oscar4
-                        </AddPedido>
-                    </HeadData>
-
-                    <BodyData>
-                        <ListView></ListView>
-                    </BodyData>
-
-                    {showForm4 && <FormularioPedido isOpen={showForm4} />}
-                </PedidoData>
-                {/* Los otros elementos PedidoData aquí */}
-            </TablePedidos>
-        </AdminPedido>
+                            {showForms[index] && (
+                                <FormularioPedido
+                                    isOpen={showForms[index]}
+                                    columna={index}
+                                    addCardPedido={addCardPedido}
+                                />
+                            )}
+                        </PedidoData>
+                    ))}
+                </TablePedidos>
+            </AdminPedido>
         </>
     );
 };
