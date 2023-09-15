@@ -6,10 +6,33 @@ import icono from "../img/icono.png"
 import CrearNegocios from "../crearNegocios";
 import TablaNegocio from "../tablaNegocio";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 function Retorno2() {
     const [active, setActive] = useState(false); //Estado para controlar la visualización del componente CrearNegocios
     const [negocios, setNegocios] = useState([]);
+    
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+    },[navigate])
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
@@ -22,6 +45,13 @@ function Retorno2() {
     }, [setNegocios]);
 
     return (
+        <>
+       {loading ? (
+        <>
+         <h1>Cargando......</h1>
+        </>
+       ):(
+
         <>
             {negocios.length <= 0 ? (
                 <>
@@ -104,6 +134,8 @@ function Retorno2() {
                 </>
             )}
         </>
+    )}
+    </>
     )
 }
 export default Retorno2;

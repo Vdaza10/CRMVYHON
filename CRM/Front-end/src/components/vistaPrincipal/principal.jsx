@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Contenedor,ContenedorTarjeta,Tarjeta1,Tarjeta2,} from "./styled";
 import Menu from "../menu/principal";
+import { useNavigate } from "react-router-dom";
 
 const Vistaprincipal = () => {
 const [tarjetaActual, setTarjetaActual] = useState(0);
@@ -25,6 +26,8 @@ const asignarAnimacion = (claseActual, claseSiguiente) => {
     });
 };
 
+
+
 const handleClickNext = () => {
     const nuevaTarjeta = (tarjetaActual + 1) % tarjetas.length;
     asignarAnimacion(tarjetas[tarjetaActual], tarjetas[nuevaTarjeta]);
@@ -35,7 +38,26 @@ setTimeout(() => {
     handleClickNext();
 }, 2000);
 
+const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if (localStorage.getItem("user")) {
+            setLoading(false)
+        } else {
+            navigate('/')
+        }
+    },[])
+
 return (
+    <>
+    {loading ? (
+        <>
+        <h1>cargando.....</h1>
+        </>
+    ):(
+
     <>
     <Menu />
     <Contenedor className="container">
@@ -55,6 +77,8 @@ return (
         </Tarjeta2>
         </ContenedorTarjeta>
     </Contenedor>
+    </>
+    )}
     </>
 );
 };

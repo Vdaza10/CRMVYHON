@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {FormContainer,FormGroup,Label,Input,Select,ConvertButton,ButtonState,CloseOpen,} from "./style";
-import Axios from "axios";
+// import Axios from "axios";
 import DateSelector from "../DatePedido/index.jsx";
 
 const FormularioPedido = () => {
@@ -8,7 +8,7 @@ const FormularioPedido = () => {
     const [negocio, setNegocio] = useState("");
     const [monto, setMonto] = useState("");
     const [moneda, setMoneda] = useState("pesos");
-    const [fecha, setFecha] = useState("");
+    // const [fecha, setFecha] = useState("");
 
     const handleConvert = () => {
     const tasaDolar = 0.045;
@@ -22,15 +22,15 @@ const FormularioPedido = () => {
         }
     };
 
-    const createPedidos = async (e) => {
-        try {
-            const response = await Axios.post("http://localhost:3005/pedidos", {
-                cliente
-            })
-        } catch (error) {
+    // const createPedidos = async (e) => {
+    //     try {
+    //         const response = await Axios.post("http://localhost:3005/pedidos", {
+    //             cliente
+    //         })
+    //     } catch (error) {
             
-        }
-    }
+    //     }
+    // }
 
 //const de la fecha 
 const [selectedDate, setSelectedDate] = useState({

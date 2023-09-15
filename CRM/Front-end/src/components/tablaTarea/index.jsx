@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import CrearTarea from "../CreacionTarea";
 import Axios from "axios";
 import UpdateTarea from "../updateTarea";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode"
 
 function TablaTarea() {
 
@@ -15,6 +17,28 @@ function TablaTarea() {
     const [activeEditar, setActiveEditar] = useState(false);
     const [tarea, setTarea] = useState([]);
     const [tareaEditar, setTareaEditar] = useState(null);
+    
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+      
+    },[navigate])
 
 
 
@@ -50,6 +74,12 @@ function TablaTarea() {
 
 
     return (
+        <>
+        {loading ? (
+            <>
+            <h1>cargando.....</h1>
+            </>
+        ):(
         <>
             <Menu /> {/* Muestra el componente Menu */}
             <ContainerPrincipal>
@@ -106,6 +136,8 @@ function TablaTarea() {
                 {active && <CrearTarea></CrearTarea>}
                 {activeEditar && <UpdateTarea tarea={tareaEditar}></UpdateTarea>}
             </ContainerPrincipal>
+        </>
+        )}
         </>
     );
 }

@@ -10,14 +10,14 @@ import * as tablaEmpresa from "../controladores/Tablas/empresa.js"
 import * as tablaContacto from "../controladores/Tablas/contacto.js"
 import * as tablaNegocio from "../controladores/Tablas/negocio.js"
 import * as tablaTarea from "../controladores/Tablas/tareas.js"
-import { validatetoken } from "../middlewares/JwtAuth.js";
+
 
 
 
 //registro
 export const router = Router();
 
-router.get('/users', userCrtl.getUsers);
+router.get('/users',userCrtl.getUsers);
 
 router.post('/users', userCrtl.createUsers);
 
@@ -31,7 +31,7 @@ router.post('/login',  logincrtl.Login);
 router.get('/login/getClient/',  logincrtl.getLogin);
 
 //empresa// 
-router.post('/company',[validatetoken] ,empresaCrtl.createEmpresa);
+router.post('/company', empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
 
@@ -42,9 +42,9 @@ router.patch('/company/:id', empresaCrtl.updateEmpresas)
 router.delete('/company/:id', empresaCrtl.deleteEmpresas);
 
 //contacto//
-router.post('/contacto', contactoCrtl.crearContacto)
+router.post('/contacto',contactoCrtl.crearContacto)
 
-router.get('/contacto', contactoCrtl.getContacto);
+router.get('/contacto',contactoCrtl.getContacto);
 
 router.get('/contacto/:id', contactoCrtl.getContactoId);
 
@@ -53,7 +53,7 @@ router.patch('/contacto/:id', contactoCrtl.updateContacto);
 router.delete('/contacto/:id', contactoCrtl.deleteContacto);
 
 //negocio//
-router.post('/negocio', negocioCrtl.crearNegocio)
+router.post('/negocio' ,negocioCrtl.crearNegocio)
 
 router.get('/negocio', negocioCrtl.getNegocio);
 
@@ -70,7 +70,7 @@ router.get('/segmento', segmentoCrtl.getSegmento)
 //tareas//
 
 
-router.get('/tareas', tareaCrtl.getTareas);
+router.get('/tareas' ,tareaCrtl.getTareas);
 
 router.get('/tareastabla',tablaTarea.getTablaTarea)
 

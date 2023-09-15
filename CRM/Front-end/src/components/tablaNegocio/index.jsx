@@ -20,12 +20,38 @@ import { BiSolidEditAlt } from "react-icons/bi";
 import CrearNegocios from "../crearNegocios";
 import Axios from "axios";
 import NegocioUpdate from "../updateNegocio";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode"
 
 function TablaNegocio() {
   const [active, setActive] = useState(false);
   const [activeEditar, setActiveEditar] = useState(false);
   const [negocios, setNegocios] = useState([]);
   const [negocioAEditar, setNegocioAEditar] = useState(null);
+
+
+  const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+       
+    },[navigate])
+
 
   const handleEditarClick = (item) => {
     setNegocioAEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -56,6 +82,13 @@ function TablaNegocio() {
   }, []);
 
   return (
+
+    <>
+    {loading ? (
+        <>
+        <h1>cargando.....</h1>
+        </>
+    ):(
     <>
       <Menu /> {/* Muestra el componente Menu */}
       <ContainerPrincipal>
@@ -128,6 +161,8 @@ function TablaNegocio() {
         {active && <CrearNegocios />}
         {activeEditar && <NegocioUpdate negocio={negocioAEditar} />}
       </ContainerPrincipal>
+    </>
+    )};
     </>
   );
 }

@@ -9,7 +9,8 @@ import Menu from "../menu/principal";
 import CrearTarea from "../CreacionTarea";
 import TablaTarea from "../tablaTarea";
 import Retorno6 from "../creacionTareasOpciones";
-
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 function Retorno5() {
 
@@ -17,6 +18,26 @@ function Retorno5() {
     const [active, setActive] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(false);
     const [tarea, setTarea] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+    },[navigate])
 
 
     const ReflejarDatos = async () => {
@@ -32,6 +53,12 @@ function Retorno5() {
 
 
     return (
+        <>
+        {loading ? (
+         <>
+          <h1>Cargando......</h1>
+         </>
+        ):(
         <> 
         {tarea.length <= 0 ? (
             <>
@@ -74,6 +101,8 @@ function Retorno5() {
             <>
                 <TablaTarea></TablaTarea>
             </>
+        )}
+        </>
         )}
         </>
     );

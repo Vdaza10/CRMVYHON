@@ -8,12 +8,37 @@ import { useState, useEffect } from "react";
 import Retorno4 from "../crearcontacto";
 import Axios from "axios";
 import ContactoUpdate from "../updateContacto";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode"
 
 function TablaContacto() {
 const [active, setActive] = useState(false);
 const [activeEditar, setActiveEditar] = useState(false);
 const [ContactoEditar, setContactoEditar] = useState(false);
 const [contacto, setContacto] = useState([]);
+
+
+const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+   
+    },[navigate])
 
 const handleEditarClick = (item) => {
     setContactoEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -34,7 +59,7 @@ const handleEditarClick = (item) => {
 
     setTimeout(() => {
         window.location.href = "/contactos"  
-         },0)
+        },0)
   };
 
 useEffect(() => {
@@ -42,6 +67,12 @@ useEffect(() => {
 }, []);
 
     return (
+        <>
+        {loading ? (
+            <>
+            <h1>cargando.....</h1>
+            </>
+        ):(
         <>
             <Menu/> {/* Muestra el componente Menu */}
                 <ContainerPrincipal>
@@ -96,6 +127,8 @@ useEffect(() => {
                     {active && <Retorno4/>}
                     {activeEditar && <ContactoUpdate contacto ={ContactoEditar}></ContactoUpdate>}
                 </ContainerPrincipal>
+        </>
+        )};
         </>
     );
 }

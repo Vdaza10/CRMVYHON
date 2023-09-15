@@ -19,6 +19,7 @@ export const getUsers = async(req,res) =>{
 }
 export const createUsers = async (req, res) => {
     try {
+        
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
         const existe = 'SELECT correo FROM registro where correo = ? '
         const evaluar = [correo];

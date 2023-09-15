@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {DivContainer,Container,Caja1,Caja2,Caja3,Caja4,Cajita,} from "./styled";
 import imagen from "../img/img1.png";
 import { Link, useNavigate } from "react-router-dom";
+// import jwt_decode from "jwt-decode";
 
 function Retorno1() {
   const navigate = useNavigate();
@@ -12,7 +13,10 @@ function Retorno1() {
   };
 
   const Logout = () => {
-    localStorage.removeItem("user");
+    // localStorage.removeItem("user");
+  localStorage.removeItem("user")
+  navigate("/")
+    // console.log(localStorage.removeItem("user"));
   };
 
   useEffect(() => {
@@ -50,7 +54,7 @@ function Retorno1() {
           </Caja3>
           <Caja4>
             <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>
-              <Link onClick={Logout} style={{ textDecoration: "none", color: "black"}}>Salir</Link>
+              <button onClick={Logout} style={{ textDecoration: "none", color: "black"}}>Salir</button>
             </p>
           </Caja4>
         </Container>

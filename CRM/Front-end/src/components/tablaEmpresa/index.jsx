@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import Retorno8 from "../creacionempresa";
 import EmpresaUpdate from "../updateEmpresa";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode"
 
 function TablaEmpresa() {
   const [active, setActive] = useState(false);
@@ -15,6 +17,26 @@ function TablaEmpresa() {
   const [empresa, setEmpresa] = useState([]);
   const [empresaEditar, setEmpresaEditar] = useState(null);
 
+  const [loading, setLoading] = useState(true)
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+
+    const userToken = localStorage.getItem("user");
+    if(userToken){
+        try {
+        const token = jwt_decode(userToken);
+  console.log(token, "❤️❤️💕💕💕❤️");
+  setLoading(false);
+        } catch (error) {
+            console.error("Error al decodificar el token:", error);
+            navigate('/'); 
+        }
+    }else{
+        navigate('/');
+    }
+},[navigate])
 
   const handleEditarClick = (item) => {
     setEmpresaEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -46,6 +68,12 @@ function TablaEmpresa() {
   }, []);
 
   return (
+    <>
+    {loading ? (
+        <>
+        <h1>cargando.....</h1>
+        </>
+    ):(
     <>
       <Menu /> {/* Muestra el componente Menu */}
       <ContainerPrincipal>
@@ -109,6 +137,8 @@ function TablaEmpresa() {
         {active && <Retorno8></Retorno8>}
         {activeEditar && <EmpresaUpdate empresa={empresaEditar}></EmpresaUpdate>}
       </ContainerPrincipal>
+    </>
+    )}
     </>
   );
 }

@@ -6,7 +6,7 @@
     import { faSearch } from "@fortawesome/free-solid-svg-icons";
     import imagen from "../img/logito.png";
     import Retorno1 from "../perfi";
-
+    import jwt_decode from "jwt-decode";
     const Menu = () => {
     // Estado para controlar la visibilidad del menú desplegable de perfil
     const [perfilDesplegable, setPerfilDesplegable] = useState(false);
@@ -25,7 +25,8 @@
         setSelectedOption(Option);
     };
 
-    const userData = JSON.parse(localStorage.getItem('user'));
+    // const userData = JSON.parse(localStorage.getItem('user'));
+    const token = jwt_decode(localStorage.getItem("user"));
 
     return (
         <Contenedor>
@@ -97,7 +98,7 @@
                 <Menudesplegable perfilDesplegable={perfilDesplegable}>
                 <Retorno1/>
                 </Menudesplegable>
-                <NombreUsuario>{userData?.nombreUsuario}</NombreUsuario>
+                <NombreUsuario>{token.username}</NombreUsuario>
             </PerfilUsiario>
         </ContenedorBusqueda>
         </Contenedor>
