@@ -157,6 +157,6 @@ export const Container = styled.div`
 export const ContenedorPassword = styled.input`
    background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
    color: gray; 
-   border: none
-
+   border: none;
+    outline:none
 `

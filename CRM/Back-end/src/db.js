@@ -2,7 +2,7 @@ import  {createPool}  from "mysql2/promise";
 
 // crea la conexión a la base de datos 
 export const pool  =  createPool ( { 
-    host : '192.168.12.36', 
+    host : '127.0.0.1', 
     user : 'root' , 
     port :3306,
     database:'crmvyhon',
