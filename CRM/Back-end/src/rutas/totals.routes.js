@@ -20,7 +20,9 @@ export const router = Router();
 
 router.get('/users', userCrtl.getUsers);
 router.post('/users', userCrtl.createUsers);
-router.patch('/users', userCrtl.updateUsers);
+
+router.patch('/users/:idRegistro', userCrtl.updateUsers);
+
 router.delete('/users', userCrtl.deleteUsers);
 
 
@@ -31,7 +33,6 @@ router.get('/login/getClient/',  logincrtl.getLogin);
 
 //empresa// 
 router.post('/company', empresaCrtl.createEmpresa);
-router.post('/company',[validatetoken] ,empresaCrtl.createEmpresa);
 
 router.get('/company', empresaCrtl.getEmpresas);
 router.get('/company/:id', empresaCrtl.getEmpresaId);
@@ -39,15 +40,19 @@ router.patch('/company/:id', empresaCrtl.updateEmpresas)
 router.delete('/company/:id', empresaCrtl.deleteEmpresas);
 
 //contacto//
-router.post('/contacto', contactoCrtl.crearContacto)
-router.get('/contacto', contactoCrtl.getContacto);
+router.post('/contacto',contactoCrtl.crearContacto)
+
+router.get('/contacto',contactoCrtl.getContacto);
+
 router.get('/contacto/:id', contactoCrtl.getContactoId);
 router.patch('/contacto/:id', contactoCrtl.updateContacto);
 router.delete('/contacto/:id', contactoCrtl.deleteContacto);
 
 //negocio//
-router.post('/negocio', negocioCrtl.crearNegocio)
-router.get('/negocio', negocioCrtl.getNegocio)
+router.post('/negocio' ,negocioCrtl.crearNegocio)
+
+router.get('/negocio', negocioCrtl.getNegocio);
+
 router.get('/negocio/:id', negocioCrtl.getNegocioId);
 router.patch('/negocio/:id', negocioCrtl.updateNegocio);
 router.delete('/negocio/:id', negocioCrtl.deleteNegocio); 
@@ -57,7 +62,10 @@ router.delete('/negocio/:id', negocioCrtl.deleteNegocio);
 router.get('/segmento', segmentoCrtl.getSegmento)
 
 //tareas//
-router.get('/tareas', tareaCrtl.getTareas);
+
+
+router.get('/tareas' ,tareaCrtl.getTareas);
+
 router.get('/tareastabla',tablaTarea.getTablaTarea)
 router.post('/tareas', tareaCrtl.createTarea);
 router.patch('/tareas', tareaCrtl.updateTarea);

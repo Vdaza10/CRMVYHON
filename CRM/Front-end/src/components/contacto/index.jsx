@@ -5,10 +5,34 @@ import Menu from '../menu/principal';
 import TablaContacto from '../tablaContacto';
 import Axios from 'axios';
 import Retorno4 from '../crearcontacto'; // Importación del componente Retorno4 (¿crear contacto?)
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
 
 function Retorno3() {
     const [active, setActive] = useState(false) // Estado para controlar la visibilidad del componente Retorno4
     const [contacto, setContacto] = useState([])
+
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+    },[navigate])
 
     const TablagetContacto = async () => {
         const contactos = await Axios.get("http://localhost:3005/contactotabla");
@@ -20,6 +44,12 @@ function Retorno3() {
     }, [setContacto]);
 
     return (
+        <>
+        {loading ? (
+         <>
+          <h1>Cargando......</h1>
+         </>
+        ):(
         <>
         {contacto.length <= 0 ? (
             <>
@@ -41,6 +71,8 @@ function Retorno3() {
             </>
         )}
             
+    </>
+    )}
     </>
     );
 }

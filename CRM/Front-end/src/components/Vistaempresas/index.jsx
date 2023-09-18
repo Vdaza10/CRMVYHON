@@ -5,10 +5,33 @@ import Menu from "../menu/principal";
 import TablaEmpresa from "../tablaEmpresa";
 import Axios from "axios";
 import Retorno8 from "../creacionempresa"; // Importacion del componente Retorno8
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 function Retorno7() {
     const [active, setActive] = useState(false); // Estado para controlar la visualización del componente Retorno8
     const [empresa, setEmpresa]= useState([])
+
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+    },[navigate])
 
 
     const Getempresa = async() =>{
@@ -22,6 +45,12 @@ function Retorno7() {
 
 
     return (
+        <>
+        {loading ? (
+            <>
+            <h1>cargando.....</h1>
+            </>
+        ):(
         <>
         {empresa.length <= 0 ? (
             <>
@@ -43,6 +72,7 @@ function Retorno7() {
         )}
             
         </>
-    );
-}
+        )}
+        </>
+)};
 export default Retorno7;   

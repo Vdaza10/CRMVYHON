@@ -14,7 +14,6 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
 
     return (
         <>
-        
         <Fondo>
             <Ladero>
                 <Ladero1>

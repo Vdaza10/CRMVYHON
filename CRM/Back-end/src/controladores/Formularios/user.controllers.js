@@ -19,6 +19,7 @@ export const getUsers = async(req,res) =>{
 }
 export const createUsers = async (req, res) => {
     try {
+        
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
         const existe = 'SELECT correo FROM registro where correo = ? '
         const evaluar = [correo];
@@ -48,15 +49,21 @@ export const createUsers = async (req, res) => {
 }
 
 export const updateUsers = async (req, res) => {
-try {
+    const { idRegistro } = req.params;
+  try {
+    const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
+    const updateUser = await pool.query(
+        'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
+      [nombreUsuario,nombreEmpresa,correo,contraseña,idRegistro]
+    );
+    res.status(200).json({ mensaje: 'Usuario actualizado' ,
+    idRegistro,nombreUsuario,nombreEmpresa,correo,contraseña});
 
 } catch (error) {
-    return res.send(404).json({
-message: `The register can't been update`,
-    });
+    console.error(error);
+    res.status(500).json({ mensaje: 'Error al actualizar usuario' });
 }
 };
-
 export const deleteUsers = async (req, res) => {
 try {
 } catch (error) {

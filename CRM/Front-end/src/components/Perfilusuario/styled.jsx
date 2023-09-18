@@ -100,8 +100,8 @@ export const Editar = styled.button`
     height: 35px;
     border:0;
     border-radius: 3px;
-    margin-top: 15px;
-    margin-left: 60%;
+    margin-top: 30px;
+    margin-left: 55%;
     color: white;
     &:hover {
     background-color: #3eabee76;
@@ -153,4 +153,10 @@ export const Container = styled.div`
     height: 50%;
     display:flex;
     justify-content : space-between;
+`;
+export const ContenedorPassword = styled.input`
+   background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
+   color: gray; 
+   border: none;
+    outline:none
 `
