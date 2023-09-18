@@ -17,7 +17,7 @@ import Axios from "axios";
 import validator from "validator";
 import VentanaModal1 from "../../mensajeRegistro";
 import UserExiste from "../../mensajeRegistroYaExiste";
-import swal from "sweetalert";
+import swal from "sweetalert"
 
 const Registrarse = () => {
   const [password, setPassword] = useState("");
