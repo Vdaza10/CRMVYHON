@@ -16,7 +16,7 @@ export const Container1 = styled.div`
     height: 100%;
     width: 100%;
     /* background-color: white; */
-    background-color: aqua;
+    background-color: #ffffff;
     border: solid 1px black;
 `
 // Estilo para una caja que contiene elementos
