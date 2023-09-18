@@ -23,10 +23,9 @@ import Campaña from "./markenting/markentingp"
 import CampañaCorreo from "./campañacorreo/campaña"
 import Comunicacion from "./comunicacion/comunicacion"
 import Promocion from "./promocion/promocion"
-import Pedidos from "./pedidos/pedidos"
 import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
-import FormularioPedido from "./CrearPedido"
+
 
 import NegocioUpdate from "./updateNegocio"
 
@@ -60,13 +59,9 @@ const Todo = () => {
                 <Route path="/campañacorreo" element = {<CampañaCorreo/>}></Route>
                 <Route path="/camunicacion" element = {<Comunicacion/>}></Route>
                 <Route path="/promocion" element = {<Promocion/>}></Route>
-                <Route path="/pedidos" element = {<Pedidos/>}></Route>
                 <Route path="/llamadaaudio" element = {<Audiollamada/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
-                <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
-
-
             </Routes>
         </BrowserRouter>
     )

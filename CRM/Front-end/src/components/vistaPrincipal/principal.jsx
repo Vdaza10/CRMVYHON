@@ -13,9 +13,6 @@
             {title: "card C", descripcion: "informacion negocios"},
             {title: "card D", descripcion: "informacion tareas"},
             {title: "card E", descripcion: "informacion markenting"},
-
-
-        
         ]
     const asignarAnimacion = (claseActual, claseSiguiente) => {
         const tarjetas = document.querySelectorAll(".tarjeta");
