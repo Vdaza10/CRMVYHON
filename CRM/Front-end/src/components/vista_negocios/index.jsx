@@ -14,7 +14,6 @@ function Retorno2() {
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const negociar = await Axios.get("http://localhost:3005/negociotabla");
-        console.log(negociar.data);
         setNegocios(negociar.data);
     };
     useEffect(() => {

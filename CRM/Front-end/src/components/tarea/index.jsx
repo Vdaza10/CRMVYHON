@@ -22,7 +22,6 @@ function Retorno5() {
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const tareas = await Axios.get("http://localhost:3005/tareasTabla");
-        console.log(tareas.data);
         setTarea(tareas.data);
     };
     useEffect(() => {
