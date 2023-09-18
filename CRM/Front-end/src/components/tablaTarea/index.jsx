@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import CrearTarea from "../CreacionTarea";
 import Axios from "axios";
 import UpdateTarea from "../updateTarea";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode"
 
 function TablaTarea() {
 
@@ -15,9 +17,52 @@ function TablaTarea() {
     const [activeEditar, setActiveEditar] = useState(false);
     const [tarea, setTarea] = useState([]);
     const [tareaEditar, setTareaEditar] = useState(null);
+    
+    const [loading, setLoading] = useState(true)
 
+    let navigate = useNavigate();
 
+    useEffect(() => {
 
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+      
+    },[navigate])
+
+      // barra de busqueda
+const [buscar, setBuscar] = useState("")
+
+//Funcion para traer los datos de la tabla, a buscar
+
+//Inicio, Función de busqueda
+  const BarraDeBusqueda = (e) => {
+  setBuscar(e.target.value);
+  console.log(e.target.value);
+};
+
+//Metodo de filtrado tabla empresa
+  let resBusqueda = [];
+
+  if (!buscar) {
+  resBusqueda = tarea|| [];
+} else {
+  resBusqueda = tarea.filter(
+      (dato) =>
+      dato.tipoTarea  &&
+      dato.tipoTarea.toLowerCase().includes(buscar.toLowerCase()),
+);
+}
 
     const handleEditarClick = (item) => {
         setTareaEditar(item); // Cuando se hace clic en Editar, almacena la tarea a editar en el estado
@@ -51,13 +96,19 @@ function TablaTarea() {
 
     return (
         <>
+        {loading ? (
+            <>
+            <h1>cargando.....</h1>
+            </>
+        ):(
+        <>
             <Menu /> {/* Muestra el componente Menu */}
             <ContainerPrincipal>
                 <Heder>
                     <h1>Tabla Tarea</h1>
                     <ContainerInput>
                         <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-                        <Input placeholder="Buscar ..."></Input>
+                        <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
                         <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
                     </ContainerInput>
                 </Heder>
@@ -71,7 +122,7 @@ function TablaTarea() {
                     <Campos><Parrafo>Acción</Parrafo></Campos>
                 </HederTabla>
                 <div className="ContainerSecundario">
-                {tarea.map((item, i) => (
+                {resBusqueda.map((item, i) => (
                     <BodyTabla key={i} >
                         <Registros>
                             <Parrafo>{item.nombreNegocio}</Parrafo>
@@ -106,6 +157,8 @@ function TablaTarea() {
                 {active && <CrearTarea></CrearTarea>}
                 {activeEditar && <UpdateTarea tarea={tareaEditar}></UpdateTarea>}
             </ContainerPrincipal>
+        </>
+        )}
         </>
     );
 }

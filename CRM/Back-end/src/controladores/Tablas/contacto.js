@@ -20,13 +20,14 @@ export const updatetablaContacto = async (req, res) => {
         const updateData = await pool.query(
             'UPDATE contacto SET nombreContacto = IFNULL(?, nombreContacto), cargo = IFNULL(?,cargo), telefono = IFNULL(?,telefono), correo = IFNULL(?,correo), contactoEmpresa = IFNULL(?,contactoEmpresa) WHERE idContacto = ?',
             [nombreContacto, cargo, telefono, correo, contactoEmpresa, idContacto]
-        );
-        res.status(200).json({ message: 'Actualizada' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'error al actualizar' });
-    }
-};
+            );
+        
+            res.status(200).json({ message: 'Actualizada' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'error al actualizar' });
+        }
+    };
 
 export const deleteTablaContacto = async (req, res) => {
     try {

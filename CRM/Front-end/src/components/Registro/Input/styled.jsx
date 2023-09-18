@@ -9,7 +9,6 @@ export const Contenedor = styled.div`
     flex-direction: column;
     margin-top: 40px;
     position: absolute;
-    z-index: 1;
 `
 
 export const Contenedor2 = styled.div`

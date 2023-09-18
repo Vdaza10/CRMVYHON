@@ -20,12 +20,61 @@ import { BiSolidEditAlt } from "react-icons/bi";
 import CrearNegocios from "../crearNegocios";
 import Axios from "axios";
 import NegocioUpdate from "../updateNegocio";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode"
 
 function TablaNegocio() {
   const [active, setActive] = useState(false);
   const [activeEditar, setActiveEditar] = useState(false);
   const [negocios, setNegocios] = useState([]);
   const [negocioAEditar, setNegocioAEditar] = useState(null);
+
+
+  const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+      console.log(token, "❤️❤️💕💕💕❤️");
+      setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+       
+    },[navigate])
+
+  // barra de busqueda
+const [buscar, setBuscar] = useState("")
+
+//Funcion para traer los datos de la tabla, a buscar
+
+//Inicio, Función de busqueda
+  const BarraDeBusqueda = (e) => {
+  setBuscar(e.target.value);
+  console.log(e.target.value);
+};
+
+//Metodo de filtrado tabla negocio
+  let resBusqueda = [];
+
+  if (!buscar) {
+  resBusqueda = negocios|| [];
+} else {
+  resBusqueda = negocios.filter(
+      (dato) =>
+      dato.nombreNegocio &&
+      dato.nombreNegocio.toLowerCase().includes(buscar.toLowerCase())
+);
+}
 
   const handleEditarClick = (item) => {
     setNegocioAEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
@@ -49,6 +98,9 @@ function TablaNegocio() {
     } catch (error) {
       console.error("Error al eliminar el negocio:", error);
     }
+    setTimeout(() => {
+      window.location.href = "/negocios"  
+       },0)
   };
 
   useEffect(() => {
@@ -56,6 +108,13 @@ function TablaNegocio() {
   }, []);
 
   return (
+
+    <>
+    {loading ? (
+        <>
+        <h1>cargando.....</h1>
+        </>
+    ):(
     <>
       <Menu /> {/* Muestra el componente Menu */}
       <ContainerPrincipal>
@@ -63,7 +122,7 @@ function TablaNegocio() {
           <h1>Tabla Negocio</h1>
           <ContainerInput>
             <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-            <Input placeholder="Buscar ..."></Input>
+            <Input placeholder="Buscar ..." value={buscar} onChange={BarraDeBusqueda}></Input>
             <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
           </ContainerInput>
         </Heder>
@@ -88,7 +147,7 @@ function TablaNegocio() {
           </Caja1>
         </HederTabla>
         <ContainerSecundario>
-          {negocios.map((item, i) => (
+          {resBusqueda.map((item, i) => (
             <BodyTabla key={i}>
               <Caja1>
                 <Parrafo>{item.nombreNegocio}</Parrafo>
@@ -128,6 +187,8 @@ function TablaNegocio() {
         {active && <CrearNegocios />}
         {activeEditar && <NegocioUpdate negocio={negocioAEditar} />}
       </ContainerPrincipal>
+    </>
+    )};
     </>
   );
 }
