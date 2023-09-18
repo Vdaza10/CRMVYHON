@@ -86,7 +86,7 @@
         </Menucontainer>
 
       <Ajustes>
-          <RiSettings4Fill style={{fontSize:"35px"}}
+          <RiSettings4Fill style={{fontSize:"35px", cursor:"pointer"}}
             onClick={desplegablePerfil}
             isOpen={perfilDesplegable}
           ></RiSettings4Fill>{" "}
