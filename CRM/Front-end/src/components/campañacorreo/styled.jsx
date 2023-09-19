@@ -11,8 +11,6 @@ const slideInRigth = keyframes`
 export const Contenedor = styled.div`
     height: 90.1vh;
     width: 100%;
-    /* background-color: pink; */
-    /* animation: ${slideInRigth} 0.5s ease-in-out; */
 `
 export const Contenedorcampaña1 = styled.div`
     height: 100%;

@@ -7,8 +7,8 @@ export const DivContainer = styled.div`
 export const Container = styled.div`
     background-color: #FFFF;
     border: 1px solid black;
-    width: 100%;
-    height: 120%;
+    width: 99%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -21,10 +21,11 @@ export const Caja1 = styled.div`
 `
 export const Caja2 = styled.div`
     height: 10%;
+    
+
 `
-export const Caja3 = styled.div`
-    height: 20%;
-`
+
+
 export const Caja4 = styled.div`
     height: 12%;
 `
@@ -34,5 +35,7 @@ export const Cajita = styled.div`
     font-size: 25px;
     align-items: center;
     width: 100%;
-    height: 30%;
+    height: 35%;
+    border: 1px  solid black;
+    
 `

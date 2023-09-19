@@ -180,7 +180,7 @@ const Registrarse = () => {
           </Contenedor1>
 
           <Checkbox>
-            <Seleccionar type="checkbox"></Seleccionar>
+            <Seleccionar type="checkbox" required></Seleccionar>
             <TextoCheckbox>
               Estoy deacuerdo con los terminos de uso del software y conozco{" "}
               <br />

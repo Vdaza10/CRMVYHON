@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Fondo, Header, Parrafo, Parrafo1, Main, ContenedorPerfil, InformacionActivacion, ImagenPerfil, Fecha, ContenedorRegistro, Registro, DatosUsuario, Informacion, Nombre, Editar, Caja, Container, ContenedorPassword } from "./styled";
-import IPerfil from "../img/perfil.jpg";
-import Menu from "../menu/principal";
+import IPerfil from "../../img/perfil.jpg";
+import Menu from "../../menu/principal";
+import UserEditar from "../../ModalactualizarUser";
 import { useNavigate } from "react-router-dom";
+import Notificación from "../vistaNotificaciones/notificaciones";
 import jwt_decode from "jwt-decode";
 
 
 function PerfilUsuario() {
+    const [modalAbierta, setModalAbierta] = useState(false);
     const [loading, setLoading] = useState(true)
     const [userData, setUserData] = useState({});
 
     let navigate = useNavigate();
+
 
     useEffect(() => {
 
@@ -18,9 +22,8 @@ function PerfilUsuario() {
         if(userToken){
             try {
             const token = jwt_decode(userToken);
-        console.log(token, "❤️❤️💕💕💕❤️");
-        setUserData(token);
-        setLoading(false);
+    setUserData(token);
+    setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
                 navigate('/'); 
@@ -28,8 +31,8 @@ function PerfilUsuario() {
         }else{
             navigate('/');
         }
-    
     },[navigate])
+
 
     return (
         <>
@@ -40,11 +43,11 @@ function PerfilUsuario() {
             ) : (
 
                 <Fondo>
-                    {/* <UserEditar
+                    <UserEditar
                 status={modalAbierta}
                 changeStatus={setModalAbierta}
                 userData={userData}
-            /> */}
+            />
 
                     {/* header */}
                     <Menu />
@@ -53,7 +56,9 @@ function PerfilUsuario() {
                         <Parrafo style={{ fontSize: "15px", color: "gray", margin: "0", marginLeft: "20px" }}>perfil</Parrafo>
                         <Caja>
                             <Parrafo1>Mi perfil</Parrafo1>
-                            <Parrafo1>Notificaciones</Parrafo1>
+                            <Parrafo1>Notificaciones
+                            <Notificación/>
+                            </Parrafo1>
                         </Caja>
                     </Header>
                     {/* body */}
@@ -65,33 +70,33 @@ function PerfilUsuario() {
                                 <ContenedorRegistro>
                                     <Registro style={{ marginTop: "25px" }}>
                                         Registrado el:
-                                        <Fecha type="date">14/08/2023 08:33</Fecha>
+                                        <Fecha type="date">{userData.date}</Fecha>
                                     </Registro>
                                     <br />
                                     <Registro>Actualizado por última vez el:
                                         <Fecha type="date">09/08/2023 08:12</Fecha>
                                     </Registro>
                                 </ContenedorRegistro>
-                                {/* <hr></hr> */}
                             </InformacionActivacion>
                             <DatosUsuario>
                                 <h3>Datos personales</h3>
                                 <Container>
                                     <Informacion>
                                         <Nombre>Nombre:</Nombre>
+                                        <Nombre>Empresa:</Nombre>
                                         <Nombre>Email:</Nombre>
                                         <Nombre>contraseña:</Nombre>
                                     </Informacion>
                                     <Informacion>
-                                        <Nombre>{userData.username}</Nombre>
-                                        <Nombre>{userData.email}</Nombre>
+                                        <Nombre>{userData.username.toUpperCase()}</Nombre>
+                                        <Nombre>{userData.nombreEmpresa.toUpperCase()}</Nombre>
+                                        <Nombre>{userData.email.toUpperCase()}</Nombre>
                                         <ContenedorPassword  type="password" value={userData.password} ></ContenedorPassword>
-
-                                        {/* <Nombre> {token.password} </Nombre> */}
+                                        
                                     </Informacion>
                                 </Container>
-                                  <Editar>Editar</Editar>
-
+                                <Editar onClick={() => {
+                                setModalAbierta(!modalAbierta)}}>Editar</Editar>
                             </DatosUsuario>
                         </ContenedorPerfil>
                     </Main>
