@@ -87,12 +87,13 @@ function Retorno8() {
 
                     <Parrafo1><h3>Resumen</h3></Parrafo1>
                     <Area placeholder="Describe la empresa" onChange={(e) => setDescripcion(e.target.value)} />
-                </Caja1>
+                </Caja1>  
                 <hr />
                 <Caja2>
-                    <Boton2>Cancelar</Boton2>
+                    <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
                     <Boton1 onClick={createEmpresa}>Crear empresa</Boton1>
                 </Caja2>
+                
             </Container1>
         </Div1>
     );

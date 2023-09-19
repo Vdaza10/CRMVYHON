@@ -13,10 +13,10 @@ position: absolute;
 `;
 // Estilo para el contenedor que envuelve el contenido principal
 export const Container1 = styled.div`
-    height: 100%;
+    height: 99.6%;
     width: 100%;
-    /* background-color: white; */
-    background-color: aqua;
+    background-color: white;
+    /* background-color: aqua; */
     border: solid 1px black;
 `
 // Estilo para una caja que contiene elementos
@@ -26,6 +26,7 @@ export const Caja = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 `
 // Estilo para el párrafo
 export const Parrafo = styled.p`
@@ -34,23 +35,28 @@ export const Parrafo = styled.p`
     display: flex;
     align-items: center;
     padding-left: 20px;
+    
 `
 // Estilo para la imagen
 export const Img = styled.img`
     height: 30px;
     width: 30px;
     padding-right: 30px;
+    cursor: pointer;
+    
 ` 
 // Estilo para otro párrafo
 export const Parrafo1 = styled.p`
     font-size: 15px;
     font-style: italic;
+    
 `
 // Estilo para una caja que contiene elementos (sección principal)
 export const Caja1 = styled.div`
-    height: 75%;
-    width: 100%;
+    height: 70%;
+    width: 94%;
     padding-left: 20px;
+    /* background-color: pink; */
 `
 // Estilo para el input
 export const Input = styled.input`
@@ -58,6 +64,7 @@ export const Input = styled.input`
     width: 90%;
     font-size: 17px;
     outline: none;
+    
 `
 // Estilo para el área de texto
 export const Area = styled.textarea`
@@ -65,6 +72,7 @@ export const Area = styled.textarea`
     width: 90%;
     font-size: 17px;
     outline: none;
+    /* background-color: aqua; */
 `
 // Estilo para un botón de acción
 export const Boton1 = styled.button`
@@ -84,6 +92,7 @@ export const Boton1 = styled.button`
         outline: none;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
         }
+        
 `
 // Estilo para otro botón de acción
 export const Boton2 = styled.button`
@@ -104,19 +113,21 @@ export const Boton2 = styled.button`
         outline: none;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
         }
+        
 `
 // Estilo para una caja que contiene elementos (sección de botones)
 export const Caja2 = styled.div`
-    height: 10%;
-    width: 100%;
-    display: flex;
+    height: 14%;
+    width: 99%;
     display: flex;
     align-items: normal;
     justify-content: space-evenly;
     align-items: center;
-    right: auto;
+    /* right: auto; */
+    /* background-color: aqua; */
 `
 export const SelectEmpresa = styled.select`
     height: 5.5%;
     width: 92%;
+    
 `

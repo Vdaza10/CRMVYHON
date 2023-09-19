@@ -86,7 +86,7 @@ const [buscar, setBuscar] = useState("")
     }
     setTimeout(() => {
       window.location.href = "/empresas"  
-       },0)
+    },0)
   };
 
   useEffect(() => {

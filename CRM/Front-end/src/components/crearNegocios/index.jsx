@@ -60,7 +60,7 @@ function CrearNegocios() {
         setTimeout(() => {
                         
             window.location.href = "/negocios"  
-        },0);
+    },0);
     };
 
     if (!cerrar) {
@@ -106,7 +106,7 @@ function CrearNegocios() {
                     <hr />
                     <Caja3>
                         <Boton1 onClick={createNegocio}>Crear negocio</Boton1>
-                        <Boton2>Cancelar</Boton2>
+                        <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
                     </Caja3>
                 </Principal>
             </Container>

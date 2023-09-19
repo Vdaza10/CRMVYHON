@@ -6,14 +6,16 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
+/* background-color: bisque; */
 `;
 
 export const ContainerSecundario = styled.div`
     width: 90%;
     max-height: 75%;
     min-height: 50px;
-  overflow-y: auto;
-  overflow-x: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* background-color: aqua; */
 `
 
 export const Heder = styled.div`
@@ -23,7 +25,6 @@ export const Heder = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-
     h1{
         margin: 0;
         margin-left: 2%;
