@@ -11,7 +11,6 @@ function PerfilUsuario() {
     const [userData, setUserData] = useState({});
 
     let navigate = useNavigate();
-  
 
     useEffect(() => {
 
@@ -19,9 +18,9 @@ function PerfilUsuario() {
         if(userToken){
             try {
             const token = jwt_decode(userToken);
-      console.log(token, "❤️❤️💕💕💕❤️");
-      setUserData(token);
-      setLoading(false);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setUserData(token);
+        setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
                 navigate('/'); 
@@ -29,12 +28,8 @@ function PerfilUsuario() {
         }else{
             navigate('/');
         }
-     
+    
     },[navigate])
-
-   
-  
-  
 
     return (
         <>
