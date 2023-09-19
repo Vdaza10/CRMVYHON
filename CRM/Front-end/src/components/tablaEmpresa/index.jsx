@@ -56,8 +56,10 @@ const [buscar, setBuscar] = useState("")
 } else {
   resBusqueda = empresa.filter(
       (dato) =>
-      dato.nombreEmpresa  &&
-      dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase()),
+      (dato.nombreEmpresa  && dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.segmento && dato.segmento.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.url && dato.url.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.descripcion && dato.descripcion.toLowerCase().includes(buscar.toLowerCase()))
 );
 }
 

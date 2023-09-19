@@ -100,19 +100,51 @@ function Retorno4({ setContactoCreado }) {
           <Parrafo1>
             <h3>Nombre</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el nombre del contacto" onChange={(e) => setNombreUsuario(e.target.value)}></Input>
+          <Input placeholder="Ingresar el nombre del contacto" 
+          onKeyPress={(event) => {
+            const inputValue = event.key;
+            const regex = /[a-zA-Z ]/; // Expresión regular que permite letras y números
+            if (!regex.test(inputValue)) {
+              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+            }
+          }}
+          onChange={(e) => setNombreUsuario(e.target.value)}></Input>
           <Parrafo1>
             <h3> Cargo</h3>
           </Parrafo1>
-          <Input placeholder="Ingresa el contacto del contacto" onChange={(e) => setCargo(e.target.value)}></Input>
+          <Input placeholder="Ingresa el contacto del contacto"
+          onKeyPress={(event) => {
+            const inputValue = event.key;
+            const regex = /[a-zA-Z ]/; // Expresión regular que permite letras y números
+            if (!regex.test(inputValue)) {
+              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+            }
+          }}
+          onChange={(e) => setCargo(e.target.value)}></Input>
           <Parrafo1>
             <h3>Telefono</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el telefono del contacto" onChange={(e) => setTelefono(e.target.value)}></Input>
+          <Input placeholder="Ingresar el telefono del contacto" 
+          onKeyPress={(event) => {
+            const inputValue = event.key;
+            const regex = /[0-9]/; // Expresión regular que permite letras y números
+            if (!regex.test(inputValue)) {
+              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+            }
+          }}
+          onChange={(e) => setTelefono(e.target.value)}></Input>
           <Parrafo1>
             <h3>Email</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el email del contacto" onChange={validacion} type="email"></Input>
+          <Input placeholder="Ingresar el email del contacto" 
+          onKeyPress={(event) => {
+            const inputValue = event.key;
+            const regex = /[_.@a-zA-Z0-9]/;
+            if (!regex.test(inputValue)) {
+              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+            }
+          }}
+          onChange={validacion} type="email"></Input>
           <Parrafo1>
             <h3>Empresa del contacto </h3>
           </Parrafo1>

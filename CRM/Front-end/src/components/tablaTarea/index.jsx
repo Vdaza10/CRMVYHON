@@ -59,8 +59,12 @@ const [buscar, setBuscar] = useState("")
 } else {
   resBusqueda = tarea.filter(
       (dato) =>
-      dato.tipoTarea  &&
-      dato.tipoTarea.toLowerCase().includes(buscar.toLowerCase()),
+      (dato.nombreNegocio && dato.nombreNegocio.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.asunto && dato.asunto.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.responsable  && dato.responsable.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.tipoTarea  && dato.tipoTarea.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.fecha && dato.fecha.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.hora && dato.hora.toLowerCase().includes(buscar.toLowerCase()))
 );
 }
 

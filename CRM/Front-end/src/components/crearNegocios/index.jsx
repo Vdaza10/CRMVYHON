@@ -78,11 +78,35 @@ function CrearNegocios() {
                     <hr />
                     <Caja2>
                         <Parrafo1><h3>Nombre del negocio</h3></Parrafo1>
-                        <Input placeholder="Ingresar el nombre del negocio" onChange={(e) => setNombreNegocio(e.target.value)} />
+                        <Input placeholder="Ingresar el nombre del negocio" 
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z0-9& ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setNombreNegocio(e.target.value)} />
                         <Parrafo1><h3>Etapa del embudo</h3></Parrafo1>
-                        <Input placeholder="Ingresar la etapa del embudo" onChange={(e) => setEtapas(e.target.value)} />
+                        <Input placeholder="Ingresar la etapa del embudo"
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z0-9 ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setEtapas(e.target.value)} />
                         <Parrafo1><h3>Fuente</h3></Parrafo1>
-                        <Input placeholder="Ingresar la fuente" onChange={(e) => setFuente(e.target.value)} />
+                        <Input placeholder="Ingresar la fuente" 
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setFuente(e.target.value)} />
                         <Parrafo1><h3>Campaña</h3></Parrafo1>
                         <Select value={selectEmpresa} onChange={(e) => setSelectEmpresa(e.target.value)}>
                             <option value="">Seleccionar campaña...</option>
