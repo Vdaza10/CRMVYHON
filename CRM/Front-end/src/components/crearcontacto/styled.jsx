@@ -5,16 +5,17 @@ export const Div1 = styled.div`
 position: absolute;
     height: 90vh;
     width: 18%;
-    top: 92px;
+    top: 97px;
     right: 0px;
     display: flex; 
     justify-content: center; 
 `;
 // Estilo para un contenedor principal
 export const Container1 = styled.div`
-    height: 100%;
+    height: 99.6%;
     width: 100%;
     background-color: white;
+    /* background-color: aqua; */
     border: solid 1px black;
 `
 // Estilo para una caja que contiene elementos
@@ -47,8 +48,8 @@ export const Parrafo1 = styled.p`
 `
 // Estilo para una caja que contiene elementos
 export const Caja1 = styled.div`
-    height: 75%;
-    width: 100%;
+    height: 70%;
+    width: 94%;
     padding-left: 20px;
 `
 // Estilo para un input de texto

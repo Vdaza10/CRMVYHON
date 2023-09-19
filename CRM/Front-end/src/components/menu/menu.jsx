@@ -36,18 +36,20 @@ export const MenuItem = styled.li`
     margin-right: 5%;
     margin-left: 3%;
     cursor: pointer;
+    transition: all 0.2s ease; // Transición suave para todos los cambios
     &:last-child {
-    margin-right: 45px;
+        margin-right: 45px;
     }     
-    &:hover{
+    &:hover {
         width: 65%;
-        background-color: #0e9af2;
         color: #333;
+        transform: scale(1.2); // Aumentar ligeramente el tamaño al hacer hover
     }
     @media screen {
         display: flex;
     }
 `;
+
 
 // Menú desplegable (para el ítem "Analisis")
 export const Despegable = styled.ul`

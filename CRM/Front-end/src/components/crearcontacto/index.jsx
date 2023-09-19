@@ -161,7 +161,7 @@ function Retorno4({ setContactoCreado }) {
         {/* Tercera sección */}
         <Caja2>
           {/* Botones para cancelar o crear el contacto */}
-          <Boton2>Cancelar</Boton2>
+          <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
           <Boton1 onClick={createContacto}>Crear contacto</Boton1>
         </Caja2>
       </Container1>

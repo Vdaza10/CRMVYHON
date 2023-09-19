@@ -48,7 +48,7 @@ function Retorno1() {
             <p
               style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>Ajustes</p>
             <Link to="/markenting" onClick={verPerfil}style={{ textDecoration: "none", color: "white" }}>
-             
+          
             </Link>
             <hr />
           </Caja3>

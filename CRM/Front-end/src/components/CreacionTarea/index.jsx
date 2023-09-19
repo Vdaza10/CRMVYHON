@@ -151,7 +151,7 @@ const CrearTarea = () => {
                     <hr />
                     <Caja3>
                         <Boton1 onClick={Compromiso}>Crear tarea</Boton1>
-                        <Boton2>Cancelar</Boton2>
+                        <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
                     </Caja3>
                 </Principal>
             </Container>

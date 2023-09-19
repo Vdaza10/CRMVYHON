@@ -6,7 +6,6 @@ import Retorno5 from "./tarea"
 import Retorno4 from "./crearcontacto"
 import Retorno7 from "./Vistaempresas"
 import PerfilUsuario from "./Perfilusuario"
-
 import CrearTarea from "./CreacionTarea"
 import Principal from "./login"
 import Registrarse from "./Registro/Fondo/registroPrincipal"
@@ -25,7 +24,6 @@ import Promocion from "./promocion/promocion"
 import Pedidos from "./pedidos/pedidos"
 import Campañasms from "./campañasms/campaña"
 import FormularioPedido from "./CrearPedido"
-
 import NegocioUpdate from "./updateNegocio"
 
 const Todo = () => {
