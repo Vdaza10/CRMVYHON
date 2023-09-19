@@ -24,6 +24,7 @@ import Comunicacion from "./comunicacion/comunicacion"
 import Promocion from "./promocion/promocion"
 import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
+import Pedidos from "./pedidos/pedidos"
 
 
 import NegocioUpdate from "./updateNegocio"
@@ -60,6 +61,7 @@ const Todo = () => {
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
                 {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
+                <Route path="/pedidos" element={<Pedidos/>}></Route>
             </Routes>
         </BrowserRouter>
     )
