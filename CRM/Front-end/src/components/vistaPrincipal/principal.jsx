@@ -3,19 +3,18 @@ import {Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
 import Menu from "../menu/principal";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import carrusel from "../img/imagenCarrusel.png"
+import carrusel from "../img/imagenCarrusel.jpg"
 
     const Vistaprincipal = () => { // Declara un componente funcional llamado Vistaprincipal.
     const [tarjetaActual, setTarjetaActual] = useState(0);  // Declara el estado 'tarjetaActual' con valor inicial 0 y una función para actualizarlo.
     const [loading, setLoading] = useState(true)
- 
     
     const tarjetas = [
-            {title: "DATOS DE CONTACTO DEL CLIENTE", descripcion: "Nombre" ,descripcion2: "Direccion de correo electronico"},
-            {title: "HISTORIAL DE INTERRACCIONES", descripcion: "Registros de llamadas", descripcion2: "correos electronicos enviados y recibidos"},
-            {title: "INFORMACIÓN SOBRE OPORTUNIDADES DE VENTA ", descripcion: "Detalles sobre las oportunidades de negocio co el cliente, incluye el estado, el valor estimado y las fechas importantes"},
-            {title: "ACTIVIDADES PENDIENTES", descripcion: "Tareas y recordatorios reacionados con el cliente, como seguimientos programados, llamadas de seguimientos, presentaciones pendientes"},
-            {title: "HITORIAL DE COMPRAS", descripcion: "informacion sobre las compras previas realidas por el cliente, productos o servios adquiridas y fechas de compras"},
+            {title: "DATOS DE CONTACTO DEL CLIENTE", descripcion: "Nombre" ,descripcion2: "Dirección de correo electrónico."},
+            {title: "HISTORIAL DE INTERRACCIONES", descripcion: "Registros de llamadas", descripcion2: "correos electrónicos enviados y recibidos."},
+            {title: "INFORMACIÓN SOBRE OPORTUNIDADES DE VENTA ", descripcion: "Detalles sobre las oportunidades de negocio con el cliente, incluyendo el estado, el valor estimado y las fechas importantes."},
+            {title: "ACTIVIDADES PENDIENTES", descripcion: "Tareas y recordatorios relacionados con el cliente, como seguimientos programados, llamadas de seguimientos, presentaciones pendientes."},
+            {title: "HITORIAL DE COMPRAS", descripcion: "información sobre las compras previas realizadas por el cliente, productos o servios adquiridos y fechas de compras."},
         ]
         // Función para asignar animaciones a las tarjetas.
     const asignarAnimacion = (claseActual, claseSiguiente) => {
@@ -53,8 +52,8 @@ useEffect(() => {
     if(userToken){
         try {
         const token = jwt_decode(userToken);
-  console.log(token, "❤️❤️💕💕💕❤️");
-  setLoading(false);
+    console.log(token, "❤❤💕💕💕❤");
+    setLoading(false);
         } catch (error) {
             console.error("Error al decodificar el token:", error);
             navigate('/'); 
@@ -74,32 +73,32 @@ return (
 
     <>
         <Menu/> {/*Renderiza el componente Menu.*/}
-        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"700px", }}>
-       <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1>
+        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"850px"}}>
+        <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1>
+
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
         {/* <button onClick={handleClickPrev}>Prev</button> */}
+
         <ContenedorTarjeta>{/*// Renderiza un componente llamado ContenedorTarjeta.*/}
-        <div className="carousel" style={{display: "flex", height: "400px",  marginLeft:"1575px"}}>
+                <div className="carousel" style={{display: "flex", height: "400px",  marginLeft:"1575px"}}>
             {/*Mapea los objetos 'tarjeta' en el arreglo 'tarjetas'.*/}
             {tarjetas.map((tarjeta, index) => ( 
             <Tarjeta1
                 key={index}
-                className={`tarjeta ${tarjeta === tarjetas[tarjetaActual] ? "active" : ""}`}
-            >
+                className={`tarjeta ${tarjeta === tarjetas[tarjetaActual] ? "active" : ""}`}>
                 <h2 style={{textAlign:"center", color:"white"}}>{tarjeta.title}</h2>
                 <p style={{textAlign:"center", color:"white"}}>{tarjeta.descripcion}</p>
                 <p style={{textAlign:"center", color:"white"}}>{tarjeta.descripcion2}</p>
             </Tarjeta1>
             ))}
-        </div>
+                </div>
         </ContenedorTarjeta>
     </Contenedor>            
         </div>
- 
     </>
     )}
     </>
 );
 };
 
-export default Vistaprincipal;
+export default Vistaprincipal;

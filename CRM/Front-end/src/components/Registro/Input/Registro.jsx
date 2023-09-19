@@ -93,6 +93,13 @@ const Registrarse = () => {
               </h3>
             </TextoImput>
             <Input
+            onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[a-zA-Z ]/; // Expresión regular que permite letras y números
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}
               onChange={(event) => {
                 setNombre(event.target.value);
               }}
@@ -108,6 +115,13 @@ const Registrarse = () => {
               </h3>
             </TextoImput>
             <Input
+            onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[a-zA-Z0-9& ]/; // Expresión regular que permite letras y números
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}
               onChange={(event) => {
                 setEmpresa(event.target.value);
               }}
@@ -123,7 +137,15 @@ const Registrarse = () => {
               </h3>
             </TextoImput>
             <Input
-              // placeholder="Ingrese su correo electronico"
+
+            onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[_.@a-zA-Z0-9]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}
+
               onChange={(e) => Validacion(e)}
               type="email"
               // placeholder ="ejemplo@kmas.com"

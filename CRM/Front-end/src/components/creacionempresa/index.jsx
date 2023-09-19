@@ -47,13 +47,13 @@ function Retorno8() {
                 descripcion
             });
             console.log("Empresa creada:", response.data);
-        } catch (error) { 
+        } catch (error) {
             console.log("Error al crear empresa:", error);
         }
         setTimeout(() => {
-                        
-            window.location.href = "/empresas"  
-        },0);
+
+            window.location.href = "/empresas"
+        }, 0);
     };
 
 
@@ -70,15 +70,24 @@ function Retorno8() {
                 {/* Formulario para crear una empresa */}
                 <Caja1>
                     <Parrafo1><h3>Nombre de la empresa</h3></Parrafo1>
-                    <Input placeholder="Ingresar el nombre de la empresa" onChange={(e) => setNombreEmpresa(e.target.value)} />
+                    <Input
+                        placeholder="Ingresar el nombre de la empresa"
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z0-9& ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setNombreEmpresa(e.target.value)} />
 
                     <Parrafo1><h3> Segmento</h3></Parrafo1>
                     <SelectEmpresa value={selectedSegmento} onChange={(e) => setSelectedSegmento(e.target.value)}>
                         <option value="">Seleccionar segmento...</option>
                         {segmento.map(segmento => (
-                        <option key={segmento.idSegmento} value={segmento.idSegmento}>
-                        {segmento.segmento}
-                        </option>
+                            <option key={segmento.idSegmento} value={segmento.idSegmento}>
+                                {segmento.segmento}
+                            </option>
                         ))}
                     </SelectEmpresa>
 
@@ -86,13 +95,23 @@ function Retorno8() {
                     <Input placeholder="Introduce la dirección web de la empresa" onChange={(e) => setUrl(e.target.value)} />
 
                     <Parrafo1><h3>Resumen</h3></Parrafo1>
-                    <Area placeholder="Describe la empresa" onChange={(e) => setDescripcion(e.target.value)} />
+                    <Area 
+                    placeholder="Describe la empresa"
+                    onKeyPress={(event) => {
+                        const inputValue = event.key;
+                        const regex = /[a-zA-Z0-9 ]/; // Expresión regular que permite letras y números
+                        if (!regex.test(inputValue)) {
+                          event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                        }
+                      }}
+                     onChange={(e) => setDescripcion(e.target.value)} />
                 </Caja1>
                 <hr />
                 <Caja2>
-                    <Boton2>Cancelar</Boton2>
+                    <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
                     <Boton1 onClick={createEmpresa}>Crear empresa</Boton1>
                 </Caja2>
+                
             </Container1>
         </Div1>
     );

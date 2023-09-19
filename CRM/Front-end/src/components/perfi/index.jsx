@@ -45,13 +45,11 @@ function Retorno1() {
               <p style={{ fontSize: "18px", color: "black", marginLeft: "7px" }}><h1>cop 0,00</h1></p>
               <img src={imagen} alt="img" style={{ width: "30px", height: "30px" }}/>
             </Cajita>
-       
           </Caja1>
           <Caja2 style={{marginTop:"10px"}}>
             <Link to="/perfilusuario" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
               <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>perfil{" "}</p>
             </Link>
-           
           </Caja2>
           <Caja2>
           <Link to="/grafica" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>

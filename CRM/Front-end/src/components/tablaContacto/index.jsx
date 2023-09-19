@@ -58,8 +58,12 @@ const [buscar, setBuscar] = useState("")
 } else {
     resBusqueda = contacto.filter(
         (dato) =>
-        dato.nombreContacto &&
-        dato.nombreContacto.toLowerCase().includes(buscar.toLowerCase())
+        (dato.nombreContacto && dato.nombreContacto.toLowerCase().includes(buscar.toLowerCase())) || 
+        (dato.cargo && dato.cargo.toLowerCase().includes(buscar.toLowerCase())) ||
+        (dato.telefono && dato.telefono.toString().toLowerCase().includes(buscar.toLowerCase())) ||
+        (dato.correo && dato.correo.toLowerCase().includes(buscar.toLowerCase()))||
+        (dato.nombreEmpresa&& dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase()))
+
 );
 }
 
