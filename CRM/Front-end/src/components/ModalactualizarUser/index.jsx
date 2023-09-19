@@ -13,12 +13,13 @@ const UserEditar = ({ status, changeStatus, userData }) => {
 
   useEffect(() => {
     if (userData) {
-      setNombreUsuario(userData.nombreUsuario);
+      setNombreUsuario(userData.username);
       setNombreEmpresa(userData.nombreEmpresa);
-      setCorreo(userData.correo);
-      setContraseña(userData.contraseña);
+      setCorreo(userData.email);
+      setContraseña(userData.password);
     }
   }, [userData]);
+  console.log(userData);
 
   const updateUser = async () => {
     // Verificar si el correo es válido antes de guardar los datos

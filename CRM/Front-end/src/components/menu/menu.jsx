@@ -121,13 +121,12 @@ export const ImagenPerfil = styled.div`
 export const Menudesplegable = styled.div`
     display: ${({ perfilDesplegable }) => (perfilDesplegable ? "block" : "none")};
     width: 130%;
-    height: 350px;
+    height: 560%;
     list-style: none;
     position: absolute;
-    top: 130%;
+    top: 133%;
     left: 105px;  
     padding: 0;
-    border: 1px solid  gray;
     background-color: white;
 `
 

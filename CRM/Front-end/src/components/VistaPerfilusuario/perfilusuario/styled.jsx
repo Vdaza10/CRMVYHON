@@ -155,7 +155,7 @@ export const Container = styled.div`
     justify-content : space-between;
 `;
 export const ContenedorPassword = styled.input`
-   background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
+   background: #fffbfb17;
    color: gray; 
    border: none;
     outline:none

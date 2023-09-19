@@ -25,14 +25,13 @@ export const Login = async(req,res) =>{
             return res.status(404).json({message: "contraseña invalida"})
         }
         const accessToken = jwt.sign(
-            { id: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña},
+            { id: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
             Secret,
             {
             expiresIn: "1h",
             }
         );
         res.json(accessToken)
-        console.log(accessToken, '💕💕💕💕💕💕💕');
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: 'Algo va mal'})
