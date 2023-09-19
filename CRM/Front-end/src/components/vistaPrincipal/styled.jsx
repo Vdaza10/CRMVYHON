@@ -46,5 +46,3 @@ export const Tarjeta2 = styled.div`
     height: 600px;
     margin-left: 1820%;
 `;
-
-
