@@ -25,7 +25,7 @@ export const Contenedor = styled.div`
   justify-content: center;
   /* align-items: center; */
   width: 25em;
-  height: 52%;
+  height: 30em;
   border-radius: 15px;
   box-shadow: 4px 4px 55px -29px rgba(0,0,0,0.77);
 `;

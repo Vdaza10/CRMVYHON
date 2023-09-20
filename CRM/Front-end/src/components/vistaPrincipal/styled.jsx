@@ -24,7 +24,7 @@ width: 234em;
 export const Tarjeta1 = styled.div`
 width: 320px;
 height: 435px;
-background-color: #10daf0b8;
+background-color: #2d5affb8;
 /* background-color: #0099ffac; */
 transition: all 0.3s ease;
 border-radius: 3em;
