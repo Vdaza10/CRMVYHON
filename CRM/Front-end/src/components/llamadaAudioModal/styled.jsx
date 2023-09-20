@@ -71,10 +71,28 @@ export const Caja = styled.div`
     margin-top: 10px;
     margin-bottom: 5px;
 
-    .InputTelefono{
+    .InputPequeño{
         width: 46%;
         height: 80%;
         margin: 0;
+    }
+
+    .Cajafieldset{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: gray;
+        border: solid 1px gray;
+        border-radius:5px;
+        width: 42%;
+        height: 75%;
+
+        .InputHora{
+            height: 25px;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
     }
 `
 export const Boton = styled.button`

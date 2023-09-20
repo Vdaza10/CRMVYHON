@@ -86,7 +86,7 @@ const CrearTarea = () => {
                     <Caja2>
                         <Parrafo1><h3>Negocio</h3></Parrafo1>
                         <Select value={selectNegocio} onChange={(event) => {
-                            setSelectNegocio(event.target.value)
+                            setSelectNegocio(event.target.value);
                         }}>
 
                             <option value="option">option</option>
