@@ -26,6 +26,7 @@ import Campañasms from "./campañasms/campaña"
 import FormularioPedido from "./CrearPedido"
 import NegocioUpdate from "./updateNegocio"
 import Grafica from "./graficas"
+import Notificación from "./VistaPerfilusuario/vistaNotificaciones/notificaciones"
 
 const Todo = () => {
     return (
@@ -59,6 +60,7 @@ const Todo = () => {
                 <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
                 <Route path="/grafica" element = {<Grafica/>}></Route>
+                <Route path="/noti" element = {<Notificación/>}></Route>
                 {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
             </Routes>
         </BrowserRouter>

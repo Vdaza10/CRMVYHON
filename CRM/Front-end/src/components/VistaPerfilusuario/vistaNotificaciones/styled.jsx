@@ -1,17 +1,12 @@
 import styled from "styled-components";
 
 const Fondo = styled.div`
-    background-color: #ffffff;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: -webkit-linear-gradient(70deg, #56b7f7b6 0%, #ffffff 100%);
 `
 const Contenedor = styled.div`
-background-color: #abd3ec;
-    width: 99.3%;
-    height: 99.2vh;
+    background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
+    width: 100%;
+    height: 75vh;
     display: flex;
     justify-content: center;
 `
@@ -26,21 +21,22 @@ border-radius: 15px;
     justify-content: space-evenly;
     
     cursor: pointer;
+
     &.hover{
         margin-top: 15px;
-    background-color: #ffffff92;
+        background-color: #56b7f75c ;
+
     :hover{
-        
         background: -webkit-linear-gradient(180deg, #ffffff 0%, #989dd4 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bdb2e1",endColorstr="#ffffff",GradientType=1);
     }
     }
+    
     .perfil{
         width: 20%;
         height: 85%;
     }
     .contenedorParrafo{
-
         width: 70%;
         height: 100%;
         display: flex;
@@ -67,7 +63,6 @@ border-radius: 15px;
         height: 15%;
         display: flex;
         justify-content: end;
-
     }
     
 `
