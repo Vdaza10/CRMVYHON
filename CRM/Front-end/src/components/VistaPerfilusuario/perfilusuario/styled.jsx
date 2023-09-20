@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 // fondo
 export const Fondo = styled.div`
-    /* background-color:#f2f2f2; */
     background: -webkit-linear-gradient(70deg, #56b7f7b6 0%, #ffffff 100%);
-
 `
 //Header y su contenido
 export const Header = styled.header`
@@ -27,7 +25,6 @@ export const Main = styled.div `
     display: flex;
     justify-content: center;
     height: 76vh;
-    /* background-color: #56b7f7a2; */
     background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
 `
 
@@ -109,7 +106,7 @@ export const Editar = styled.button`
 }
 
 `;
-export const Caja = styled.div`
+export const Cajaheader = styled.div`
     display: flex;
     margin-top: 30px;
     margin-left: 30px;

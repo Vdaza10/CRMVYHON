@@ -45,7 +45,7 @@ export const createUsers = async (req, res) => {
     } catch (error) {
         console.error(error); // Puedes agregar un registro del error para debug
         return res.status(500).json({ message: 'Algo va mal' });
-    }
+}
 }
 
 export const updateUsers = async (req, res) => {
