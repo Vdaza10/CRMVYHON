@@ -25,7 +25,6 @@ function Principal() {
             localStorage.setItem("user", JSON?.stringify(result));
             setTimeout(() => {
               window.location.href = "/vistaprincipal";
-              // console.log(localStorage.setItem("user", JSON?.stringify(result)), '👌👌👌👌');
             }, 1000)
           }
         })

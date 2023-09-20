@@ -1,6 +1,5 @@
 // Importación de librerías y recursos necesarios
 import styled from "styled-components"
-import perfil from "../img/perfil.jpg"
 
 // Contenedor principal de la barra de navegación
 export const Contenedor = styled.div`
@@ -86,10 +85,11 @@ export const Ajustes = styled.div`
     height: 60px;
     width: 200px;
     color: white;
+    position: absolute;
     display: flex;
     align-items: center;
     position: absolute;
-    /* background-color: #640817; */
+    background-color: #640817;
     right: 0px;
     margin-inline-end: 170px;
     justify-content: flex-end;
@@ -99,37 +99,35 @@ export const Ajustes = styled.div`
     }
 ` 
 
-// Imagen de perfil de usuario
-export const ImagenPerfil = styled.div`
-    background-image: url(${perfil});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    cursor: pointer;
-    &:last-child {
-    margin-right: 0;
-    }    
-    &:hover{
-        background-color: #ee3ed192;
-        color: #661313;
-    }
-    
-`;
+// // Imagen de perfil de usuario
+// export const ImagenPerfil = styled.div`
+//     background-image: url(${perfil});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 100%;
+//     cursor: pointer;
+//     &:last-child {
+//     margin-right: 0;
+//     }    
+//     &:hover{
+//         background-color: #ee3ed192;
+//         color: #661313;
+//     }
+// `;
 
 // Menú desplegable del perfil de usuario
 export const Menudesplegable = styled.div`
     display: ${({ perfilDesplegable }) => (perfilDesplegable ? "block" : "none")};
     width: 130%;
-    height: 350px;
+    height: 560%;
     list-style: none;
     position: absolute;
-    top: 130%;
+    top: 133%;
     left: 105px;  
     padding: 0;
-    border: 1px solid  gray;
     background-color: white;
 `
 

@@ -5,7 +5,7 @@ import Retorno3 from "./contacto"
 import Retorno5 from "./tarea"
 import Retorno4 from "./crearcontacto"
 import Retorno7 from "./Vistaempresas"
-import PerfilUsuario from "./Perfilusuario"
+import PerfilUsuario from "./VistaPerfilusuario/perfilusuario"
 import CrearTarea from "./CreacionTarea"
 import Principal from "./login"
 import Registrarse from "./Registro/Fondo/registroPrincipal"
@@ -25,6 +25,7 @@ import Pedidos from "./pedidos/pedidos"
 import Campañasms from "./campañasms/campaña"
 import FormularioPedido from "./CrearPedido"
 import NegocioUpdate from "./updateNegocio"
+import Grafica from "./graficas"
 
 const Todo = () => {
     return (
@@ -44,7 +45,6 @@ const Todo = () => {
                 <Route path="/tareas" element = {<Retorno5/>}></Route> 
                 <Route path="/empresas" element = {<Retorno7/>}></Route>
                 <Route path="/perfilusuario" element = {<PerfilUsuario/>}></Route>
-
                 <Route path="/creartarea" element = {<CrearTarea/>}></Route>
                 <Route path="/tablaContacto" element = {<TablaContacto/>}></Route>
                 <Route path="/tablaEmpresa" element = {<TablaEmpresa/>}></Route>
@@ -58,6 +58,7 @@ const Todo = () => {
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
                 <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
+                <Route path="/grafica" element = {<Grafica/>}></Route>
                 {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
             </Routes>
         </BrowserRouter>

@@ -18,7 +18,6 @@ function Retorno4({ setContactoCreado }) {
     if (Validator.isEmail(emai)) {
       setEmail(emai);
     } else {
-      // setEmail(""); // Establece el email en blanco si no es válido
     }
   };
 
