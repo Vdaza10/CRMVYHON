@@ -12,13 +12,15 @@ function PerfilUsuario() {
     const [modalAbierta, setModalAbierta] = useState(false);
     const [loading, setLoading] = useState(true)
     const [userData, setUserData] = useState({});
+    // const [userToke, setToken] = useState("");
+
 
     let navigate = useNavigate();
 
 
     useEffect(() => {
-
         const userToken = localStorage.getItem("user");
+        console.log(userToken);
         if(userToken){
             try {
             const token = jwt_decode(userToken);
@@ -29,7 +31,7 @@ function PerfilUsuario() {
                 navigate('/'); 
             }
         }else{
-            navigate('/');
+            navigate('');
         }
     },[navigate])
 
@@ -70,11 +72,11 @@ function PerfilUsuario() {
                                 <ContenedorRegistro>
                                     <Registro style={{ marginTop: "25px" }}>
                                         Registrado el:
-                                        <Fecha type="date">{userData.date}</Fecha>
+                                        <Fecha >{userData.date}</Fecha>
                                     </Registro>
                                     <br />
                                     <Registro>Actualizado por última vez el:
-                                        <Fecha type="date">09/08/2023 08:12</Fecha>
+                                        <Fecha ></Fecha>
                                     </Registro>
                                 </ContenedorRegistro>
                             </InformacionActivacion>

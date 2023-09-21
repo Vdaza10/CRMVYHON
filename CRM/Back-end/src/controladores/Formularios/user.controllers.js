@@ -8,8 +8,7 @@ export const getUsers = async(req,res) =>{
         const [enviar] = await pool.query(email,guardar)
         if(enviar.length > 0 ){
             return res.send('correo encontrado')
-        }
-        //const [rows] = await pool.query('SELECT correo FROM registro');
+                }
         res.json(rows)
 
     } catch (error) {
@@ -49,23 +48,24 @@ export const createUsers = async (req, res) => {
 }
 
 export const updateUsers = async (req, res) => {
-    const { idRegistro } = req.params;
+    const { id } = req.params;
   try {
     const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-    const encrypt = await encryptPassword(contraseña)
     const updateUser = await pool.query(
         'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-      [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
+      [nombreUsuario,nombreEmpresa,correo, contraseña,id]
     );
  
+    
     res.status(200).json({ mensaje: 'Usuario actualizado' ,
-    idRegistro,nombreUsuario,nombreEmpresa,correo,encrypt});
+    id,nombreUsuario,nombreEmpresa,contraseña});
 
 } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: 'Error al actualizar usuario' });
 }
 };
+
 export const deleteUsers = async (req, res) => {
 try {
 } catch (error) {

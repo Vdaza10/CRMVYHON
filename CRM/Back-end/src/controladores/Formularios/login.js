@@ -1,4 +1,4 @@
-import { compare } from "../../helpers/Bycrypt.js";
+import { compare } from "../../helpers/Bycrypt.js"; // Asegúrate de que la ruta y el nombre del archivo sean correctos
 import { pool } from "../../db.js";
 import { Secret } from "../../db.js";
 import jwt from "jsonwebtoken";
@@ -25,7 +25,7 @@ export const Login = async(req,res) =>{
             return res.status(404).json({message: "contraseña invalida"})
         }
         const accessToken = jwt.sign(
-            { id: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
+            { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
             Secret,
             {
             expiresIn: "1h",

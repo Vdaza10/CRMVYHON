@@ -14,13 +14,37 @@ import {
 import { GrClose } from "react-icons/gr";
 import IPerfil from "../img/perfil.jpg";
 import Axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
-const UserEditar = ({ status, changeStatus, userData }) => {
+const UserEditar = ({ status, changeStatus }) => {
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const emailInputRef = useRef(null);
+  // const [loading, setLoading] = useState(true)
+  const [userData ,setUserData] = useState({});
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const userToken = localStorage.getItem("user");
+    if(userToken){
+        try {
+        const token = jwt_decode(userToken);
+setUserData(token);
+
+        } catch (error) {
+            console.error("Error al decodificar el token:", error);
+            navigate('/'); 
+        }
+    }else{
+
+    }
+},[navigate])
+
+
 
   useEffect(() => {
     if (userData) {
@@ -30,13 +54,16 @@ const UserEditar = ({ status, changeStatus, userData }) => {
       setContraseña(userData.password);
     }
   }, [userData]);
-  console.log(userData);
+  console.log("clgggggg",userData);
 
   const updateUser = async () => {
     // Verificar si el correo es válido antes de guardar los datos
     if (!emailInputRef.current.validity.valid) {
       alert("El correo ingresado no es válido.");
-      return;
+      
+    }else{
+      
+
     }
 
     try {
@@ -59,18 +86,25 @@ const UserEditar = ({ status, changeStatus, userData }) => {
         contraseña,
       };
       localStorage.setItem("user", JSON.stringify(updatedUserData));
-      console.log("Usuario actualizado.", res.data);
+      console.log("Usuario actualizado.", res.data); 
     } catch (error) {
       console.error(error);
     }
-
-    setTimeout(() => {
+    setTimeout(()=>{
       window.location.href = "/perfilusuario";
-    }, 0);
+    },1000)
+   
   };
 
   return (
-    <>
+    // <>
+    
+    // {loading ? (
+    //             <>
+    //                 <h1>Cargando......</h1>
+    //             </>
+    //         ) : (
+              <>
       {status && (
         <Container>
           <ContenedorModal>
@@ -144,6 +178,8 @@ const UserEditar = ({ status, changeStatus, userData }) => {
         </Container>
       )}
     </>
+    // )}
+    // </>
   );
 };
 
