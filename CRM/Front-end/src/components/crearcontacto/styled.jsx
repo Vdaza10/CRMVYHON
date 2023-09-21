@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const Div1 = styled.div`
 position: absolute;
     height: 90vh;
-    width: 18%;
+    width: 350px;
     top: 97px;
     right: 0px;
     display: flex; 
@@ -12,16 +12,16 @@ position: absolute;
 `;
 // Estilo para un contenedor principal
 export const Container1 = styled.div`
-    height: 99.6%;
-    width: 100%;
+    height: 858px;
+    width: 345px;
     background-color: white;
     /* background-color: aqua; */
     border: solid 1px black;
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
-    height: 10%;
-    width: 100%;
+    height: 65px;
+    width: 340px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,8 +48,8 @@ export const Parrafo1 = styled.p`
 `
 // Estilo para una caja que contiene elementos
 export const Caja1 = styled.div`
-    height: 70%;
-    width: 94%;
+    height: 550px;
+    width: 334px;
     padding-left: 20px;
 `
 // Estilo para un input de texto
@@ -58,6 +58,7 @@ export const Input = styled.input`
     width: 90%;
     font-size: 17px;
     outline: none;
+    background-color:aqua ;
 `
 // Estilo para un párrafo con estilo itálico y color gris
 export const Parrafo2 = styled.p`

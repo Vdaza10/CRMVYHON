@@ -5,16 +5,19 @@ import styled from "styled-components";
 export const Div1 = styled.div`
 position: absolute;
     height: 90vh;
-    width: 18%;
+    width: 350px;
     top: 97px;
     right: 0px;
     display: flex; 
     justify-content: center; 
+    @media screen and (max-width: 1228px) {
+        
+    }
 `;
 // Estilo para el contenedor que envuelve el contenido principal
 export const Container1 = styled.div`
     height: 99.6%;
-    width: 100%;
+    width: 350px;
     background-color: white;
     /* background-color: aqua; */
     border: solid 1px black;
@@ -22,7 +25,7 @@ export const Container1 = styled.div`
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
     height: 10%;
-    width: 100%;
+    width: 340px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,23 +56,23 @@ export const Parrafo1 = styled.p`
 `
 // Estilo para una caja que contiene elementos (sección principal)
 export const Caja1 = styled.div`
-    height: 70%;
-    width: 94%;
+    height: 615px;
+    width: 325px;
     padding-left: 20px;
     /* background-color: pink; */
 `
 // Estilo para el input
 export const Input = styled.input`
-    height: 5.5%;
-    width: 90%;
+    height: 35px;
+    width: 300px;
     font-size: 17px;
     outline: none;
     
 `
 // Estilo para el área de texto
 export const Area = styled.textarea`
-    height: 20%;
-    width: 90%;
+    height: 100px;
+    width: 310px;
     font-size: 17px;
     outline: none;
     /* background-color: aqua; */
@@ -78,8 +81,8 @@ export const Area = styled.textarea`
 export const Boton1 = styled.button`
     background-color: #49a3db;
     color: white;
-    width: 35%;
-    height: 40%;
+    width: 100px;
+    height: 39px;
     border: none;
     border-radius: 2px;
     font-size: 15px; 
@@ -98,8 +101,8 @@ export const Boton1 = styled.button`
 export const Boton2 = styled.button`
     background-color: white;
     color: #49a3db;
-    width: 25%;
-    height: 40%;
+    width: 85px;
+    height: 39px;
     font-size: 15px; 
     border: solid 1px gray;
     cursor: pointer;
@@ -117,17 +120,18 @@ export const Boton2 = styled.button`
 `
 // Estilo para una caja que contiene elementos (sección de botones)
 export const Caja2 = styled.div`
-    height: 14%;
-    width: 99%;
+    height: 90px;
+    width: 340px;
     display: flex;
     align-items: normal;
     justify-content: space-evenly;
     align-items: center;
     /* right: auto; */
     /* background-color: aqua; */
+
 `
 export const SelectEmpresa = styled.select`
-    height: 5.5%;
-    width: 92%;
+    height: 40px;
+    width: 310px;
     
 `

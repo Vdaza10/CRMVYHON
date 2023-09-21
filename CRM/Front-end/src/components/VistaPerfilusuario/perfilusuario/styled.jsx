@@ -8,6 +8,7 @@ export const Fondo = styled.div`
 export const Header = styled.header`
 width: 100%;
 height: 130px;
+/* background-color: aqua; */
 /* margin-top: 0%; */
 `
 
@@ -18,6 +19,7 @@ export const Parrafo = styled.p`
     margin-left: 20px;
     font-size: 20px;
     font-weight: 100;
+    /* background-color: bisque; */
     
 `
 //Contenedor del perfil
@@ -29,8 +31,8 @@ export const Main = styled.div `
 `
 
 export const ContenedorPerfil = styled.div`
-    width: 30%;
-    height: 70%;
+    width: 550px;
+    height: 500px;
     margin-top: 100px;
     border: 1px solid black;
     border-radius: 10px;
@@ -57,7 +59,6 @@ height: 60%;
 margin: 5%;
 `;
 export const ContenedorRegistro=styled.div`
-    /* background-color: violet; */
     width: 100%;
     height: auto;
 `
@@ -65,8 +66,7 @@ export const Registro = styled.p`
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 17px;
     color: rgb(128, 128, 128);
-    margin-left: 33%;
-    /* background-color: salmon; */
+    margin-left: 27%;
     
 `
 export const Fecha = styled.p`
@@ -78,9 +78,9 @@ export const Fecha = styled.p`
 export const DatosUsuario  = styled.div`
     width: 100%;
     height:65%;
-    /* background-color: maroon; */
-    margin-Left: 30px;
+    /* margin-Left: 30px; */
     color:#646262;
+    /* background-color: red; */
 `
 export const Informacion = styled.div`
 width: 50%;
@@ -152,8 +152,9 @@ export const Container = styled.div`
     justify-content : space-between;
 `;
 export const ContenedorPassword = styled.input`
-   background: #fffbfb17;
-   color: gray; 
-   border: none;
-    outline:none
+    background: #fffbfb17;
+    color: gray; 
+    border: none;
+    outline:none;
+    margin-Left:20px;
 `

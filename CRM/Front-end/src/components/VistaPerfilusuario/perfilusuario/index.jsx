@@ -81,7 +81,7 @@ function PerfilUsuario() {
                                             </ContenedorRegistro>
                                         </InformacionActivacion>
                                         <DatosUsuario>
-                                            <h3>Datos personales</h3>
+                                            <h3 style={{ marginLeft: "20px" }}>Datos personales</h3>
                                             <Container>
                                                 <Informacion>
                                                     <Nombre>Nombre:</Nombre>
