@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// 
 // Estilo para el contenedor principal
 export const Div1 = styled.div`
 position: absolute;
@@ -19,8 +18,12 @@ export const Container1 = styled.div`
     height: 99.6%;
     width: 350px;
     background-color: white;
-    /* background-color: aqua; */
+    background-color: aqua;
     border: solid 1px black;
+    @media (max-width: 360px){
+    height: 99.6%;
+    width: 350px;
+    }
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
