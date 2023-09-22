@@ -28,9 +28,10 @@ export const Login = async(req,res) =>{
             { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
             Secret,
             {
-            expiresIn: "1h",
+            expiresIn: "1m",
             }
         );
+        console.log(accessToken, "🎶🎶🎶");
         res.json(accessToken)
     } catch (error) {
         console.log(error)

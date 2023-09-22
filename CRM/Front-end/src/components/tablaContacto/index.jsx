@@ -28,7 +28,7 @@ const [loading, setLoading] = useState(true)
         if(userToken){
             try {
             const token = jwt_decode(userToken);
-      console.log(token, "❤️❤️💕💕💕❤️");
+      console.log(token, "❤❤💕💕💕❤");
       setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
@@ -82,17 +82,21 @@ const handleEditarClick = (item) => {
 
   const TabladeleteContacto = async (item) => {
     try {
-        const res = await Axios.delete(
-            `http://localhost:3005/contactotabla/${item.idContacto}`
-          );
-          console.log("Contacto eliminado con éxito.", res.data);
-    } catch (error) {
-        console.log("Error al eliminar el contacto", error);
-    }
-    setTimeout(() => {
-        window.location.href = "/contactos"  
-        },0)
+        await Axios.put(
+            `http://localhost:3005/contactotabla/desactivar/${item.idContacto}`);
+        console.log("Contacto desactivado con éxito.");
+      } catch (error) {
+        console.log("Error al desactivar el contacto", error);
+      }
+      setTimeout(() => {
+        window.location.href = "/contactos";
+      }, 0);
   };
+
+useEffect(() => {
+    TablagetContacto();
+}, []);
+
 
 useEffect(() => {
     TablagetContacto();
@@ -168,4 +172,4 @@ const Borrar = () =>{
         </>
     );
 }
-export default TablaContacto;   
+export default TablaContacto;

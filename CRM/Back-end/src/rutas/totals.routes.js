@@ -74,10 +74,10 @@ router.delete('/tareas', tareaCrtl.deleteTarea);
 
 
 //tabla contacto
-router.get('/contactotabla',tablaContacto.getTablaContacto);
+router.get('/contactotabla/',tablaContacto.getTablaContacto);
 router.patch('/contactotabla/:idContacto',tablaContacto.updatetablaContacto)
-router.delete('/contactotabla/:idContacto',tablaContacto.deleteTablaContacto);
-
+// router.delete('/contactotabla/:idContacto',tablaContacto.deleteTablaContacto);
+router.put('/contactotabla/desactivar/:idContacto', tablaContacto.desactivarTablaContacto);
 
 //tabla empresa
 router.get('/companytabla',tablaEmpresa.getTablaEmpresa)

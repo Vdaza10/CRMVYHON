@@ -11,7 +11,8 @@ function PerfilUsuario() {
     const [modalAbierta, setModalAbierta] = useState(false);
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState({});
-    // const [userToke, setToken] = useState("");
+    const [userToken, setUserToken] = useState(localStorage.getItem("user"));
+
 
     const [mostrarnotifcacion, setMostrarnotificacion] = useState(true);
 
@@ -23,8 +24,8 @@ function PerfilUsuario() {
     let navigate = useNavigate();
 
     useEffect(() => {
-        const userToken = localStorage.getItem("user");
-        console.log(userToken);
+        // const userToken = localStorage.getItem("user");
+        // console.log(userToken);
         if (userToken) {
             try {
                 const token = jwt_decode(userToken);
@@ -38,20 +39,22 @@ function PerfilUsuario() {
         } else {
             navigate('/');
         }
-    }, [navigate]);
+    }, [navigate,userToken]);
 
     const actualizarUsuario = () => {
-        const userToken = localStorage.getItem("user");
-        if (userToken) {
+        const updateUserToken = localStorage.getItem("user");
+        if (updateUserToken) {
           try {
-            const token = jwt_decode(userToken);
+            const token = jwt_decode(updateUserToken);
             setUserData(token);
+            setUserToken(updateUserToken)
           } catch (error) {
             console.error("Error al decodificar el token:", error);
             navigate('/');
           }
         }
       };
+console.log(userToken,"🤷‍♂️🤷‍♂️");
 
     return (
         <>
@@ -108,9 +111,9 @@ function PerfilUsuario() {
                                                     <Nombre>contraseña:</Nombre>
                                                 </Informacion>
                                                 <Informacion>
-                                                    <Nombre>{userData.username}</Nombre>
-                                                    <Nombre>{userData.nombreEmpresa}</Nombre>
-                                                    <Nombre>{userData.email}</Nombre>
+                                                    <Nombre>{userData.username.toUpperCase()}</Nombre>
+                                                    <Nombre>{userData.nombreEmpresa.toUpperCase()}</Nombre>
+                                                    <Nombre>{userData.email.toUpperCase()}</Nombre>
                                                     <ContenedorPassword type="password" value={userData.password}></ContenedorPassword>
                                                 </Informacion>
                                             </Container>

@@ -17,6 +17,14 @@ export const getUsers = async(req,res) =>{
         console.log(error.message.res.status(500));
     }
 }
+export const getUsersid = async(req,res)=>{
+    try {
+        const id= req.params;
+        const [rows] = await pool.query('SELECT * FROM registro WHERE id_registro=?',[id]);
+    }catch{
+        return res.status(401).json({message:'No se encuentra el usuario'});
+    }
+}
 export const createUsers = async (req, res) => {
     try {
         
@@ -60,7 +68,7 @@ export const updateUsers = async (req, res) => {
         { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
         Secret,
         {
-        expiresIn: "1h",
+        expiresIn: "1s",
         }
     );
     res.json(accessToken)
