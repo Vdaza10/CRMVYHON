@@ -20,8 +20,8 @@ export const Parrafo = styled.p`
 export const Boton =styled.button`
     background-color: #3aa8ec;
     color: #eaeff1;
-    width: 10%;
-    height: 35px;
+    width: 100px;
+    height: 38px;
     margin-top: 15px;
     display: flex;
     align-items: center;

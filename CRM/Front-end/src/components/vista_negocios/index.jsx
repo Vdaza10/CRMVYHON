@@ -57,8 +57,7 @@ function Retorno2() {
               <Container>
                 <img
                   src={imagen}
-                  alt="img"
-                  style={{ width: "30%", height: "50%", marginTop: "4%" }}
+                  alt="img" style={{ width: "450px", height: "450px" }}
                 />
                 <Parrafo>
                   <h3>Crea negocios</h3>

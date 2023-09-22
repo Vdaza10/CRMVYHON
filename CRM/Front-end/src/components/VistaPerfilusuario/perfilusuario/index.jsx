@@ -52,12 +52,11 @@ function PerfilUsuario() {
                                     changeStatus={setModalAbierta}
                                     userData={userData}
                                 />
-
                                 {/* header */}
                                 <Menu />
                                 <Header>
                                     <Parrafo>Editar perfil</Parrafo>
-                                    <Parrafo style={{ fontSize: "15px", color: "gray", margin: "0", marginLeft: "20px" }}>perfil</Parrafo>
+                                    {/* <Parrafo style={{ fontSize: "15px", color: "gray", margin: "0", marginLeft: "20px" }}>perfil</Parrafo> */}
                                     <Cajaheader>
                                         <Parrafo1>Mi perfil</Parrafo1>
                                         <Parrafo1 onClick={notificacionClick}>Notificaciones</Parrafo1>
@@ -81,7 +80,7 @@ function PerfilUsuario() {
                                             </ContenedorRegistro>
                                         </InformacionActivacion>
                                         <DatosUsuario>
-                                            <h3>Datos personales</h3>
+                                            <h3 style={{ marginLeft: "20px" }}>Datos personales</h3>
                                             <Container>
                                                 <Informacion>
                                                     <Nombre>Nombre:</Nombre>

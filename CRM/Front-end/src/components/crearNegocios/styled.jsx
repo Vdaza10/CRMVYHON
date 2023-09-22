@@ -12,7 +12,7 @@ export const Principal = styled.div`
     height: 100%; 
     width: 123%;
     background-color: white;
-    /* background-color: aqua; */
+    background-color: aqua;
     border: solid 1px black;
 `
 export const Caja1 = styled.div`

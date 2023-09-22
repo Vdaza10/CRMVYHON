@@ -27,8 +27,8 @@ border-radius: 15px;
         background-color: #56b7f75c ;
 
     :hover{
-        background: -webkit-linear-gradient(180deg, #ffffff 0%, #989dd4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bdb2e1",endColorstr="#ffffff",GradientType=1);
+        background: -webkit-linear-gradient(180deg, #ffffff 0%, #ddd4d4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#a7a3a3",GradientType=1);
     }
     }
     
