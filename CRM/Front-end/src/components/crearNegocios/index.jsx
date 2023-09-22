@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Principal, Caja1, Parrafo, Img, Caja2, Parrafo1, Input, Select, Caja3, Boton1, Boton2 } from "./styled.jsx";
 import imagen from "../img/img_x.webp";
 import Axios from "axios";
+import swal from "sweetalert";
 
 function CrearNegocios() {
     const [nombreNegocio, setNombreNegocio] = useState("");
@@ -45,6 +46,17 @@ function CrearNegocios() {
     // Función para crear un negocio
     const createNegocio = async (e) => {
         e.preventDefault();
+
+        const selectedCampaña = empresa.find((n) => n.idEmpresa ===parseInt(selectEmpresa) )
+        if (!selectedCampaña) {
+            swal({
+                title: "La campaña selecionada no es valida",
+                text: "Porfavor seleccionar campaña",
+                icon: "error",
+              });
+        return;
+        }
+
         try {
             const response = await Axios.post("http://localhost:3005/negocio", {
                 nombreNegocio,

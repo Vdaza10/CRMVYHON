@@ -92,7 +92,7 @@ export const Ingresar = styled.p`
     font-size: 18px;
     font-weight:500;
     cursor: pointer;
-    
+    tit
 
     /* &:before {
         content: "";

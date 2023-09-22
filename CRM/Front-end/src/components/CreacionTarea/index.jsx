@@ -4,6 +4,7 @@ import imagen from "../img/img_x.webp"
 import { BsFillCalendar2CheckFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import Axios from "axios";
+import swal from "sweetalert";
 
 
 
@@ -38,7 +39,11 @@ const CrearTarea = () => {
         // Buscar si el valor seleccionado en selectNegocio existe en el estado negocio
         const selectedNegocio = negocio.find((n) => n.idNegocio === parseInt(selectNegocio));
         if (!selectedNegocio) {
-            alert('El negocio seleccionado no es válido');
+            swal({
+                title: "El negocio selecionada no es valida",
+                text: "Porfavor seleccionar negocio",
+                icon: "error",
+              });
             return;
         }
 
