@@ -5,17 +5,12 @@ import { BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, Y
 
 function Grafica() {
     const data = [
-        {nombre: "elias", edad: 12, peso: 60 },
+        {nombre: "elias", edad: 12, peso: 20 },
         {nombre: "luis", edad: 25, peso: 63 },
-        {nombre: "kendry", edad: 12, peso: 70 },
-        {nombre: "arianis", edad: "23", peso: 55 },
+        {nombre: "kendry", edad: 12, peso: 30 },
+        {nombre: "arianis", edad: "23", peso: 80 },
     ]
-    const data1 = [
-        {nombre: "elias", edad: 12, peso: 60 },
-        {nombre: "luis", edad: 25, peso: 63 },
-        {nombre: "kendry", edad: 12, peso: 70 },
-        {nombre: "arianis", edad: "23", peso: 55 },
-    ]
+
     const torta = [
         {nombre: "grupo A", valor: 4350 },
         {nombre: "grupo B", valor: 7600 },
@@ -96,8 +91,8 @@ function Grafica() {
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="peso" />
-                            <Bar dataKey="edad" />
+                            <Bar dataKey="peso" fill="#fff" />
+                            <Bar dataKey="edad" fill="#2b4df2" />
                             
                                 </BarChart>
                             </ResponsiveContainer>
@@ -180,7 +175,7 @@ function Grafica() {
                                     <AreaChart
                                     width={500}
                                     height={400}
-                                    data={data1}
+                                    data={data}
                                     margin={{
                                         top:10,
                                         right:30,
@@ -193,7 +188,7 @@ function Grafica() {
                                         <XAxis dataKey= "nombre" />
                                         <YAxis />
                                         <Tooltip />
-                                        <Area type="monotone" dataKey="edad" stackId="1" stroke="#fff" fill="#f00"/>
+                                        <Area type="monotone" dataKey="peso" stackId="1" stroke="#fff" fill="#f00"/>
                                         <Area type="monotone" dataKey="edad" stackId="1" stroke="#14da2f" fill="#240303"/>
                                     </AreaChart>
                                     </ResponsiveContainer>

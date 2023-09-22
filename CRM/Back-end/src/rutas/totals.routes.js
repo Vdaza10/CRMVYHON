@@ -11,6 +11,7 @@ import * as tablaContacto from "../controladores/Tablas/contacto.js"
 import * as tablaNegocio from "../controladores/Tablas/negocio.js"
 import * as tablaTarea from "../controladores/Tablas/tareas.js"
 import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"//pedidos
+import * as llamadaCrtl from "../controladores/llamada/llamadaAudio.js"//llamada
 import { validatetoken } from "../middlewares/JwtAuth.js";
 
 
@@ -102,3 +103,7 @@ router.get('/pedidos', pedidosCrtl.getPedidos);
 router.get('/pedidos/:id', pedidosCrtl.getPedidosId);
 router.patch('/pedidos/:id', pedidosCrtl.updatePedidos);
 router.delete('/pedidos/:id', pedidosCrtl.deletePedidos);
+
+
+//llamada
+router.post('/llamada', llamadaCrtl.crearLlamada);
