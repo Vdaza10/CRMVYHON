@@ -29,9 +29,7 @@ export const ContenedorCampañas = styled.div`
         transition: transform 0.2s ease-in-out; 
         border-radius: 10%; 
         cursor: pointer; 
-        &:hover {
-        transform: scale(1.1);
-    }
+
     @media screen and (max-width: 910px) {
         width: 200px;
     }
@@ -39,12 +37,12 @@ export const ContenedorCampañas = styled.div`
         width: 150px;
     }
     @media screen and (max-width: 400px) {
-        width: 130px;
+        width: 90px;
     }
     `
 export const Campañas = styled.div`
     /* background-color: #00ffff; */
-    height: 65%;
+    height: 67%;
     width: 30%;
     text-align: center;
     display: flex;    

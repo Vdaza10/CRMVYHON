@@ -21,7 +21,7 @@ const Inicio = () => {
         </Menucontainer>
     </ContenedorInicial>
 
-        <ContainerTarjetas>
+        <ContainerTarjetas className="boxTarjet">
             <TarjetasInformativas><h2>VISTA GRAFICA </h2><ContenedorImagen style={{backgroundImage: `url(${graficas})`}}></ContenedorImagen> 
             <p style={{marginLeft:"1em", marginRight:"1em"}}><b>Feedback Visual:</b> Proporcionar retroalimentación visual cuando los usuarios interactúan con la aplicación, como resaltar botones presionados o mostrar mensajes de éxito o error
                 <p><b>Usabilidad:</b> La usabilidad se centra en hacer que la aplicación sea fácil de usar. Esto implica la disposición lógica de los elementos, la navegación intuitiva y la minimización de la fricción en la interacción del usuario.</p>
