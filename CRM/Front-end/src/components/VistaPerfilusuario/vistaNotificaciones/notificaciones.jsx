@@ -10,7 +10,7 @@ const Notificación = ({cambiarAperfil}) =>{
         <Menu />
                     <Header>
                         <Parrafo>Editar perfil</Parrafo>
-                        <Parrafo style={{ fontSize: "15px", color: "gray", margin: "0", marginLeft: "20px" }}>perfil</Parrafo>
+                        {/* <Parrafo style={{ fontSize: "15px", color: "gray", margin: "0", marginLeft: "20px" }}>perfil</Parrafo> */}
                         <Cajaheader>
                             <Parrafo1 onClick={() => cambiarAperfil(true)}>Mi perfil</Parrafo1>
                             <Parrafo1>Notificaciones

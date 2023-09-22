@@ -22,8 +22,8 @@ export const Parrafo = styled.p`
 export const Boton = styled.button`
     background-color: #3eabee;
     color: white;
-    width: 100px;
-    height: 37px;
+    width: 115px;
+    height: 39px;
     border: none;
     margin: 5%;
     font-size: 16px; 

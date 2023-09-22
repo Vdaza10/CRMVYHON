@@ -2,20 +2,16 @@ import styled from "styled-components";
 
 // fondo
 export const Fondo = styled.div`
-    background: -webkit-linear-gradient(70deg, #56b7f7b6 0%, #ffffff 100%);
+    background: -webkit-linear-gradient(70deg, #69a6cfb6 0%, #ffffff 100%);
 `
 //Header y su contenido
 export const Header = styled.header`
-width: 100%;
-height: 130px;
-/* background-color: aqua; */
-/* margin-top: 0%; */
+/* width: 900px; */
+height: 135px;
+background-color: aqua;
 `
 
 export const Parrafo = styled.p`
-    margin: 0;
-    /* font-style: italic; */
-    margin-top: 10px;
     margin-left: 20px;
     font-size: 20px;
     font-weight: 100;
@@ -38,7 +34,7 @@ export const ContenedorPerfil = styled.div`
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    /* background-color: #fff; */
+    background-color: #ac0000;
     box-shadow: 2px 2px 10px 10px #0099ff4c; 
     background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#56b7f7a2",endColorstr="#56b7f7a2",GradientType=1);
@@ -108,16 +104,14 @@ export const Editar = styled.button`
 `;
 export const Cajaheader = styled.div`
     display: flex;
-    margin-top: 30px;
-    margin-left: 30px;
-    width: 15%;
-    justify-content: space-between;
+    margin-top: 40px;
     height: 40px;
 `
 
 export const Parrafo1 = styled.a`
     position: relative;
     margin: 0;
+    margin-left: 20px;
     margin-top: 4px;
     font-size: 18px;
     color: gray;
