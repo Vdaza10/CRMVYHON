@@ -9,8 +9,11 @@ position: absolute;
     right: 0px;
     display: flex; 
     justify-content: center; 
-    @media screen and (max-width: 1228px) {
-        
+    @media (max-height: 850px){
+    margin-top: 41.5px;
+    width: 390px;
+    /* background-color: white; */
+    /* background-color: #b300ff; */
     }
 `;
 // Estilo para el contenedor que envuelve el contenido principal
@@ -18,14 +21,29 @@ export const Container1 = styled.div`
     height: 99.6%;
     width: 350px;
     background-color: white;
+    /* background-color: #b300ff; */
+    border: solid 1px black;
+    @media (max-width: 920px){
+    height: 90%;
+    width: 350px;
+    background-color: white;
     background-color: aqua;
     border: solid 1px black;
+    }
+    @media (max-height: 850px){
+    height: 90%;
+    width: 400px;
+    background-color: white;
+    /* background-color: #b300ff; */
+    border: solid 1px black;
+    }
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
     height: 10%;
     width: 340px;
     display: flex;
+    /* background-color: aqua; */
     justify-content: space-between;
     align-items: center;
     
@@ -37,6 +55,7 @@ export const Parrafo = styled.p`
     display: flex;
     align-items: center;
     padding-left: 20px;
+    /* background-color: blue; */
     
 `
 // Estilo para la imagen
@@ -45,12 +64,13 @@ export const Img = styled.img`
     width: 30px;
     padding-right: 30px;
     cursor: pointer;
-    
+    /* background-color: blueviolet; */
 ` 
 // Estilo para otro párrafo
 export const Parrafo1 = styled.p`
     font-size: 15px;
     font-style: italic;
+    /* background-color: bisque; */
     
 `
 // Estilo para una caja que contiene elementos (sección principal)
@@ -58,7 +78,7 @@ export const Caja1 = styled.div`
     height: 615px;
     width: 325px;
     padding-left: 20px;
-    background-color: pink;
+    /* background-color: pink; */
 `
 // Estilo para el input
 export const Input = styled.input`
@@ -66,6 +86,7 @@ export const Input = styled.input`
     width: 300px;
     font-size: 17px;
     outline: none;
+    /* background-color: yellowgreen; */
     
 `
 // Estilo para el área de texto
