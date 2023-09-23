@@ -45,8 +45,8 @@ const CrearTarea = () => {
                 title: "El negocio seleccionado no es válido",
                 text: "Porfavor seleccionar negocio",
                 icon: "warning",
-              });
-              return
+            });
+            return
         }
             Axios.post("http://localhost:3005/tareas", {
                 negocio: selectedNegocio.idNegocio,
@@ -70,7 +70,7 @@ const CrearTarea = () => {
             swal({
                 text: "Porfavor llenar todo",
                 icon: "error",
-              });
+            });
         }
     };
 
@@ -116,7 +116,9 @@ const CrearTarea = () => {
                             }}
                             onChange={(event) => {
                                 seAsunto(event.target.value)
-                            }} placeholder="ingresar asunto de tarea"></Input>
+                            }} placeholder="ingresar asunto de tarea">
+                                
+                            </Input>
                         <Parrafo1><h3>Responsable</h3></Parrafo1>
                         <ContainerInput>
                             <Input

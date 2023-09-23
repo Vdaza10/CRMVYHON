@@ -19,13 +19,13 @@ export const Container1 = styled.div`
     height: 852px;
     width: 345px;
     /* background-color: white; */
-    background-color: aqua;
+    /* background-color: aqua; */
     border: solid 1px black;
     @media (max-width: 920px)and (max-height: 850px){
     height: 750px;
     width: 386px;
     background-color: white;
-    background-color: aqua;
+    /* background-color: aqua; */
     border: solid 1px black;
     }
 `
@@ -64,7 +64,7 @@ export const Caja1 = styled.div`
     height: 620px;
     width: 324px;
     padding-left: 20px;
-    background-color: red;
+    /* background-color: red; */
     @media (max-width: 920px)and (max-height: 850px){
     height: 500px;
     width: 366px;
@@ -77,20 +77,20 @@ export const Input = styled.input`
     width: 300px;
     font-size: 17px;
     outline: none;
-    background-color: #91ed11;
+    /* background-color: #91ed11; */
     @media (max-width: 920px)and (max-height: 850px){
         height: 35px;
-        width: 300px;
-    font-size: 17px;
-    outline: none;
+        width: 350px;
+        font-size: 17px;
+        outline: none;
+        /* background-color: red; */
     }
 `
 // Estilo para un párrafo con estilo itálico y color gris
 export const Parrafo2 = styled.p`
     font-size: 16px;
     font-style: italic;
-    color: gray;
-    /* margin-top: 8%; */
+    /* color: gray; */
 `
 // Estilo para un botón con color de fondo y color de texto
 export const Boton1 = styled.button`
@@ -140,7 +140,6 @@ export const Caja2 = styled.div`
     align-items: normal;
     justify-content: space-evenly;
     align-items: center;
-    /* right: auto; */
     /* background-color: #c800ff; */
     @media (max-width: 920px)and (max-height: 850px){
         height: 90px;
@@ -148,8 +147,7 @@ export const Caja2 = styled.div`
         align-items: normal;
         justify-content: space-evenly;
         align-items: center;
-        background-color: blue;
-        /* right: 15px; */
+        /* background-color: blue; */
         margin-right: 15px;
     }
 `;
@@ -159,4 +157,11 @@ export const Select = styled.select`
     width: 310px;
     height: 35px;
     border: solid 1px gray;
+    /* background-color: pink; */
+    @media (max-width: 865px) and (max-height: 850px){
+        width: 359px;
+        height: 35px;
+        border: solid 1px gray;
+        background-color: gray;
+    }
 `

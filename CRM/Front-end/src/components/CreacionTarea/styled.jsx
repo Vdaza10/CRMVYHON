@@ -3,17 +3,28 @@ import styled from "styled-components";
 export const Container = styled.div`
 position: absolute;
     height: 90vh;
-    width: 18%;
+    width: 350px;
     top: 97px;
     right: 0px;
     display: flex; 
-    justify-content: center; 
+    background-color: white;
+    justify-content: center;
+    @media (max-width: 865px) and (max-height: 850px){
+    margin-top: 40px;
+    width: 390px;
+    }
 `;
 export const Principal = styled.div`
-    height: 99.6%;
-    width: 100%;
+    height: 100%;
+    width: 123%;
     background-color: white;
+    /* background-color: aqua; */
     border: solid 1px black;
+    @media (max-width: 920px)and (max-height: 850px){
+        height: 100%; 
+        width: 123%;
+        /* background-color: red; */
+    }
 `
 export const Caja1 = styled.div`
     height: 10%;
@@ -36,18 +47,33 @@ export const Img = styled.img`
     cursor: pointer;
 ` 
 export const Caja2 = styled.div`
-    height: 75%;
+    height: 615px;
+    width: 325px;
     padding-left: 20px;
-`
+    /* background-color: green; */
+    @media (max-width: 920px)and (max-height: 850px){
+        height: 650px;
+        width: 366px;
+        padding-left: 20px;
+    }
+    `
 export const Parrafo1 = styled.p`
     font-size: 15px;
     font-style: italic;
 `
 export const Input = styled.input`
-    height: 6%;
-    width: 94%;
+    height: 35px;
+    width: 300px;
     font-size: 17px;
     outline: none;
+    /* background-color: black; */
+    @media (max-width: 920px)and (max-height: 850px){
+        height: 35px;
+        width: 350px;
+        font-size: 17px;
+        outline: none;
+        /* background-color: red; */
+    }
 `
 
 export const Caja3 = styled.div`
@@ -59,6 +85,7 @@ export const Caja3 = styled.div`
     justify-content: space-evenly;
     align-items: center;
     right: auto;
+    /* background-color: blue; */
 `
 
 export const Boton1 = styled.button`
@@ -107,10 +134,13 @@ export const ContainerInput = styled.div`
     justify-content: space-between;
     border: solid gray 1px ;
     outline: none;
+    /* background-color: pink; */
 `
 
 export const Select = styled.select`
     width: 97%;
     height: 7%;
     border: solid 1px gray;
-`
+    /* background-color: gray; */
+    
+    `

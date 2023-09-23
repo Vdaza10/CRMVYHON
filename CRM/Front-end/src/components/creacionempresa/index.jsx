@@ -49,8 +49,8 @@ function Retorno8() {
                     title: "El segmento selecionado no es valido",
                     text: "Porfavor seleccionar segmento",
                     icon: "warning",
-                  });
-                  return
+                });
+                return
             }
         try {
             const response = await axios.post("http://localhost:3005/company", {
@@ -72,7 +72,7 @@ function Retorno8() {
         swal({
             text: "Porfavor llenar todo",
             icon: "error",
-          });
+        });
     }
     };
 
@@ -98,7 +98,7 @@ function Retorno8() {
                             if (!regex.test(inputValue)) {
                               event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
                             }
-                          }}
+                        }}
                         onChange={(e) => setNombreEmpresa(e.target.value)} />
 
                     <Parrafo1><h3> Segmento</h3></Parrafo1>
