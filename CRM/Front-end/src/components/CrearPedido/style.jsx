@@ -1,4 +1,4 @@
-/* import styled from "styled-components";
+import styled from "styled-components";
 
 export const FormContainer = styled.div`
     position: absolute;
@@ -72,4 +72,4 @@ export const ButtonState = styled.button`
 
 export const InputDate = styled.data`
     
-` */
+` 

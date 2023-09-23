@@ -1,4 +1,4 @@
-/* import styled from "styled-components";
+import styled from "styled-components";
 
 export const AdminPedido = styled.div`
     height: 90vh;
@@ -148,4 +148,3 @@ export const Pedidocard = styled.div`
     background-color: #fff;
 `
 
- */

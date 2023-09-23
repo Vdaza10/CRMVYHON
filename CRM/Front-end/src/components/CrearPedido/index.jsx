@@ -8,100 +8,99 @@ import {
     Select,
     ConvertButton,
     ButtonState,
-    CloseOpen
-    } from "./style";
+    CloseOpen,
+} from "./style";
 
-    const FormularioPedido = () => {
+const FormularioPedido = ({ onSave }) => { // Recibe la función onSave como prop
     const [cliente, setCliente] = useState("");
-    const [negocio, setNegocio] = useState("");
+    const [producto, setProducto] = useState("");
     const [monto, setMonto] = useState("");
     const [moneda, setMoneda] = useState("pesos");
-    const [correo, setCorreo] = useState("");
 
     const handleConvert = () => {
         const tasaDolar = 0.045;
 
         if (moneda === "dolares") {
-        const montoPesos = parseFloat(monto) / tasaDolar;
-        setMonto(montoPesos.toFixed(2));
+            const montoPesos = parseFloat(monto) / tasaDolar;
+            setMonto(montoPesos.toFixed(2));
         } else if (moneda === "pesos") {
-        const montoDolares = parseFloat(monto) * tasaDolar;
-        setMonto(montoDolares.toFixed(2));
+            const montoDolares = parseFloat(monto) * tasaDolar;
+            setMonto(montoDolares.toFixed(2));
         }
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleSave = async () => {
         try {
-        const response = await axios.post("/pedidos", {
-            cliente: cliente,
-            producto: negocio,
-            monto: monto,
-            fecha: new Date(),
-            columna: correo
-        });
+            const currentDate = new Date();
+            const formattedDate = `${currentDate.getFullYear()}/${currentDate.getMonth() + 1}/${currentDate.getDate()}`;
 
-        console.log(response.data); // Puedes hacer algo con la respuesta si lo deseas
+            const response = await axios.post("http://localhost:3005/pedidos", {
+                cliente: cliente,
+                producto: producto,
+                monto: monto,
+                moneda: moneda,
+                fecha: formattedDate,
+            });
 
-        // Restablecer los campos del formulario después de guardar los datos
-        setCliente("");
-        setNegocio("");
-        setMonto("");
-        setMoneda("pesos");
-        setCorreo("");
+            console.log(response.data);
+
+            // Llama a la función onSave con los datos ingresados
+            onSave({
+                cliente: cliente,
+                producto: producto,
+                monto: monto,
+            });
+
+            // Resto del código para limpiar los campos del formulario
+            setCliente("");
+            setProducto("");
+            setMonto("");
         } catch (error) {
-        console.error(error);
+            console.error(error);
         }
     };
 
     return (
-        <FormContainer onSubmit={handleSubmit}>
-        <FormGroup>
-            <Label>Cliente:</Label>
-            <Input
-            type="text"
-            value={cliente}
-            onChange={(e) => setCliente(e.target.value)}
-            />
-        </FormGroup>
+        <FormContainer>
+            <FormGroup>
+                <Label>Cliente:</Label>
+                <Input
+                    type="text"
+                    value={cliente}
+                    onChange={(e) => setCliente(e.target.value)}
+                />
+            </FormGroup>
 
-        <FormGroup>
-            <Label>Negocio:</Label>
-            <Input
-            type="text"
-            value={negocio}
-            onChange={(e) => setNegocio(e.target.value)}
-            />
-        </FormGroup>
+            <FormGroup>
+                <Label>Producto:</Label>
+                <Input
+                    type="text"
+                    value={producto}
+                    onChange={(e) => setProducto(e.target.value)}
+                />
+            </FormGroup>
 
-        <FormGroup>
-            <Label>Monto:</Label>
-            <Input
-            type="number"
-            value={monto}
-            onChange={(e) => setMonto(e.target.value)}
-            />
-            <Select value={moneda} onChange={(e) => setMoneda(e.target.value)}>
-            <option value="pesos">Pesos Colombianos</option>
-            <option value="dolares">Dólares</option>
-            </Select>
+            <FormGroup>
+                <Label>Monto:</Label>
+                <Input
+                    type="number"
+                    value={monto}
+                    onChange={(e) => setMonto(e.target.value)}
+                />
+                <Select
+                    value={moneda}
+                    onChange={(e) => setMoneda(e.target.value)}
+                >
+                    <option value="pesos">Pesos Colombianos</option>
+                    <option value="dolares">Dólares</option>
+                </Select>
 
-            <ConvertButton onClick={handleConvert}>Convertir</ConvertButton>
-        </FormGroup>
+                <ConvertButton onClick={handleConvert}>Convertir</ConvertButton>
+            </FormGroup>
 
-        <FormGroup>
-            <Label>Correo Electrónico:</Label>
-            <Input
-            type="email"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
-            />
-        </FormGroup>
-
-        <CloseOpen>
-            <ButtonState type="submit">Guardar</ButtonState>
-        </CloseOpen>
+            <CloseOpen>
+                <ButtonState onClick={handleSave}>Guardar</ButtonState>
+            </CloseOpen>
         </FormContainer>
     );
 };
