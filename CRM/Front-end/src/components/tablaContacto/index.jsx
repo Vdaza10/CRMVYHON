@@ -63,7 +63,6 @@ const [buscar, setBuscar] = useState("")
         (dato.telefono && dato.telefono.toString().toLowerCase().includes(buscar.toLowerCase())) ||
         (dato.correo && dato.correo.toLowerCase().includes(buscar.toLowerCase()))||
         (dato.nombreEmpresa&& dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase()))
-
 );
 }
 
@@ -82,17 +81,21 @@ const handleEditarClick = (item) => {
 
   const TabladeleteContacto = async (item) => {
     try {
-        const res = await Axios.delete(
-            `http://localhost:3005/contactotabla/${item.idContacto}`
-          );
-          console.log("Contacto eliminado con éxito.", res.data);
-    } catch (error) {
-        console.log("Error al eliminar el contacto", error);
-    }
-    setTimeout(() => {
-        window.location.href = "/contactos"  
-        },0)
+        await Axios.put(
+            `http://localhost:3005/contactotabla/desactivar/${item.idContacto}`);
+        console.log("Contacto desactivado con éxito.");
+      } catch (error) {
+        console.log("Error al desactivar el contacto", error);
+      }
+      setTimeout(() => {
+        window.location.href = "/contactos";
+      }, 0);
   };
+
+useEffect(() => {
+    TablagetContacto();
+}, []);
+
 
 useEffect(() => {
     TablagetContacto();

@@ -78,8 +78,8 @@ const [buscar, setBuscar] = useState("")
 
   const TabladeleteEmpresa = async (item) => {
     try {
-      const res = await Axios.delete(
-        `http://localhost:3005/companytabla/${item.idEmpresa}`
+      const res = await Axios.put(
+        `http://localhost:3005/empresatabla/desactivar/${item.idEmpresa}`
       );
       console.log("Contacto eliminado con éxito.", res.data);
       Getempresa()
