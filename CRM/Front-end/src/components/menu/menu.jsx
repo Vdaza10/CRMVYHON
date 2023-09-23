@@ -1,6 +1,5 @@
 // Importación de librerías y recursos necesarios
 import styled from "styled-components"
-import perfil from "../img/perfil.jpg"
 
 // Contenedor principal de la barra de navegación
 export const Contenedor = styled.div`
@@ -26,7 +25,7 @@ export const Logo = styled.img`
 export const Menucontainer = styled.ul`
     list-style: none;
     display: flex;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 865px) {
         display: flex;
         flex-direction: column;
     }
@@ -36,18 +35,17 @@ export const MenuItem = styled.li`
     margin-right: 5%;
     margin-left: 3%;
     cursor: pointer;
+    transition: all 0.2s ease; // Transición suave para todos los cambios
     &:last-child {
-    margin-right: 45px;
+        margin-right: 45px;
     }     
-    &:hover{
+    &:hover {
         width: 65%;
-        background-color: #0e9af2;
         color: #333;
-    }
-    @media screen {
-        display: flex;
+        transform: scale(1.2); // Aumentar ligeramente el tamaño al hacer hover
     }
 `;
+
 
 // Menú desplegable (para el ítem "Analisis")
 export const Despegable = styled.ul`
@@ -82,14 +80,15 @@ export const Flecha = styled.li`
 // Contenedor para el ícono de búsqueda y menú de usuario
 export const Ajustes = styled.div`
     height: 60px;
-    width: 200px;
+    width: 40px;
     color: white;
+    position: absolute;
     display: flex;
     align-items: center;
     position: absolute;
     /* background-color: #640817; */
     right: 0px;
-    margin-inline-end: 170px;
+    margin-inline-end: 100px;
     justify-content: flex-end;
     @media screen and (max-width:700px) {
         margin-inline-end: 40px;
@@ -97,37 +96,35 @@ export const Ajustes = styled.div`
     }
 ` 
 
-// Imagen de perfil de usuario
-export const ImagenPerfil = styled.div`
-    background-image: url(${perfil});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    cursor: pointer;
-    &:last-child {
-    margin-right: 0;
-    }    
-    &:hover{
-        background-color: #ee3ed192;
-        color: #661313;
-    }
-    
-`;
+// // Imagen de perfil de usuario
+// export const ImagenPerfil = styled.div`
+//     background-image: url(${perfil});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 100%;
+//     cursor: pointer;
+//     &:last-child {
+//     margin-right: 0;
+//     }    
+//     &:hover{
+//         background-color: #ee3ed192;
+//         color: #661313;
+//     }
+// `;
 
 // Menú desplegable del perfil de usuario
 export const Menudesplegable = styled.div`
     display: ${({ perfilDesplegable }) => (perfilDesplegable ? "block" : "none")};
-    width: 130%;
-    height: 350px;
+    width: 250px;
+    height: 560%;
     list-style: none;
     position: absolute;
-    top: 130%;
-    left: 105px;  
+    top: 133%;
+    left: -111px;  
     padding: 0;
-    border: 1px solid  gray;
     background-color: white;
 `
 

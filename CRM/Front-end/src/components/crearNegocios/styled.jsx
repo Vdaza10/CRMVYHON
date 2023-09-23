@@ -4,14 +4,15 @@ export const Container = styled.div`
     position: absolute;
     height: 89vh;
     width: 30vh;
-    top: 92px;
+    top: 97px;
     right: 70px;
     background-color: white;
 `;
 export const Principal = styled.div`
-    height: 850px;
+    height: 100%; 
+    width: 123%;
     background-color: white;
-    width: 130%;
+    background-color: aqua;
     border: solid 1px black;
 `
 export const Caja1 = styled.div`

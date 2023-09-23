@@ -45,19 +45,21 @@ export const createUsers = async (req, res) => {
     } catch (error) {
         console.error(error); // Puedes agregar un registro del error para debug
         return res.status(500).json({ message: 'Algo va mal' });
-    }
+}
 }
 
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
   try {
     const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
+    const encrypt = await encryptPassword(contraseña)
     const updateUser = await pool.query(
         'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-      [nombreUsuario,nombreEmpresa,correo,contraseña,idRegistro]
+      [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
     );
+ 
     res.status(200).json({ mensaje: 'Usuario actualizado' ,
-    idRegistro,nombreUsuario,nombreEmpresa,correo,contraseña});
+    idRegistro,nombreUsuario,nombreEmpresa,correo,encrypt});
 
 } catch (error) {
     console.error(error);

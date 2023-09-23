@@ -25,8 +25,8 @@ function Retorno5() {
         if(userToken){
             try {
             const token = jwt_decode(userToken);
-      console.log(token, "❤️❤️💕💕💕❤️");
-      setLoading(false);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
                 navigate('/'); 
@@ -40,7 +40,6 @@ function Retorno5() {
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const tareas = await Axios.get("http://localhost:3005/tareasTabla");
-        console.log(tareas.data);
         setTarea(tareas.data);
     };
     useEffect(() => {
@@ -52,9 +51,9 @@ function Retorno5() {
     return (
         <>
         {loading ? (
-         <>
-          <h1>Cargando......</h1>
-         </>
+            <>
+            <h1>Cargando......</h1>
+            </>
         ):(
         <> 
         {tarea.length <= 0 ? (
@@ -62,7 +61,7 @@ function Retorno5() {
             <Menu/>
                 <Container>
                     <Caja2>
-                    <img src={imagen} alt="img" style={{width:'40%',height:'40%' }} />
+                    <img src={imagen} alt="img" style={{width:'560px',height:'300px' }} />
 
                     <Parrafo><h3>No hemos encontrado tareas en tu cuenta ni con los filtros <br/> que seleccionastes</h3></Parrafo>
 

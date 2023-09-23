@@ -1,19 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Div1,
-  Container1,
-  Caja,
-  Parrafo,
-  Img,
-  Parrafo1,
-  Caja1,
-  Input,
-  Caja2,
-  Boton1,
-  Boton2,
-  Area,
-  SelectEmpresa,
-} from "./styled.jsx";
+import {Div1,Container1,Caja,Parrafo,Img,Parrafo1,Caja1,Input,Caja2,Boton1,Boton2,Area,SelectEmpresa} from "./styled.jsx";
 import imagen from "../img/img_x.webp";
 import Axios from "axios";
 

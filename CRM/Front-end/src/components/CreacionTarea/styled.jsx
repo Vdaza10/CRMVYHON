@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
 position: absolute;
     height: 90vh;
     width: 18%;
-    top: 92px;
+    top: 97px;
     right: 0px;
     display: flex; 
     justify-content: center; 
 `;
 export const Principal = styled.div`
-    height: 100%;
+    height: 99.6%;
     width: 100%;
     background-color: white;
     border: solid 1px black;

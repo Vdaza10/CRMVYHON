@@ -24,16 +24,16 @@ width: 234em;
 export const Tarjeta1 = styled.div`
 width: 320px;
 height: 435px;
-background-color: #184effbe;
+background-color: #2d5affb8;
+/* background-color: #0099ffac; */
 transition: all 0.3s ease;
 border-radius: 3em;
-box-shadow: 1px 1px 30px white;
+box-shadow: 1px 1px 15px white;
 opacity: 0;
 transform: translateX(20px);
 display: flex;
 flex-direction: column;
 justify-content: center;
-
 &.active {
     opacity: 1;
     transform: translateX(0);
@@ -46,8 +46,3 @@ export const Tarjeta2 = styled.div`
     height: 600px;
     margin-left: 1820%;
 `;
-
-// export const ConInformacion = styled.div``;
-
-// export const Titulo = styled.h1``;
-

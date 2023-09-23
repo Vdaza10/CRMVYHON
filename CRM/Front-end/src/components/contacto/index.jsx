@@ -23,8 +23,8 @@ function Retorno3() {
         if(userToken){
             try {
             const token = jwt_decode(userToken);
-      console.log(token, "❤️❤️💕💕💕❤️");
-      setLoading(false);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
                 navigate('/'); 
@@ -46,9 +46,9 @@ function Retorno3() {
     return (
         <>
         {loading ? (
-         <>
-          <h1>Cargando......</h1>
-         </>
+            <>
+            <h1>Cargando......</h1>
+            </>
         ):(
         <>
         {contacto.length <= 0 ? (
@@ -56,7 +56,7 @@ function Retorno3() {
             {/* Componente de menú */}
             <Menu />
                 <Container>
-                    <img src={imagen} alt="img" style={{ width: '30%', height: '50%' , marginTop:"15px" }} />
+                    <img src={imagen} alt="img" style={{ width: '450px', height: '240px', marginTop: "110px"}} />
                     <Parrafo><h3>No hemos encontrado contactos en tu cuenta ni con los filtros <br /> que seleccionaste</h3></Parrafo>
                     <Parrafo> Crear contactos para llevar el registro y los datos de todas las personas <br />con las que negocias. o prueba a cambiar los filtros seleccionados para encontrar <br /> nuevos resultados   </Parrafo>
                     {/* Botón para crear contactos */}

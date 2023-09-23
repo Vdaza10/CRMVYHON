@@ -21,7 +21,6 @@
 
     const [, /* selectedOption */ setSelectedOption] = useState("inicio");
     const opcionElegida = (Option) => {
-        console.log("opcionElegida:", Option);
         setSelectedOption(Option);
     };
 
@@ -85,17 +84,17 @@
             </NavLink>
         </Menucontainer>
 
-      <Ajustes>
-          <RiSettings4Fill style={{fontSize:"35px", cursor:"pointer"}}
+        <Ajustes>
+            <RiSettings4Fill style={{fontSize:"35px", cursor:"pointer"}}
             onClick={desplegablePerfil}
-            isOpen={perfilDesplegable}
-          ></RiSettings4Fill>{" "}
+            isOpen={perfilDesplegable}>
+            </RiSettings4Fill>{" "}
           {/* se veran reflejada las vistas al momento de darle click */}
-          <Menudesplegable perfilDesplegable={perfilDesplegable}>
+            <Menudesplegable perfilDesplegable={perfilDesplegable}>
             <Retorno1 />
-          </Menudesplegable>
-      </Ajustes>
+            </Menudesplegable>
+        </Ajustes>
     </Contenedor>
-  );
+);
 };
 export default Menu;
