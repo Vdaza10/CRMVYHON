@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/* import React, { useEffect, useState } from "react";
 import Menu from "../menu/principal";
 import {
   AddPedido,
@@ -24,6 +24,7 @@ const Pedidos = () => {
   const [orders, setOrders] = useState([[], [], [], []]);
   const [openFormIndex, setOpenFormIndex] = useState(null);
   const [cardPedidos, setCardPedidos] = useState([]);
+  const [columnPositions, setColumnPositions] = useState([]);
 
   const toggleForm = (index) => {
     if (openFormIndex === index) {
@@ -36,44 +37,41 @@ const Pedidos = () => {
   const onDragEnd = (result) => {
     if (!result.destination) {
       return;
-    }
+    }const sourceIndex = result.source.index;
+const destinationIndex = result.destination.index;
+const sourceColumnIndex = parseInt(
+  result.source.droppableId.split("-")[1],
+  10
+);
+const destinationColumnIndex = parseInt(
+  result.destination.droppableId.split("-")[1],
+  10
+);
 
-    const sourceIndex = result.source.index;
-    const destinationIndex = result.destination.index;
-    const sourceColumnIndex = parseInt(
-      result.source.droppableId.split("-")[1],
-      10
-    );
-    const destinationColumnIndex = parseInt(
-      result.destination.droppableId.split("-")[1],
-      10
-    );
+if (
+  isNaN(sourceColumnIndex) ||
+  isNaN(destinationColumnIndex) ||
+  sourceColumnIndex < 0 ||
+  sourceColumnIndex >= orders.length ||
+  destinationColumnIndex < 0 ||
+  destinationColumnIndex >= orders.length
+) {
+  return;
+}
 
-    // Verificar si la columna de destino es válida
-    if (
-      isNaN(sourceColumnIndex) ||
-      isNaN(destinationColumnIndex) ||
-      sourceColumnIndex < 0 ||
-      sourceColumnIndex >= orders.length ||
-      destinationColumnIndex < 0 ||
-      destinationColumnIndex >= orders.length
-    ) {
-      return; // No hacer nada si la columna de destino no es válida
-    }
+const movedPedido = orders[sourceColumnIndex][sourceIndex];
+const newSourceColumn = [...orders[sourceColumnIndex]];
+newSourceColumn.splice(sourceIndex, 1);
 
-    const movedPedido = orders[sourceColumnIndex][sourceIndex];
+const newDestinationColumn = [...orders[destinationColumnIndex]];
+newDestinationColumn.splice(destinationIndex, 0, movedPedido);
 
-    const newSourceColumn = [...orders[sourceColumnIndex]];
-    newSourceColumn.splice(sourceIndex, 1);
+const newOrders = [...orders];
+newOrders[sourceColumnIndex] = newSourceColumn;
+newOrders[destinationColumnIndex] = newDestinationColumn;
 
-    const newDestinationColumn = [...orders[destinationColumnIndex]];
-    newDestinationColumn.splice(destinationIndex, 0, movedPedido);
-
-    const newOrders = [...orders];
-    newOrders[sourceColumnIndex] = newSourceColumn;
-    newOrders[destinationColumnIndex] = newDestinationColumn;
-
-    setOrders(newOrders);
+setOrders(newOrders);
+setColumnPositions([...columnPositions, destinationColumnIndex]);
   };
 
   const addCardPedido = (cliente, producto, monto, fecha, columna) => {
@@ -90,15 +88,12 @@ const Pedidos = () => {
   const getDataPedido = async () => {
     try {
       const response = await axios.get("http://localhost:3005/pedidos", {});
-
       const loadedOrders = [[], [], [], []];
-
       response.data.forEach((pedido) => {
         if (pedido.Columna >= 1 && pedido.Columna <= 4) {
           loadedOrders[pedido.Columna - 1].push(pedido);
         }
       });
-
       setOrders(loadedOrders);
       console.log(loadedOrders, "orders");
     } catch (error) {
@@ -114,7 +109,6 @@ const Pedidos = () => {
     const orderColumn = orders[i];
     return orderColumn.map((pedido, index) => {
       const draggableId = `pedido-${pedido.idPedido}`;
-
       return (
         <Draggable key={draggableId} draggableId={draggableId} index={index}>
           {(provided) => (
@@ -151,10 +145,9 @@ const Pedidos = () => {
               </ContArrow>
             ))}
           </EstadoPedido>
-
           <TablePedidos>
-            {[0, 1, 2, 3].map((table, index) => (
-              <PedidoData key={table}>
+            {[0, 1, 2, 3].map((index) => (
+              <PedidoData key={index}>
                 <HeadData>
                   <MontoData></MontoData>
                   <AddPedido onClick={() => toggleForm(index)}>
@@ -162,8 +155,8 @@ const Pedidos = () => {
                   </AddPedido>
                 </HeadData>
                 <Droppable
-                  droppableId={`table-${uuidv4()}`} // Generar un identificador único
-                  key={table}
+                  droppableId={`table-${uuidv4()}`}
+                  key={index}
                   type="LISTVIEW"
                 >
                   {(provided, snapshot) => (
@@ -193,4 +186,4 @@ const Pedidos = () => {
   );
 };
 
-export default Pedidos;
+export default Pedidos; */

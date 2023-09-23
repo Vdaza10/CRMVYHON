@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import {
   FormContainer,
   FormGroup,
@@ -97,3 +97,4 @@ const FormularioPedido = (props) => {
 };
 
 export default FormularioPedido;
+ */

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+/* import styled from "styled-components";
 
 export const AdminPedido = styled.div`
     height: 90vh;
@@ -107,6 +107,7 @@ export const ListView = styled.div`
 export const ContArrow = styled.div`
     height: 100%;
     width: 100%;
+    display: flex;
 `
 
 export const StateData = styled.div`
@@ -147,3 +148,4 @@ export const Pedidocard = styled.div`
     background-color: #fff;
 `
 
+ */

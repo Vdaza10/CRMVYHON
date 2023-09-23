@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 
 const DateSelector = ({ selectedDate, onDateChange }) => {
   // Funciones para generar opciones de días, meses y años
@@ -82,3 +82,4 @@ const DateSelector = ({ selectedDate, onDateChange }) => {
 };
 
 export default DateSelector;
+ */

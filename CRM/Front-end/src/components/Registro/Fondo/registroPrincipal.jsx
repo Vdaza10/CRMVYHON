@@ -1,9 +1,7 @@
 import React from "react";
-import { Fondo, Idioma, Ladero, Ladero1, Img, Ladero2, ContainerSelect, Ingresar , Parrafo , Parrafo1 } from "./styledRegistro";
+import { Fondo, Ladero, Ladero1, Img, Ladero2, Parrafo , Parrafo1 } from "./styledRegistro";
 import Registrarse from "../Input/Registro";
 import Vyhon from "../../img/logito.svg"
-import { BiWorld } from "react-icons/bi";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import VentanaModal1 from "../../mensajeRegistro";
 
@@ -29,26 +27,8 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
                 </Ladero1>
 
             </Ladero>
-            {/* <Fondo3> */}
                 <Registrarse></Registrarse>
-            {/* </Fondo3> */}
-            <ContainerSelect>
-                <BiWorld></BiWorld>
-                    <Idioma name="idioma">
-                    <option value="spañol">spañol</option>
-                    <option value="ingles">ingles</option>
-                    <option value="portugal">portugal</option>
-                    <option value="brasil">brasil</option>
-                    <option value="germany">germany</option>
-                    <option value="arabe">arabe</option>
-                </Idioma>
-                <Link to={"/principal"} style={{textDecoration:"none", color:"black",}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
-            </ContainerSelect>
-            {/* <p style={{marginRight:"10px"}}></p> */}
-            {/* <Fondo3> */}
                 <Registrarse></Registrarse>
-            {/* </Fondo3> */}
-            
 
             <VentanaModal1 
                 estado={estadoModal}
