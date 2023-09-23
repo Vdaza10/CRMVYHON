@@ -7,6 +7,9 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     background-color: red;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     flex-wrap: wrap;
     @media (min-width: 700px) {
     height: 100%;
@@ -86,7 +89,17 @@ export const ContainerTarjetas = styled.div`
     align-items: center;
     justify-content: space-around;
     margin-top: 0%;
-    @media (min-width: 360px) and (max-height: 950px) {
+    /* @media (min-width: 360px) and (max-height: 950px) {
+    height: auto;
+    width: 100%; 
+    background-color: #08e738; 
+    display : flex;
+    justify-items: center;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-around;
+    }     */
+    @media (min-width: 360px) and (max-height: 700px) {
     height: auto;
     width: 100%;
     /* background-color: #08e738; */
@@ -95,7 +108,7 @@ export const ContainerTarjetas = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-}   
+    }   
 ` 
 export const ContenedorImagen = styled.div`
     height: 30%;
@@ -108,8 +121,8 @@ export const ContenedorImagen = styled.div`
     background-size: cover;
     background-position: center;
     /* background-attachment: fixed; */
-    @media (min-width: 235px) and (max-height: 960px) {
-        height: 200px;
+    @media (min-width: 235px) and (max-height: 950px) {
+    height: 150px;
     display: flex;
     margin-top: 10px;
     /* display: flex; */
