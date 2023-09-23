@@ -103,8 +103,8 @@ function Retorno8() {
                         if (!regex.test(inputValue)) {
                           event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
                         }
-                      }}
-                     onChange={(e) => setDescripcion(e.target.value)} />
+                    }}
+                        onChange={(e) => setDescripcion(e.target.value)} />
                 </Caja1>
                 <hr />
                 <Caja2>

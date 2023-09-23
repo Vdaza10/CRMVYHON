@@ -26,7 +26,6 @@ export const Menucontainer = styled.ul`
     list-style: none;
     display: flex;
     @media screen and (max-width: 865px) {
-        display: flex;
         flex-direction: column;
     }
 `
