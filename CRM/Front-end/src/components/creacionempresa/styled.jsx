@@ -20,10 +20,6 @@ export const Container1 = styled.div`
     background-color: white;
     background-color: aqua;
     border: solid 1px black;
-    @media (max-width: 360px){
-    height: 99.6%;
-    width: 350px;
-    }
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
@@ -62,7 +58,7 @@ export const Caja1 = styled.div`
     height: 615px;
     width: 325px;
     padding-left: 20px;
-    /* background-color: pink; */
+    background-color: pink;
 `
 // Estilo para el input
 export const Input = styled.input`
@@ -78,7 +74,7 @@ export const Area = styled.textarea`
     width: 310px;
     font-size: 17px;
     outline: none;
-    /* background-color: aqua; */
+    background-color: #00f784;
 `
 // Estilo para un botón de acción
 export const Boton1 = styled.button`
