@@ -36,18 +36,18 @@ const CrearTarea = () => {
     const Compromiso = (ev) => {
         ev.preventDefault();
 
-        // Buscar si el valor seleccionado en selectNegocio existe en el estado negocio
+
+        if (asunto && responsable && tipotarea && fecha && hora) {
+            // Buscar si el valor seleccionado en selectNegocio existe en el estado negocio
         const selectedNegocio = negocio.find((n) => n.idNegocio === parseInt(selectNegocio));
         if (!selectedNegocio) {
             swal({
-                title: "El negocio selecionada no es valida",
+                title: "El negocio seleccionado no es válido",
                 text: "Porfavor seleccionar negocio",
-                icon: "error",
+                icon: "warning",
               });
-            return;
+              return
         }
-
-        if (negocio && asunto && responsable && tipotarea && fecha && hora) {
             Axios.post("http://localhost:3005/tareas", {
                 negocio: selectedNegocio.idNegocio,
                 asunto: asunto,
@@ -57,18 +57,21 @@ const CrearTarea = () => {
                 hora: hora,
             })
                 .then((response) => {
+                    setTimeout(() => {
+
+                        window.location.href = "/tareas"
+                    }, 0);
                     console.log(response.data);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
         } else {
-            alert('Ingresa todos los valores');
+            swal({
+                text: "Porfavor llenar todo",
+                icon: "error",
+              });
         }
-        setTimeout(() => {
-
-            window.location.href = "/tareas"
-        }, 0);
     };
 
 
