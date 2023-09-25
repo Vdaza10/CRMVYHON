@@ -8,7 +8,7 @@ export const Fondo = styled.div`
 export const Header = styled.header`
 /* width: 900px; */
 height: 135px;
-background-color: aqua;
+/* background-color: aqua; */
 `
 
 export const Parrafo = styled.p`

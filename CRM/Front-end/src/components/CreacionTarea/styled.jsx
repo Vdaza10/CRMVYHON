@@ -15,15 +15,15 @@ position: absolute;
     }
 `;
 export const Principal = styled.div`
-    height: 770px;
-    width: 123%;
+    height: 855px;
+    width: 350px;
     background-color: white;
-    background-color: aqua;
+    /* background-color: aqua; */
     border: solid 1px black;
     @media (max-width: 920px)and (max-height: 850px){
-        height: 100%; 
-        width: 123%;
-        background-color: red;
+        height: 875px; 
+        width: 388px;
+        /* background-color: red; */
     }
 `
 export const Caja1 = styled.div`
@@ -39,7 +39,7 @@ export const Parrafo = styled.p`
     display: flex;
     align-items: center;
     padding-left: 20px;
-    background-color: blue
+    /* background-color: blue */
 `
 export const Img = styled.img`
     height: 30px;
@@ -51,7 +51,7 @@ export const Caja2 = styled.div`
     height: 600px;
     width: 325px;
     padding-left: 20px;
-    background-color: green;
+    /* background-color: green; */
     @media (max-width: 920px)and (max-height: 850px){
         height: 650px;
         width: 366px;
@@ -67,13 +67,13 @@ export const Input = styled.input`
     width: 300px;
     font-size: 17px;
     outline: none;
-    background-color: black;
+    /* background-color: black; */
     @media (max-width: 920px)and (max-height: 850px){
         height: 35px;
         width: 350px;
         font-size: 17px;
         outline: none;
-        background-color: red;
+        /* background-color: red; */
     }
 `
 
@@ -86,7 +86,7 @@ export const Caja3 = styled.div`
     justify-content: space-evenly;
     align-items: center;
     right: auto;
-    background-color: blue;
+    /* background-color: blue; */
 `
 
 export const Boton1 = styled.button`
@@ -135,13 +135,13 @@ export const ContainerInput = styled.div`
     justify-content: space-between;
     border: solid gray 1px ;
     outline: none;
-    background-color: pink;
+    /* background-color: pink; */
 `
 
 export const Select = styled.select`
     width: 97%;
     height: 7%;
     border: solid 1px gray;
-    background-color: gray;
+    /* background-color: gray; */
     
     `
