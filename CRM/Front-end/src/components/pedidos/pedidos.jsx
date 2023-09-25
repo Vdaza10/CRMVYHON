@@ -3,8 +3,9 @@ import Menu from "../menu/principal";
 import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos } from "./style";
 import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
-import PedidoCard from "../pedidoCard/pedidoCard.jsx"; // Reemplaza con la ruta adecuada
+import PedidoCard from "../pedidoCard/pedidoCard.jsx";
 import axios from "axios";
+import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd"
 
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
@@ -33,12 +34,10 @@ const Pedidos = () => {
     const getDataPedido = async () => {
         try {
             const response = await axios.get("http://localhost:3005/pedidos/", {
-                //token, headers
             });
             setOrders(response.data);
             console.log(response.data, 'orders');
         } catch (error) {
-            // Manejar errores aquí
         }
     };
 
@@ -47,10 +46,8 @@ const Pedidos = () => {
     }, []);
 
     const orderbyColumns = (i) => {
-        // Combina las tarjetas de pedidos existentes y las creadas desde el formulario
         const allPedidos = [...orders, ...cardPedidos];
 
-        // Filtra por la columna actual
         const orderColumn = allPedidos.filter((pedido) => pedido.columna === i);
 
         return orderColumn.map((pedido, index) => (
@@ -66,7 +63,6 @@ const Pedidos = () => {
         ));
     };
 
-    //función kanban
 
     return (
         <>
@@ -80,11 +76,13 @@ const Pedidos = () => {
                     ))}
                 </EstadoPedido>
 
+                
                 <TablePedidos>
                     {[1, 2, 3, 4].map((table, index) => (
                         <PedidoData key={index}>
                             <HeadData>
-                                <MontoData></MontoData>
+                                <MontoData>
+                                </MontoData>
 
                                 <AddPedido onClick={() => toggleForm(index)}>
                                     <MdAdd style={{ fontSize: "20px" }} />
