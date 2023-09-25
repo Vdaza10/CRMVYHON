@@ -63,7 +63,6 @@ const [buscar, setBuscar] = useState("")
         (dato.telefono && dato.telefono.toString().toLowerCase().includes(buscar.toLowerCase())) ||
         (dato.correo && dato.correo.toLowerCase().includes(buscar.toLowerCase()))||
         (dato.nombreEmpresa&& dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase()))
-
 );
 }
 

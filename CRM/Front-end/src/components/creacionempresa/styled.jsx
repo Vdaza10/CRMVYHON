@@ -9,52 +9,70 @@ position: absolute;
     right: 0px;
     display: flex; 
     justify-content: center; 
-    @media screen and (max-width: 1228px) {
-        
+    @media (max-width: 865px) and (max-height: 850px){
+    margin-top: 40px;
+    width: 390px;
+    background-color: white; 
+    /* background-color: #b300ff; */
     }
 `;
 // Estilo para el contenedor que envuelve el contenido principal
 export const Container1 = styled.div`
-    height: 99.6%;
+    height: 852px;
     width: 350px;
     background-color: white;
-    background-color: aqua;
+    // background-color: #09c795;
     border: solid 1px black;
-    @media (max-width: 360px){
-    height: 99.6%;
-    width: 350px;
+    @media (max-width: 920px)and (max-height: 850px){
+    height: 750px;
+    width: 386px;
+    background-color: white;
+    /* background-color: aqua; */
+    border: solid 1px black;
+
     }
+    /* @media {
+    height: 90%;    
+    width: 400px;
+    background-color: white;
+    background-color: #b300ff;
+    border: solid 1px black;
+    } */
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
     height: 10%;
     width: 340px;
     display: flex;
+    // background-color: aqua;
     justify-content: space-between;
     align-items: center;
     
 `
 // Estilo para el párrafo
 export const Parrafo = styled.p`
+    height: 100%;
     font-size: 20px;
     font-style: italic;
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 15px;
+    // background-color: blue;
     
 `
 // Estilo para la imagen
 export const Img = styled.img`
     height: 30px;
     width: 30px;
-    padding-right: 30px;
+    /* padding-right: 30px; */
     cursor: pointer;
-    
+    // background-color: blueviolet;
 ` 
 // Estilo para otro párrafo
 export const Parrafo1 = styled.p`
     font-size: 15px;
     font-style: italic;
+    // background-color: bisque;
     
 `
 // Estilo para una caja que contiene elementos (sección principal)
@@ -62,7 +80,12 @@ export const Caja1 = styled.div`
     height: 615px;
     width: 325px;
     padding-left: 20px;
-    /* background-color: pink; */
+    // background-color: pink;
+    @media (max-width: 920px)and (max-height: 850px){
+    height: 500px;
+    width: 366px;
+    padding-left: 20px;
+    }
 `
 // Estilo para el input
 export const Input = styled.input`
@@ -70,6 +93,7 @@ export const Input = styled.input`
     width: 300px;
     font-size: 17px;
     outline: none;
+    /* background-color: yellowgreen; */
     
 `
 // Estilo para el área de texto
@@ -78,7 +102,7 @@ export const Area = styled.textarea`
     width: 310px;
     font-size: 17px;
     outline: none;
-    /* background-color: aqua; */
+    /* background-color: #00f784; */
 `
 // Estilo para un botón de acción
 export const Boton1 = styled.button`
@@ -124,13 +148,23 @@ export const Boton2 = styled.button`
 // Estilo para una caja que contiene elementos (sección de botones)
 export const Caja2 = styled.div`
     height: 90px;
-    width: 340px;
+    width: 348px;
     display: flex;
     align-items: normal;
     justify-content: space-evenly;
     align-items: center;
-    /* right: auto; */
-    /* background-color: aqua; */
+    right: 15px;
+    /* background-color: blue; */
+    @media (max-width: 920px)and (max-height: 850px){
+        height: 90px;
+        width: 385px;
+        align-items: normal;
+        justify-content: space-evenly;
+        align-items: center;
+        /* background-color: blue; */
+        /* right: 15px; */
+        margin-right: 15px;
+    }
 
 `
 export const SelectEmpresa = styled.select`

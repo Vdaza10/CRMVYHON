@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Principal, Caja1, Parrafo, Img, Caja2, Parrafo1, Input, Select, Caja3, Boton1, Boton2 } from "./styled.jsx";
 import imagen from "../img/img_x.webp";
 import Axios from "axios";
+import swal from "sweetalert";
 
 function CrearNegocios() {
     const [nombreNegocio, setNombreNegocio] = useState("");
@@ -45,6 +46,28 @@ function CrearNegocios() {
     // Función para crear un negocio
     const createNegocio = async (e) => {
         e.preventDefault();
+
+        if (nombreNegocio && etapas && fuente) {
+            const elegirCampaña = empresa.find((n) => n.idEmpresa === parseInt(selectEmpresa));
+            const elegirContacto = contacto.find((n) => n.idContacto === parseInt(selectContacto));
+        
+            if (!elegirCampaña) {
+                swal({
+                    title: "La campaña seleccionada no es válida",
+                    text: "Por favor seleccionar campaña",
+                    icon: "warning",
+                });
+                return;
+            }
+
+            if (!elegirContacto) {
+                swal({
+                    title: "El contacto seleccionado no es válido",
+                    text: "Por favor seleccionar contacto",
+                    icon: "warning",
+                });
+                return;
+            }
         try {
             const response = await Axios.post("http://localhost:3005/negocio", {
                 nombreNegocio,
@@ -53,14 +76,21 @@ function CrearNegocios() {
                 empresa: selectEmpresa,
                 contacto: selectContacto,
             });
+            setTimeout(() => {
+                        
+                window.location.href = "/negocios"  
+        },0)
             console.log("Negocio creado:", response.data);
-        } catch (error) {
+        }catch (error) {
             console.log("Error al crear negocio:", error);
         }
-        setTimeout(() => {
-                        
-            window.location.href = "/negocios"  
-    },0);
+    }else {
+        // alert('llenar todo')
+        swal({
+            text: "Porfavor llenar todo",
+            icon: "error",
+          });
+    }
     };
 
     if (!cerrar) {

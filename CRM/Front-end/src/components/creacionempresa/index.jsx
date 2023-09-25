@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Div1, Container1, Caja, Parrafo, Img, Parrafo1, Caja1, Input, Caja2, Boton1, Boton2, Area, SelectEmpresa } from "./styled.jsx";
 import imagen from "../img/img_x.webp";
 import axios from 'axios'
+import swal from "sweetalert";
 
 function Retorno8() {
     const [nombreEmpresa, setNombreEmpresa] = useState("");
@@ -39,6 +40,18 @@ function Retorno8() {
 
     // Función para crear una empresa
     const createEmpresa = async (e) => {
+        e.preventDefault();
+
+        if (nombreEmpresa&&url&&descripcion) {
+            const elegirSegmento = segmento.find((n) => n.idSegmento === parseInt(selectedSegmento))
+            if (!elegirSegmento) {
+                swal({
+                    title: "El segmento selecionado no es valido",
+                    text: "Porfavor seleccionar segmento",
+                    icon: "warning",
+                });
+                return
+            }
         try {
             const response = await axios.post("http://localhost:3005/company", {
                 nombreEmpresa,
@@ -46,14 +59,21 @@ function Retorno8() {
                 url,
                 descripcion
             });
+            setTimeout(() => {
+
+                window.location.href = "/empresas"
+            }, 0);
             console.log("Empresa creada:", response.data);
         } catch (error) {
             console.log("Error al crear empresa:", error);
         }
-        setTimeout(() => {
-
-            window.location.href = "/empresas"
-        }, 0);
+        
+    }else{
+        swal({
+            text: "Porfavor llenar todo",
+            icon: "error",
+        });
+    }
     };
 
 
@@ -78,7 +98,7 @@ function Retorno8() {
                             if (!regex.test(inputValue)) {
                               event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
                             }
-                          }}
+                        }}
                         onChange={(e) => setNombreEmpresa(e.target.value)} />
 
                     <Parrafo1><h3> Segmento</h3></Parrafo1>
@@ -103,8 +123,8 @@ function Retorno8() {
                         if (!regex.test(inputValue)) {
                           event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
                         }
-                      }}
-                     onChange={(e) => setDescripcion(e.target.value)} />
+                    }}
+                        onChange={(e) => setDescripcion(e.target.value)} />
                 </Caja1>
                 <hr />
                 <Caja2>

@@ -82,15 +82,14 @@ const [buscar, setBuscar] = useState("")
     };
 
     const TabladeleteTarea = async (item) => {
-        const res = await Axios.delete(
-        `http://localhost:3005/tareastabla/${item.idTarea}`
+        const res = await Axios.put(
+        `http://localhost:3005/tareastabla/desactivar/${item.idTarea}`
         );
         console.log("Contacto eliminado con éxito.", res.data);
 
 
         setTimeout(() => {
-                        
-            window.location.href = "/tareas"  
+            window.location.href = "/tareas"
         }, 0);
     };
     useEffect(() => {

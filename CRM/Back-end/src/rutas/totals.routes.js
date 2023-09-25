@@ -82,19 +82,20 @@ router.put('/contactotabla/desactivar/:idContacto', tablaContacto.desactivarTabl
 //tabla empresa
 router.get('/companytabla',tablaEmpresa.getTablaEmpresa)
 router.patch('/companytabla/:idEmpresa',tablaEmpresa.updatetablaEmpresa)
-router.delete('/companytabla/:idEmpresa', tablaEmpresa.deleteTablaEmpresa)
+// router.delete('/companytabla/:idEmpresa', tablaEmpresa.deleteTablaEmpresa)
+router.put('/empresatabla/desactivar/:idEmpresa', tablaEmpresa.desactivarTablaEmpresa);
 
 
 //tabla negocio
 router.get('/negociotabla', tablaNegocio.getTablaNegocio);
 router.patch('/negociotabla/:idNegocio',tablaNegocio.updatetablaNegocio)
-router.delete('/negociotabla/:idNegocio', tablaNegocio.deleteTablaNegocio);
+router.put('/negociotabla/desactivar/:idNegocio',tablaNegocio.desactivarTablaNegocio);
 
 
 //tabla tarea
 router.get('/tareastabla',tablaTarea.getTablaTarea)
 router.patch('/tareastabla/:idTareas',tablaTarea.updatetablaTareas)
-router.delete('/tareastabla/:idTareas',tablaTarea.deleteTablaTareas)
+router.put('/tareastabla/desactivar/:idTareas',tablaTarea.desactivarTablaTarea)
 
 
 //pedidos
