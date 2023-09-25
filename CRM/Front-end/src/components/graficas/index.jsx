@@ -3,6 +3,7 @@ import { Caja, CajaFooter, CajaGraficaDeElMedio, Color, ContenedorColorYLetra, C
 import Menu from "../menu/principal";
 import { BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, Bar, AreaChart, Area, PieChart, Pie, Cell } from 'recharts'
 
+
 function Grafica() {
     const data = [
         {nombre: "elias", edad: 12, peso: 20 },
