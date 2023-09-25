@@ -1,31 +1,26 @@
 import styled from "styled-components";
 
 export const AdminPedido = styled.div`
-    height: 100vh;
+    height: 90vh;
     width: 100%;
-    background: linear-gradient(135deg, #ffffff, #ffffff);
     display: flex;
     flex-direction: column;
     align-items: center;
 `
 
 export const EstadoPedido = styled.div`
-    height: 5%;
+    height: 8%;
     width: 98%;
-    background-color: #ffffff;
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-around;
+    background-color: #ffffff;
 `
 
 export const TablePedidos = styled.div`
-    height: 90%;
+    height: 100%;
     width: 98%;
-    background-color: #ffffff;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -35,7 +30,6 @@ export const TablePedidos = styled.div`
 export const PedidoData = styled.div`
     height: 98%;
     width: 30%;
-    background-color: #50bfff;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
     display: flex;
@@ -57,12 +51,15 @@ export const HeadData = styled.div`
 export const BodyData = styled.div`
     position: relative;
     height: 100%;
-    width: 98%;
+    width: 96%;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
     background-color: #50bfff;
     overflow: hidden;
     overflow: scroll ;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 `
 
 export const MontoData = styled.div`
@@ -76,6 +73,10 @@ export const MontoData = styled.div`
 export const AddPedido = styled.button`
     height: 40%;
     width: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 5px 5px 5px 5px;
     background-color: #59dbfc;
     transition: background-color 0.3s ease;
@@ -99,18 +100,19 @@ export const ListView = styled.div`
     border-radius: 5px;
     margin: 10px 10px 10px 10px;
     transition: all 0.1s ease;
-    background-color: #279277;
+    background-color: #59dbfc;
     border: solid white;
 `
 
 export const ContArrow = styled.div`
     height: 100%;
     width: 100%;
+    display: flex;
 `
 
 export const StateData = styled.div`
     width: 414px;
-    height: 70%;
+    height: 60%;
     left: 10px;
     background-color: #50bfff;
     margin: 5px 5px 5px 5px;
@@ -131,7 +133,7 @@ export const StateData = styled.div`
         top: 0;
         right: -15px;
         width: 0;
-        height: 0;
+        height: 2px;
         border-top: 15px solid transparent;
         border-bottom: 20px solid transparent; 
         border-left: 15px solid #50bfff;

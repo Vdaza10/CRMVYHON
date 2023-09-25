@@ -72,4 +72,4 @@ export const ButtonState = styled.button`
 
 export const InputDate = styled.data`
     
-`
+` 
