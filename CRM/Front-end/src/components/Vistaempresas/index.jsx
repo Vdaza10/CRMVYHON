@@ -5,10 +5,33 @@ import Menu from "../menu/principal";
 import TablaEmpresa from "../tablaEmpresa";
 import Axios from "axios";
 import Retorno8 from "../creacionempresa"; // Importacion del componente Retorno8
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 function Retorno7() {
     const [active, setActive] = useState(false); // Estado para controlar la visualización del componente Retorno8
     const [empresa, setEmpresa]= useState([])
+
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+    },[navigate])
 
 
     const Getempresa = async() =>{
@@ -23,12 +46,18 @@ function Retorno7() {
 
     return (
         <>
+        {loading ? (
+            <>
+            <h1>cargando.....</h1>
+            </>
+        ):(
+        <>
         {empresa.length <= 0 ? (
             <>
             <Menu/> {/* Muestra el componente Menu */}
                 <Container>
                       {/* Muestra una imagen */}
-                    <img src={imagen} alt="img" style={{width:'25%',height:'50%',marginTop:"4%"}} />
+                    <img src={imagen} alt="img" style={{width:'400px',height:'355px', marginTop: "30px"}} />
                     <Parrafo><h3>Crea empresas</h3></Parrafo>
                     <Parrafo>Mantén el historial de todos los negocios con tu base de empresas.</Parrafo>
                     <Boton onClick={() => setActive(!active)}>Crear empresa</Boton>
@@ -43,6 +72,7 @@ function Retorno7() {
         )}
             
         </>
-    );
-}
+        )}
+        </>
+)};
 export default Retorno7;   

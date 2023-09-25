@@ -1,24 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+
+import Retorno2 from "./components/vista_negocios"
+import Retorno3 from "./components/contacto"
+import Retorno5 from "./components/tarea"
+import Retorno4 from "./components/crearcontacto"
+import Retorno7 from "./components/Vistaempresas"
+import PerfilUsuario from "./components/VistaPerfilusuario/perfilusuario"
+import CrearTarea from "./components/CreacionTarea"
+import Principal from "./components/login"
+import Registrarse from "./components/Registro/Fondo/registroPrincipal"
+import Registro from "./components/Registro/Fondo/registroPrincipal"
+import Recuperar from "./components/recuperarContraseña"
+import TablaContacto from "./components/tablaContacto"
+import TablaEmpresa from "./components/tablaEmpresa"
+import TablaNegocio from "./components/tablaNegocio"
+import TablaTarea from "./components/tablaTarea"
+import Vistaprincipal from "./components/vistaPrincipal/principal"
+import Inicio from "./components/vistaInicialvyhon/inicio"
+import Campaña from "./components/markenting/markentingp"
+import CampañaCorreo from "./components/campañacorreo/campaña"
+import Comunicacion from "./components/comunicacion/comunicacion"
+import Promocion from "./components/promocion/promocion"
+import Pedidos from "./components/pedidos/pedidos"
+import Campañasms from "./components/campañasms/campaña"
+import FormularioPedido from "./components/CrearPedido"
+import NegocioUpdate from "./components/updateNegocio"
+import Grafica from "./components/graficas"
+import Notificación from "./components/VistaPerfilusuario/vistaNotificaciones/notificaciones"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+        {/* Rutas para el menu principal */}
+        <Route path="/" element = {<Inicio/>}> </Route>
+        <Route path="/registrarse" element = {<Registrarse/>}> </Route>
+        <Route path="/registro" element = {<Registro/>}> </Route>
+        <Route path="/principal" element = {<Principal/>}> </Route>
+        <Route path="/vistaprincipal" element = {<Vistaprincipal/>}></Route>     
+        <Route path="/recuperar" element = {<Recuperar/>}> </Route>
+        <Route path="/menu" element = {<Vistaprincipal/>}> </Route>
+        <Route path="/negocios" element = {<Retorno2/>}></Route>
+        <Route path="/contactos" element = {<Retorno3/>}></Route>
+        <Route path="/crearcontacto" element = {<Retorno4/>}></Route>
+        <Route path="/tareas" element = {<Retorno5/>}></Route> 
+        <Route path="/empresas" element = {<Retorno7/>}></Route>
+        <Route path="/perfilusuario" element = {<PerfilUsuario/>}></Route>
+        <Route path="/creartarea" element = {<CrearTarea/>}></Route>
+        <Route path="/tablaContacto" element = {<TablaContacto/>}></Route>
+        <Route path="/tablaEmpresa" element = {<TablaEmpresa/>}></Route>
+        <Route path="/tablaNegocio" element = {<TablaNegocio/>}></Route>
+        <Route path="/tablaTarea" element = {<TablaTarea/>}></Route>
+        <Route path="/Marketing" element={<Campaña/>}></Route>
+        <Route path="/campañacorreo" element = {<CampañaCorreo/>}></Route>
+        <Route path="/camunicacion" element = {<Comunicacion/>}></Route>
+        <Route path="/promocion" element = {<Promocion/>}></Route>
+        <Route path="/pedidos" element = {<Pedidos/>}></Route>
+        <Route path="/camapañasms" element = {<Campañasms/>}></Route>
+        <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
+        <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
+        <Route path="/grafica" element = {<Grafica/>}></Route>
+        <Route path="/noti" element = {<Notificación/>}></Route>
+        {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
+    </Routes>
+</BrowserRouter>
   );
 }
 

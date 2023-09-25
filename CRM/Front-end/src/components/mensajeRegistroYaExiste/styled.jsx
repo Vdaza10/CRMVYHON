@@ -5,7 +5,7 @@ width: 100vw;
     height: 100vh;
     position: fixed;
     /* top: 0;
-    left: 0; */
+    left: 159px; */
     background-color: rgba(0,0,0,.5);
     display: flex;
     align-items: center;
@@ -13,11 +13,14 @@ width: 100vw;
 `
 export const ContenedorModal = styled.div`
     width: 25%;
-    height: 30%;
+    height: 32%;
     background-color: #fff;
     border-radius: 5px;
+    position: absolute;
     box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    
     /* background-color: red; */
+    
 `
 
 export const Encabezado = styled.div`

@@ -7,7 +7,6 @@ import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
 import PedidoCard from "../PedidosCard/index.jsx";
 import axios from "axios";
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
 
 const Pedidos = () => {

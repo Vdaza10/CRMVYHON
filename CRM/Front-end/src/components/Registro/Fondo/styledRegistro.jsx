@@ -6,15 +6,19 @@ background: -moz-linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,
 background: -webkit-linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
 background: linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#eeeeee",GradientType=1);
-
     width: 100%;
     height:100vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     justify-content: space-between;
+    @media screen and (max-width: 800px){
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 `
 export const Idioma = styled.select`
-    width: 90%;
+    width: 20%;
     height: 100%;
     background-color: transparent;
     border: none;
@@ -24,28 +28,48 @@ export const Idioma = styled.select`
 
 export const Ladero = styled.div`
     background-color: rgb(255, 255, 255);
-    width: 25%;
+    width: 25em;
     height:100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: green; */
+    @media screen and (max-width: 800px) {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    }
 `
 export const Ladero1 = styled.div`
-    width: 100%;
+    width: 23em;
     height: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: pink; */
+    @media screen and (max-width: 800px) {
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+    width: 35em;
+    }
 `
 export const Ladero2 = styled.div`
     color: black;
-    width: 80%;
+    width: 23em;
     height: 50% ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: antiquewhite; */
+    @media screen and ( max-width: 800px){
+        display: flex;
+        width: 30em;
+        height: 60%;
+    }
+
 `
 
 export const Img = styled.img`
@@ -53,19 +77,22 @@ export const Img = styled.img`
 `
 
 export const ContainerSelect = styled.div`
-    width: 5%;
+    width: 18%;
     height: 3%;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
     margin-top: 17px;
 
 `
 export const Ingresar = styled.p`
-    margin-right: 15px;
+    margin-right: 10px;
+    height: 15%;
     font-size: 18px;
     font-weight:500;
     cursor: pointer;
+    tit
 
     /* &:before {
         content: "";

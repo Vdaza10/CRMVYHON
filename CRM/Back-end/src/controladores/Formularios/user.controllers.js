@@ -1,5 +1,7 @@
 import { pool } from "../../db.js";
 import { encryptPassword } from "../../helpers/Bycrypt.js";
+import jwt from "jsonwebtoken";
+import { Secret } from "../../db.js";
 export const getUsers = async(req,res) =>{
     try {
         const{correo}=req.body
@@ -8,8 +10,7 @@ export const getUsers = async(req,res) =>{
         const [enviar] = await pool.query(email,guardar)
         if(enviar.length > 0 ){
             return res.send('correo encontrado')
-        }
-        //const [rows] = await pool.query('SELECT correo FROM registro');
+        }
         res.json(rows)
 
     } catch (error) {
@@ -17,8 +18,17 @@ export const getUsers = async(req,res) =>{
         console.log(error.message.res.status(500));
     }
 }
+export const getUsersid = async(req,res)=>{
+    try {
+        const id= req.params;
+        const [rows] = await pool.query('SELECT * FROM registro WHERE id_registro=?',[id]);
+    }catch{
+        return res.status(401).json({message:'No se encuentra el usuario'});
+    }
+}
 export const createUsers = async (req, res) => {
     try {
+        
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
         const existe = 'SELECT correo FROM registro where correo = ? '
         const evaluar = [correo];
@@ -44,16 +54,38 @@ export const createUsers = async (req, res) => {
     } catch (error) {
         console.error(error); // Puedes agregar un registro del error para debug
         return res.status(500).json({ message: 'Algo va mal' });
-    }
+}
 }
 
 export const updateUsers = async (req, res) => {
-try {
+    const { idRegistro } = req.params;
+  try {
+    const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
+    const [rows]  = await pool.query(
+        'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
+    [nombreUsuario,nombreEmpresa,correo, contraseña,idRegistro]
+    );
+    const refreshToken = jwt.sign(
+        { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
+        Secret,
+        {
+          expiresIn: "1h",
+        }
+    );
+   
+    res.json({refreshToken,
+        data:{
+            idRegistro,
+            nombreUsuario,
+            nombreEmpresa,
+            correo,
+            contraseña
+        }})
+    console.log(refreshToken,"lalala");
 
 } catch (error) {
-    return res.send(404).json({
-message: `The register can't been update`,
-    });
+    console.error(error);
+    res.status(500).json({ mensaje: 'Error al actualizar usuario' });
 }
 };
 

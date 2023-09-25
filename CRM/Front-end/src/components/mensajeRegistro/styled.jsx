@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div` 
 width: 100vw;
     height: 100vh;
     position: fixed;
@@ -13,15 +13,17 @@ width: 100vw;
 `
 export const ContenedorModal = styled.div`
     width: 25%;
-    height: 30%;
+    height: 32%;
     background-color: #fff;
     border-radius: 5px;
+    position: absolute;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     justify-content: center;
     box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    
 `
-
 export const Contenido = styled.div`
     width: 100%;
     height:50%;
@@ -45,7 +47,6 @@ export const ContainerBoton =  styled.div`
     display: flex;
     align-items: end;
     justify-content: center;
-
     button{
         width: 20%;
         height: 70%;
@@ -54,11 +55,10 @@ export const ContainerBoton =  styled.div`
         background-color: #0ab841ca;
         color: white;
         margin-left: 10%;
-
-
         &:hover {
         background-color: #0ab8416d;
         color: gray;
         }
     }
+    
 `

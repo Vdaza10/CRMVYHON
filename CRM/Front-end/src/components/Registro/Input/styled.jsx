@@ -8,19 +8,29 @@ export const Contenedor = styled.div`
     justify-content: center;
     flex-direction: column;
     margin-top: 40px;
+    position: absolute;
 `
 
 export const Contenedor2 = styled.div`
-    width: 50%;
-    height: 70%;
-    margin-right: 8%;
+    width: 30em;
+    height: 40em;
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    right: -400px;
+    bottom: 90px;
+    z-index: 0;
     /* margin-top: 40px; */
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 4px 4px 55px -29px rgba(0,0,0,0.77);
+    @media screen and (max-width: 700px) {
+        width: 25em;
+        height: 40em;
+        bottom: -350px;
+        right: -200px;
+    }
 `
 
 export const Titulo = styled.div`

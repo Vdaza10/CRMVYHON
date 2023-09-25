@@ -4,7 +4,6 @@ import Retorno2 from "./vista_negocios"
 import Retorno3 from "./contacto"
 import Retorno5 from "./tarea"
 import Retorno4 from "./crearcontacto"
-import Retorno6 from "./creacionTareasOpciones"
 import Retorno7 from "./Vistaempresas"
 import PerfilUsuario from "./Perfilusuario"
 import Retorno9 from "./integracionMarkenting"
@@ -24,7 +23,6 @@ import CampañaCorreo from "./campañacorreo/campaña"
 import Comunicacion from "./comunicacion/comunicacion"
 import Promocion from "./promocion/promocion"
 import Pedidos from "./pedidos/pedidos"
-import Audiollamada from "./llamadaAudio/llamada"
 import Campañasms from "./campañasms/campaña"
 import FormularioPedido from "./CrearPedido"
 
@@ -42,12 +40,10 @@ const Todo = () => {
                 <Route path="/vistaprincipal" element = {<Vistaprincipal/>}></Route>     
                 <Route path="/recuperar" element = {<Recuperar/>}> </Route>
                 <Route path="/menu" element = {<Vistaprincipal/>}> </Route>
-                {/* Rutas para diferentes sesiones */}
                 <Route path="/negocios" element = {<Retorno2/>}></Route>
                 <Route path="/contactos" element = {<Retorno3/>}></Route>
                 <Route path="/crearcontacto" element = {<Retorno4/>}></Route>
                 <Route path="/tareas" element = {<Retorno5/>}></Route> 
-                <Route path="/creaciontareas" element = {<Retorno6/>}></Route>
                 <Route path="/empresas" element = {<Retorno7/>}></Route>
                 <Route path="/perfilusuario" element = {<PerfilUsuario/>}></Route>
                 <Route path="/markenting" element = {<Retorno9/>}></Route>
@@ -61,12 +57,10 @@ const Todo = () => {
                 <Route path="/camunicacion" element = {<Comunicacion/>}></Route>
                 <Route path="/promocion" element = {<Promocion/>}></Route>
                 <Route path="/pedidos" element = {<Pedidos/>}></Route>
-                <Route path="/llamadaaudio" element = {<Audiollamada/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
                 <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
-
-
+                {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
             </Routes>
         </BrowserRouter>
     )

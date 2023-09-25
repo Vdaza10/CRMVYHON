@@ -1,15 +1,5 @@
 import React, { useState } from "react";
-import {
-  Fondo,
-  Contenedor,
-  Titulo,
-  Parrafo,
-  Input,
-  Button,
-  Olvidar,
-  ContainerUltimo,
-  Message,
-} from "./styled";
+import {Fondo,Contenedor,Titulo,Parrafo,Input,Button,Olvidar,ContainerUltimo,Message} from "./styled";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -32,11 +22,10 @@ function Principal() {
           if (response.data === "") {
             alert("el usuario no existe");
           } else {
-            ;
+            localStorage.setItem("user", JSON?.stringify(result));
             setTimeout(() => {
-      window.location.href = "/vistaprincipal";
-      console.log(localStorage.setItem("user", JSON?.stringify(result)), '👌👌👌👌');
-    }, 1000)
+              window.location.href = "/vistaprincipal";
+            }, 1000)
           }
         })
         .catch((error) => {
@@ -46,54 +35,56 @@ function Principal() {
     } else {
       setError(`ingrese tanto el usuario como la contraseña`);
     }
-  };
+  }; 
+
   return (
-    <Fondo>
-      <Contenedor>
-        <Titulo>¡Bienvenido a VYHON!</Titulo>
-        <Message>{error}</Message>
+        <Fondo>
+          <Contenedor>
+            <Titulo>¡Bienvenido a VYHON!</Titulo>
+            <Message>{error}</Message>
 
-        <Parrafo>
-          <h4 style={{ margin: "0" }}>Correo electronico</h4>
-        </Parrafo>
+            <Parrafo>
+              <h4 style={{ margin: "0" }}>Correo electronico</h4>
+            </Parrafo>
 
-        <Input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          name="email"
-        ></Input>
+            <Input
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+            ></Input>
 
-        <Parrafo>
-          <h4 style={{ margin: "0" }}>Contraseña</h4>
-        </Parrafo>
+            <Parrafo>
+              <h4 style={{ margin: "0" }}>Contraseña</h4>
+            </Parrafo>
 
-        <Input
-          type="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          name="password"
-        ></Input>
+            <Input
+              type="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+            ></Input>
 
-        <ContainerUltimo>
-          <Button type="submit" onClick={Login}>
-            Iniciar sesión
-          </Button>
-          <br />
-          <Link to={"/recuperar"} style={{ color: "black" }}>
-            <Olvidar style={{ margin: "0" }}>
-              <h4 style={{ margin: "0" }}>Olvidaste tu contraseña?</h4>
-            </Olvidar>
-          </Link>
-          <Olvidar>
-            <Link to={"/registrarse"} style={{ color: "black" }}>
-              <h4 style={{ margin: "0", color: "black", marginTop: "" }}>
-                Registrate
-              </h4>
-            </Link>
-          </Olvidar>
-          <br />
-        </ContainerUltimo>
-      </Contenedor>
-    </Fondo>
-  );
+            <ContainerUltimo>
+              <Button type="submit" onClick={Login}>
+                Iniciar sesión
+              </Button>
+              <br />
+              <Link to={"/recuperar"} style={{ color: "black" }}>
+                <Olvidar style={{ margin: "0" }}>
+                  <h4 style={{ margin: "0" }}>Olvidaste tu contraseña?</h4>
+                </Olvidar>
+              </Link>
+              <Olvidar>
+                <Link to={"/registrarse"} style={{ color: "black" }}>
+                  <h4 style={{ margin: "0", color: "black", marginTop: "" }}>
+                    Registrate
+                  </h4>
+                </Link>
+              </Olvidar>
+              <br />
+            </ContainerUltimo>
+          </Contenedor>
+        </Fondo>
+
+)
 }
-export default Principal;
+      export default Principal;

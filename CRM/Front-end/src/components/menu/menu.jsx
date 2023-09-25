@@ -1,6 +1,5 @@
 // Importación de librerías y recursos necesarios
 import styled from "styled-components"
-import perfil from "../img/perfil.jpg"
 
 // Contenedor principal de la barra de navegación
 export const Contenedor = styled.div`
@@ -26,8 +25,7 @@ export const Logo = styled.img`
 export const Menucontainer = styled.ul`
     list-style: none;
     display: flex;
-    @media screen and (max-width: 700px) {
-        display: flex;
+    @media screen and (max-width: 865px) {
         flex-direction: column;
     }
 `
@@ -36,40 +34,17 @@ export const MenuItem = styled.li`
     margin-right: 5%;
     margin-left: 3%;
     cursor: pointer;
+    transition: all 0.2s ease; // Transición suave para todos los cambios
     &:last-child {
-    margin-right: 45px;
+        margin-right: 45px;
     }     
-    &:hover{
+    &:hover {
         width: 65%;
-        background-color: #0e9af2;
         color: #333;
-        
+        transform: scale(1.2); // Aumentar ligeramente el tamaño al hacer hover
     }
 `;
 
-// Menú desplegable (para el ítem "Analisis")
-export const Despegable = styled.ul`
-    display: ${({ desplegado }) => (desplegado ? "block" : "none")};
-    background-color: #ffffff;
-    height: 9%;
-    width: 13%;
-    
-    list-style: none;
-    /* text-align: center; */
-    position: absolute;
-    top: 10%;
-    left: 35%;  
-    padding: 0;
-    border: 1px solid #0e0e0e;
-    ;
-    @media screen and ( max-width:60% ) {
-        top: 7%;
-        left: 90%;  
-        transform: translate(-50%, 0);
-        padding: 0;
-        
-    }
-`
 // Flecha que indica si el menú desplegable está abierto o cerrado
 export const Flecha = styled.li`
     margin-left: 5px;
@@ -78,86 +53,54 @@ export const Flecha = styled.li`
 `;
 
 // Contenedor para el ícono de búsqueda y menú de usuario
-export const ContenedorBusqueda = styled.div`
+export const Ajustes = styled.div`
     height: 60px;
-    width: 200px;
+    width: 40px;
     color: white;
+    position: absolute;
     display: flex;
     align-items: center;
     position: absolute;
     /* background-color: #640817; */
     right: 0px;
-    margin-inline-end: 170px;
+    margin-inline-end: 100px;
     justify-content: flex-end;
-    @media screen and (max-width:60%) {
-        
+    @media screen and (max-width:700px) {
+        margin-inline-end: 40px;
+
     }
 ` 
-// Contenedor para el ícono de perfil de usuario y nombre
-export const PerfilUsiario = styled.div`
-    margin-left: 10px;
-    align-items: center;
-    right: 20px;
-    /* background-color: pink; */
-`
 
-// Imagen de perfil de usuario
-export const ImagenPerfil = styled.div`
-    background-image: url(${perfil});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    cursor: pointer;
-    &:last-child {
-    margin-right: 0;
-    }    
-    &:hover{
-        background-color: #ee3ed192;
-        color: #661313;
-    }
-    
-`;
-
-// Nombre de usuario
-export const NombreUsuario = styled.span`
-    margin-left: 10px;
-    color: white;
-    /* background-color: aqua; */
-    
-`;
+// // Imagen de perfil de usuario
+// export const ImagenPerfil = styled.div`
+//     background-image: url(${perfil});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 100%;
+//     cursor: pointer;
+//     &:last-child {
+//     margin-right: 0;
+//     }    
+//     &:hover{
+//         background-color: #ee3ed192;
+//         color: #661313;
+//     }
+// `;
 
 // Menú desplegable del perfil de usuario
 export const Menudesplegable = styled.div`
     display: ${({ perfilDesplegable }) => (perfilDesplegable ? "block" : "none")};
-    width: 130%;
-    height: 350px;
+    width: 250px;
+    height: 560%;
     list-style: none;
     position: absolute;
-    top: 130%;
-    left: 105px;  
+    top: 133%;
+    left: -111px;  
     padding: 0;
-    border: 1px solid  gray;
     background-color: white;
 `
 
-export const Buscar = styled.input`
-    /* background-color: #3022ee; */
-    height: 30px;
-    width: 160px;
-    margin-right: 5px;
-    border-radius: 5px;
-    outline: none;
-    @media screen and (max-width: 900px) {
-        width: 100px;
-    }
-    @media screen and (max-width: 700px) {
-        width: 50px;
-    }
-    @media screen and (max-width: 500px) {
-        width: 1px;
-    }
-`
 

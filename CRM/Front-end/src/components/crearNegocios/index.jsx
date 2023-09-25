@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Principal, Caja1, Parrafo, Img, Caja2, Parrafo1, Input, Select, Caja3, Boton1, Boton2 } from "./styled.jsx";
 import imagen from "../img/img_x.webp";
 import Axios from "axios";
+import swal from "sweetalert";
 
 function CrearNegocios() {
     const [nombreNegocio, setNombreNegocio] = useState("");
@@ -45,6 +46,28 @@ function CrearNegocios() {
     // Función para crear un negocio
     const createNegocio = async (e) => {
         e.preventDefault();
+
+        if (nombreNegocio && etapas && fuente) {
+            const elegirCampaña = empresa.find((n) => n.idEmpresa === parseInt(selectEmpresa));
+            const elegirContacto = contacto.find((n) => n.idContacto === parseInt(selectContacto));
+        
+            if (!elegirCampaña) {
+                swal({
+                    title: "La campaña seleccionada no es válida",
+                    text: "Por favor seleccionar campaña",
+                    icon: "warning",
+                });
+                return;
+            }
+
+            if (!elegirContacto) {
+                swal({
+                    title: "El contacto seleccionado no es válido",
+                    text: "Por favor seleccionar contacto",
+                    icon: "warning",
+                });
+                return;
+            }
         try {
             const response = await Axios.post("http://localhost:3005/negocio", {
                 nombreNegocio,
@@ -53,14 +76,21 @@ function CrearNegocios() {
                 empresa: selectEmpresa,
                 contacto: selectContacto,
             });
+            setTimeout(() => {
+                        
+                window.location.href = "/negocios"  
+        },0)
             console.log("Negocio creado:", response.data);
-        } catch (error) {
+        }catch (error) {
             console.log("Error al crear negocio:", error);
         }
-        setTimeout(() => {
-                        
-            window.location.href = "/negocios"  
-        },0);
+    }else {
+        // alert('llenar todo')
+        swal({
+            text: "Porfavor llenar todo",
+            icon: "error",
+          });
+    }
     };
 
     if (!cerrar) {
@@ -78,11 +108,35 @@ function CrearNegocios() {
                     <hr />
                     <Caja2>
                         <Parrafo1><h3>Nombre del negocio</h3></Parrafo1>
-                        <Input placeholder="Ingresar el nombre del negocio" onChange={(e) => setNombreNegocio(e.target.value)} />
+                        <Input placeholder="Ingresar el nombre del negocio" 
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z0-9& ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setNombreNegocio(e.target.value)} />
                         <Parrafo1><h3>Etapa del embudo</h3></Parrafo1>
-                        <Input placeholder="Ingresar la etapa del embudo" onChange={(e) => setEtapas(e.target.value)} />
+                        <Input placeholder="Ingresar la etapa del embudo"
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z0-9 ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setEtapas(e.target.value)} />
                         <Parrafo1><h3>Fuente</h3></Parrafo1>
-                        <Input placeholder="Ingresar la fuente" onChange={(e) => setFuente(e.target.value)} />
+                        <Input placeholder="Ingresar la fuente" 
+                        onKeyPress={(event) => {
+                            const inputValue = event.key;
+                            const regex = /[a-zA-Z ]/;
+                            if (!regex.test(inputValue)) {
+                              event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+                            }
+                          }}
+                        onChange={(e) => setFuente(e.target.value)} />
                         <Parrafo1><h3>Campaña</h3></Parrafo1>
                         <Select value={selectEmpresa} onChange={(e) => setSelectEmpresa(e.target.value)}>
                             <option value="">Seleccionar campaña...</option>
@@ -106,7 +160,7 @@ function CrearNegocios() {
                     <hr />
                     <Caja3>
                         <Boton1 onClick={createNegocio}>Crear negocio</Boton1>
-                        <Boton2>Cancelar</Boton2>
+                        <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
                     </Caja3>
                 </Principal>
             </Container>

@@ -5,10 +5,34 @@ import Menu from '../menu/principal';
 import TablaContacto from '../tablaContacto';
 import Axios from 'axios';
 import Retorno4 from '../crearcontacto'; // Importación del componente Retorno4 (¿crear contacto?)
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
 
 function Retorno3() {
     const [active, setActive] = useState(false) // Estado para controlar la visibilidad del componente Retorno4
     const [contacto, setContacto] = useState([])
+
+    const [loading, setLoading] = useState(true)
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            try {
+            const token = jwt_decode(userToken);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setLoading(false);
+            } catch (error) {
+                console.error("Error al decodificar el token:", error);
+                navigate('/'); 
+            }
+        }else{
+            navigate('/');
+        }
+    },[navigate])
 
     const TablagetContacto = async () => {
         const contactos = await Axios.get("http://localhost:3005/contactotabla");
@@ -21,12 +45,18 @@ function Retorno3() {
 
     return (
         <>
+        {loading ? (
+            <>
+            <h1>Cargando......</h1>
+            </>
+        ):(
+        <>
         {contacto.length <= 0 ? (
             <>
             {/* Componente de menú */}
             <Menu />
                 <Container>
-                    <img src={imagen} alt="img" style={{ width: '30%', height: '50%' , marginTop:"15px" }} />
+                    <img src={imagen} alt="img" style={{ width: '450px', height: '240px', marginTop: "110px"}} />
                     <Parrafo><h3>No hemos encontrado contactos en tu cuenta ni con los filtros <br /> que seleccionaste</h3></Parrafo>
                     <Parrafo> Crear contactos para llevar el registro y los datos de todas las personas <br />con las que negocias. o prueba a cambiar los filtros seleccionados para encontrar <br /> nuevos resultados   </Parrafo>
                     {/* Botón para crear contactos */}
@@ -41,6 +71,8 @@ function Retorno3() {
             </>
         )}
             
+    </>
+    )}
     </>
     );
 }

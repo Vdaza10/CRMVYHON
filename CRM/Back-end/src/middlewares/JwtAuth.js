@@ -9,9 +9,11 @@ export const validatetoken = async (req,res,next) => {
         console.log(validtoken)
         req.Username = validtoken.username
         req.UserId = validtoken.id;
+        console.log(validatetoken,"👌👌👌");
 
         next()
     } catch (error) {
         return res.status(401).json({error: error.message})
     }
 }
+
