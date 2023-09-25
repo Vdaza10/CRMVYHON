@@ -30,7 +30,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
             </Ladero>
                 <Registrarse></Registrarse>
                 <Registrarse></Registrarse>
-                <Link to={"/"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
+                <Link to={"/principal"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
 
             <VentanaModal1 
                 estado={estadoModal}
