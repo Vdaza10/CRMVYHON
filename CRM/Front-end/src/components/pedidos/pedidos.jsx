@@ -10,6 +10,7 @@ const Pedidos = () => {
     const [orders, setOrders] = useState([]);
     const [showForms, setShowForms] = useState([false, false, false, false]);
     const [cardPedidos, setCardPedidos] = useState([]);
+    const titles = ["creacion", "negociacion", "confirmacion", "realizado"];
 
     const toggleForm = (index) => {
         const updatedForms = [...showForms];
@@ -72,13 +73,14 @@ const Pedidos = () => {
         <>
             <Menu />
             <AdminPedido>
-                <EstadoPedido>
-                    {[1, 2, 3, 4].map((_, index) => (
-                        <ContArrow key={index}>
-                            <StateData className="letras">creacion</StateData>
-                        </ContArrow>
-                    ))}
-                </EstadoPedido>
+            <EstadoPedido>
+    {titles.map((title, index) => (
+        <ContArrow key={index}>
+            <StateData className="letras">{title}</StateData>
+        </ContArrow>
+    ))}
+</EstadoPedido>
+
 
                 <TablePedidos>
                     {[1, 2, 3, 4].map((table, index) => (
