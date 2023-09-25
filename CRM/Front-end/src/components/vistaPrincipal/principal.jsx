@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
+import {Carrusel, Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
 import Menu from "../menu/principal";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -80,7 +80,7 @@ return (
         {/* <button onClick={handleClickPrev}>Prev</button> */}
 
         <ContenedorTarjeta>{/*// Renderiza un componente llamado ContenedorTarjeta.*/}
-                <div className="carousel" style={{display: "flex", height: "400px",  marginLeft:"1575px"}}>
+                <Carrusel className="carousel">
             {/*Mapea los objetos 'tarjeta' en el arreglo 'tarjetas'.*/}
             {tarjetas.map((tarjeta, index) => ( 
             <Tarjeta1
@@ -91,7 +91,7 @@ return (
                 <p style={{textAlign:"center", color:"white"}}>{tarjeta.descripcion2}</p>
             </Tarjeta1>
             ))}
-                </div>
+                </Carrusel>
         </ContenedorTarjeta>
     </Contenedor>            
         </div>
@@ -101,4 +101,4 @@ return (
 );
 };
 
-export default Vistaprincipal;
+export default Vistaprincipal;
