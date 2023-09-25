@@ -13,11 +13,10 @@ width: 100vw;
 `
 export const ContenedorModal = styled.div`
     width: 25%;
-    height: 30%;
+    height: 32%;
     background-color: #fff;
     border-radius: 5px;
     position: absolute;
-    right: 560px;
     display: flex;
     justify-content: center;
     flex-direction: column;

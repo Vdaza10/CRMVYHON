@@ -32,7 +32,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
             {/* <Fondo3> */}
                 <Registrarse></Registrarse>
             {/* </Fondo3> */}
-            <ContainerSelect>
+            <ContainerSelect title="Elegir idioma">
                 <BiWorld></BiWorld>
                     <Idioma name="idioma">
                     <option value="spañol">spañol</option>
@@ -42,7 +42,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
                     <option value="germany">germany</option>
                     <option value="arabe">arabe</option>
                 </Idioma>
-                <Link to={"/principal"} style={{textDecoration:"none", color:"black",}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
+                <Link to={"/principal"} style={{textDecoration:"none", color:"black",}}><Ingresar title="navegar al login">Ingrese a tu cuenta</Ingresar></Link>
             </ContainerSelect>
             {/* <p style={{marginRight:"10px"}}></p> */}
             {/* <Fondo3> */}

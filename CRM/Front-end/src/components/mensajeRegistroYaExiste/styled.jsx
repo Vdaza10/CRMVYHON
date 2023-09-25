@@ -13,11 +13,10 @@ width: 100vw;
 `
 export const ContenedorModal = styled.div`
     width: 25%;
-    height: 30%;
+    height: 32%;
     background-color: #fff;
     border-radius: 5px;
     position: absolute;
-    right: 560px;
     box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
     
     /* background-color: red; */

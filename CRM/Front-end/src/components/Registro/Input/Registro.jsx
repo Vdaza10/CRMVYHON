@@ -92,7 +92,7 @@ const Registrarse = () => {
                 ¿Cuál es tu nombre?
               </h3>
             </TextoImput>
-            <Input
+            <Input 
             onKeyPress={(event) => {
               const inputValue = event.key;
               const regex = /[a-zA-Z ]/; // Expresión regular que permite letras y números

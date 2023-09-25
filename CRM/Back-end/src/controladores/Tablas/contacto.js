@@ -4,7 +4,7 @@ import { pool } from "../../db.js";
 
 export const getTablaContacto = async(req, res) => {
     try{
-        const [rows]=await  pool.query('SELECT contacto.idContacto, contacto.nombreContacto, contacto.cargo,contacto.telefono, contacto.correo, contacto.nombreContacto, empresa.nombreEmpresa FROM contacto INNER JOIN empresa ON contacto.contactoEmpresa = empresa.idEmpresa ')
+        const [rows]=await  pool.query('SELECT contacto.idContacto, contacto.nombreContacto, contacto.cargo,contacto.telefono, contacto.correo, contacto.nombreContacto, empresa.nombreEmpresa  FROM contacto INNER JOIN empresa ON contacto.contactoEmpresa = empresa.idEmpresa WHERE contacto.estado = "activo" ')
 
         res.json(rows)
 }catch(error){
@@ -29,11 +29,19 @@ export const updatetablaContacto = async (req, res) => {
         }
     };
 
-export const deleteTablaContacto = async (req, res) => {
+// export const deleteTablaContacto = async (req, res) => {
+//     try {
+//         const [row] = await pool.query('DELETE FROM contacto where idContacto = ?', [req.params.idContacto]);
+//         res.status(200).json({message:' registro eliminado'})
+//     }catch (error){
+//         res.status(500).json({message:'No se pudo eliminar el registro'})
+//     }
+// }
+export const desactivarTablaContacto = async (req, res) => {
     try {
-        const [row] = await pool.query('DELETE FROM contacto where idContacto = ?', [req.params.idContacto]);
-        res.status(200).json({message:' registro eliminado'})
-    }catch (error){
-        res.status(500).json({message:'No se pudo eliminar el registro'})
+      const [row] = await pool.query('UPDATE contacto SET estado = ? WHERE idContacto = ?', ['desactivado', req.params.idContacto]);
+      res.status(200).json({ message: 'Registro desactivado' });
+    } catch (error) {
+      res.status(500).json({ message: 'No se pudo desactivar el registro' });
     }
-}
+  }

@@ -95,7 +95,7 @@ const [buscar, setBuscar] = useState("")
 
   const TabladeleteNegocio = async (item) => {
     try {
-      const res = await Axios.delete(`http://localhost:3005/negociotabla/${item.idNegocio}`);
+      const res = await Axios.put(`http://localhost:3005/negociotabla/desactivar/${item.idNegocio}`);
       console.log("Negocio eliminado con éxito.", res.data);
       ReflejarDatos(); // Refresca la lista de negocios después de eliminar uno
     } catch (error) {

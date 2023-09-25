@@ -2,20 +2,24 @@ import styled from "styled-components";
 
 // fondo
 export const Fondo = styled.div`
-    background: -webkit-linear-gradient(70deg, #69a6cfb6 0%, #ffffff 100%);
+    /* background-color:#f2f2f2; */
+    background: -webkit-linear-gradient(70deg, #56b7f7b6 0%, #ffffff 100%);
+
 `
 //Header y su contenido
 export const Header = styled.header`
-/* width: 900px; */
-height: 135px;
-/* background-color: aqua; */
+width: 100%;
+height: 130px;
+/* margin-top: 0%; */
 `
 
 export const Parrafo = styled.p`
+    margin: 0;
+    /* font-style: italic; */
+    margin-top: 10px;
     margin-left: 20px;
     font-size: 20px;
     font-weight: 100;
-    /* background-color: bisque; */
     
 `
 //Contenedor del perfil
@@ -23,18 +27,19 @@ export const Main = styled.div `
     display: flex;
     justify-content: center;
     height: 76vh;
+    /* background-color: #56b7f7a2; */
     background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
 `
 
 export const ContenedorPerfil = styled.div`
-    width: 550px;
-    height: 500px;
+    width: 30%;
+    height: 70%;
     margin-top: 100px;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    background-color: #ac0000;
+    /* background-color: #fff; */
     box-shadow: 2px 2px 10px 10px #0099ff4c; 
     background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#56b7f7a2",endColorstr="#56b7f7a2",GradientType=1);
@@ -55,6 +60,7 @@ height: 60%;
 margin: 5%;
 `;
 export const ContenedorRegistro=styled.div`
+    /* background-color: violet; */
     width: 100%;
     height: auto;
 `
@@ -62,7 +68,8 @@ export const Registro = styled.p`
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 17px;
     color: rgb(128, 128, 128);
-    margin-left: 27%;
+    margin-left: 33%;
+    /* background-color: salmon; */
     
 `
 export const Fecha = styled.p`
@@ -74,9 +81,9 @@ export const Fecha = styled.p`
 export const DatosUsuario  = styled.div`
     width: 100%;
     height:65%;
-    /* margin-Left: 30px; */
+    /* background-color: maroon; */
+    margin-Left: 30px;
     color:#646262;
-    /* background-color: red; */
 `
 export const Informacion = styled.div`
 width: 50%;
@@ -102,16 +109,18 @@ export const Editar = styled.button`
 }
 
 `;
-export const Cajaheader = styled.div`
+export const Caja = styled.div`
     display: flex;
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 15%;
+    justify-content: space-between;
     height: 40px;
 `
 
 export const Parrafo1 = styled.a`
     position: relative;
     margin: 0;
-    margin-left: 20px;
     margin-top: 4px;
     font-size: 18px;
     color: gray;
@@ -146,9 +155,8 @@ export const Container = styled.div`
     justify-content : space-between;
 `;
 export const ContenedorPassword = styled.input`
-    background: #fffbfb17;
-    color: gray; 
-    border: none;
-    outline:none;
-    margin-Left:20px;
+   background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
+   color: gray; 
+   border: none
+
 `
