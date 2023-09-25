@@ -14,7 +14,7 @@ export const crearPedidos = async (req, res) => {
             producto: producto,
             monto: monto,
             fecha: fecha,
-            columna: columna
+            columna : columna
         });
         
     } catch (error) {

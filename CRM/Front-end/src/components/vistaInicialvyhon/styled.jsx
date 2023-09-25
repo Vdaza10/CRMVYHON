@@ -153,7 +153,7 @@ export const TarjetasInformativas = styled.div`
     }
 `
 export const Footer = styled.div`
-    color: black;
+    color: #3db8e9;
     text-align: center;
     /* padding: 10px; */
     height: 10em;
