@@ -8,7 +8,7 @@ export const getUsers = async(req,res) =>{
         const [enviar] = await pool.query(email,guardar)
         if(enviar.length > 0 ){
             return res.send('correo encontrado')
-        }
+        }
         //const [rows] = await pool.query('SELECT correo FROM registro');
         res.json(rows)
 

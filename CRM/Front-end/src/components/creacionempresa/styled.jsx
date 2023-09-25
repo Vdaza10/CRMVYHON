@@ -12,16 +12,16 @@ position: absolute;
     @media (max-width: 865px) and (max-height: 850px){
     margin-top: 40px;
     width: 390px;
-    /* background-color: white; */
+    background-color: white; 
     /* background-color: #b300ff; */
     }
 `;
 // Estilo para el contenedor que envuelve el contenido principal
 export const Container1 = styled.div`
-    height: 99.6%;
+    height: 852px;
     width: 350px;
     background-color: white;
-    /* background-color: #09c795; */
+    // background-color: #09c795;
     border: solid 1px black;
     @media (max-width: 920px)and (max-height: 850px){
     height: 750px;
@@ -44,19 +44,20 @@ export const Caja = styled.div`
     height: 10%;
     width: 340px;
     display: flex;
-    /* background-color: aqua; */
+    // background-color: aqua;
     justify-content: space-between;
     align-items: center;
     
 `
 // Estilo para el párrafo
 export const Parrafo = styled.p`
+    height: 100%;
     font-size: 20px;
     font-style: italic;
     display: flex;
     align-items: center;
     padding-left: 15px;
-    /* background-color: blue; */
+    // background-color: blue;
     
 `
 // Estilo para la imagen
@@ -65,13 +66,13 @@ export const Img = styled.img`
     width: 30px;
     /* padding-right: 30px; */
     cursor: pointer;
-    /* background-color: blueviolet; */
+    // background-color: blueviolet;
 ` 
 // Estilo para otro párrafo
 export const Parrafo1 = styled.p`
     font-size: 15px;
     font-style: italic;
-    /* background-color: bisque; */
+    // background-color: bisque;
     
 `
 // Estilo para una caja que contiene elementos (sección principal)
@@ -79,7 +80,7 @@ export const Caja1 = styled.div`
     height: 615px;
     width: 325px;
     padding-left: 20px;
-    /* background-color: pink; */
+    // background-color: pink;
     @media (max-width: 920px)and (max-height: 850px){
     height: 500px;
     width: 366px;

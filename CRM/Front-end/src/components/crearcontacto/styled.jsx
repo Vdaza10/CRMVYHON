@@ -18,7 +18,7 @@ position: absolute;
 export const Container1 = styled.div`
     height: 852px;
     width: 345px;
-    /* background-color: white; */
+    background-color: white;
     /* background-color: aqua; */
     border: solid 1px black;
     @media (max-width: 920px)and (max-height: 850px){
@@ -31,6 +31,7 @@ export const Container1 = styled.div`
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
+/* background-color: blue; */
     height: 65px;
     width: 340px;
     display: flex;

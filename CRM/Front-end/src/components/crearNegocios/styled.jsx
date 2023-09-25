@@ -15,13 +15,13 @@ export const Container = styled.div`
 }`
 
 export const Principal = styled.div`
-    height: 100%; 
+    height: 852px;
     width: 123%;
     background-color: white;
     /* background-color: aqua; */
     border: solid 1px black;
     @media (max-width: 920px)and (max-height: 850px){
-        height: 100%; 
+        height: 750px;
         width: 123%;
         /* background-color: red; */
     }
