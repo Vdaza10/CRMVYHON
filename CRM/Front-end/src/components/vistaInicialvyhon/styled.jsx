@@ -6,7 +6,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: red;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
