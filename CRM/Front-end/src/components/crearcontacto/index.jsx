@@ -49,7 +49,7 @@ function Retorno4({setContactoCreado}) {
         nombreContacto: nombreUsuario,
         cargo: cargo,
         telefono: telefono,
-        email:email,
+        correo:email,
         contactoEmpresa: empresaContacto,
       })
         .then((response) => {
