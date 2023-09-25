@@ -5,7 +5,7 @@ import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,List
 
 import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
-import PedidoCard from "../PedidosCard/index.jsx";
+import Card from "../pedidoCard/pedidoCard";
 import axios from "axios";
 
 
@@ -58,7 +58,7 @@ const Pedidos = () => {
 
         return orderColumn.map((pedido, index) => (
             <ListView key={index}>
-                <PedidoCard
+                <Card
                     cliente={pedido.cliente}
                     producto={pedido.producto}
                     monto={pedido.monto}
