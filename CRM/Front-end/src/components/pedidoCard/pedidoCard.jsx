@@ -1,26 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {
-    CardContainer,
-    CardHeader,
-    CardContent,
-    CardFooter,
-    } from "./style"
 
-    const Card = ({ title, content, footer }) => {
+const PedidoCard = ({ cliente, producto, monto, fecha }) => {
     return (
-        <CardContainer>
-        <CardHeader>{title}</CardHeader>
-        <CardContent>{content}</CardContent>
-        <CardFooter>{footer}</CardFooter>
-        </CardContainer>
+        <div style={{display:"flex",}}>
+            <h3>Cliente: {cliente}</h3>
+            <p>Producto: {producto}</p>
+            <p>Monto: {monto}</p>
+            <p>Fecha: {fecha}</p>
+            <hr />
+        </div>
     );
-    };
-
-    Card.propTypes = {
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    footer: PropTypes.string.isRequired,
 };
 
-export default Card;
+export default PedidoCard;

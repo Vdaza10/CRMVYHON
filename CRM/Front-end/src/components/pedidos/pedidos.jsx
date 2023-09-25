@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../menu/principal";
-import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,ListView,MontoData,PedidoData,StateData,TablePedidos,
-} from "./style";
-
+import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos } from "./style";
 import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
-import PedidoCard from "../PedidosCard/index.jsx";
+import PedidoCard from "../pedidoCard/pedidoCard.jsx"; // Reemplaza con la ruta adecuada
 import axios from "axios";
-
 
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
