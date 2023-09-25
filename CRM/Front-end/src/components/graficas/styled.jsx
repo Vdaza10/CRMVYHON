@@ -1,41 +1,24 @@
 import styled from "styled-components";
 
-const Fondo= styled.div`
-    height: 100vh;
+
+export const Fondo= styled.div`
+    height: 100%;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #e70303;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: blue;
-    @media screen and (max-width:300px) {
-    height: 100vh;
-    width: 100%;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    }
 `;
 
-const ContenedorDeCajas = styled.div`
+export const ContenedorDeCajas = styled.div`
     height: 20%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-    /* background-color: blue; */
-    /* @media screen (max-width: 300px){
-    height: 20%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-    } */
 `
-const ContenedorLetrasCajas = styled.div`
+export const ContenedorLetrasCajas = styled.div`
     background-color: #f00;
     width: 100%;
     height: 25%;
@@ -44,23 +27,23 @@ const ContenedorLetrasCajas = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `
-const LetrasCajas = styled.div`
+export const LetrasCajas = styled.div`
     background-color: #ffffff;
     width: 60%;
     height: 40%;
 `
-const Icono = styled.div`
+export const Icono = styled.div`
     background-color: #fff;
     width: 10%;
     height: 70%;
 `
-const NumerosCajas = styled.div`
+export const NumerosCajas = styled.div`
     background-color: #cc1b1b;
     width: 50%;
     height: 25%;
     font-size: 25px;
 `
-const Caja = styled.div`
+export const Caja = styled.div`
     height: 80%;
     width: 20%;
     background-color: #3eabee;
@@ -70,7 +53,7 @@ const Caja = styled.div`
     justify-content: space-around;
 `
 
-const ContenedorDeElMedio = styled.div`
+export const ContenedorDeElMedio = styled.div`
     height: 40%;
     width: 100%;
     display: flex;
@@ -78,7 +61,7 @@ const ContenedorDeElMedio = styled.div`
     align-items: center;
     justify-content: space-evenly;
 `
-const ContenedorColorYLetra = styled.div`
+export const ContenedorColorYLetra = styled.div`
     background-color: #0a6b9b;
     width: 100%;
     height: 100%;
@@ -140,7 +123,7 @@ const ContenedorColorYLetra = styled.div`
 `
 
 
-const LetrasDeVerificacion = styled.div`
+export const LetrasDeVerificacion = styled.div`
     background-color: #ffffff;
     width: 60%;
     height: 25%;
@@ -186,7 +169,7 @@ const LetrasDeVerificacion = styled.div`
         height: 70%;
     }
 `
-const Color = styled.div`
+export const Color = styled.div`
     background-color: #fff;
     width: 10%;
     height: 35%;
@@ -242,41 +225,38 @@ const Color = styled.div`
         height: 70%;
     }
 `
-const ContenedorVerificacion = styled.div`
+export const ContenedorVerificacion = styled.div`
     width: 80%;
     height: 15%;
     display: flex;
     flex-direction: row;
 `
-const ContenedorDeBarras = styled.div`
+export const ContenedorDeBarras = styled.div`
     width: 85%;
     height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
 `
-const CajaGraficaDeElMedio = styled.div`
+export const CajaGraficaDeElMedio = styled.div`
     height: 97%;
     width: 35.2%;
     margin: 5px 5px 5px 5px;
     background-color: #3eabee;
     display: flex;
     flex-direction: column;
-
 `
 
-const ContenedorFooter = styled.div`
+export const ContenedorFooter = styled.div`
     height: 55%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 `
-const CajaFooter = styled.div`
+export const CajaFooter = styled.div`
     height: 98%;
     width: 80.7%;
-    background-color: #6db6f9;
+    background-color: #feffff;
 `
 
-export {
-    Fondo, ContenedorDeCajas, ContenedorLetrasCajas, LetrasCajas, Icono, NumerosCajas, Caja, ContenedorDeElMedio, ContenedorVerificacion, ContenedorColorYLetra, ContenedorDeBarras,LetrasDeVerificacion, Color, CajaGraficaDeElMedio, ContenedorFooter, CajaFooter }

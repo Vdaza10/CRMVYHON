@@ -1,7 +1,6 @@
 // Importación de librerías y recursos necesarios
 import styled from "styled-components"
 
-// Contenedor principal de la barra de navegación
 export const Contenedor = styled.div`
     height: 30%;
     width: 100%;

@@ -22,6 +22,7 @@ function Grafica() {
     return (
         <>
         <Menu/>
+        
             <Fondo>
                 <ContenedorDeCajas>
 
