@@ -35,7 +35,7 @@ export const TablePedidos = styled.div`
 export const PedidoData = styled.div`
     height: 98%;
     width: 30%;
-    background-color: #50bfff;
+    background-color: #ffffff;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
     display: flex;
@@ -63,6 +63,9 @@ export const BodyData = styled.div`
     background-color: #50bfff;
     overflow: hidden;
     overflow: scroll ;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 `
 
 export const MontoData = styled.div`
@@ -139,6 +142,8 @@ export const StateData = styled.div`
 `
 
 export const Pedidocard = styled.div`
+    height: 30%;
+    width: 100%;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;

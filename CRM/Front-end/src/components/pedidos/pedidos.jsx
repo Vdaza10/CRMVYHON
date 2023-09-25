@@ -7,7 +7,8 @@ import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
 import PedidoCard from "../PedidosCard/index.jsx";
 import axios from "axios";
-import { text } from "@fortawesome/fontawesome-svg-core";
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+
 
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
@@ -16,7 +17,9 @@ const Pedidos = () => {
 
     const toggleForm = (index) => {
         const updatedForms = [...showForms];
-        updatedForms[index] = !updatedForms[index];
+        for (let i = 0; i < updatedForms.length; i++) {
+            updatedForms[i] = i === index ? !updatedForms[i] : false;
+        }
         setShowForms(updatedForms);
     };
 
@@ -26,7 +29,7 @@ const Pedidos = () => {
             producto,
             monto,
             fecha,
-            columna
+            columna,
         };
         setCardPedidos([...cardPedidos, newCardPedido]);
     };
@@ -48,7 +51,12 @@ const Pedidos = () => {
     }, []);
 
     const orderbyColumns = (i) => {
-        const orderColumn = orders.filter((order) => order.Columna === i);
+        // Combina las tarjetas de pedidos existentes y las creadas desde el formulario
+        const allPedidos = [...orders, ...cardPedidos];
+
+        // Filtra por la columna actual
+        const orderColumn = allPedidos.filter((pedido) => pedido.columna === i);
+
         return orderColumn.map((pedido, index) => (
             <ListView key={index}>
                 <PedidoCard
@@ -62,7 +70,7 @@ const Pedidos = () => {
         ));
     };
 
-    //funcion kanban
+    //función kanban
 
     return (
         <>
