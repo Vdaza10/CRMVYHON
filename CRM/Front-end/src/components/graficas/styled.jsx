@@ -7,6 +7,15 @@ const Fondo= styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: blue;
+    @media screen and (max-width:300px) {
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
 `;
 
 const ContenedorDeCajas = styled.div`
@@ -16,6 +25,15 @@ const ContenedorDeCajas = styled.div`
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
+    /* background-color: blue; */
+    /* @media screen (max-width: 300px){
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    } */
 `
 const ContenedorLetrasCajas = styled.div`
     background-color: #f00;
@@ -244,6 +262,7 @@ const CajaGraficaDeElMedio = styled.div`
     background-color: #3eabee;
     display: flex;
     flex-direction: column;
+
 `
 
 const ContenedorFooter = styled.div`
@@ -256,7 +275,7 @@ const ContenedorFooter = styled.div`
 const CajaFooter = styled.div`
     height: 98%;
     width: 80.7%;
-    background-color: #3eabee;
+    background-color: #6db6f9;
 `
 
 export {
