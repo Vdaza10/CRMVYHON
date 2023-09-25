@@ -3,7 +3,7 @@ import {Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
 import Menu from "../menu/principal";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import carrusel from "../img/imagenCarrusel.png"
+import carrusel from "../img/imagenCarrusel.jpg"
 
     const Vistaprincipal = () => { // Declara un componente funcional llamado Vistaprincipal.
     const [tarjetaActual, setTarjetaActual] = useState(0);  // Declara el estado 'tarjetaActual' con valor inicial 0 y una función para actualizarlo.
