@@ -22,7 +22,7 @@ export const router = Router();
 router.get('/users', userCrtl.getUsers);
 router.post('/users', userCrtl.createUsers);
 
-router.patch('/users/:id', userCrtl.updateUsers);
+router.patch('/users/:idRegistro', userCrtl.updateUsers);
 
 router.delete('/users', userCrtl.deleteUsers);
 

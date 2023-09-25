@@ -28,7 +28,7 @@ export const Login = async(req,res) =>{
             { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
             Secret,
             {
-            expiresIn: "1m",
+            expiresIn: "7d",
             }
         );
         console.log(accessToken, "🎶🎶🎶");

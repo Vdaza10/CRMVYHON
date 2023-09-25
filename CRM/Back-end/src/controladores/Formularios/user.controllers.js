@@ -1,6 +1,7 @@
 import { pool } from "../../db.js";
 import { encryptPassword } from "../../helpers/Bycrypt.js";
 import jwt from "jsonwebtoken";
+import { Secret } from "../../db.js";
 export const getUsers = async(req,res) =>{
     try {
         const{correo}=req.body
@@ -57,22 +58,30 @@ export const createUsers = async (req, res) => {
 }
 
 export const updateUsers = async (req, res) => {
-    const { id } = req.params;
+    const { idRegistro } = req.params;
   try {
     const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
     const [rows]  = await pool.query(
         'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-    [nombreUsuario,nombreEmpresa,correo, contraseña,id]
+    [nombreUsuario,nombreEmpresa,correo, contraseña,idRegistro]
     );
-    const accessToken = jwt.sign(
-        { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
+    const refreshToken = jwt.sign(
+        { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
         Secret,
         {
-        expiresIn: "1s",
+          expiresIn: "1h",
         }
     );
-    res.json(accessToken)
-    console.log(accessToken);
+   
+    res.json({refreshToken,
+        data:{
+            idRegistro,
+            nombreUsuario,
+            nombreEmpresa,
+            correo,
+            contraseña
+        }})
+    console.log(refreshToken,"lalala");
 
 } catch (error) {
     console.error(error);

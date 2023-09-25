@@ -43,8 +43,9 @@ function PerfilUsuario() {
 
     const actualizarUsuario = () => {
         const updateUserToken = localStorage.getItem("user");
+        console.log(`Variable updateuserToken -->${updateUserToken}`);
         if (updateUserToken) {
-          try {
+         try {
             const token = jwt_decode(updateUserToken);
             setUserData(token);
             setUserToken(updateUserToken)
@@ -53,8 +54,9 @@ function PerfilUsuario() {
             navigate('/');
           }
         }
+        console.log(updateUserToken,"🤷‍♂️🤷‍♂️");
       };
-console.log(userToken,"🤷‍♂️🤷‍♂️");
+
 
     return (
         <>

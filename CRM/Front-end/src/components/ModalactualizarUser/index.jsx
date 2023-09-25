@@ -14,36 +14,14 @@ import {
 import { GrClose } from "react-icons/gr";
 import IPerfil from "../img/perfil.jpg";
 import Axios from "axios";
-import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 
-const UserEditar = ({ status, changeStatus }) => {
+const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const emailInputRef = useRef(null);
-  // const [loading, setLoading] = useState(true)
-  const [userData ,setUserData] = useState({});
-
-  let navigate = useNavigate();
-
-  useEffect(() => {
-    const userToken = localStorage.getItem("user");
-    if(userToken){
-        try {
-        const token = jwt_decode(userToken);
-setUserData(token);
-
-        } catch (error) {
-            console.error("Error al decodificar el token:", error);
-            navigate('/'); 
-        }
-    }else{
-
-    }
-},[navigate])
-
+  const [token, setToken] = useState("");
 
 
   useEffect(() => {
@@ -54,57 +32,62 @@ setUserData(token);
       setContraseña(userData.password);
     }
   }, [userData]);
-  console.log("clgggggg",userData);
 
+  useEffect(() => {
+    const tokenFromLocalStorage = localStorage.getItem("token");
+    if (tokenFromLocalStorage) {
+      setToken(tokenFromLocalStorage);
+    }
+  }, []);
+
+  console.log("clgggggg", userData);
   const updateUser = async () => {
     // Verificar si el correo es válido antes de guardar los datos
     if (!emailInputRef.current.validity.valid) {
       alert("El correo ingresado no es válido.");
-      
-    }else{
-      
 
-    }
-
-    try {
-      const res = await Axios.patch(
-        `http://localhost:3005/users/${userData.idRegistro}`,
-        {
-          nombreUsuario,
-          nombreEmpresa,
-          correo,
-          contraseña,
-        }
-      );
-
-      // Actualiza los datos en el localStorage después de una actualización exitosa
+    } else{
       const updatedUserData = {
         ...userData,
         nombreUsuario,
         nombreEmpresa,
         correo,
-        contraseña,
+        contraseña
       };
       localStorage.setItem("user", JSON.stringify(updatedUserData));
-      console.log("Usuario actualizado.", res.data); 
+    }
+    try {
+      const res = await Axios.patch(
+        `http://localhost:3005/users/${userData.idRegistro}`,
+        {
+          nombreUsuario: nombreUsuario,
+          nombreEmpresa: nombreEmpresa,
+          correo: correo,
+          contraseña: contraseña,
+        },
+        {
+          headers:{Authorization:`Bearer ${token}`} 
+        }
+      );
+
+      // Actualiza los datos en el localStorage después de una actualización exitosa
+      setToken(res.data.token)
+      console.log("Usuario actualizado.", res.data);
+      
+      if(onUserUpdate){
+        onUserUpdate();
+      }
     } catch (error) {
-      console.error(error);
+      console.error(error, "no actualiza");
     }
     setTimeout(()=>{
       window.location.href = "/perfilusuario";
     },1000)
-   
+
   };
 
   return (
-    // <>
-    
-    // {loading ? (
-    //             <>
-    //                 <h1>Cargando......</h1>
-    //             </>
-    //         ) : (
-              <>
+    <>
       {status && (
         <Container>
           <ContenedorModal>
@@ -178,8 +161,6 @@ setUserData(token);
         </Container>
       )}
     </>
-    // )}
-    // </>
   );
 };
 
