@@ -131,7 +131,6 @@ export const ContenedorImagen = styled.div`
     background-size: cover;
     background-position: center;
     }
-   
 `
 export const TarjetasInformativas = styled.div`
     height: 75%;

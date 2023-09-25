@@ -1,66 +1,106 @@
-import React, { useState } from "react";
-import Menu from "../menu/principal.jsx";
-import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos } from "./style";
-import { MdAdd } from 'react-icons/md';
-import FormularioPedido from "../CrearPedido/index.jsx";
-import Card from "../pedidoCard/pedidoCard.jsx";
+import React, { useEffect, useState } from "react";
+import Menu from "../menu/principal";
+import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,ListView,MontoData,PedidoData,StateData,TablePedidos,
+} from "./style";
+
+import { MdAdd } from "react-icons/md";
+import FormularioPedido from "../CrearPedido";
+import PedidoCard from "../PedidosCard/index.jsx";
+import axios from "axios";
+
 
 const Pedidos = () => {
-    const [showForm, setShowForm] = useState(false);
-    const [selectedPedido, setSelectedPedido] = useState(null);
-    const [cards, setCards] = useState([]); // Un estado para almacenar las tarjetas
+    const [orders, setOrders] = useState([]);
+    const [showForms, setShowForms] = useState([false, false, false, false]);
+    const [cardPedidos, setCardPedidos] = useState([]);
 
-    const toggleForm = (pedido) => {
-        if (showForm && selectedPedido === pedido) {
-            setShowForm(false);
-            setSelectedPedido(null);
-        } else {
-            setShowForm(true);
-            setSelectedPedido(pedido);
+    const toggleForm = (index) => {
+        const updatedForms = [...showForms];
+        for (let i = 0; i < updatedForms.length; i++) {
+            updatedForms[i] = i === index ? !updatedForms[i] : false;
+        }
+        setShowForms(updatedForms);
+    };
+
+    const addCardPedido = (cliente, producto, monto, fecha, columna) => {
+        const newCardPedido = {
+            cliente,
+            producto,
+            monto,
+            fecha,
+            columna,
+        };
+        setCardPedidos([...cardPedidos, newCardPedido]);
+    };
+
+    const getDataPedido = async () => {
+        try {
+            const response = await axios.get("http://localhost:3005/pedidos/", {
+                //token, headers
+            });
+            setOrders(response.data);
+            console.log(response.data, 'orders');
+        } catch (error) {
+            // Manejar errores aquí
         }
     };
 
-    // Función para agregar una tarjeta al arreglo de cards
-    const addCard = (cardData) => {
-        setCards([...cards, cardData]);
+    useEffect(() => {
+        getDataPedido();
+    }, []);
+
+    const orderbyColumns = (i) => {
+        // Combina las tarjetas de pedidos existentes y las creadas desde el formulario
+        const allPedidos = [...orders, ...cardPedidos];
+
+        // Filtra por la columna actual
+        const orderColumn = allPedidos.filter((pedido) => pedido.columna === i);
+
+        return orderColumn.map((pedido, index) => (
+            <ListView key={index}>
+                <PedidoCard
+                    cliente={pedido.cliente}
+                    producto={pedido.producto}
+                    monto={pedido.monto}
+                    fecha={pedido.fecha}
+                    columna={i}
+                />
+            </ListView>
+        ));
     };
+
+    //función kanban
 
     return (
         <>
             <Menu />
             <AdminPedido>
                 <EstadoPedido>
-                    <ContArrow><StateData>creacion</StateData></ContArrow>
-                    <ContArrow><StateData>negociacion</StateData></ContArrow>
-                    <ContArrow><StateData>vendido</StateData></ContArrow>
-                    <ContArrow><StateData>finalizado</StateData></ContArrow>
+                    {[1, 2, 3, 4].map((_, index) => (
+                        <ContArrow key={index}>
+                            <StateData className="letras">creacion</StateData>
+                        </ContArrow>
+                    ))}
                 </EstadoPedido>
 
                 <TablePedidos>
-                    {cards.map((card, index) => (
-                        <Card
-                            key={index}
-                            title={card.cliente}
-                            content={card.producto}
-                            footer={card.monto}
-                        />
-                    ))}
-
-                    {/* Renderizar los botones de AddPedido */}
-                    {[1, 2, 3, 4].map((pedido) => (
-                        <PedidoData key={pedido}>
+                    {[1, 2, 3, 4].map((table, index) => (
+                        <PedidoData key={index}>
                             <HeadData>
                                 <MontoData></MontoData>
-                                <AddPedido onClick={() => toggleForm(pedido)}>
+
+                                <AddPedido onClick={() => toggleForm(index)}>
                                     <MdAdd style={{ fontSize: "20px" }} />
                                 </AddPedido>
                             </HeadData>
-                            <BodyData>
-                                <ListView></ListView>
-                            </BodyData>
-                            {showForm && selectedPedido === pedido && (
+
+                            <BodyData>{orderbyColumns(table)}</BodyData>
+
+                            {showForms[index] && (
                                 <FormularioPedido
-                                    onSave={addCard} // Pasar la función para agregar una tarjeta
+                                    isOpen={showForms[index]}
+                                    columna={index}
+                                    addCardPedido={addCardPedido}
                                 />
                             )}
                         </PedidoData>

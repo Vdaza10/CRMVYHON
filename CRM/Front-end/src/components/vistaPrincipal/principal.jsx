@@ -52,7 +52,7 @@ useEffect(() => {
     if(userToken){
         try {
         const token = jwt_decode(userToken);
-    console.log(token, "❤❤💕💕💕❤");
+        console.log(token, "💕💕💕💕");
     setLoading(false);
         } catch (error) {
             console.error("Error al decodificar el token:", error);

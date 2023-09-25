@@ -6,7 +6,7 @@ import Retorno5 from "./tarea"
 import Retorno4 from "./crearcontacto"
 import Retorno7 from "./Vistaempresas"
 import PerfilUsuario from "./Perfilusuario"
-
+import Retorno9 from "./integracionMarkenting"
 import CrearTarea from "./CreacionTarea"
 import Principal from "./login"
 import Registrarse from "./Registro/Fondo/registroPrincipal"
@@ -22,10 +22,9 @@ import Campaña from "./markenting/markentingp"
 import CampañaCorreo from "./campañacorreo/campaña"
 import Comunicacion from "./comunicacion/comunicacion"
 import Promocion from "./promocion/promocion"
-import Audiollamada from "./llamadaAudio/llamada"
-import Campañasms from "./campañasms/campaña"
 import Pedidos from "./pedidos/pedidos"
-
+import Campañasms from "./campañasms/campaña"
+import FormularioPedido from "./CrearPedido"
 
 import NegocioUpdate from "./updateNegocio"
 
@@ -47,7 +46,7 @@ const Todo = () => {
                 <Route path="/tareas" element = {<Retorno5/>}></Route> 
                 <Route path="/empresas" element = {<Retorno7/>}></Route>
                 <Route path="/perfilusuario" element = {<PerfilUsuario/>}></Route>
-
+                <Route path="/markenting" element = {<Retorno9/>}></Route>
                 <Route path="/creartarea" element = {<CrearTarea/>}></Route>
                 <Route path="/tablaContacto" element = {<TablaContacto/>}></Route>
                 <Route path="/tablaEmpresa" element = {<TablaEmpresa/>}></Route>
@@ -57,11 +56,11 @@ const Todo = () => {
                 <Route path="/campañacorreo" element = {<CampañaCorreo/>}></Route>
                 <Route path="/camunicacion" element = {<Comunicacion/>}></Route>
                 <Route path="/promocion" element = {<Promocion/>}></Route>
-                <Route path="/llamadaaudio" element = {<Audiollamada/>}></Route>
+                <Route path="/pedidos" element = {<Pedidos/>}></Route>
                 <Route path="/camapañasms" element = {<Campañasms/>}></Route>
+                <Route path="/formulariopedido" element = {<FormularioPedido/>}></Route>
                 <Route path="/actualizarNegocio" element = {<NegocioUpdate/>}></Route>
                 {/* <Route path="/modalUser" element = {<UserEditar/>}></Route> */}
-                <Route path="/pedidos" element={<Pedidos/>}></Route>
             </Routes>
         </BrowserRouter>
     )

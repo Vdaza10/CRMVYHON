@@ -15,12 +15,14 @@ import { GrClose } from "react-icons/gr";
 import IPerfil from "../img/perfil.jpg";
 import Axios from "axios";
 
-const UserEditar = ({ status, changeStatus, userData }) => {
+const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const emailInputRef = useRef(null);
+  const [token, setToken] = useState("");
+
 
   useEffect(() => {
     if (userData) {
@@ -30,43 +32,58 @@ const UserEditar = ({ status, changeStatus, userData }) => {
       setContraseña(userData.password);
     }
   }, [userData]);
-  console.log(userData);
 
+  useEffect(() => {
+    const tokenFromLocalStorage = localStorage.getItem("token");
+    if (tokenFromLocalStorage) {
+      setToken(tokenFromLocalStorage);
+    }
+  }, []);
+
+  console.log("clgggggg", userData);
   const updateUser = async () => {
     // Verificar si el correo es válido antes de guardar los datos
     if (!emailInputRef.current.validity.valid) {
       alert("El correo ingresado no es válido.");
-      return;
-    }
 
-    try {
-      const res = await Axios.patch(
-        `http://localhost:3005/users/${userData.idRegistro}`,
-        {
-          nombreUsuario,
-          nombreEmpresa,
-          correo,
-          contraseña,
-        }
-      );
-
-      // Actualiza los datos en el localStorage después de una actualización exitosa
+    } else{
       const updatedUserData = {
         ...userData,
         nombreUsuario,
         nombreEmpresa,
         correo,
-        contraseña,
+        contraseña
       };
       localStorage.setItem("user", JSON.stringify(updatedUserData));
-      console.log("Usuario actualizado.", res.data);
-    } catch (error) {
-      console.error(error);
     }
+    try {
+      const res = await Axios.patch(
+        `http://localhost:3005/users/${userData.idRegistro}`,
+        {
+          nombreUsuario: nombreUsuario,
+          nombreEmpresa: nombreEmpresa,
+          correo: correo,
+          contraseña: contraseña,
+        },
+        {
+          headers:{Authorization:`Bearer ${token}`} 
+        }
+      );
 
-    setTimeout(() => {
+      // Actualiza los datos en el localStorage después de una actualización exitosa
+      setToken(res.data.token)
+      console.log("Usuario actualizado.", res.data);
+      
+      if(onUserUpdate){
+        onUserUpdate();
+      }
+    } catch (error) {
+      console.error(error, "no actualiza");
+    }
+    setTimeout(()=>{
       window.location.href = "/perfilusuario";
-    }, 0);
+    },1000)
+
   };
 
   return (

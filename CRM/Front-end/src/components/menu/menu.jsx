@@ -26,7 +26,6 @@ export const Menucontainer = styled.ul`
     list-style: none;
     display: flex;
     @media screen and (max-width: 865px) {
-        display: flex;
         flex-direction: column;
     }
 `
@@ -46,30 +45,6 @@ export const MenuItem = styled.li`
     }
 `;
 
-
-// Menú desplegable (para el ítem "Analisis")
-export const Despegable = styled.ul`
-    display: ${({ desplegado }) => (desplegado ? "block" : "none")};
-    background-color: #ffffff;
-    height: 9%;
-    width: 13%;
-    
-    list-style: none;
-    /* text-align: center; */
-    position: absolute;
-    top: 10%;
-    left: 35%;  
-    padding: 0;
-    border: 1px solid #0e0e0e;
-    ;
-    @media screen and ( max-width:60% ) {
-        top: 7%;
-        left: 90%;  
-        transform: translate(-50%, 0);
-        padding: 0;
-        
-    }
-`
 // Flecha que indica si el menú desplegable está abierto o cerrado
 export const Flecha = styled.li`
     margin-left: 5px;

@@ -4,6 +4,7 @@ import imagen from "../img/img_x.webp"
 import { BsFillCalendar2CheckFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import Axios from "axios";
+import swal from "sweetalert";
 
 
 
@@ -35,14 +36,18 @@ const CrearTarea = () => {
     const Compromiso = (ev) => {
         ev.preventDefault();
 
-        // Buscar si el valor seleccionado en selectNegocio existe en el estado negocio
+
+        if (asunto && responsable && tipotarea && fecha && hora) {
+            // Buscar si el valor seleccionado en selectNegocio existe en el estado negocio
         const selectedNegocio = negocio.find((n) => n.idNegocio === parseInt(selectNegocio));
         if (!selectedNegocio) {
-            alert('El negocio seleccionado no es válido');
-            return;
+            swal({
+                title: "El negocio seleccionado no es válido",
+                text: "Porfavor seleccionar negocio",
+                icon: "warning",
+            });
+            return
         }
-
-        if (negocio && asunto && responsable && tipotarea && fecha && hora) {
             Axios.post("http://localhost:3005/tareas", {
                 negocio: selectedNegocio.idNegocio,
                 asunto: asunto,
@@ -52,18 +57,21 @@ const CrearTarea = () => {
                 hora: hora,
             })
                 .then((response) => {
+                    setTimeout(() => {
+
+                        window.location.href = "/tareas"
+                    }, 0);
                     console.log(response.data);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
         } else {
-            alert('Ingresa todos los valores');
+            swal({
+                text: "Porfavor llenar todo",
+                icon: "error",
+            });
         }
-        setTimeout(() => {
-
-            window.location.href = "/tareas"
-        }, 0);
     };
 
 
@@ -108,7 +116,9 @@ const CrearTarea = () => {
                             }}
                             onChange={(event) => {
                                 seAsunto(event.target.value)
-                            }} placeholder="ingresar asunto de tarea"></Input>
+                            }} placeholder="ingresar asunto de tarea">
+                                
+                            </Input>
                         <Parrafo1><h3>Responsable</h3></Parrafo1>
                         <ContainerInput>
                             <Input
