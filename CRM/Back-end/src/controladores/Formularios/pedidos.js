@@ -2,10 +2,10 @@ import { pool } from "../../db.js";
 
 export const crearPedidos = async (req, res) => {
     try {
-        const {cliente, producto, monto, fecha } = req.body;
+        const {cliente, producto, monto, fecha, columna } = req.body;
         const [rows] = await pool.query(
-            "INSERT INTO pedidos (cliente, producto, monto, fecha) VALUES (?,?,?,?)",
-            [ cliente, producto, monto, fecha]
+            "INSERT INTO pedidos (cliente, producto, monto, fecha, columna) VALUES (?,?,?,?,?)",
+            [ cliente, producto, monto, fecha, columna]
         );
         console.log(rows);
         res.send({
@@ -13,7 +13,8 @@ export const crearPedidos = async (req, res) => {
             cliente: cliente,
             producto: producto,
             monto: monto,
-            fecha: fecha
+            fecha: fecha,
+            columna : columna
         });
         
     } catch (error) {
