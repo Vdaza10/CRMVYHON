@@ -3,13 +3,14 @@ import Menu from "../menu/principal";
 import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos } from "./style";
 import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
-import PedidoCard from "../pedidoCard/pedidoCard.jsx"; // Reemplaza con la ruta adecuada
+import Card from "../pedidoCard/pedidoCard.jsx"; // Reemplaza con la ruta adecuada
 import axios from "axios";
 
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
     const [showForms, setShowForms] = useState([false, false, false, false]);
     const [cardPedidos, setCardPedidos] = useState([]);
+    const titles = ["creacion", "negociacion", "confirmacion", "realizado"];
 
     const toggleForm = (index) => {
         const updatedForms = [...showForms];
@@ -55,7 +56,7 @@ const Pedidos = () => {
 
         return orderColumn.map((pedido, index) => (
             <ListView key={index}>
-                <PedidoCard
+                <Card
                     cliente={pedido.cliente}
                     producto={pedido.producto}
                     monto={pedido.monto}
@@ -72,13 +73,14 @@ const Pedidos = () => {
         <>
             <Menu />
             <AdminPedido>
-                <EstadoPedido>
-                    {[1, 2, 3, 4].map((_, index) => (
-                        <ContArrow key={index}>
-                            <StateData className="letras">creacion</StateData>
-                        </ContArrow>
-                    ))}
-                </EstadoPedido>
+            <EstadoPedido>
+    {titles.map((title, index) => (
+        <ContArrow key={index}>
+            <StateData className="letras">{title}</StateData>
+        </ContArrow>
+    ))}
+</EstadoPedido>
+
 
                 <TablePedidos>
                     {[1, 2, 3, 4].map((table, index) => (

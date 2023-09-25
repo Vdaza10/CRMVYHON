@@ -16,6 +16,7 @@ export const EstadoPedido = styled.div`
     margin-bottom: 10px;
     display: flex;
     background-color: #ffffff;
+    background-color: red;
 `
 
 export const TablePedidos = styled.div`

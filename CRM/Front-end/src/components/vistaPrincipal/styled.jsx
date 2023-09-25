@@ -10,6 +10,15 @@ grid-template-areas: "prev carousel next";
 justify-items: center;
 align-items: center;
 /* margin-top: 7vh; */
+@media screen and (min-width: 390) and (max-height: 844){
+    height: 580px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template: 1fr / 5% 1fr 5%;
+    grid-template-areas: "prev carousel next";
+    justify-items: center;
+    align-items: center;
+}
 `;
 
 export const ContenedorTarjeta = styled.div`
@@ -19,6 +28,15 @@ justify-content: center;
 align-items: center;
 height: 600px;
 width: 234em;
+@media screen and (max-width: 1669px) and (min-width: 390){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 100px;
+    background-color: pink; 
+    flex-direction: column;
+}
 `;
 
 export const Tarjeta1 = styled.div`
