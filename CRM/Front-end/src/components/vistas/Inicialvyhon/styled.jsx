@@ -83,28 +83,28 @@ export const ContainerTarjetas = styled.div`
     }   
 ` 
 export const ContenedorImagen = styled.div`
-    height: 50%;
-    width: 100%;
-    background-color: red;
+    height: 30%;
+    width: 55%;
+    border-radius: 5px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 `
 export const TarjetasInformativas = styled.div`
     height: 80%;
-    width: 25%;
+    width: 28%;
     background-color: #4ea9f9;
     opacity: .9;
     border-radius: 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
    
 `
 export const Footer = styled.div`
-    color: #3db8e9;
+    color: rgb(62 171 238);
     text-align: center;
     height: 10%;
 `
