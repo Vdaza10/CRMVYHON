@@ -1,41 +1,29 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD:CRM/Front-end/src/components/pedidos/pedidos.jsx
-import Menu from "../menu/principal";
+
 import {
-  AddPedido,
-  AdminPedido,
-  BodyData,
-  ContArrow,
-  EstadoPedido,
-  HeadData,
-  ListView,
-  MontoData,
-  PedidoData,
-  StateData,
-  TablePedidos,
+    AddPedido,
+    AdminPedido,
+    BodyData,
+    ContArrow,
+    EstadoPedido,
+    HeadData,
+    ListView,
+    MontoData,
+    PedidoData,
+    StateData,
+    TablePedidos,
 } from "./style";
 import { MdAdd } from "react-icons/md";
-import FormularioPedido from "../CrearPedido";
-import PedidoCard from "../pedidoCard/pedidoCard.jsx";
-=======
-import Menu from "../../menu/principal";
-import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos } from "./style";
-import { MdAdd } from "react-icons/md";
-import FormularioPedido from "../../../formularios/CrearPedido"
-import Card from "../pedidos/pedidoCard/pedidoCard"
->>>>>>> 5ce952246c90db9d0311d62e3822bc0d90326b61:CRM/Front-end/src/components/vistas/markenting/pedidos/pedidos.jsx
+import FormularioPedido from "../../../formularios/CrearPedido/index";
+import PedidoCard from "./pedidoCard/pedidoCard.jsx";
 import axios from "axios";
+import Menu from "../../menu/principal";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const Pedidos = () => {
     const [orders, setOrders] = useState([[], [], [], []]);
     const [showForms, setShowForms] = useState([false, false, false, false]);
-<<<<<<< HEAD:CRM/Front-end/src/components/pedidos/pedidos.jsx
     const [cardPedidos, setCardPedidos] = useState([[], [], [], []]); // Usar matrices separadas para cada columna
-=======
-    const [cardPedidos, setCardPedidos] = useState([]);
-    const titles = ["creacion", "negociacion", "confirmacion", "realizado"];
->>>>>>> 5ce952246c90db9d0311d62e3822bc0d90326b61:CRM/Front-end/src/components/vistas/markenting/pedidos/pedidos.jsx
 
     const toggleForm = (index) => {
         const updatedForms = [...showForms];
@@ -88,7 +76,6 @@ const Pedidos = () => {
         const sourceIndex = result.source.index;
         const destinationIndex = result.destination.index;
 
-<<<<<<< HEAD:CRM/Front-end/src/components/pedidos/pedidos.jsx
         const copiedOrders = [...orders];
         const copiedCardPedidos = [...cardPedidos];
 
@@ -126,11 +113,6 @@ const Pedidos = () => {
                 isDragging={snapshot.isDragging}
                 >
                 <PedidoCard
-=======
-        return orderColumn.map((pedido, index) => (
-            <ListView key={index}>
-                <Card
->>>>>>> 5ce952246c90db9d0311d62e3822bc0d90326b61:CRM/Front-end/src/components/vistas/markenting/pedidos/pedidos.jsx
                     cliente={pedido.cliente}
                     producto={pedido.producto}
                     monto={pedido.monto}
@@ -145,7 +127,6 @@ const Pedidos = () => {
 
     return (
         <>
-<<<<<<< HEAD:CRM/Front-end/src/components/pedidos/pedidos.jsx
         <Menu />
         <AdminPedido>
             <EstadoPedido>
@@ -155,18 +136,6 @@ const Pedidos = () => {
                 </ContArrow>
             ))}
             </EstadoPedido>
-=======
-            <Menu />
-            <AdminPedido>
-            <EstadoPedido>
-    {titles.map((title, index) => (
-        <ContArrow key={index}>
-            <StateData className="letras">{title}</StateData>
-        </ContArrow>
-    ))}
-</EstadoPedido>
-
->>>>>>> 5ce952246c90db9d0311d62e3822bc0d90326b61:CRM/Front-end/src/components/vistas/markenting/pedidos/pedidos.jsx
 
             <DragDropContext onDragEnd={onDragEnd}>
             <TablePedidos>
