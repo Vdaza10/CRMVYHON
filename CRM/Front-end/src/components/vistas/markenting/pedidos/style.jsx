@@ -35,7 +35,6 @@ export const PedidoData = styled.div`
     margin: 5px 5px 5px 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 `
 
@@ -51,14 +50,13 @@ export const HeadData = styled.div`
 `
 export const BodyData = styled.div`
     position: relative;
-    height: 100%;
+    max-height: 80%;
     width: 96%;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
     background-color: #50bfff;
-    overflow: hidden;
-    overflow: scroll ;
-    &::-webkit-scrollbar{
+    overflow-y: auto;
+    ::-webkit-scrollbar{
         display: none;
     }
 `
@@ -96,13 +94,15 @@ export const AddPedido = styled.button`
 `
 
 export const ListView = styled.div`
-    height: 20%;
-    position: relative;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
-    margin: 10px 10px 10px 10px;
+    padding: 10px;
+    box-sizing: border-box;
     transition: all 0.1s ease;
-    background-color: #59dbfc;
-    border: solid white;
 `
 
 export const ContArrow = styled.div`
@@ -141,11 +141,4 @@ export const StateData = styled.div`
     }
 `
 
-export const Pedidocard = styled.div`
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-`
 
