@@ -178,7 +178,7 @@ const Registrarse = () => {
           </Contenedor1>
 
           <Checkbox>
-            <Seleccionar type="checkbox" required></Seleccionar>
+            <Seleccionar type="checkbox" required ></Seleccionar>
             <TextoCheckbox>
               Estoy deacuerdo con los terminos de uso del software y conozco{" "}
               <br />
@@ -187,7 +187,7 @@ const Registrarse = () => {
           </Checkbox>
 
           <ContaienrBoton>
-            <Boton onClick={Registro}>Crear cuenta</Boton>
+            <Boton type="submit" onClick={Registro}>Crear cuenta</Boton>
           </ContaienrBoton>
         </Contenedor2>
       </Contenedor>

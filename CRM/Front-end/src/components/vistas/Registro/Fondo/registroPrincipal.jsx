@@ -1,9 +1,10 @@
 import React from "react";
-import { Fondo, Ladero, Ladero1, Img, Ladero2, Parrafo , Parrafo1 } from "./styledRegistro";
+import { Fondo, Ladero, Ladero1, Img, Ladero2, Parrafo , Parrafo1, Ingresar } from "./styledRegistro";
 import Registrarse from "../Input/Registro";
 import Vyhon from "../../../img/logito.svg"
 import { useState } from "react";
 import VentanaModal1 from ".././../../modales/mensajeRegistro";
+import { Link } from "react-router-dom";
 
 
 const Registro = () => {
@@ -29,6 +30,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
             </Ladero>
                 <Registrarse></Registrarse>
                 <Registrarse></Registrarse>
+                <Link to={"/principal"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
 
             <VentanaModal1 
                 estado={estadoModal}

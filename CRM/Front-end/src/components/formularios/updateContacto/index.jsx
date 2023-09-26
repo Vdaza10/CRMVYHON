@@ -121,9 +121,9 @@ function Retorno4({contacto}) {
           <Parrafo1>
             <h3>Empresa del contacto </h3>
           </Parrafo1>
-          <Select value={selectContactoEmpresa} onChange={(e) => setSelectContactoEmpresa(e.target.value)}
+          <Select  value={selectContactoEmpresa} onChange={(e) => setSelectContactoEmpresa(e.target.value)}
           >
-            <option value="option"></option>
+            <option value="">Ingrese la empresa</option>
             {contactoEmpresa.map((empresa) => (
               <option key={empresa.idEmpresa} value={empresa.idEmpresa}>
                 {empresa.nombreEmpresa}

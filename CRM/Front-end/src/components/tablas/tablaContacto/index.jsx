@@ -106,6 +106,7 @@ const Borrar = () =>{
 }
 
     return (
+        
         <>
         {loading ? (
             <>

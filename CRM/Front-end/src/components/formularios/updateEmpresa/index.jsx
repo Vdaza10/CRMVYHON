@@ -16,7 +16,7 @@ function EmpresaUpdate({ empresa }) {
       // Función para obtener los segmentos desde la base de datos
     const fetchSegmentos = async () => {
       try {
-          const response = await Axios.get("http://localhost:3005/companytabla");
+          const response = await Axios.get("http://localhost:3005/segmento");
           setSegmentos(response.data);
           console.log(response.data);
       } catch (error) {
