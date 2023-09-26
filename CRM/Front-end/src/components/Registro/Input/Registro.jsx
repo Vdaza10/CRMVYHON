@@ -17,7 +17,7 @@ import Axios from "axios";
 import validator from "validator";
 import VentanaModal1 from "../../mensajeRegistro";
 import UserExiste from "../../mensajeRegistroYaExiste";
-import swal from "sweetalert";
+import swal from "sweetalert"
 
 const Registrarse = () => {
   const [password, setPassword] = useState("");
@@ -180,7 +180,7 @@ const Registrarse = () => {
           </Contenedor1>
 
           <Checkbox>
-            <Seleccionar type="checkbox" required></Seleccionar>
+            <Seleccionar type="checkbox" required ></Seleccionar>
             <TextoCheckbox>
               Estoy deacuerdo con los terminos de uso del software y conozco{" "}
               <br />
@@ -189,7 +189,7 @@ const Registrarse = () => {
           </Checkbox>
 
           <ContaienrBoton>
-            <Boton onClick={Registro}>Crear cuenta</Boton>
+            <Boton type="submit" onClick={Registro}>Crear cuenta</Boton>
           </ContaienrBoton>
         </Contenedor2>
       </Contenedor>

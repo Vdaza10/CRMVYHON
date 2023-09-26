@@ -92,26 +92,6 @@ export const Ingresar = styled.p`
     font-size: 18px;
     font-weight:500;
     cursor: pointer;
-    tit
-
-    /* &:before {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        height: 3px;
-        width: 0;
-        background-color: #1e1e1e;
-        border-radius: 40px;
-        transition: width 0.2s ease-in-out;
-        
-    }
-
-    &:hover:before {
-        width: 5%;
-        
-    } */
-
     &:hover {
         color: #c6dde7;
     }

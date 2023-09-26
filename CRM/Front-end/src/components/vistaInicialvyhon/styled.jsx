@@ -6,7 +6,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: red;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -34,7 +33,6 @@ export const ContenedorInicial = styled.div`
 `
 //contenedor logo
 export const Contenedor1 = styled.nav`
-/* background-color: aqua; */
     height: 100%;
     width: 20%;
     display: flex;
@@ -50,14 +48,8 @@ export const Menucontainer = styled.ul`
     display: flex;
     justify-content: space-between;
     @media screen and (max-width: 700px) {
-        /* width: 150px;
-        flex-direction: column;
-        height: 90px;
-        justify-content: space-evenly;
-        margin-left: 6em; */
         width: auto;
         list-style: none;
-        /* display: flex; */
         justify-content: space-between;
     };
     `
@@ -83,26 +75,14 @@ export const Informacion = styled.div`
 export const ContainerTarjetas = styled.div`
     height: 100vh;
     width: 100%;
-    /* background-color: red; */
     display : flex;
     justify-items: center;
     align-items: center;
     justify-content: space-around;
     margin-top: 0%;
-    /* @media (min-width: 360px) and (max-height: 950px) {
-    height: auto;
-    width: 100%; 
-    background-color: #08e738; 
-    display : flex;
-    justify-items: center;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: space-around;
-    }     */
     @media (min-width: 360px) and (max-height: 700px) {
     height: auto;
     width: 100%;
-    /* background-color: #08e738; */
     display : flex;
     justify-items: center;
     flex-direction: column;
@@ -113,20 +93,14 @@ export const ContainerTarjetas = styled.div`
 export const ContenedorImagen = styled.div`
     height: 30%;
     width: 55%;
-    background-color: aqua;
     margin-top: 10px;
-    /* display: flex; */
-    /* align-items: center; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* background-attachment: fixed; */
     @media (min-width: 235px) and (max-height: 950px) {
     height: 150px;
     display: flex;
     margin-top: 10px;
-    /* display: flex; */
-    /* align-items: center; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -138,7 +112,6 @@ export const TarjetasInformativas = styled.div`
     background-color: #4ea9f9;
     opacity: .9;
     border-radius: 3%;
-    /* margin-top: 5%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,14 +126,11 @@ export const TarjetasInformativas = styled.div`
     }
 `
 export const Footer = styled.div`
-    color: black;
+    color: #3db8e9;
     text-align: center;
-    /* padding: 10px; */
     height: 10em;
-    /* background-color: aqua; */
 `
 export const TextoFooter = styled.p`
     margin: 0;
     font-size: 50px;
-    /* background-color: red; */
 `

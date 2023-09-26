@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../menu/principal";
-import {AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData,ListView,MontoData,PedidoData,StateData,TablePedidos,
-} from "./style";
-
+import { AddPedido, AdminPedido, BodyData, ContArrow, EstadoPedido, HeadData, ListView, MontoData, PedidoData, StateData, TablePedidos } from "./style";
 import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../CrearPedido";
-import PedidoCard from "../PedidosCard/index.jsx";
+import Card from "../pedidoCard/pedidoCard.jsx"; // Reemplaza con la ruta adecuada
 import axios from "axios";
-//
+
 const Pedidos = () => {
     const [orders, setOrders] = useState([]);
     const [showForms, setShowForms] = useState([false, false, false, false]);
     const [cardPedidos, setCardPedidos] = useState([]);
+    const titles = ["creacion", "negociacion", "confirmacion", "realizado"];
 
     const toggleForm = (index) => {
         const updatedForms = [...showForms];
-        updatedForms[index] = !updatedForms[index];
+        for (let i = 0; i < updatedForms.length; i++) {
+            updatedForms[i] = i === index ? !updatedForms[i] : false;
+        }
         setShowForms(updatedForms);
     };
 
@@ -25,7 +26,7 @@ const Pedidos = () => {
             producto,
             monto,
             fecha,
-            columna
+            columna,
         };
         setCardPedidos([...cardPedidos, newCardPedido]);
     };
@@ -47,10 +48,15 @@ const Pedidos = () => {
     }, []);
 
     const orderbyColumns = (i) => {
-        const orderColumn = orders.filter((order) => order.Columna === i);
+        // Combina las tarjetas de pedidos existentes y las creadas desde el formulario
+        const allPedidos = [...orders, ...cardPedidos];
+
+        // Filtra por la columna actual
+        const orderColumn = allPedidos.filter((pedido) => pedido.columna === i);
+
         return orderColumn.map((pedido, index) => (
             <ListView key={index}>
-                <PedidoCard
+                <Card
                     cliente={pedido.cliente}
                     producto={pedido.producto}
                     monto={pedido.monto}
@@ -61,19 +67,20 @@ const Pedidos = () => {
         ));
     };
 
-    //funcion kanban
+    //función kanban
 
     return (
         <>
             <Menu />
             <AdminPedido>
-                <EstadoPedido>
-                    {[1, 2, 3, 4].map((_, index) => (
-                        <ContArrow key={index}>
-                            <StateData className="letras">creacion</StateData>
-                        </ContArrow>
-                    ))}
-                </EstadoPedido>
+            <EstadoPedido>
+    {titles.map((title, index) => (
+        <ContArrow key={index}>
+            <StateData className="letras">{title}</StateData>
+        </ContArrow>
+    ))}
+</EstadoPedido>
+
 
                 <TablePedidos>
                     {[1, 2, 3, 4].map((table, index) => (
