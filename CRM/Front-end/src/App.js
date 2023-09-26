@@ -1,6 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 
-
 import Inicio from "../src/components/vistas/Inicialvyhon/inicio" 
 import Registro from "./components/vistas/Registro/Fondo/registroPrincipal"
 import Recuperar from "./components/vistas/recuperarContraseña/index"
