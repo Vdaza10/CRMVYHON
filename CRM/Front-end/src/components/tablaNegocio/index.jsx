@@ -28,7 +28,8 @@ function TablaNegocio() {
   const [activeEditar, setActiveEditar] = useState(false);
   const [negocios, setNegocios] = useState([]);
   const [negocioAEditar, setNegocioAEditar] = useState(null);
-
+  
+  const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
 
   const [loading, setLoading] = useState(true)
 
@@ -49,7 +50,7 @@ function TablaNegocio() {
         }else{
             navigate('/');
         }
-       
+      
     },[navigate])
 
   // barra de busqueda
@@ -103,7 +104,7 @@ const [buscar, setBuscar] = useState("")
     }
     setTimeout(() => {
       window.location.href = "/negocios"  
-       },0)
+},0)
   };
 
   useEffect(() => {
@@ -185,10 +186,21 @@ const [buscar, setBuscar] = useState("")
           ))}
         </ContainerSecundario>
         <FooterTabla>
-          <Boton onClick={() => setActive(!active)}>Crear negocio</Boton>
+        <Boton onClick={() => {
+                        setActive(!active);
+                        // Cierra EmpresaUpdate si está abierto al hacer clic en "Crear Empresa"
+                        if (activeEditar) {
+                        setActiveEditar(false);
+                        }
+                        if (empresaUpdateAbierto) {
+                        setEmpresaUpdateAbierto();
+                        }
+                    }}>
+                        Crear Empresa
+                    </Boton>
         </FooterTabla>
         {active && <CrearNegocios />}
-        {activeEditar && <NegocioUpdate negocio={negocioAEditar} />}
+        {activeEditar && (<NegocioUpdate negocio={negocioAEditar} setEmpresaUpdateAbierto={setEmpresaUpdateAbierto} />)}
       </ContainerPrincipal>
     </>
     )};

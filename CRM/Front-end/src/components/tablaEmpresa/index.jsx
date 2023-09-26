@@ -10,6 +10,7 @@ import EmpresaUpdate from "../updateEmpresa";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode"
+// import { useRef } from "react";
 
 function TablaEmpresa() {
   const [active, setActive] = useState(false);
@@ -18,6 +19,8 @@ function TablaEmpresa() {
   const [empresaEditar, setEmpresaEditar] = useState(null);
 
   const [loading, setLoading] = useState(true)
+
+  const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
 
   let navigate = useNavigate();
 
@@ -152,26 +155,40 @@ const [buscar, setBuscar] = useState("")
             <Caja1>
               <CajaIcono style={{ justifyContent: "end" }}>
                 <MdDelete
-                  style={{ fontSize: "30px" }}
+                  style={{ fontSize: "30px", cursor: "pointer"}}
                   onClick={() => TabladeleteEmpresa(item)}
                 />
               </CajaIcono>
               <CajaIcono>
-                <BiSolidEditAlt style={{ fontSize: "30px" }} onClick={() => handleEditarClick(item)} />
+                <BiSolidEditAlt style={{ fontSize: "30px", cursor: "pointer"}} onClick={() => handleEditarClick(item)} />
               </CajaIcono>
             </Caja1>
           </BodyTabla>
         ))}
         </ContainerSecundario>
         <FooterTabla>
-          <Boton onClick={() => setActive(!active)}>Crear Empresa</Boton>
-        </FooterTabla>
-        {active && <Retorno8></Retorno8>}
-        {activeEditar && <EmpresaUpdate empresa={empresaEditar}></EmpresaUpdate>}
-      </ContainerPrincipal>
-    </>
-    )}
+        <Boton onClick={() => {
+                setActive(!active);
+                // Cierra EmpresaUpdate si está abierto al hacer clic en "Crear Empresa"
+                if (activeEditar) {
+                  setActiveEditar(false);
+                }
+                if (empresaUpdateAbierto) {
+                  setEmpresaUpdateAbierto();
+                }
+              }}>
+                Crear Empresa
+              </Boton>
+              </FooterTabla>
+            {active && <Retorno8 />}
+            {activeEditar && (
+              <EmpresaUpdate empresa={empresaEditar}  setEmpresaUpdateAbierto={setEmpresaUpdateAbierto} />
+            )}
+          </ContainerPrincipal>
+        </>
+      )}
     </>
   );
 }
+
 export default TablaEmpresa;

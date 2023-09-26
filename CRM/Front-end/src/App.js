@@ -27,7 +27,7 @@ import FormularioPedido from "./components/CrearPedido"
 import NegocioUpdate from "./components/updateNegocio"
 import Grafica from "./components/graficas"
 import Notificación from "./components/VistaPerfilusuario/vistaNotificaciones/notificaciones"
-
+import "./App.css"
 function App() {
   return (
     <BrowserRouter>
