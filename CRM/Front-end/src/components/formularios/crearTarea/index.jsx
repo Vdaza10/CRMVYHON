@@ -6,8 +6,6 @@ import { FaUser } from "react-icons/fa";
 import Axios from "axios";
 import swal from "sweetalert";
 
-
-
 const CrearTarea = () => {
     const [selectNegocio, setSelectNegocio] = useState("");
     const [asunto, seAsunto] = useState("")
@@ -115,7 +113,9 @@ const CrearTarea = () => {
                             }}
                             onChange={(event) => {
                                 seAsunto(event.target.value)
-                            }} placeholder="ingresar asunto de tarea">
+                            }} placeholder="ingresar asunto de tarea"
+                            maxLength={50}
+                            >
                                 
                             </Input>
                         <Parrafo1><h3>Responsable</h3></Parrafo1>
@@ -130,7 +130,9 @@ const CrearTarea = () => {
                                 }}
                                 onChange={(event) => {
                                     setResponsable(event.target.value)
-                                }} placeholder="Ingresar nombre del responsable" style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
+                                }} placeholder="Ingresar nombre del responsable" 
+                                maxLength={50}
+                                style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
                             <FaUser style={{ marginRight: "5px" }} />
                         </ContainerInput>
                         <Parrafo1><h3>Tipo de tarea</h3></Parrafo1>
@@ -145,7 +147,7 @@ const CrearTarea = () => {
                                 }}
                                 onChange={(event) => {
                                     setTipotarea(event.target.value)
-                                }} placeholder="Ingresar tipo de tarea" style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
+                                }} placeholder="Ingresar tipo de tarea" maxLength={50} style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
                             <BsFillCalendar2CheckFill style={{ marginRight: "5px" }} />
                         </ContainerInput>
                         <Parrafo1><h3>Fecha</h3></Parrafo1>

@@ -18,6 +18,7 @@ function TablaTarea() {
     const [tarea, setTarea] = useState([]);
     const [tareaEditar, setTareaEditar] = useState(null);
     
+    const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
     const [loading, setLoading] = useState(true)
 
     let navigate = useNavigate();
@@ -155,10 +156,21 @@ const [buscar, setBuscar] = useState("")
                 ))}
             </div>
                 <FooterTabla>
-                    <Boton onClick={() => setActive(!active)}>Crear Tarea</Boton>
+                <Boton onClick={() => {
+                        setActive(!active);
+                        // Cierra EmpresaUpdate si está abierto al hacer clic en "Crear Empresa"
+                        if (activeEditar) {
+                        setActiveEditar(false);
+                        }
+                        if (empresaUpdateAbierto) {
+                        setEmpresaUpdateAbierto();
+                        }
+                    }}>
+                        Crear Empresa
+                    </Boton>
                 </FooterTabla>
                 {active && <CrearTarea></CrearTarea>}
-                {activeEditar && <UpdateTarea tarea={tareaEditar}></UpdateTarea>}
+                {activeEditar && (<UpdateTarea tarea={tareaEditar} setEmpresaUpdateAbierto={setEmpresaUpdateAbierto}></UpdateTarea>)}
             </ContainerPrincipal>
         </>
         )}
