@@ -73,7 +73,7 @@ return (
 
     <>
         <Menu/> {/*Renderiza el componente Menu.*/}
-        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"850px"}}>
+        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"90%"}}>
         <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1>
 
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
