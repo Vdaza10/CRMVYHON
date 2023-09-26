@@ -15,7 +15,7 @@ const FormularioPedido = (props) => {
         const day = String(now.getDate()).padStart(2, "0"); 
         return `${year}-${month}-${day}`;
     };
-    
+
     const getColumn = () => {
         const columna = props.columna + 1
         return columna

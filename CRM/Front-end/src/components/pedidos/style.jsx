@@ -55,6 +55,9 @@ export const BodyData = styled.div`
     margin: 5px 5px 5px 5px;
     background-color: #50bfff;
     overflow-y: auto;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 `
 
 export const MontoData = styled.div`
@@ -99,8 +102,6 @@ export const ListView = styled.div`
     padding: 10px;
     box-sizing: border-box;
     transition: all 0.1s ease;
-    /* background-color: #b6127f; */
-    /* border: solid white 1px; */
 `
 
 export const ContArrow = styled.div`
@@ -139,11 +140,4 @@ export const StateData = styled.div`
     }
 `
 
-export const Pedidocard = styled.div`
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-`
 

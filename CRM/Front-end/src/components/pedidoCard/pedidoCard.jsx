@@ -2,7 +2,7 @@ import React from "react";
 import { CardCont, LineClient, DataClient, Data, ContentData, DataInfo, ContClient } from "./style";
 
 
-const PedidoCard = ({ cliente, producto, monto, fecha }) => {
+export default function PedidoCard  ({ cliente, producto, monto, fecha })  {
     return (
         <CardCont>
 
@@ -31,5 +31,3 @@ const PedidoCard = ({ cliente, producto, monto, fecha }) => {
         </CardCont>
     );
 };
-
-export default PedidoCard;
