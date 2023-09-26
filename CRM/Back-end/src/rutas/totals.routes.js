@@ -105,6 +105,8 @@ router.get('/pedidos/:id', pedidosCrtl.getPedidosId);
 router.patch('/pedidos/:id', pedidosCrtl.updatePedidos);
 router.delete('/pedidos/:id', pedidosCrtl.deletePedidos);
 
+//pedidos graficos
+router.get('/pedidos', pedidosCrtl.getPedidos);
 
 //llamada
 router.post('/llamada', llamadaCrtl.crearLlamada);
