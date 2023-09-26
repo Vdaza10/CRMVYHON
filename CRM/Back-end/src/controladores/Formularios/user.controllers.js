@@ -61,10 +61,13 @@ export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
   try {
     const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
+  
     const [rows]  = await pool.query(
         'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-    [nombreUsuario,nombreEmpresa,correo, contraseña,idRegistro]
+    [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
     );
+    encrypt = await encryptPassword(contraseña)
+    console.log(encrypt, "contraseña incriptada exitosa");
     const refreshToken = jwt.sign(
         { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
         Secret,
