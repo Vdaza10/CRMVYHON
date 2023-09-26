@@ -9,19 +9,11 @@ export const Container = styled.div`
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    flex-wrap: wrap;
-    @media (min-width: 700px) {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    }
 `
+
 //contenedor de opciones de ingresar
 export const ContenedorInicial = styled.div`
-    height: 10vh;
+    height: 10%;
     width: 100%;
     background-color: #ffffff;
     display: flex;
@@ -33,7 +25,6 @@ export const ContenedorInicial = styled.div`
 `
 //contenedor logo
 export const Contenedor1 = styled.nav`
-    height: 100%;
     width: 20%;
     display: flex;
     align-items: center;
@@ -43,21 +34,22 @@ export const Logo = styled.img`
 `;
 
 export const Menucontainer = styled.ul`
-    width: 300px;
+    width: 18%;
     list-style: none;
     display: flex;
-    justify-content: space-between;
-    @media screen and (max-width: 700px) {
-        width: auto;
-        list-style: none;
-        justify-content: space-between;
-    };
+    justify-content: center;
+    align-items: center;
     `
 export const Opciones = styled.li`
     background-color: #0099ff;
     color: #000000;
-    padding: 10px 20px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
     border-radius: 5px;
+    margin: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     &:hover {
@@ -67,13 +59,13 @@ export const Opciones = styled.li`
 `;
 
 export const Informacion = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: blue;  
 `
 //contendor tarjetas
 export const ContainerTarjetas = styled.div`
-    height: 100vh;
+    height: 90%;
     width: 100%;
     display : flex;
     justify-items: center;
@@ -91,24 +83,16 @@ export const ContainerTarjetas = styled.div`
     }   
 ` 
 export const ContenedorImagen = styled.div`
-    height: 30%;
-    width: 55%;
-    margin-top: 10px;
+    height: 50%;
+    width: 100%;
+    background-color: red;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    @media (min-width: 235px) and (max-height: 950px) {
-    height: 150px;
-    display: flex;
-    margin-top: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    }
 `
 export const TarjetasInformativas = styled.div`
-    height: 75%;
-    width: 30%;
+    height: 80%;
+    width: 25%;
     background-color: #4ea9f9;
     opacity: .9;
     border-radius: 3%;
@@ -117,18 +101,12 @@ export const TarjetasInformativas = styled.div`
     align-items: center;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    h2 {
-        margin-bottom: 10px; /* Puedes ajustar este valor según tu preferencia */
-    }
-    @media screen and (max-width: 700px) {
-        width: 80%; /* Ajusta el ancho de las tarjetas en dispositivos móviles */
-        margin-top: 2em;
-    }
+   
 `
 export const Footer = styled.div`
     color: #3db8e9;
     text-align: center;
-    height: 10em;
+    height: 10%;
 `
 export const TextoFooter = styled.p`
     margin: 0;

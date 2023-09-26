@@ -1,5 +1,4 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-
 import Retorno2 from "./components/vista_negocios"
 import Retorno3 from "./components/contacto"
 import Retorno5 from "./components/tarea"
@@ -27,6 +26,7 @@ import FormularioPedido from "./components/CrearPedido"
 import NegocioUpdate from "./components/updateNegocio"
 import Grafica from "./components/graficas"
 import Notificación from "./components/VistaPerfilusuario/vistaNotificaciones/notificaciones"
+import "../src/App.css"
 
 function App() {
   return (
