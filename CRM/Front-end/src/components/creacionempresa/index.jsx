@@ -10,6 +10,23 @@ function Retorno8() {
     const [url, setUrl] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [segmento, setSegmento] = useState([]);
+    const [vari, setVari]=useState("")
+    // const userToken = localStorage.getItem("user");
+    // const token  = userToken;
+    // console.log(token,"💕💕");
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem("user");
+        if(userToken){
+            setVari(userToken)
+        }
+    },[])
+    const FuncionEfect =()=>{
+        console.log("esto es vari", vari);
+        createEmpresa(vari)
+    }
+
 
     // Función para obtener los segmentos desde la base de datos
     const fetchSegmentos = async () => {
@@ -39,9 +56,9 @@ function Retorno8() {
     };
 
     // Función para crear una empresa
-    const createEmpresa = async (e) => {
-        e.preventDefault();
-
+    const createEmpresa = async (/* e, */ vari) => {
+        /* e.preventDefault(); */
+        
         if (nombreEmpresa&&url&&descripcion) {
             const elegirSegmento = segmento.find((n) => n.idSegmento === parseInt(selectedSegmento))
             if (!elegirSegmento) {
@@ -52,17 +69,23 @@ function Retorno8() {
                 });
                 return
             }
+        
         try {
+            console.log("Entro try",vari);
             const response = await axios.post("http://localhost:3005/company", {
+                headers: {
+                    accessToken: vari,
+                },
                 nombreEmpresa,
                 segmento: selectedSegmento, // Usando el valor seleccionado
                 url,
                 descripcion
             });
-            setTimeout(() => {
+            
+            // setTimeout(() => {
 
-                window.location.href = "/empresas"
-            }, 0);
+            //     window.location.href = "/empresas"
+            // }, 0);
             console.log("Empresa creada:", response.data);
         } catch (error) {
             console.log("Error al crear empresa:", error);
@@ -129,7 +152,7 @@ function Retorno8() {
                 <hr />
                 <Caja2>
                     <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
-                    <Boton1 onClick={createEmpresa}>Crear empresa</Boton1>
+                    <Boton1 onClick={FuncionEfect}>Crear empresa</Boton1>
                 </Caja2>
                 
             </Container1>

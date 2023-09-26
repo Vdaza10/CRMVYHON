@@ -1,5 +1,5 @@
 import express from "express";
-// import router from "./rutas/totals.routes.js";
+import { routers } from "./rutas/table.routes.js";
 import { router } from "./rutas/totals.routes.js";
 import cors from "cors"
 
@@ -14,5 +14,5 @@ app.listen(3005, () => {
 })
 
 //ruta index//
-app.use(router)
+app.use(router, routers)
 
