@@ -115,7 +115,7 @@ const Pedidos = () => {
                         producto={pedido.producto}
                         monto={pedido.monto}
                         fecha={pedido.fecha}
-                        columna={columnIndex}
+                        columna={index}
                     />
                 </ListView>
             )}

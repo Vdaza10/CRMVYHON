@@ -13,15 +13,18 @@ export const CardCont = styled.div`
 export const ContClient = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+
 
     .fa-circle-xmark {
         margin-right: 5px;
     }
 `
-export const DataClient = styled.h3`
+export const DataClient = styled.h3` 
+    width: 100%;
     text-align: center;
     padding-bottom: 10px;
-    border-bottom: solid 1px #dfdfdf;
+    border-bottom: solid 1px #cabebe;
 `
 
 export const ContentData = styled.div`
