@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AdminPedido = styled.div`
-    height: 90vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -9,14 +9,13 @@ export const AdminPedido = styled.div`
 `
 
 export const EstadoPedido = styled.div`
-    height: 8%;
+    height: 7%;
     width: 98%;
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     background-color: #ffffff;
-    background-color: red;
 `
 
 export const TablePedidos = styled.div`

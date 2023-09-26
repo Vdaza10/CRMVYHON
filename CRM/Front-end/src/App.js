@@ -18,6 +18,7 @@ import Pedidos from "./components/vistas/markenting/pedidos/pedidos"
 import Campañasms from "./components/vistas/markenting/campañasms/campaña"
 import Grafica from "./components/vistas/menu/configuracion/graficas/index"
 import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campaña"
+import "./App.css"
 
 function App() {
   return (
