@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 const Fondo = styled.div`
-    background: -webkit-linear-gradient(70deg, #56b7f7b6 0%, #ffffff 100%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 `
 const Contenedor = styled.div`
-    background: -webkit-linear-gradient(100deg, #56b7f7b6 0%, #ffffff 70%);
     width: 100%;
-    height: 75vh;
+    height: 80%;
     display: flex;
     justify-content: center;
 `
