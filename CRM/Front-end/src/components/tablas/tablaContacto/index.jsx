@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../../vistas/menu/principal";
 import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla, Caja1, Parrafo, ContainerSecundario, BodyTabla, CajaIcono, Boton, FooterTabla } from "./styled";
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
@@ -115,7 +114,7 @@ import jwt_decode from "jwt-decode"
                 </>
             ):(
             <>
-                <Menu/> {/* Muestra el componente Menu */}
+              
                     <ContainerPrincipal>
                         <Heder>
                             <h1>Tabla Contacto</h1>

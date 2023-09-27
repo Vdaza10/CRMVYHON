@@ -20,7 +20,7 @@ import {
   Box_perfil,
 } from "./styled";
 import IPerfil from "../../../img/perfil.jpg";
-import Menu from "../../menu/principal";
+
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -94,7 +94,6 @@ function PerfilUsuario() {
                   onUserUpdate={actualizarUsuario}
                 />
                 {/* header */}
-                <Menu />
                 <Header>
                   <Cajaheader>
                     <Parrafo1 style={{
