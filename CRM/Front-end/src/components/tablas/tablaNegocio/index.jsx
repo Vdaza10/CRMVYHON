@@ -1,0 +1,234 @@
+import React, { useEffect, useState } from "react";
+import {
+  ContainerPrincipal,
+  Heder,
+  ContainerInput,
+  Input,
+  HederTabla,
+  Caja1,
+  Parrafo,
+  BodyTabla,
+  CajaIcono,
+  FooterTabla,
+  Boton,
+  ContainerSecundario,
+} from "./styled";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
+import { MdDelete } from "react-icons/md";
+import { BiSolidEditAlt } from "react-icons/bi";
+import CrearNegocios from "../../formularios/crearNegocio";
+import Axios from "axios";
+import NegocioUpdate from "../../formularios/updateNegocio";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
+function TablaNegocio() {
+  const [active, setActive] = useState(false);
+  const [activeEditar, setActiveEditar] = useState(false);
+  const [negocios, setNegocios] = useState([]);
+  const [negocioAEditar, setNegocioAEditar] = useState(null);
+
+  const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
+
+  const [loading, setLoading] = useState(true);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const userToken = localStorage.getItem("user");
+    if (userToken) {
+      try {
+        const token = jwt_decode(userToken);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setLoading(false);
+      } catch (error) {
+        console.error("Error al decodificar el token:", error);
+        navigate("/");
+      }
+    } else {
+      navigate("/");
+    }
+  }, [navigate]);
+
+  // barra de busqueda
+  const [buscar, setBuscar] = useState("");
+
+  //Funcion para traer los datos de la tabla, a buscar
+
+  //Inicio, Función de busqueda
+  const BarraDeBusqueda = (e) => {
+    setBuscar(e.target.value);
+    console.log(e.target.value);
+  };
+
+  //Metodo de filtrado tabla negocio
+  let resBusqueda = [];
+
+  if (!buscar) {
+    resBusqueda = negocios || [];
+  } else {
+    resBusqueda = negocios.filter(
+      (dato) =>
+        (dato.nombreNegocio &&
+          dato.nombreNegocio.toLowerCase().includes(buscar.toLowerCase())) ||
+        (dato.etapas &&
+          dato.etapas.toLowerCase().includes(buscar.toLowerCase())) ||
+        (dato.fuente &&
+          dato.fuente.toLowerCase().includes(buscar.toLowerCase())) ||
+        (dato.nombreEmpresa &&
+          dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase())) ||
+        (dato.nombreContacto &&
+          dato.nombreContacto.toLowerCase().includes(buscar.toLowerCase()))
+    );
+  }
+
+  const handleEditarClick = (item) => {
+    setNegocioAEditar(item); // Cuando se hace clic en Editar, almacena el negocio a editar en el estado
+    setActiveEditar(true); // Activa el componente de edición
+  };
+
+  const ReflejarDatos = async () => {
+    try {
+      const response = await Axios.get("http://localhost:3005/negociotabla");
+      setNegocios(response.data);
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+  };
+
+  const TabladeleteNegocio = async (item) => {
+    try {
+      const res = await Axios.put(
+        `http://localhost:3005/negociotabla/desactivar/${item.idNegocio}`
+      );
+      console.log("Negocio eliminado con éxito.", res.data);
+      ReflejarDatos(); // Refresca la lista de negocios después de eliminar uno
+    } catch (error) {
+      console.error("Error al eliminar el negocio:", error);
+    }
+    setTimeout(() => {
+      window.location.href = "/negocios";
+    }, 0);
+  };
+
+  useEffect(() => {
+    ReflejarDatos();
+  }, []);
+
+  const Borrar = () => {
+    setBuscar("");
+  };
+
+  return (
+    <>
+      {loading ? (
+        <>
+          <h1>cargando.....</h1>
+        </>
+      ) : (
+        <>
+          <ContainerPrincipal>
+            <Heder>
+              <h1>Tabla Negocio</h1>
+              <ContainerInput>
+                <AiOutlineSearch
+                  style={{ fontSize: "25px", color: "#4b4848" }}
+                />
+                <Input
+                  placeholder="Buscar ..."
+                  value={buscar}
+                  onChange={BarraDeBusqueda}
+                ></Input>
+                <AiOutlineClose
+                  style={{ fontSize: "20px", color: "gray" ,cursor:"pointer"}}
+                  onClick={Borrar}
+                />
+              </ContainerInput>
+            </Heder>
+            <HederTabla>
+              <Caja1>
+                <Parrafo>Nombre negocio</Parrafo>
+              </Caja1>
+              <Caja1>
+                <Parrafo>Etapas</Parrafo>
+              </Caja1>
+              <Caja1>
+                <Parrafo>Fuente</Parrafo>
+              </Caja1>
+              <Caja1>
+                <Parrafo>Empresa</Parrafo>
+              </Caja1>
+              <Caja1>
+                <Parrafo>Contacto</Parrafo>
+              </Caja1>
+              <Caja1>
+                <Parrafo>Acción</Parrafo>
+              </Caja1>
+            </HederTabla>
+            <ContainerSecundario>
+              {resBusqueda.map((item, i) => (
+                <BodyTabla key={i}>
+                  <Caja1>
+                    <Parrafo>{item.nombreNegocio}</Parrafo>
+                  </Caja1>
+                  <Caja1>
+                    <Parrafo>{item.etapas}</Parrafo>
+                  </Caja1>
+                  <Caja1>
+                    <Parrafo>{item.fuente}</Parrafo>
+                  </Caja1>
+                  <Caja1>
+                    <Parrafo>{item.nombreEmpresa}</Parrafo>
+                  </Caja1>
+                  <Caja1>
+                    <Parrafo>{item.nombreContacto}</Parrafo>
+                  </Caja1>
+                  <Caja1>
+                    <CajaIcono style={{ justifyContent: "end" }}>
+                      <MdDelete
+                        style={{ fontSize: "30px" }}
+                        onClick={() => TabladeleteNegocio(item)}
+                      />
+                    </CajaIcono>
+                    <CajaIcono>
+                      <BiSolidEditAlt
+                        style={{ fontSize: "30px" }}
+                        onClick={() => handleEditarClick(item)} // Llama a la función para editar
+                      />
+                    </CajaIcono>
+                  </Caja1>
+                </BodyTabla>
+              ))}
+            </ContainerSecundario>
+            <FooterTabla>
+              <Boton
+                onClick={() => {
+                  setActive(!active);
+                  // Cierra EmpresaUpdate si está abierto al hacer clic en "Crear Empresa"
+                  if (activeEditar) {
+                    setActiveEditar(false);
+                  }
+                  if (empresaUpdateAbierto) {
+                    setEmpresaUpdateAbierto();
+                  }
+                }}
+              >
+                Crear Empresa
+              </Boton>
+            </FooterTabla>
+            {active && <CrearNegocios />}
+            {activeEditar && (
+              <NegocioUpdate
+                negocio={negocioAEditar}
+                setEmpresaUpdateAbierto={setEmpresaUpdateAbierto}
+              />
+            )}
+          </ContainerPrincipal>
+        </>
+      )}
+      ;
+    </>
+  );
+}
+
+export default TablaNegocio;
