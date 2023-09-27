@@ -17,7 +17,6 @@ import { MdAdd } from "react-icons/md";
 import FormularioPedido from "../../../formularios/CrearPedido/index";
 import PedidoCard from "./pedidoCard/pedidoCard.jsx";
 import axios from "axios";
-import Menu from "../../menu/principal";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const Pedidos = () => {
@@ -127,7 +126,6 @@ const Pedidos = () => {
 
     return (
         <>
-        <Menu />
         <AdminPedido>
             <EstadoPedido>
             {[1, 2, 3, 4].map((_, index) => (

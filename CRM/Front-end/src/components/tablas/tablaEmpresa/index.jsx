@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../../vistas/menu/principal";
 import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla , ContainerSecundario} from "./styled";
 import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
@@ -110,7 +109,6 @@ const [buscar, setBuscar] = useState("")
         </>
     ):(
     <>
-      <Menu /> {/* Muestra el componente Menu */}
       <ContainerPrincipal>
         <Heder>
           <h1>Tabla empresa</h1>

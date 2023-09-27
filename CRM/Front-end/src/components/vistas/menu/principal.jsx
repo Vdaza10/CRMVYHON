@@ -1,5 +1,5 @@
     import React, { useState } from "react";
-    import { Link, NavLink, useLocation } from "react-router-dom";
+    import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
     import {Contenedor,Logo, MenuItem,Menucontainer,Menudesplegable,Navegacion, Ajustes,
     } from "./menu";
     import imagen from "../../img/logito.png";
@@ -24,6 +24,7 @@
     };
 
     return (
+        <>
         <Contenedor>
         {/* Barra de navegación */}
             <Navegacion>
@@ -90,7 +91,11 @@
             <Retorno1/>
             </Menudesplegable>
         </Ajustes>
-    </Contenedor>
+    </Contenedor> 
+    <div style={{height:"90vh", width:"100%"}}>
+        <Outlet/>
+    </div>       
+    </>
 );
 };
 export default Menu;

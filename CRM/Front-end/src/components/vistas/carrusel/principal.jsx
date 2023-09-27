@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Carrusel, Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
-import Menu from "../menu/principal";
+
 import {useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import carrusel from "../../img/imagenCarrusel.jpg"
@@ -72,8 +72,7 @@ return (
     ):(
 
     <>
-        <Menu/> {/*Renderiza el componente Menu.*/}
-        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"90%"}}>
+        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"90vh"}}>
         <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1>
 
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}

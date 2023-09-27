@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter} from "react-router-dom";
 
 import Inicio from "../src/components/vistas/Inicialvyhon/inicio";
 import Registro from "./components/vistas/Registro/Fondo/registroPrincipal";
@@ -18,6 +18,8 @@ import Campañasms from "./components/vistas/markenting/campañasms/campaña";
 import Grafica from "./components/vistas/menu/configuracion/graficas/index";
 import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campaña";
 import "./App.css"
+import Menu from "../src/components/vistas/menu/principal"
+
 
 function App() {
   return (
@@ -37,13 +39,15 @@ function App() {
           {" "}
         </Route>
         {/* Rutas del menu*/}
-        <Route path="/vistaprincipal" element={<Vistaprincipal />}></Route>
-        <Route path="/empresas" element={<Retorno7 />}></Route>
-        <Route path="/contactos" element={<Retorno3 />}></Route>
-        <Route path="/negocios" element={<Retorno2 />}></Route>
-        <Route path="/tareas" element={<Retorno5 />}></Route>
-        <Route path="/Marketing" element={<Campaña />}></Route>
-        <Route path="/perfilusuario" element={<PerfilUsuario />}></Route>
+        <Route element={<Menu/>}>
+          <Route path="/vistaprincipal" element={<Vistaprincipal />}></Route>
+          <Route path="/empresas" element={<Retorno7 />}></Route>
+          <Route path="/contactos" element={<Retorno3 />}></Route>
+          <Route path="/negocios" element={<Retorno2 />}></Route>
+          <Route path="/tareas" element={<Retorno5 />}></Route>
+          <Route path="/Marketing" element={<Campaña />}></Route>
+          <Route path="/perfilusuario" element={<PerfilUsuario />}></Route>          
+        </Route>
         {/* Rutas de marketeting*/}
         <Route path="/camunicacion" element={<Comunucacion />}></Route>
         <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>

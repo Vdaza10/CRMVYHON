@@ -1,13 +1,12 @@
 import React from "react";
 import { Contenedor, Contenedorcampaña1, TarjetasEditablesCorreo, TextoTarjeta } from "./styled";
-import Menu from "../../menu/principal";
+
 
 
 const CampañaCorreo = () =>{
     
     return(
     <>
-    <Menu/>
         <Contenedor>
             <Contenedorcampaña1>
                     <TarjetasEditablesCorreo>

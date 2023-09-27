@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { Container, Parrafo, Boton } from "./styled";
 import imagen from "../../img/contacto.jpg"
-import Menu from "../menu/principal";
 import TablaContacto from '../../tablas/tablaContacto';
 import Axios from 'axios';
 import Retorno4 from "../../formularios/crearContacto"
@@ -54,7 +53,7 @@ function Retorno3() {
         {contacto.length <= 0 ? (
             <>
             {/* Componente de menú */}
-            <Menu />
+          
                 <Container>
                     <img src={imagen} alt="img" style={{ width: '450px', height: '240px', marginTop: "110px"}} />
                     <Parrafo><h3>No hemos encontrado contactos en tu cuenta ni con los filtros <br /> que seleccionaste</h3></Parrafo>

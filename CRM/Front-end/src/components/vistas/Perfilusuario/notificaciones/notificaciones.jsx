@@ -1,7 +1,6 @@
 import React from "react";
 import { Caja, Contenedor, Fondo } from "./styled";
 import { Cajaheader, Parrafo1, Header } from "../perfil/styled";
-import Menu from "../../menu/principal";
 import { useLocation } from "react-router-dom";
 
 const Notificacion = ({ cambiarAperfil }) => {
@@ -10,7 +9,6 @@ const Notificacion = ({ cambiarAperfil }) => {
   return (
     <>
       <Fondo>
-        <Menu />
         <Header>
           <Cajaheader>
             <Parrafo1 onClick={() => cambiarAperfil(true)}>Mi perfil</Parrafo1>
