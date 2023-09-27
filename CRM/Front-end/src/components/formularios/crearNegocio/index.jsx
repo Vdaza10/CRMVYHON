@@ -14,6 +14,7 @@ function CrearNegocios() {
     const [contacto, setContacto] = useState([]);
     const [cerrar, setCerrar] = useState(true);
 
+
     const cerrarcomponente = () => {
         setCerrar(false);
     };
@@ -88,7 +89,7 @@ function CrearNegocios() {
         swal({
             text: "Porfavor llenar todo",
             icon: "error",
-          });
+        });
     }
     };
 
@@ -108,33 +109,36 @@ function CrearNegocios() {
                     <Caja2>
                         <Parrafo1><h3>Nombre del negocio</h3></Parrafo1>
                         <Input placeholder="Ingresar el nombre del negocio" 
+                        maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
                             const regex = /[a-zA-Z0-9& ]/;
                             if (!regex.test(inputValue)) {
                               event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
                             }
-                          }}
+                        }}
                         onChange={(e) => setNombreNegocio(e.target.value)} />
                         <Parrafo1><h3>Etapa del embudo</h3></Parrafo1>
                         <Input placeholder="Ingresar la etapa del embudo"
+                        maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
                             const regex = /[a-zA-Z0-9 ]/;
                             if (!regex.test(inputValue)) {
-                              event.preventDefault();
+                            event.preventDefault();
                             }
-                          }}
+                        }}
                         onChange={(e) => setEtapas(e.target.value)} />
                         <Parrafo1><h3>Fuente</h3></Parrafo1>
                         <Input placeholder="Ingresar la fuente" 
+                        maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
                             const regex = /[a-zA-Z ]/;
                             if (!regex.test(inputValue)) {
-                              event.preventDefault(); 
+                            event.preventDefault(); 
                             }
-                          }}
+                        }}
                         onChange={(e) => setFuente(e.target.value)} />
                         <Parrafo1><h3>Campaña</h3></Parrafo1>
                         <Select value={selectEmpresa} onChange={(e) => setSelectEmpresa(e.target.value)}>
