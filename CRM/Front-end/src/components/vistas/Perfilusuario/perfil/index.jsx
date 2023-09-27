@@ -17,6 +17,7 @@ import {
   Cajaheader,
   Container,
   ContenedorPassword,
+  Box_perfil,
 } from "./styled";
 import IPerfil from "../../../img/perfil.jpg";
 import Menu from "../../menu/principal";
@@ -34,7 +35,7 @@ function PerfilUsuario() {
 
   const [mostrarnotifcacion, setMostrarnotificacion] = useState(true);
   const location = useLocation();
-    const currentPath = location.pathname;
+  const currentPath = location.pathname;
 
   const notificacionClick = () => {
     // Cambia el estado mostrarNotificacion
@@ -108,51 +109,8 @@ function PerfilUsuario() {
                 {/* body */}
                 <Main>
                   {/* informacion */}
-                  <ContenedorPerfil>
-                    <InformacionActivacion>
-                      <ImagenPerfil src={IPerfil}></ImagenPerfil>
-                      <ContenedorRegistro>
-                        <Registro style={{ marginTop: "25px" }}>
-                          Registrado el:
-                          <Fecha type="date">{userData.date}</Fecha>
-                        </Registro>
-                        <br />
-                        <Registro>
-                          Actualizado por última vez el:
-                          <Fecha type="date">09/08/2023 08:12</Fecha>
-                        </Registro>
-                      </ContenedorRegistro>
-                    </InformacionActivacion>
-                    <DatosUsuario>
-                      <h3 style={{ marginLeft: "20px" }}>Datos personales</h3>
-                      <Container>
-                        <Informacion>
-                          <Nombre>Nombre:</Nombre>
-                          <Nombre>Empresa:</Nombre>
-                          <Nombre>Email:</Nombre>
-                          <Nombre>contraseña:</Nombre>
-                        </Informacion>
-                        <Informacion>
-                          <Nombre>{userData.username.toUpperCase()}</Nombre>
-                          <Nombre>
-                            {userData.nombreEmpresa.toUpperCase()}
-                          </Nombre>
-                          <Nombre>{userData.email.toUpperCase()}</Nombre>
-                          <ContenedorPassword
-                            type="password"
-                            value={userData.password}
-                          ></ContenedorPassword>
-                        </Informacion>
-                      </Container>
-                      <Editar
-                        onClick={() => {
-                          setModalAbierta(!modalAbierta);
-                        }}
-                      >
-                        Editar
-                      </Editar>
-                    </DatosUsuario>
-                  </ContenedorPerfil>
+                  <Box_perfil>
+                  </Box_perfil>
                 </Main>
               </Fondo>
             </>
