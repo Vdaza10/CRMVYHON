@@ -12,11 +12,8 @@ export const EstadoPedido = styled.div`
   height: 8%;
   width: 98%;
   border-radius: 3px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   display: flex;
   background-color: #ffffff;
-  background-color: red;
 `;
 
 export const TablePedidos = styled.div`
@@ -48,14 +45,16 @@ export const HeadData = styled.div`
   flex-direction: column;
   background-color: #ffffff;
 `;
+
 export const BodyData = styled.div`
+  overflow: auto;
   position: relative;
   max-height: 80%;
   width: 96%;
   border-radius: 3px;
   margin: 5px 5px 5px 5px;
-  background-color: #50bfff;
-  overflow-y: auto;
+  background-color: #530666;
+
   ::-webkit-scrollbar {
     display: none;
   }
@@ -113,7 +112,7 @@ export const ContArrow = styled.div`
 
 export const StateData = styled.div`
   width: 414px;
-  height: 60%;
+  height: 70%;
   left: 10px;
   background-color: #50bfff;
   margin: 5px 5px 5px 5px;
