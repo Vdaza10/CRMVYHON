@@ -4,8 +4,6 @@ export const Container = styled.div`
 width: 100%;
     height:100% ;
     position: fixed;
-    /* top: 0;
-    left: 0; */
     background-color: rgba(0,0,0,.5);
     display: flex;
     align-items: center;
@@ -28,8 +26,6 @@ height: 15%;
     display: flex;
     align-items: center;
     justify-content: space-between ;
-    /* margin-bottom: 20px;
-    padding-bottom: 20px; */
     border-bottom: 2px solid #E8E8E8;
 
     h1{ 
@@ -81,12 +77,10 @@ export const Boton = styled.button`
     color: white;
 
     &:hover {
-        background-color: #3eabee76;
-        color: gray;
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
     }
 `
-
-
 export const Foto = styled.img`
     height: 60%;
     width: 80%;

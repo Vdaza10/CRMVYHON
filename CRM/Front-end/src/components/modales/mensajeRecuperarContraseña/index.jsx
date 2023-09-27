@@ -2,6 +2,7 @@ import React from 'react';
 import { Container , ContenedorModal , Encabezado , Body , Footer , Boton } from './styled';
 import { GrClose } from "react-icons/gr";
 import { FcOk } from "react-icons/fc";
+import "../../../App.css"
 
 
 const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {

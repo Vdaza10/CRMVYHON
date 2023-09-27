@@ -122,6 +122,6 @@ export const Boton = styled.button`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 3px var(--color-buttonFocus);
   }
 `;

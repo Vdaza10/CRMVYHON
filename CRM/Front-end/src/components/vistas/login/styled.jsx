@@ -1,20 +1,17 @@
 import styled from "styled-components";
+import "../../../App.css"
 
 export const Fondo = styled.div`
-background: rgb(0,153,255);
-background: -moz-linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
-background: -webkit-linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
-background: linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#eeeeee",GradientType=1);
+background: var(--color-fondo);
+background: -moz-linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
+background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
+background: linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#eeeeee",GradientType=1);
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* @media screen {
-    width: 100%; 
-    height: 1000%;
-  } */
 `;
 
 export const Contenedor = styled.div`
@@ -23,7 +20,6 @@ export const Contenedor = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   width: 25em;
   height: 30em;
   border-radius: 15px;
@@ -47,7 +43,7 @@ export const Input = styled.input`
   height: 8%;
   margin-left: 10%;
   border: none;
-  background-color: #0ba0e63c;
+  background-color: var(--color-input);
 `;
 export const Olvidar = styled.a`
   /* text-decoration: none; */
@@ -59,7 +55,7 @@ export const Olvidar = styled.a`
 `;
 
 export const Button = styled.button`
-  background-color: rgb(82 186 250);
+  background-color: var(--color-button);
   margin-top: 7px;
   color: white;
   width: 55%;
@@ -68,13 +64,13 @@ export const Button = styled.button`
   font-size: 17px;
   cursor: pointer;
   &:hover {
-    background-color: #3eabee76;
+    background-color: var(--color-buttonHover);
     color: gray;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 15px  (--color-buttonFocus);
   }
 `;
 
@@ -88,8 +84,8 @@ export const ContainerUltimo = styled.div`
   justify-content: center;
 `;
 export const Message = styled.div`
-    font-size: 10px;
+    font-size: 15px;
+    align-items: center;
     color: red;
-    margin-left: 20px;
-    
+    margin-left: 50px;
 `

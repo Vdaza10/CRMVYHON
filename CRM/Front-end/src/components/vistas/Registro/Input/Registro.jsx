@@ -18,6 +18,7 @@ import validator from "validator";
 import VentanaModal1 from "../../../modales/mensajeRegistro";
 import UserExiste from "../../../modales/mensajeRegistroYaExiste";
 import swal from "sweetalert"
+import "../../../../App.css"
 
 const Registrarse = () => {
   const [password, setPassword] = useState("");

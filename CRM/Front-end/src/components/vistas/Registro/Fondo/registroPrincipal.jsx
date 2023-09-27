@@ -5,6 +5,7 @@ import Vyhon from "../../../img/logito.svg"
 import { useState } from "react";
 import VentanaModal1 from ".././../../modales/mensajeRegistro";
 import { Link } from "react-router-dom";
+import "../../../../App.css"
 
 
 const Registro = () => {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {Fondo,Contenedor,Titulo,Parrafo,Input,Button,Olvidar,ContainerUltimo,Message} from "./styled";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import "../../../App.css"
 
 function Login() {
 
