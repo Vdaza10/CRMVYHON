@@ -4,22 +4,19 @@ import {
   Header,
   Parrafo1,
   Main,
-  ContenedorPerfil,
-  InformacionActivacion,
-  ImagenPerfil,
-  Fecha,
-  ContenedorRegistro,
-  Registro,
-  DatosUsuario,
-  Informacion,
-  Nombre,
-  Editar,
+  Box_container,
   Cajaheader,
-  Container,
-  ContenedorPassword,
   Box_perfil,
+  Box_imgPerfil,
+  ImgPerfil,
+  InforPerfil,
+  Box_InfoPerfil,
+  Box_Informacion,
+  SectionInfor,
+  HeaderInfor,
+  EditButton,
+  InfoPersonal,
 } from "./styled";
-import IPerfil from "../../../img/perfil.jpg";
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -38,7 +35,6 @@ function PerfilUsuario() {
   const currentPath = location.pathname;
 
   const notificacionClick = () => {
-    // Cambia el estado mostrarNotificacion
     setMostrarnotificacion(!mostrarnotifcacion);
   };
 
@@ -108,8 +104,39 @@ function PerfilUsuario() {
                 {/* body */}
                 <Main>
                   {/* informacion */}
-                  <Box_perfil>
-                  </Box_perfil>
+                  <Box_container>
+                    <Box_perfil>
+                      <Box_imgPerfil>
+                        <ImgPerfil>
+                        </ImgPerfil>
+                      </Box_imgPerfil>
+                      <Box_InfoPerfil>
+                        <InforPerfil>
+                          <p>NOT INFORMATION</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <p>NOT INFORMATION</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <p>NOT INFORMATION</p>
+                        </InforPerfil>
+                      </Box_InfoPerfil>
+                    </Box_perfil>
+
+                    <Box_Informacion>
+                      <SectionInfor>
+                        <HeaderInfor>
+                          <h3>Informacion para editar</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+                        <InfoPersonal>
+                          <h1>En Reparacion</h1>
+                          <h1>⚒️</h1>
+                        </InfoPersonal>
+                      </SectionInfor>
+                    </Box_Informacion>
+
+                  </Box_container>
                 </Main>
               </Fondo>
             </>
