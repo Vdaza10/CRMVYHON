@@ -5,7 +5,8 @@
     import imagen from "../../img/logito.png";
     import Retorno1 from "../menu/configuracion";
     import { RiSettings4Fill } from "react-icons/ri";
-
+    import "../../../App.css"
+    
     const Menu = () => {
     // Estado para controlar la visibilidad del menú desplegable de perfil
     const [perfilDesplegable, setPerfilDesplegable] = useState(false);

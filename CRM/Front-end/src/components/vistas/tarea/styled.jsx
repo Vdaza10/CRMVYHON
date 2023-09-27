@@ -46,7 +46,7 @@
     `;
 
     export const Boton = styled.button`
-    background-color: #3eabee;
+    background-color: var( --color-boton);
     color: #eaeff1;
     width: 100px;
     height: 35px ;
@@ -59,13 +59,13 @@
     font-size: 16px;
     cursor: pointer;
     &:hover {
-        background-color: #3eabee76;
-        color: gray;
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 3px var(--color-buttonFocus);
     }
     `;
 
@@ -78,13 +78,8 @@ export const OpcionesParrafo = styled.li`
         margin-right: 20px;
     }
     &:hover{
-        background-color:#3eaaee93;
-        color: #333;
+        background-color: var(--color-botonHover);
+        color: var(--color-MenuItem);
     }
 `
 
-export const SelectOpciones = styled.div`
-    background-color: #0b2943;
-    height: 2em;
-    width: 2em;
-    `
