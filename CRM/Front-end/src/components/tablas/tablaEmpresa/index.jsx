@@ -117,7 +117,7 @@ const [buscar, setBuscar] = useState("")
           <ContainerInput>
             <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
             <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
-            <AiOutlineClose onClick={Borrar} style={{ fontSize: "20px", color: "gray" }} />
+            <AiOutlineClose onClick={Borrar} style={{ fontSize: "20px", color: "gray", cursor:"pointer" }} />
           </ContainerInput>
         </Heder>
         <HederTabla>

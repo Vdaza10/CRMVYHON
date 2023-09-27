@@ -105,7 +105,6 @@ export const Cajaheader = styled.div`
   border-bottom: 1px solid black;
   border-radius: 70px 0px 70px 0px;
   box-shadow: #0f0e0eb9 0px 4px 6px 0px;
-
 `;
 
 export const Parrafo1 = styled.button`
@@ -133,6 +132,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 export const ContenedorPassword = styled.input`
   background: #fffbfb17;
   color: gray;

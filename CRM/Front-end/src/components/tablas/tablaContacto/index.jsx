@@ -122,7 +122,7 @@ import jwt_decode from "jwt-decode"
                             <ContainerInput>
                                 <AiOutlineSearch style={{fontSize:"25px" , color:"#4b4848"}}/>
                                 <Input placeholder="Buscar ..." value={buscar} onChange={BarraDeBusqueda}></Input>
-                                <AiOutlineClose style={{fontSize:"20px", color:"gray"}} onClick={Borrar} />
+                                <AiOutlineClose style={{fontSize:"20px", color:"gray", cursor:"pointer"}} onClick={Borrar} />
                             </ContainerInput>
                         </Heder>
                         <HederTabla>

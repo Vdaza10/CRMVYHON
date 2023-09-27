@@ -97,6 +97,9 @@ const [buscar, setBuscar] = useState("")
         ReflejarDatos();
     }, [setTarea]);
 
+    const Borrar = () => {
+        setBuscar("")
+    }
 
     return (
         <>
@@ -113,7 +116,7 @@ const [buscar, setBuscar] = useState("")
                     <ContainerInput>
                         <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
                         <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
-                        <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
+                        <AiOutlineClose style={{ fontSize: "20px", color: "gray", cursor:"pointer"}} onClick={Borrar}/>
                     </ContainerInput>
                 </Heder>
                 <HederTabla>
