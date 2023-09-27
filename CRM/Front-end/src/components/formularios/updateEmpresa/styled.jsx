@@ -38,6 +38,7 @@ export const Img = styled.img`
     height: 30px;
     width: 30px;
     padding-right: 30px;
+    cursor: pointer;
 ` 
 // Estilo para otro párrafo
 export const Parrafo1 = styled.p`

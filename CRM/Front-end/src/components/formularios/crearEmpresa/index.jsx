@@ -92,6 +92,7 @@ function Retorno8() {
                     <Parrafo1><h3>Nombre de la empresa</h3></Parrafo1>
                     <Input
                         placeholder="Ingresar el nombre de la empresa"
+                        maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
                             const regex = /[a-zA-Z0-9& ]/;
@@ -117,11 +118,12 @@ function Retorno8() {
                     <Parrafo1><h3>Resumen</h3></Parrafo1>
                     <Area 
                     placeholder="Describe la empresa"
+                    maxLength={80}
                     onKeyPress={(event) => {
                         const inputValue = event.key;
                         const regex = /[a-zA-Z0-9 ]/; 
                         if (!regex.test(inputValue)) {
-                          event.preventDefault(); 
+                        event.preventDefault(); 
                         }
                     }}
                         onChange={(e) => setDescripcion(e.target.value)} />
