@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Menu from "../../vistas/menu/principal";
 import {
   ContainerPrincipal,
   Heder,
@@ -128,7 +127,6 @@ function TablaNegocio() {
         </>
       ) : (
         <>
-          <Menu /> {/* Muestra el componente Menu */}
           <ContainerPrincipal>
             <Heder>
               <h1>Tabla Negocio</h1>

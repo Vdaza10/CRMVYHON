@@ -1,7 +1,6 @@
 import React , { useState , useEffect } from "react";
 import {  Container , Parrafo , Boton } from "./styled";
 import imagen from "../../img/imgenempresa.jpg"
-import Menu from "../menu/principal";
 import TablaEmpresa from "../../tablas/tablaEmpresa";
 import Axios from "axios";
 import Retorno8 from "../../formularios/crearEmpresa";
@@ -54,7 +53,6 @@ function Retorno7() {
         <>
         {empresa.length <= 0 ? (
             <>
-            <Menu/> {/* Muestra el componente Menu */}
                 <Container>
                       {/* Muestra una imagen */}
                     <img src={imagen} alt="img" style={{width:'400px',height:'355px', marginTop: "30px"}} />

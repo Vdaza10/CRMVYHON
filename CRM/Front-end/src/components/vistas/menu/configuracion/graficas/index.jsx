@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js/auto"; // Importar Chart.js
-import Menu from "../../../menu/principal";
 import { Boxgrafica, ChartContainer, Container } from "./styled";
 
 function Grafica() {
@@ -115,7 +114,6 @@ function Grafica() {
 
   return (
     <Container>
-      <Menu />
 
       <Boxgrafica>
         <ChartContainer>

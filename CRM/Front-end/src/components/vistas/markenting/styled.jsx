@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Contenedor = styled.div`
-    height: 80%;
+    height: 90%;
     width: 100%;
+    /* background-color: aqua; */
     align-items: center;
     justify-content: center;
 `

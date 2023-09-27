@@ -1,6 +1,5 @@
 import React , {useState}from "react";
 import { Contenedor, ContenedorCampañas, ContenedorCampañas1, Campañas, ContenedorCampañaImagen } from "./styled";
-import Menu from "../menu/principal";
 import imagen from "../../img/inicio1.avif"
 import markenting from "../../img/comunicacion.png"
 import promocion from "../../img/promocion.jpg"
@@ -49,7 +48,6 @@ const Campaña = () => {
             estado={modalAbierta}
             cambiarEstado={setModalAbierta}
             ></Audiollamada>
-            <Menu />
             <Contenedor>
                 <ContenedorCampañas>
                     <Campañas>COMUNICACIÓN
