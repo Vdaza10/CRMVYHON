@@ -1,13 +1,5 @@
 import React,{useEffect,useState} from "react";
-import {
-  Container,
-  ContenedorModal,
-  Header,
-  Body,
-  Input1,
-  Caja,
-  Boton,
-  Select1,
+import {Container,ContenedorModal,Header,Body,Input1,Caja,Boton,Select1,
 } from "./styled";
 import { GrClose } from "react-icons/gr";
 import Axios from "axios";
