@@ -6,7 +6,7 @@ export const Fondo = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #2f125e;
+  background-color: #294e70;
 `;
 
 //Header y su contenido
@@ -58,14 +58,15 @@ export const Container = styled.div`
   height: 95%;
   width: 90%;
   display: flex;
-  background-color: #6d6c6c;
+  background-color: #ffffff;
   box-shadow: #08080899 10px 12px 6px 1px;
   border-radius: 20px;
 `;
 export const ContainPerfil = styled.div`
   height: 100%;
   width: 28%;
-  background-color: #616060;
+  background-color: #21033a;
+  border-radius: 15px 15px 0px 0px;
 `;
 export const BoxImgPerfil = styled.div`
   height: 50%;
@@ -112,7 +113,7 @@ export const InforperfilLetra = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #616161d5;  
+  background-color: #0a0425d2;  
   border-radius: 15px 0px 0px 15px;
 `;
 
@@ -135,7 +136,6 @@ export const HeaderInfor = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #bdbbbb;
   font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   border-bottom: 1px solid gray;
@@ -145,11 +145,12 @@ export const EditButton = styled.button`
   height: 35px;
   border: none;
   margin-right: 5px;
-  border-radius: 5px 20px 0px 10px;
+  border-radius: 10px 20px 0px 10px;
+  background-color: #918e8e;
   cursor: pointer;
   &:hover {
     cursor: pointer;
-    background-color: #03568deb;
+    background-color: #3a3b3beb;
     border-radius: 5px 20px 0px 15px;
   }
 `;
@@ -158,5 +159,5 @@ export const InfoPersonal = styled.div`
   width: 45%;
   display: flex;
   flex-direction: column;
-  background-color: #635d5d;
+  background-color: #fcfcfc;
 `;
