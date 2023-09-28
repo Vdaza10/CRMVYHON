@@ -1,96 +1,66 @@
 import React, { useState } from "react";
-import { FormContainer, FormGroup, Label, Input, Select, ConvertButton, ButtonState, CloseOpen } from "./style";
+import { FormGroup, FormularioContainer, SubmitButton } from "./style.jsx";
 import axios from "axios";
 
-const FormularioPedido = (props) => {
+const FormularioPedido = ({ addPedido }) => {
     const [cliente, setCliente] = useState("");
-    const [producto, setProducto] = useState("");
     const [monto, setMonto] = useState("");
-    const [moneda, setMoneda] = useState("pesos");
 
-    const getFechaActual = () => {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, "0"); 
-        const day = String(now.getDate()).padStart(2, "0"); 
-        return `${year}-${month}-${day}`;
-    };
-
-    const getColumn = () => {
-        const columna = props.columna + 1
-        return columna
-    }
-
-    const createPedido = async () => {
-        try {
-            const fechaActual = getFechaActual();
-            const columna = getColumn()
-            const response = await axios.post("http://localhost:3005/pedidos", {
-                cliente,
-                producto,
-                monto,
-                columna: columna,
-                fecha: fechaActual,
-            });
-            console.log("pedido creado:", response.data);
-        } catch (error) {
-            console.log("error al crear pedido:", error);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (cliente.trim() === "" || monto.trim() === "") {
+            alert("Por favor, completa todos los campos.");
+            return;
         }
-        setTimeout(() => {
-            window.location.href = "/pedidos";
-        }, 0);
-    };
 
-    const handleConvert = () => {
-        const tasaDolar = 0.045;
+        try {
+            const fechaActual = new Date().toLocaleDateString(); // Obtener la fecha actual
 
-        if (moneda === "dolares") {
-            const montoPesos = parseFloat(monto) / tasaDolar;
-            setMonto(montoPesos.toFixed(2));
-        } else if (moneda === "pesos") {
-            const montoDolares = parseFloat(monto) * tasaDolar;
-            setMonto(montoDolares.toFixed(2));
+            const response = await axios.post("http://localhost:3005/pedidos", {
+                cliente: cliente,
+                monto: monto,
+                fecha: fechaActual, // Usar la fecha actual
+            });
+
+            const nuevoPedido = response.data;
+
+            addPedido(nuevoPedido);
+
+            setCliente("");
+            setMonto("");
+        } catch (error) {
+            console.error(error);
+            alert("Ocurrió un error al crear el pedido.");
         }
     };
 
     return (
-        <FormContainer>
-            <FormGroup>
-                <Label>cliente:</Label>
-                <Input
-                    type="text"
-                    value={cliente}
-                    onChange={(e) => setCliente(e.target.value)}
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label>Producto:</Label>
-                <Input
-                    type="email"
-                    value={producto}
-                    onChange={(e) => setProducto(e.target.value)}
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label>Costo:</Label>
-                <Input
-                    type="number"
-                    value={monto}
-                    onChange={(e) => setMonto(e.target.value)}
-                />
-                <Select
-                    value={moneda}
-                    onChange={(e) => setMoneda(e.target.value)}
-                >
-                    <option value="pesos">Pesos Colombianos</option>
-                    <option value="dolares">Dólares</option>
-                </Select>
-                <ConvertButton onClick={handleConvert}>Convertir</ConvertButton>
-            </FormGroup>
-            <CloseOpen>
-                <ButtonState onClick={createPedido}>crear pedido</ButtonState>
-            </CloseOpen>
-        </FormContainer>
+        <FormularioContainer>
+            <h3>Formulario de Pedido</h3>
+            <form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <label htmlFor="cliente">Cliente:</label>
+                    <input
+                        type="text"
+                        id="cliente"
+                        value={cliente}
+                        onChange={(e) => setCliente(e.target.value)}
+                        required
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <label htmlFor="monto">Monto:</label>
+                    <input
+                        type="number"
+                        id="monto"
+                        value={monto}
+                        onChange={(e) => setMonto(e.target.value)}
+                        required
+                    />
+                </FormGroup>
+                <SubmitButton type="submit">Agregar Pedido</SubmitButton>
+            </form>
+        </FormularioContainer>
     );
 };
 

@@ -1,74 +1,20 @@
 import styled from "styled-components";
 
-export const CardCont = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    padding: 5px;
-    flex-direction: column;
-    background-color: #f8f8f8;
+export const CardContainer = styled.div`
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-`
-
-export const ContClient = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-    .fa-circle-xmark {
-        margin-right: 5px;
-    }
-`
-export const DataClient = styled.h3` 
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: solid 1px #cabebe;
-`
-
-export const ContentData = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    background-color: #fff;
 `;
-export const LineClient = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-`
 
+export const CardTitle = styled.h3`
+    font-size: 18px;
+    margin-bottom: 10px;
+`;
 
-export const LineProduct = styled.div`
-    width: 100%;
-    height: 25%;
-`
-
-export const DataProduct = styled.p`
-    margin: 0;
-`
-
-export const LineAmount = styled.div`
-    background-color: #3dade0;
-    width: 100%;
-    height: 25%;
-`
-
-export const LineDate = styled.div`
-    background-color: #3dade0;
-    width: 100%;
-    height: 25%;
-`
-
-export const Data = styled.p`
-    margin: 0;
-    font-weight: 500;
-    color: #3dade0;
-`
-
-export const DataInfo = styled.p`
-    margin: 0;
-`
+export const CardDetail = styled.p`
+    font-size: 16px;
+    margin: 5px 0;
+`;
