@@ -13,7 +13,7 @@ export const getUsers = async(req,res) =>{
         }
         res.json(rows)
 
-    } catch (error) {
+    } catch (error) {     
         return res.status(500).json({message: 'Algo va mal'})
         console.log(error.message.res.status(500));
     }
@@ -33,10 +33,11 @@ export const createUsers = async (req, res) => {
         const existe = 'SELECT correo FROM registro where correo = ? '
         const evaluar = [correo];
         const [resultado] = await pool.query(existe, evaluar);
-        const encrypt = await encryptPassword(contraseña)
+        
         if (resultado.length > 0) {
             return res.json({ error: "correo_existe" });
         }
+        const encrypt = await encryptPassword(contraseña)
 
         const [rows] = await pool.query(
             'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',

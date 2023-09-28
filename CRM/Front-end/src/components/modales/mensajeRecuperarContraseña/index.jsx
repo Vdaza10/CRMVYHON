@@ -43,4 +43,4 @@ const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
   );
 };
 
-export default VentanaModal2;
+export default VentanaModal2;

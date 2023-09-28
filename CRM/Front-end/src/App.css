@@ -13,8 +13,8 @@ body,html{
 :root {
   /*vista tarjetas vyhon*/
   --color-primary: rgb(255, 255, 255);
-  --color-secondary: #4ea9f9;
-  --color-background: #0099ff; 
+  --color-targetasInformativas: #4ea9f9;
+  --color-opcionesHeader: #0099ff; 
   --color-boxSHADOW: #0099ff4c;
   --color-Footer: rgb(62 171 238);
   /* Define otras variables de estilo según sea necesario */

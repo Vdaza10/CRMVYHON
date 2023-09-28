@@ -12,7 +12,7 @@ import "../../../App.css"
 const Inicio = () => {
   return (
     <>
-      <ContenedorInicial style={{backgroundColor:"blue"}}>
+      <ContenedorInicial>
         <Contenedor1>
           <Logo src={imagen}></Logo>
         </Contenedor1>
