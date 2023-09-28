@@ -3,11 +3,7 @@ body,html{
   height: 100%;
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-=======
-  
->>>>>>> fe31589a0f2dc7f68b52aa4370056308755ed555
 }
 #root{
   width: 100%;
