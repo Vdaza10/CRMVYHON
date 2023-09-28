@@ -4,25 +4,25 @@ import {
   Header,
   Parrafo1,
   Main,
-  Box_container,
+  Container,
   Cajaheader,
-  Box_perfil,
-  Box_imgPerfil,
+  ContainPerfil,
+  BoxImgPerfil,
   ImgPerfil,
   InforPerfil,
-  Box_InfoPerfil,
-  Box_Informacion,
+  Boxperfil,
   SectionInfor,
   HeaderInfor,
   EditButton,
   InfoPersonal,
+  BoxInfo,
+  InforperfilLetra,
 } from "./styled";
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
-
 
 function PerfilUsuario() {
   const [modalAbierta, setModalAbierta] = useState(false);
@@ -92,10 +92,17 @@ function PerfilUsuario() {
                 {/* header */}
                 <Header>
                   <Cajaheader>
-                    <Parrafo1 style={{
-                      background: currentPath === "/perfilusuario" ? "#787676d5" : "#ffffff",
-                      textDecoration: "none",
-                    }}>Mi perfil</Parrafo1>
+                    <Parrafo1
+                      style={{
+                        background:
+                          currentPath === "/perfilusuario"
+                            ? "#787676d5"
+                            : "#ffffff",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Mi perfil
+                    </Parrafo1>
                     <Parrafo1 onClick={notificacionClick}>
                       Notificaciones
                     </Parrafo1>
@@ -104,37 +111,63 @@ function PerfilUsuario() {
                 {/* body */}
                 <Main>
                   {/* informacion */}
-                  <Box_container>
-                    <Box_perfil>
-                      <Box_imgPerfil>
-                        <ImgPerfil>
-                        </ImgPerfil>
-                      </Box_imgPerfil>
-                      <Box_InfoPerfil>
+                  <Container>
+                    <ContainPerfil>
+                      <BoxImgPerfil>
+                        <ImgPerfil></ImgPerfil>
+                      </BoxImgPerfil>
+                      <Boxperfil>
                         <InforPerfil>
-                          <p>NOT INFORMATION</p>
+                          <InforperfilLetra>
+                            <h4>Email:</h4>
+                          </InforperfilLetra>
+                          <p>JASIL@GMAIL.COM</p>
                         </InforPerfil>
                         <InforPerfil>
-                          <p>NOT INFORMATION</p>
+                          <InforperfilLetra>
+                            <h4>Password:</h4>
+                          </InforperfilLetra>
+                          <p>Contraseña</p>
                         </InforPerfil>
                         <InforPerfil>
-                          <p>NOT INFORMATION</p>
+                          <InforperfilLetra>
+                            <h4>Empresa:</h4>
+                          </InforperfilLetra>
+                          <p>WowDesarrolloDigital</p>
                         </InforPerfil>
-                      </Box_InfoPerfil>
-                    </Box_perfil>
+                      </Boxperfil>
+                    </ContainPerfil>
 
-                    <Box_Informacion>
+                    <BoxInfo>
                       <SectionInfor>
                         <HeaderInfor>
                           <h3>Informacion para editar</h3>
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
+
                         <InfoPersonal>
+                          <ul className="listInfor">
+                            <li>
+                              <strong>Nombre:</strong>
+                              <p>Jasil</p>
+                            </li>
+                            <li>
+                              <strong>Apellido:</strong>
+                              <p>Florez</p>
+                            </li>
+                            <li>
+                              <strong>Edad:</strong>
+                              <p>20</p>
+                            </li>
+                            <li>
+                              <strong>Fecha de inicio de Registro:</strong>
+                              <p>25/10/1925</p>
+                            </li>
+                          </ul>
                         </InfoPersonal>
                       </SectionInfor>
-                    </Box_Informacion>
-
-                  </Box_container>
+                    </BoxInfo>
+                  </Container>
                 </Main>
               </Fondo>
             </>
