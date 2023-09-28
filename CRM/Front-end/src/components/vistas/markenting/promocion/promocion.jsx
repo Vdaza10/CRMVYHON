@@ -1,8 +1,6 @@
 import React from "react";
 import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitleText, SmallText } from "./styled";
 
-
-
 const Promocion = () => {
     return(
         <>

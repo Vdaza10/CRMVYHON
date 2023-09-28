@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Parrafo, Boton } from "./styled";
 import imagen from "../../img/negocios.jpg";
-import Menu from "../menu/principal";
 import CrearNegocios from "../../formularios/crearNegocio";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -53,7 +52,6 @@ function Retorno2() {
         <>
           {negocios.length <= 0 ? (
             <>
-              <Menu />
               <Container>
                 <img
                   src={imagen}

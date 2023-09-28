@@ -23,6 +23,7 @@ import Menu from "../src/components/vistas/menu/principal"
 
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -48,15 +49,17 @@ function App() {
           <Route path="/negocios" element={<Retorno2 />}></Route>
           <Route path="/tareas" element={<Retorno5 />}></Route>
           <Route path="/Marketing" element={<Campaña />}></Route>
-          <Route path="/perfilusuario" element={<PerfilUsuario />}></Route>          
+          {/* Rutas de marketeting*/}
+          <Route path="/camunicacion" element={<Comunucacion />}></Route>
+          <Route path="/promocion" element={<Promocion />}></Route>
+          <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
+          <Route path="/camapañasms" element={<Campañasms />}></Route>
+          <Route path="/pedidos" element={<Pedidos />}></Route>
+          <Route path="/perfilusuario" element={<PerfilUsuario/>}></Route>          
+          <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>   
+          <Route path="/grafica" element={<Grafica />}></Route>       
         </Route>
-        {/* Rutas de marketeting*/}
-        <Route path="/camunicacion" element={<Comunucacion />}></Route>
-        <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
-        <Route path="/promocion" element={<Promocion />}></Route>
-        <Route path="/camapañasms" element={<Campañasms />}></Route>
-        <Route path="/pedidos" element={<Pedidos />}></Route>
-        <Route path="/grafica" element={<Grafica />}></Route>
+        
       </Routes>
     </BrowserRouter>
   );
