@@ -20,7 +20,7 @@ const UpdateTarea = ({ tarea }) => {
     useEffect(() => {
         const fetchNegocio = async () => {
             try {
-                const response = await Axios.get("http://localhost:3005/negocio");
+                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
                 setNegocio(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -57,7 +57,7 @@ console.log(tarea.idTarea);
     const actualizarTarea = async () => {
         try {
             const res = await Axios.patch(
-                `http://localhost:3005/tareastabla/${tarea.idTarea}`,
+                `${process.env.REACT_APP_URL_BACKEND}/tareastabla/${tarea.idTarea}`,
                 {
                     negocio: selectNegocio,
                     asunto,

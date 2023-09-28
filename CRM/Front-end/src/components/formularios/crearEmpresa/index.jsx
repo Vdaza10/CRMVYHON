@@ -18,27 +18,18 @@ import imagen from "../../img/img_x.webp";
 import axios from "axios";
 import swal from "sweetalert";
 
+
 function Retorno8() {
+console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [selectedSegmento, setSelectedSegmento] = useState(""); // Estado para el segmento seleccionado
   const [url, setUrl] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [segmento, setSegmento] = useState([]);
-  // const [vari, setVari] = useState("");
-
-//   useEffect(() => {
-//     const userToken = localStorage.getItem("user");
-//     setVari(userToken);
-//   }, [setVari]);
-//   const FuncionEfect = () => {
-//     console.log("esto es vari", vari);
-//     createEmpresa(vari);
-//   };
-// console.log(vari, "toooken");
-  // Función para obtener los segmentos desde la base de datos
+ 
   const fetchSegmentos = async () => {
     try {
-      const response = await axios.get("http://localhost:3005/segmento");
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/segmento`);
       setSegmento(response.data);
       console.log(response.data);
     } catch (error) {
@@ -80,20 +71,16 @@ function Retorno8() {
       }
 
       try {
-        // const userToken = localStorage.getItem("user");
+        console.log(`Valor de SERVIDOR_BACKEND: ${process.env.REACT_APP_URL_BACKEND}`);
         const response = await axios.post(
-          "http://localhost:3005/company",
+          `${process.env.REACT_APP_URL_BACKEND}/company`,
           {
             nombreEmpresa: nombreEmpresa,
             segmento: selectedSegmento, // Usando el valor seleccionado
             url: url,
             descripcion: descripcion,
           },
-          // {
-          //   headers: {
-          //     Authorization: vari ,
-          //   },
-          // }
+       
         );
         // console.log(response.data.headers.accessToken);
         // setTimeout(() => {
@@ -183,10 +170,7 @@ function Retorno8() {
           <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
           <Boton1
           onClick={createEmpresa}
-            // onClick={(vari) => {
-            //   FuncionEfect(vari);
-            // }}
-          >
+         >
             Crear empresa
           </Boton1>
         </Caja2>

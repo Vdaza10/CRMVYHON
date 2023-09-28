@@ -25,7 +25,7 @@ const FormularioPedido = (props) => {
         try {
             const fechaActual = getFechaActual();
             const columna = getColumn()
-            const response = await axios.post("http://localhost:3005/pedidos", {
+            const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/pedidos`, {
                 cliente,
                 producto,
                 monto,

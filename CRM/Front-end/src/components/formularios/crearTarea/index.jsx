@@ -18,7 +18,7 @@ const CrearTarea = () => {
 
     const fetchNegocio = async () => {
         try {
-            const response = await Axios.get("http://localhost:3005/negocio");
+            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
             setNegocio(response.data);
             console.log(response.data);
         } catch (error) {
@@ -45,7 +45,7 @@ const CrearTarea = () => {
             });
             return
         }
-            Axios.post("http://localhost:3005/tareas", {
+            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/tareas`, {
                 negocio: selectedNegocio.idNegocio,
                 asunto: asunto,
                 responsable: responsable,

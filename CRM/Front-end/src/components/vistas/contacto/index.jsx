@@ -34,7 +34,7 @@ function Retorno3() {
     },[navigate])
 
     const TablagetContacto = async () => {
-        const contactos = await Axios.get("http://localhost:3005/contactotabla");
+        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
         setContacto(contactos.data)
     }
 
