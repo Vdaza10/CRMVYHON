@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../../vistas/menu/principal";
 import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla, Registros, Campos , Parrafo, BodyTabla, CajaIcono, FooterTabla, Boton } from "./styled";
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
@@ -18,6 +17,7 @@ function TablaTarea() {
     const [tarea, setTarea] = useState([]);
     const [tareaEditar, setTareaEditar] = useState(null);
     
+    const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
     const [loading, setLoading] = useState(true)
 
     let navigate = useNavigate();
@@ -96,6 +96,9 @@ const [buscar, setBuscar] = useState("")
         ReflejarDatos();
     }, [setTarea]);
 
+    const Borrar = () => {
+        setBuscar("")
+    }
 
     return (
         <>
@@ -105,14 +108,13 @@ const [buscar, setBuscar] = useState("")
             </>
         ):(
         <>
-            <Menu /> {/* Muestra el componente Menu */}
             <ContainerPrincipal>
                 <Heder>
                     <h1>Tabla Tarea</h1>
                     <ContainerInput>
                         <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
                         <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
-                        <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
+                        <AiOutlineClose style={{ fontSize: "20px", color: "gray", cursor:"pointer"}} onClick={Borrar}/>
                     </ContainerInput>
                 </Heder>
                 <HederTabla>
@@ -155,10 +157,21 @@ const [buscar, setBuscar] = useState("")
                 ))}
             </div>
                 <FooterTabla>
-                    <Boton onClick={() => setActive(!active)}>Crear Tarea</Boton>
+                <Boton onClick={() => {
+                        setActive(!active);
+                        // Cierra EmpresaUpdate si está abierto al hacer clic en "Crear Empresa"
+                        if (activeEditar) {
+                        setActiveEditar(false);
+                        }
+                        if (empresaUpdateAbierto) {
+                        setEmpresaUpdateAbierto();
+                        }
+                    }}>
+                        Crear Empresa
+                    </Boton>
                 </FooterTabla>
                 {active && <CrearTarea></CrearTarea>}
-                {activeEditar && <UpdateTarea tarea={tareaEditar}></UpdateTarea>}
+                {activeEditar && (<UpdateTarea tarea={tareaEditar} setEmpresaUpdateAbierto={setEmpresaUpdateAbierto}></UpdateTarea>)}
             </ContainerPrincipal>
         </>
         )}

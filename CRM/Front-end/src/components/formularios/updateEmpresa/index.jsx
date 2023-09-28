@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import {Div1,Container1,Caja,Parrafo,Img,Parrafo1,Caja1,Input,Caja2,Boton1,Boton2,Area,SelectEmpresa} from "./styled.jsx";
 import imagen from "../../img/img_x.webp";
 import Axios from "axios";
@@ -10,8 +10,10 @@ function EmpresaUpdate({ empresa }) {
   const [url, setUrl] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [segmentos, setSegmentos] = useState([]); // Estado para almacenar todos los segmentos disponibles
+  
+  // const modalRef = useRef(null);
+  // const [modalAbierta, setModalAbierta] = useState(true);
 
-    
     useEffect(() =>{
       // Función para obtener los segmentos desde la base de datos
     const fetchSegmentos = async () => {
@@ -38,6 +40,7 @@ function EmpresaUpdate({ empresa }) {
       setDescripcion(empresa.descripcion);
     }
   }, [empresa]);
+
 
   // Función para cerrar el componente al hacer clic en la imagen
   const cerrarComponente = () => {

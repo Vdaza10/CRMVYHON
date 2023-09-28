@@ -1,29 +1,18 @@
 import React from "react";
-import {
-  Container,
-  ContainerTarjetas,
-  Contenedor1,
-  ContenedorImagen,
-  ContenedorInicial,
-  Footer,
-  Logo,
-  Menucontainer,
-  Opciones,
-  TarjetasInformativas,
-  TextoFooter,
-} from "./styled";
+import {Container,ContainerTarjetas,Contenedor1,ContenedorImagen,ContenedorInicial,Footer,Logo,Menucontainer,Opciones,TarjetasInformativas,TextoFooter} from "./styled";
 import imagen from "../../img/logito.svg";
 import inicio from "../../img/crminicio.jpg";
 import herramientas from "../../img/herramientas.png";
 import graficas from "../../img/graficas.jpeg";
 import seguridad from "../../img/seguridad.webp";
 import { Link } from "react-router-dom";
+import "../../../App.css"
 
 
 const Inicio = () => {
   return (
     <>
-      <ContenedorInicial>
+      <ContenedorInicial style={{backgroundColor:"blue"}}>
         <Contenedor1>
           <Logo src={imagen}></Logo>
         </Contenedor1>
@@ -111,7 +100,6 @@ const Inicio = () => {
               documentos y la gestión de flujos de trabajo.
             </p>
           </TarjetasInformativas>
-         
         </ContainerTarjetas>
         <Footer>
           <TextoFooter>informacion de contacto </TextoFooter>

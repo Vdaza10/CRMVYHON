@@ -5,6 +5,8 @@ import VentanaModal2 from "../../modales/mensajeRecuperarContraseña"
 import VentanaModal3 from "../../modales/mensajeContraseñaCorreo";
 import { useState } from "react";
 import Axios from "axios";
+import "../../../App.css"
+
 
 function Recuperar  () {
 

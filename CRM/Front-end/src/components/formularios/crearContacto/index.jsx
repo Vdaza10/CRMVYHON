@@ -102,6 +102,7 @@ function Retorno4({setContactoCreado}) {
             <h3>Nombre</h3>
           </Parrafo1>
           <Input placeholder="Ingresar el nombre del contacto" 
+          maxLength={50}
           onKeyPress={(event) => {
             const inputValue = event.key;
             const regex = /[a-zA-Z ]/; // Expresión regular que permite letras y números
@@ -114,6 +115,7 @@ function Retorno4({setContactoCreado}) {
             <h3> Cargo</h3>
           </Parrafo1>
           <Input placeholder="Ingresa el contacto del contacto"
+          maxLength={50}
           onKeyPress={(event) => {
             const inputValue = event.key;
             const regex = /[a-zA-Z ]/; 
@@ -125,7 +127,8 @@ function Retorno4({setContactoCreado}) {
           <Parrafo1>
             <h3>Telefono</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el telefono del contacto" 
+          <Input placeholder="Ingresar el telefono del contacto"
+          maxLength={10} 
           onKeyPress={(event) => {
             const inputValue = event.key;
             const regex = /[0-9]/; 
@@ -138,6 +141,7 @@ function Retorno4({setContactoCreado}) {
             <h3>Email</h3>
           </Parrafo1>
           <Input placeholder="Ingresar el email del contacto" 
+          maxLength={30}
           onKeyPress={(event) => {
             const inputValue = event.key;
             const regex = /[_.@a-zA-Z0-9]/;

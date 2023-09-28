@@ -24,17 +24,17 @@ function Retorno8() {
   const [url, setUrl] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [segmento, setSegmento] = useState([]);
-  const [vari, setVari] = useState("");
+  // const [vari, setVari] = useState("");
 
-  useEffect(() => {
-    const userToken = localStorage.getItem("user");
-    setVari(userToken);
-  }, [setVari]);
-  const FuncionEfect = () => {
-    console.log("esto es vari", vari);
-    createEmpresa(vari);
-  };
-console.log(vari, "toooken");
+//   useEffect(() => {
+//     const userToken = localStorage.getItem("user");
+//     setVari(userToken);
+//   }, [setVari]);
+//   const FuncionEfect = () => {
+//     console.log("esto es vari", vari);
+//     createEmpresa(vari);
+//   };
+// console.log(vari, "toooken");
   // Función para obtener los segmentos desde la base de datos
   const fetchSegmentos = async () => {
     try {
@@ -63,7 +63,7 @@ console.log(vari, "toooken");
   }
 
   // Función para crear una empresa
-  const createEmpresa = async (vari) => {
+  const createEmpresa = async () => {
     /* e.preventDefault(); */
 
     if (nombreEmpresa && url && descripcion) {
@@ -89,11 +89,11 @@ console.log(vari, "toooken");
             url: url,
             descripcion: descripcion,
           },
-          {
-            headers: {
-              Authorization: vari ,
-            },
-          }
+          // {
+          //   headers: {
+          //     Authorization: vari ,
+          //   },
+          // }
         );
         // console.log(response.data.headers.accessToken);
         // setTimeout(() => {
@@ -182,9 +182,10 @@ console.log(vari, "toooken");
         <Caja2>
           <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
           <Boton1
-            onClick={(vari) => {
-              FuncionEfect(vari);
-            }}
+          onClick={createEmpresa}
+            // onClick={(vari) => {
+            //   FuncionEfect(vari);
+            // }}
           >
             Crear empresa
           </Boton1>

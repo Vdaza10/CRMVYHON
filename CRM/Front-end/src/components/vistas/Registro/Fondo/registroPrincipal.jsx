@@ -5,6 +5,7 @@ import Vyhon from "../../../img/logito.svg"
 import { useState } from "react";
 import VentanaModal1 from ".././../../modales/mensajeRegistro";
 import { Link } from "react-router-dom";
+import "../../../../App.css"
 
 
 const Registro = () => {
@@ -30,7 +31,7 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
             </Ladero>
                 <Registrarse></Registrarse>
                 <Registrarse></Registrarse>
-                <Link to={"/principal"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
+                <Link to={"/login"} style={{textDecoration:"none", color:"black"}}><Ingresar>Ingrese a tu cuenta</Ingresar></Link>
 
             <VentanaModal1 
                 estado={estadoModal}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import "../../../../App.css"
 export const Contenedor = styled.div`
     width: 50%;
     height: 90%;
@@ -24,7 +24,7 @@ export const Contenedor2 = styled.div`
     /* margin-top: 40px; */
     background-color: #fff;
     border-radius: 15px;
-    box-shadow: 4px 4px 55px -29px rgba(0,0,0,0.77);
+    box-shadow: 4px 4px 55px -29px var(--colorboxShadow) ;
     @media screen and (max-width: 700px) {
         width: 25em;
         height: 40em;
@@ -56,14 +56,14 @@ export const Input = styled.input`
     margin-top: 8px;
     font-size: 16px;
     border: none;
-    background-color: #0ba0e63c;
+    background-color: var(--color-input);
     /* outline: none; */
     padding-left: 8px;
 `
 
 
 export const Boton = styled.button`
-    background-color: #3aa8ec ;
+    background-color: var(--color-boton) ;
     color: #eee;
     border: none;
     width: 60%;
@@ -76,8 +76,8 @@ export const Boton = styled.button`
     border-radius: 5px;
 
     :hover{
-        background-color:#3eaaee93;
-        color: gray;
+        background-color: var(--color-botonHover);
+        color: var(--color-boton1Hover);
     } 
 `
 export const Checkbox = styled.div`
@@ -103,7 +103,7 @@ export const Seleccionar = styled.input`
 `
 export const TextoImput = styled.p`
     font-size: 15px;
-    color: #000000;
+    color: var( --colorTitulo);
     margin: 0;
 `;
 
