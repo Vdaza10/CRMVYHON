@@ -28,7 +28,7 @@ export const crearContacto = async (req, res) => {
 
 export const getContacto = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM contacto')
+        const [rows] = await pool.query('SELECT * FROM contacto WHERE estado ="activo"')
 
         res.json(rows)
     } catch (error) {

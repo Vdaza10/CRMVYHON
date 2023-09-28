@@ -110,7 +110,7 @@ import jwt_decode from "jwt-decode"
             <>
             {loading ? (
                 <>
-                <h1>cargando.....</h1>
+                <h1>cargando.....</h1>-
                 </>
             ):(
             <>
