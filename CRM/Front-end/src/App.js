@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter} from "react-router-dom";
+import "./App.css"
 
 import Inicio from "../src/components/vistas/Inicialvyhon/inicio";
 import Registro from "./components/vistas/Registro/Fondo/registroPrincipal";
@@ -21,22 +22,23 @@ import "./App.css"
 import Menu from "../src/components/vistas/menu/principal"
 
 
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* Rutas pricipales*/}
         <Route path="/" element={<Inicio />}>
-          {" "}
+          {" j"}
         </Route>
         <Route path="/registrarse" element={<Registro />}>
-          {" "}
+          {"j "}
         </Route>
         <Route path="/recuperar" element={<Recuperar />}>
-          {" "}
+          {" l"}
         </Route>
         <Route path="/login" element={<Login />}>
-          {" "}
+          {"j "}
         </Route>
         {/* Rutas del menu*/}
         <Route element={<Menu/>}>

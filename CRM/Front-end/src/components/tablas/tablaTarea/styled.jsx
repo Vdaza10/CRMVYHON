@@ -121,12 +121,12 @@ export const Boton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #3eabee76;
+    background-color: var(--color-buttonHover);
     color: gray;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 3px var(--color-buttonFocus);
   }
 `;

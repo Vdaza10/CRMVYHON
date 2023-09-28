@@ -29,15 +29,7 @@ export const Container1 = styled.div`
     background-color: white;
     /* background-color: aqua; */
     border: solid 1px black;
-
     }
-    /* @media {
-    height: 90%;    
-    width: 400px;
-    background-color: white;
-    background-color: #b300ff;
-    border: solid 1px black;
-    } */
 `
 // Estilo para una caja que contiene elementos
 export const Caja = styled.div`
@@ -115,8 +107,8 @@ export const Boton1 = styled.button`
     font-size: 15px; 
     cursor: pointer;
     &:hover {
-        background-color: #3eabee76;
-        color: gray;
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
     }
     &:focus {
         outline: none;
@@ -135,8 +127,8 @@ export const Boton2 = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: #3eabee76;
-        color: gray;
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
     }
 
     &:focus {

@@ -1,10 +1,11 @@
 import styled from "styled-components" 
+import "../../../../App.css"
 
 export const Fondo = styled.div`
-background: rgb(0,153,255);
-background: -moz-linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
-background: -webkit-linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
-background: linear-gradient(180deg, rgba(0,153,255,1) 0%, rgba(238,238,238,1) 100%);
+background: var( --color-fondo);
+background: -moz-linear-gradient(180deg,var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
+background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
+background: linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#eeeeee",GradientType=1);
     width: 100%;
     height:100vh;
