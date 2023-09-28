@@ -4,21 +4,19 @@ import {
   Header,
   Parrafo1,
   Main,
-  ContenedorPerfil,
-  InformacionActivacion,
-  ImagenPerfil,
-  Fecha,
-  ContenedorRegistro,
-  Registro,
-  DatosUsuario,
-  Informacion,
-  Nombre,
-  Editar,
+  Box_container,
   Cajaheader,
-  Container,
-  ContenedorPassword,
+  Box_perfil,
+  Box_imgPerfil,
+  ImgPerfil,
+  InforPerfil,
+  Box_InfoPerfil,
+  Box_Informacion,
+  SectionInfor,
+  HeaderInfor,
+  EditButton,
+  InfoPersonal,
 } from "./styled";
-import IPerfil from "../../../img/perfil.jpg";
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -34,10 +32,9 @@ function PerfilUsuario() {
 
   const [mostrarnotifcacion, setMostrarnotificacion] = useState(true);
   const location = useLocation();
-    const currentPath = location.pathname;
+  const currentPath = location.pathname;
 
   const notificacionClick = () => {
-    // Cambia el estado mostrarNotificacion
     setMostrarnotificacion(!mostrarnotifcacion);
   };
 
@@ -107,51 +104,39 @@ function PerfilUsuario() {
                 {/* body */}
                 <Main>
                   {/* informacion */}
-                  <ContenedorPerfil>
-                    <InformacionActivacion>
-                      <ImagenPerfil src={IPerfil}></ImagenPerfil>
-                      <ContenedorRegistro>
-                        <Registro style={{ marginTop: "25px" }}>
-                          Registrado el:
-                          <Fecha type="date">{userData.date}</Fecha>
-                        </Registro>
-                        <br />
-                        <Registro>
-                          Actualizado por última vez el:
-                          <Fecha type="date">09/08/2023 08:12</Fecha>
-                        </Registro>
-                      </ContenedorRegistro>
-                    </InformacionActivacion>
-                    <DatosUsuario>
-                      <h3 style={{ marginLeft: "20px" }}>Datos personales</h3>
-                      <Container>
-                        <Informacion>
-                          <Nombre>Nombre:</Nombre>
-                          <Nombre>Empresa:</Nombre>
-                          <Nombre>Email:</Nombre>
-                          <Nombre>contraseña:</Nombre>
-                        </Informacion>
-                        <Informacion>
-                          <Nombre>{userData.username.toUpperCase()}</Nombre>
-                          <Nombre>
-                            {userData.nombreEmpresa.toUpperCase()}
-                          </Nombre>
-                          <Nombre>{userData.email.toUpperCase()}</Nombre>
-                          <ContenedorPassword
-                            type="password"
-                            value={userData.password}
-                          ></ContenedorPassword>
-                        </Informacion>
-                      </Container>
-                      <Editar
-                        onClick={() => {
-                          setModalAbierta(!modalAbierta);
-                        }}
-                      >
-                        Editar
-                      </Editar>
-                    </DatosUsuario>
-                  </ContenedorPerfil>
+                  <Box_container>
+                    <Box_perfil>
+                      <Box_imgPerfil>
+                        <ImgPerfil>
+                        </ImgPerfil>
+                      </Box_imgPerfil>
+                      <Box_InfoPerfil>
+                        <InforPerfil>
+                          <p>NOT INFORMATION</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <p>NOT INFORMATION</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <p>NOT INFORMATION</p>
+                        </InforPerfil>
+                      </Box_InfoPerfil>
+                    </Box_perfil>
+
+                    <Box_Informacion>
+                      <SectionInfor>
+                        <HeaderInfor>
+                          <h3>Informacion para editar</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+                        <InfoPersonal>
+                          <h1>En Reparacion</h1>
+                          <h1>⚒️</h1>
+                        </InfoPersonal>
+                      </SectionInfor>
+                    </Box_Informacion>
+
+                  </Box_container>
                 </Main>
               </Fondo>
             </>
