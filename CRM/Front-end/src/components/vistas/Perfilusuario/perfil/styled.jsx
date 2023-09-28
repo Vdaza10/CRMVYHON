@@ -134,6 +134,7 @@ align-items: center;
 background-color: #bdbbbb;
 font-size: 20px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+border-bottom: 1px solid gray;
 `
 export const EditButton = styled.button`
   width: 140px;

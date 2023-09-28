@@ -130,8 +130,6 @@ function PerfilUsuario() {
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
                         <InfoPersonal>
-                          <h1>En Reparacion</h1>
-                          <h1>⚒️</h1>
                         </InfoPersonal>
                       </SectionInfor>
                     </Box_Informacion>
