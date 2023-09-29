@@ -25,20 +25,21 @@ function Recuperar  () {
         cambiarEstadoModal3(!estadoModal3)
     }
 
+
     const sendEmail = (user_email) => {
         const templateparams = {
             to_email: user_email,
         }
         emailjs
         .send(
-            "service_sgj6zkl",
+            "service_p9dkurr",
             "template_tkhf0aj",
             templateparams,
-            "hw9obwRaROyB_a5CR8r2_",
+            "JiRl7pYlYGJshjdVB",
         ).then((response)=>{
-            console.log("hola mundo", response)
+            console.log("Correo electrónico enviado con éxito", response)
         }).catch((error)=>{
-            console.log("hola error", error)
+            console.log("Error al enviar el correo electrónico", error)
         })
     }
 
@@ -51,7 +52,7 @@ function Recuperar  () {
             .then((response) => {
                 if (response.data.message === "correo_existe") {
                     VentanaModal();
-                    sendEmail(email)
+                    sendEmail(email); 
                 } else {
                     VentanaModalNoencontrado();
                 }
@@ -70,7 +71,7 @@ function Recuperar  () {
             <Contenedor>
             <Titulo>Recuperar cuenta</Titulo>
             <Parrafo>Te solicitamos amablemente que proporciones tu dirección de correo electrónico con el fin de llevar a cabo la búsqueda de tu cuenta.</Parrafo>
-            <Input  type="email" placeholder="ingresar correo electronico"  onChange={(e)=> setEmail(e.target.value)}></Input>
+            <Input  type="email" placeholder="ingresar correo electronico"  onChange={(e)=> setEmail(e.target.value)} ></Input>
             <ConteinerBonton>
                 <Boton1 onClick={cuentaRecuperada}>Buscar</Boton1>
                 <Link to={"/"} style={{width:"35%", height:"30%"}}><Boton2>Cancelar</Boton2></Link>
