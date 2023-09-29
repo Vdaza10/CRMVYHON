@@ -32,7 +32,7 @@ export const Boton =styled.button`
 
     &:hover {
         background-color: var( --color-botonHover);
-        color: gray;
+        color: var(--color-boton1Hover);
     }
 
     &:focus {
