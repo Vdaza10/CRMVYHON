@@ -73,9 +73,11 @@ color: #000;
 
 `
 export const Icono = styled.div`
-    width: 5%;
-    height: 5%;
+    width: 12%;
+    height: 45%;
+    background-color: #8d5e20;
 ` 
+
 export const Card = styled.div`
     width: 33.5%;
     height: 100%;

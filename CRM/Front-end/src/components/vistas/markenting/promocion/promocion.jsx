@@ -1,12 +1,12 @@
 import React from "react";
-import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitle, Card2,BodyCard2,HeaderCard2,RowCard2, HeaderTable, ContainerImg, LettersHeaderCard, Image  } from "./styled";
+import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitle, Card2,BodyCard2,HeaderCard2,RowCard2, HeaderTable, ContainerImg, LettersHeaderCard, Image, Icono  } from "./styled";
 import imagen from "../../../img/oro2.jpg"
 import imagen1 from "../../../img/silver.png"
 import imagen2 from "../../../img/membresia-bronce.webp"
 const Promocion = () => {
     return(
         <>
-
+        
             <Container>
                 <BoxPromotion>
                     <ContainerTitle>
@@ -61,10 +61,17 @@ const Promocion = () => {
                                 <LettersHeaderCard>elias el rey </LettersHeaderCard>
                             </HeaderCard>
                             <BodyCard>
-                                <RowCard1> $700 </RowCard1>
-                                <RowCard1> 3-6 meses </RowCard1>
-                                <RowCard1 style={{height:"10%"}}> ✔️ </RowCard1>
-                                <RowCard1> ✔️ </RowCard1>
+                                <RowCard1>
+                                    <Icono></Icono>
+                                $700 </RowCard1>
+                                <RowCard1>
+                                <Icono></Icono>
+                                3-6 meses </RowCard1>
+                                <RowCard1 style={{height:"10%"}}> 
+                                <Icono></Icono>
+                                </RowCard1>
+                                <RowCard1> 
+                                    <Icono>✔️</Icono> </RowCard1>
                                 <RowCard1> 20 </RowCard1>
                                 <RowCard1 style={{height:"10%"}}>ELIAS EL REY</RowCard1>
                             </BodyCard>

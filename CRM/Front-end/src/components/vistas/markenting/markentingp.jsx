@@ -54,7 +54,7 @@ const Campaña = () => {
                         <Link to="/camunicacion"><ContenedorCampañaImagen src={markenting}></ContenedorCampañaImagen></Link>
                     </Campañas>                        
                     <Campañas>
-                    <Link to="/promocion"><ContenedorCampañaImagen src={promocion}></ContenedorCampañaImagen></Link>PROMOTION
+                    <Link to="/promocion"><ContenedorCampañaImagen src={promocion}></ContenedorCampañaImagen></Link> MEMBERSHIP
                     </Campañas>                        
 
                 </ContenedorCampañas>
