@@ -58,7 +58,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     }
     try {
       const res = await Axios.patch(
-        `http://localhost:3005/users/${userData.idRegistro}`,
+        `${process.env.REACT_APP_URL_BACKEND}/users/${userData.idRegistro}`,
         {
           nombreUsuario: nombreUsuario,
           nombreEmpresa: nombreEmpresa,

@@ -1,75 +1,77 @@
 import React from "react";
-import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitleText, SmallText } from "./styled";
-
+import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitle, Card2,BodyCard2,HeaderCard2,RowCard2, HeaderTable, ContainerImg, LettersHeaderCard, Image  } from "./styled";
+import imagen from "../../../img/oro2.jpg"
+import imagen1 from "../../../img/silver.png"
+import imagen2 from "../../../img/membresia-bronce.webp"
 const Promocion = () => {
     return(
         <>
 
             <Container>
                 <BoxPromotion>
-                    <ContainerTitleText>
-                    <Title><h1>planes de promocion</h1></Title>
-                    <SmallText> <p>aprovecha cada una de nuestras promociones, no te quedes sin la tuya</p> </SmallText>
-                    </ContainerTitleText>
+                    <ContainerTitle>
+                    <Title><h1> choose your membership </h1></Title>
+                    </ContainerTitle>
+                    <HeaderTable>
+                    <HeaderTable className="hijo"></HeaderTable>
+                    </HeaderTable>
                     <ContainerCard>
                         <Card>
-                            <HeaderCard style={{backgroundColor:"#c5eeec", fontSize:"25px", color:"#000"}}>
-                                comprar todas las promociones
+                            <HeaderCard> 
+                                <ContainerImg>
+                                    <Image src={imagen1} alt="" />
+                                </ContainerImg>
+                                <LettersHeaderCard>elias el rey </LettersHeaderCard>
                             </HeaderCard>
                             <BodyCard>
-                                <RowCard> siguiente mes </RowCard>
-                                <RowCard> plazo de entrega </RowCard>
+                                
                                 <RowCard> soporte 24/7 </RowCard>
                                 <RowCard> certificado </RowCard>
-                                <RowCard> clasificación de palabras clave garantizadas en la primera pagina de google </RowCard>
+                                <RowCard className="containerButton">
+                                    <Button className="button1"> SIGN UP </Button>
+                                </RowCard>
                             </BodyCard>
-                            <FooterCard></FooterCard>
                         </Card>
-                        <Card>
-                            <HeaderCard style={{backgroundColor:"#cd4f77"}}>empresa</HeaderCard>
-                            <BodyCard>
-                                <RowCard> $900 </RowCard>
-                                <RowCard> 3-6 meses </RowCard>
-                                <RowCard> ✔️ </RowCard>
-                                <RowCard> ✔️</RowCard>
-                                <RowCard> 28 </RowCard>
-                            </BodyCard>
+                        <Card2>
+                            <HeaderCard2>
+                            <ContainerImg>
+                                <Image src={imagen} alt="" />
+                            </ContainerImg>
+                                <LettersHeaderCard>elias el rey </LettersHeaderCard>
+                            </HeaderCard2>
+                            <BodyCard2>
+                                <RowCard2> $900 </RowCard2>
+                                <RowCard2> 3-6 meses </RowCard2>
+                                <RowCard2 className="card3"> ✔️ </RowCard2>
+                                <RowCard2> ✔️</RowCard2>
+                                <RowCard2> 28 </RowCard2>
+                                <RowCard2 className="card6"> ELIAS EL REY</RowCard2>
+                            </BodyCard2>
                             <FooterCard>
                                 <Button
                                 style={{color:"#00000083"}}
-                                >elegir promoción</Button>
+                                > SIGN UP </Button>
                             </FooterCard>
-                        </Card>
+                        </Card2>
                         <Card>
-                            <HeaderCard style={{backgroundColor:"#d6175a"}}>avance</HeaderCard>
+                            <HeaderCard>
+                            <ContainerImg>
+                                <Image src={imagen2} alt="" />
+                            </ContainerImg>
+                                <LettersHeaderCard>elias el rey </LettersHeaderCard>
+                            </HeaderCard>
                             <BodyCard>
                                 <RowCard1> $700 </RowCard1>
                                 <RowCard1> 3-6 meses </RowCard1>
-                                <RowCard1> ✔️ </RowCard1>
+                                <RowCard1 style={{height:"10%"}}> ✔️ </RowCard1>
                                 <RowCard1> ✔️ </RowCard1>
                                 <RowCard1> 20 </RowCard1>
+                                <RowCard1 style={{height:"10%"}}>ELIAS EL REY</RowCard1>
                             </BodyCard>
                             <FooterCard 
                             style={{backgroundColor:"#dfeef8"}}
                             >        
-                                <Button
-                                style={{backgroundColor:"#d6175a"}}
-                                >elegir promoción</Button>
-                            </FooterCard>
-                        </Card>
-                        <Card>
-                            <HeaderCard style={{backgroundColor:"#81dd9b"}}>entrante</HeaderCard>
-                            <BodyCard>
-                                <RowCard> $300 </RowCard>
-                                <RowCard>3-6 meses </RowCard>
-                                <RowCard> - </RowCard>
-                                <RowCard> - </RowCard>
-                                <RowCard>18 </RowCard>
-                            </BodyCard>
-                            <FooterCard>
-                                <Button
-                                style={{color:"#00000083"}}
-                                >elegir promoción</Button>
+                                <Button>SIGN UP</Button>
                             </FooterCard>
                         </Card>
                     </ContainerCard>

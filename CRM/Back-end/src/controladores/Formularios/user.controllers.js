@@ -38,6 +38,7 @@ export const createUsers = async (req, res) => {
             return res.json({ error: "correo_existe" });
         }
         const encrypt = await encryptPassword(contraseña)
+        const encrypt = await encryptPassword(contraseña)
 
         const [rows] = await pool.query(
             'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',

@@ -27,7 +27,7 @@ function Retorno4({contacto}) {
 
   const fetchEmpresa = async () => {
     try {
-      const response = await Axios.get('http://localhost:3005/contactotabla');
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
       setContactoEmpresa(response.data);
       console.log(response.data);
     } catch (error) {
@@ -68,7 +68,7 @@ function Retorno4({contacto}) {
   const actualizarContacto = async () => {
     try {
       const res = await Axios.patch(
-        `http://localhost:3005/contactotabla/${contacto.idContacto}`,
+        `${process.env.REACT_APP_URL_BACKEND}/contactotabla/${contacto.idContacto}`,
         {
           nombreContacto,
           cargo,

@@ -50,7 +50,7 @@ const Registrarse = () => {
   const Registro = (ev) => {
     ev.preventDefault();
     if (email && password && nombre && empresa) {
-      Axios.post("http://localhost:3005/users", {
+      Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`, {
         correo: email,
         contraseña: password,
         nombreUsuario: nombre,

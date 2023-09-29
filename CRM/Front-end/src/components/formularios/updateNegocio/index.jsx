@@ -31,7 +31,7 @@ function NegocioUpdate({ negocio }) {
     // Función para obtener empresas desde la base de datos
     const fetchEmpresas = async () => {
         try {
-            const response = await Axios.get("http://localhost:3005/company");
+            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/company`);
             setEmpresa(response.data);
         } catch (error) {
             console.error("Error al obtener empresas:", error);
@@ -41,7 +41,7 @@ function NegocioUpdate({ negocio }) {
     // Función para obtener contactos desde la base de datos
     const fetchContactos = async () => {
         try {
-            const response = await Axios.get("http://localhost:3005/contacto");
+            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contacto`);
             setContacto(response.data);
         } catch (error) {
             console.error("Error al obtener contactos:", error);
@@ -79,7 +79,7 @@ function NegocioUpdate({ negocio }) {
   const actualizarNegocio = async () => {
     try {
       const res = await Axios.patch(
-        `http://localhost:3005/negociotabla/${negocio.idNegocio}`,
+        `${process.env.REACT_APP_URL_BACKEND}/negociotabla/${negocio.idNegocio}`,
         {
           nombreNegocio,
           etapas,

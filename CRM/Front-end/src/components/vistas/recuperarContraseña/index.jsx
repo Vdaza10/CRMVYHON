@@ -28,7 +28,7 @@ function Recuperar  () {
 
     const cuentaRecuperada = () =>{
         if(email){
-            Axios.post("http://localhost:3005/users",{
+            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`,{
                 correo: email
             }).then((response) => {
                 console.log(response);

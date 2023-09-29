@@ -73,7 +73,7 @@ import jwt_decode from "jwt-decode"
 
 
     const TablagetContacto = async () => {
-        const contactos = await Axios.get("http://localhost:3005/contactotabla");
+        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
         setContacto(contactos.data);
         console.log(contactos.data);
     };
@@ -82,7 +82,7 @@ import jwt_decode from "jwt-decode"
     const TabladeleteContacto = async (item) => {
         try {
             await Axios.put(
-                `http://localhost:3005/contactotabla/desactivar/${item.idContacto}`);
+                `${process.env.REACT_APP_URL_BACKEND}/contactotabla/desactivar/${item.idContacto}`);
             console.log("Contacto desactivado con éxito.");
         } catch (error) {
             console.log("Error al desactivar el contacto", error);

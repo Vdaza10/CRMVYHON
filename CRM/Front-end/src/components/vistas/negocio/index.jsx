@@ -33,7 +33,7 @@ function Retorno2() {
 
   const ReflejarDatos = async () => {
     try {
-      const response = await Axios.get("http://localhost:3005/negociotabla");
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`);
       setNegocios(response.data);
     } catch (error) {
       console.error("Error al obtener datos de negocios:", error);
