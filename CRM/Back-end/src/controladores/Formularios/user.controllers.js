@@ -35,11 +35,12 @@ export const createUsers = async (req, res) => {
         const [resultado] = await pool.query(existe, evaluar);
         
         if (resultado.length > 0) {
-            return res.json({ error: "correo_existe" });
+            return res.json({message: "correo_existe" });
+        }else if(!resultado.length > 0){
+            return res.json({error:"correo no existe"})
         }
-        const encrypt = await encryptPassword(contraseña)
-        const encrypt = await encryptPassword(contraseña)
 
+        const encrypt = await encryptPassword(contraseña)
         const [rows] = await pool.query(
             'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
             [nombreUsuario, nombreEmpresa, correo, encrypt]
@@ -58,7 +59,6 @@ export const createUsers = async (req, res) => {
         return res.status(500).json({ message: 'Algo va mal' });
 }
 }
-
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
   try {
