@@ -28,16 +28,15 @@ function TablaTarea() {
         if(userToken){
             try {
             const token = jwt_decode(userToken);
-      console.log(token, "❤️❤️💕💕💕❤️");
-      setLoading(false);
+        console.log(token, "❤️❤️💕💕💕❤️");
+        setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
                 navigate('/'); 
             }
         }else{
             navigate('/');
-        }
-      
+        }    
     },[navigate])
 
       // barra de busqueda
@@ -46,9 +45,9 @@ const [buscar, setBuscar] = useState("")
 //Funcion para traer los datos de la tabla, a buscar
 
 //Inicio, Función de busqueda
-  const BarraDeBusqueda = (e) => {
-  setBuscar(e.target.value);
-  console.log(e.target.value);
+    const BarraDeBusqueda = (e) => {
+    setBuscar(e.target.value);
+    console.log(e.target.value);
 };
 
 //Metodo de filtrado tabla empresa
@@ -76,14 +75,14 @@ const [buscar, setBuscar] = useState("")
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
-        const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}}/tareasTabla`);
+        const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`);
         console.log(tareas.data);
         setTarea(tareas.data);
     };
 
     const TabladeleteTarea = async (item) => {
         const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}}/tareastabla/desactivar/${item.idTarea}`
+        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`
         );
         console.log("Contacto eliminado con éxito.", res.data);
 
