@@ -122,27 +122,26 @@ export const InforperfilLetra = styled.div`
 export const BoxInfo = styled.div`
   width: 80%;
   height: 100%;
-  background-color: red;
-`;
-export const SectionInfor = styled.div`
-  width: 100%;
-  height: 50%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  background-color: pink;
+  background-color: #ff00008c;
 `;
 
+
 export const HeaderInfor = styled.div`
-  height: 20%;
+  height: 10%;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   border-bottom: 1px solid gray;
+
+  h3{
+    margin-left: 50px;
+  }
 `;
 export const EditButton = styled.button`
   width: 140px;
@@ -151,6 +150,7 @@ export const EditButton = styled.button`
   margin-right: 5px;
   border-radius: 10px 20px 0px 10px;
   background-color: #918e8e;
+  margin-right: 30px;
   cursor: pointer;
   &:hover {
     cursor: pointer;
@@ -158,10 +158,39 @@ export const EditButton = styled.button`
     border-radius: 5px 20px 0px 15px;
   }
 `;
-export const InfoPersonal = styled.div`
+export const BodyInfor = styled.div`
   height: 90%;
-  width: 45%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #a92323;
+`;
+
+export const ContainerInfot = styled.div`
+  height: 100%;
+  width: 50%;
+  border: solid red 1px;
   display: flex;
   flex-direction: column;
-  background-color: #fcfcfc;
-`;
+  align-items: center;
+`
+export const LabelInfort = styled.div`
+  height: 50%;
+  width: 100%;
+background-color: aqua;
+display: flex;
+flex-direction: column;
+/* justify-content: center; */
+align-items: center;
+`
+export const Caja = styled.div`
+  width: 90%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  background-color: pink;
+  .Icono{
+    font-size: 30px;
+  }
+`
+

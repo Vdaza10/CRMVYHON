@@ -11,13 +11,16 @@ import {
   ImgPerfil,
   InforPerfil,
   Boxperfil,
-  SectionInfor,
   HeaderInfor,
   EditButton,
-  InfoPersonal,
+  BodyInfor,
   BoxInfo,
   InforperfilLetra,
+  ContainerInfot,
+  LabelInfort,
+  Caja
 } from "./styled";
+import { HiCake } from 'react-icons/hi';
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -139,33 +142,21 @@ function PerfilUsuario() {
                     </ContainPerfil>
 
                     <BoxInfo>
-                      <SectionInfor>
                         <HeaderInfor>
-                          <h3>Informacion para editar</h3>
+                          <h3>Información adicional</h3>
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
-
-                        <InfoPersonal>
-                          <ul className="listInfor">
-                            <li>
-                              <strong>Nombre:</strong>
-                              <p>Jasil</p>
-                            </li>
-                            <li>
-                              <strong>Apellido:</strong>
-                              <p>Florez</p>
-                            </li>
-                            <li>
-                              <strong>Edad:</strong>
-                              <p>20</p>
-                            </li>
-                            <li>
-                              <strong>Fecha de inicio de Registro:</strong>
-                              <p>25/10/1925</p>
-                            </li>
-                          </ul>
-                        </InfoPersonal>
-                      </SectionInfor>
+                        <BodyInfor>
+                        <ContainerInfot>
+                          <LabelInfort>
+                              <h3>Informacion basica</h3>
+                            <Caja>
+                              <HiCake className="Icono"></HiCake>
+                            </Caja>
+                          </LabelInfort>
+                        </ContainerInfot>
+                        <ContainerInfot></ContainerInfot>
+                        </BodyInfor>
                     </BoxInfo>
                   </Container>
                 </Main>
