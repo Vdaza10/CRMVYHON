@@ -26,24 +26,10 @@ export const getUsersid = async(req,res)=>{
         return res.status(401).json({message:'No se encuentra el usuario'});
     }
 }
-//       
+
 export const createUsers = async (req, res) => {
     try {
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-        
-        // Verificar si el correo ya existe en la base de datos
-        const existe = 'SELECT correo FROM registro where correo = ? ';
-        const evaluar = [correo];
-        const [resultado] = await pool.query(existe, evaluar);
-       
-        if(!resultado.length > 0){
-            return res.json({ message: "corre_no_existe" });
-        }
-
-        else if (resultado.length > 0) {
-            return res.json({ message: "correo_existe" });
-        } else {
-            // Si el correo no existe, crear un nuevo registro
             const encrypt = await encryptPassword(contraseña)
             const [rows] = await pool.query(
                 'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
@@ -55,16 +41,40 @@ export const createUsers = async (req, res) => {
                 nombreUsuario,
                 nombreEmpresa,
                 correo,
-                contraseña, // No se debe devolver la contraseña en texto claro
+                contraseña,
                 mensaje: "registro_exitoso"
             });
-        }
+        
+            
         
     } catch (error) {
+    
         console.error(error); // Puedes agregar un registro del error para debug
         return res.status(500).json({ message: 'Algo va mal' });
     }
 }
+
+export const  recuperar = async(req, res) =>{
+    try {
+        const {correo} = req.body
+        const existe = 'SELECT correo FROM registro where correo = ?'
+        const evaluar = [correo];
+        const [resultado] = await pool.query(existe, evaluar);
+        if (resultado.length > 0) {
+
+            return res.json({ message: "correo_existe" });
+        }else{
+            return res.json({ message: "correo_no_existe" });
+        }
+
+    }
+    catch (error){
+        console.error(error); // Puedes agregar un registro del error para debug
+        return res.status(500).json({ message: 'Algo va mal' });
+    }
+} 
+
+
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
   try {
