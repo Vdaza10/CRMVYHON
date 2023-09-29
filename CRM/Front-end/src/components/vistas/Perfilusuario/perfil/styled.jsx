@@ -6,7 +6,7 @@ export const Fondo = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #294e70;
+  background-color: #98c8f5;
 `;
 
 //Header y su contenido
@@ -65,7 +65,7 @@ export const Container = styled.div`
 export const ContainPerfil = styled.div`
   height: 100%;
   width: 28%;
-  background-color: #21033a;
+  border-right: 1px solid gray;
   border-radius: 15px 15px 0px 0px;
 `;
 export const BoxImgPerfil = styled.div`
@@ -90,7 +90,7 @@ export const ImgPerfil = styled.div`
   border-radius: 100%;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #c5c3c3;
 `;
 export const InforPerfil = styled.div`
   width: 90%;
@@ -102,7 +102,6 @@ export const InforPerfil = styled.div`
   background-color: #eee9e6;
   &:hover {
     cursor: pointer;
-    background-color: #026d80;
     font-size: 18px;
   }
   display: flex;
@@ -113,8 +112,11 @@ export const InforperfilLetra = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0a0425d2;  
+  background-color: #727272d2;
   border-radius: 15px 0px 0px 15px;
+  &:hover {
+    background-color: #4a4d4b;
+  }
 `;
 
 export const BoxInfo = styled.div`
