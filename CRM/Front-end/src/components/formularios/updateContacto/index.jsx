@@ -119,7 +119,7 @@ function Retorno4({contacto}) {
           </Parrafo1>
           <Input placeholder="Ingresar el email del contacto" value={correo} onChange={validacion} type="email"></Input>
           <Parrafo1>
-            <h3>Empresa del contacto </h3>
+            <h3>Contact company </h3>
           </Parrafo1>
           <Select  value={selectContactoEmpresa} onChange={(e) => setSelectContactoEmpresa(e.target.value)}
           >
@@ -135,8 +135,8 @@ function Retorno4({contacto}) {
         {/* Tercera sección */}
         <Caja2>
           {/* Botones para cancelar o crear el contacto */}
-          <Boton2 onClick={cerrarcomponente} >Cancelar</Boton2>
-          <Boton1 onClick={actualizarContacto}>Actualizar </Boton1>
+          <Boton2 onClick={cerrarcomponente} >Cancel</Boton2>
+          <Boton1 onClick={actualizarContacto}> Update </Boton1>
         </Caja2>
       </Container1>
     </Div1>

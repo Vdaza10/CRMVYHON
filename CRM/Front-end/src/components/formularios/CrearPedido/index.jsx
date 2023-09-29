@@ -56,7 +56,7 @@ const FormularioPedido = (props) => {
     return (
         <FormContainer>
             <FormGroup>
-                <Label>cliente:</Label>
+                <Label>customer:</Label>
                 <Input
                     type="text"
                     value={cliente}
@@ -64,7 +64,7 @@ const FormularioPedido = (props) => {
                 />
             </FormGroup>
             <FormGroup>
-                <Label>Producto:</Label>
+                <Label>Product:</Label>
                 <Input
                     type="email"
                     value={producto}
@@ -72,7 +72,7 @@ const FormularioPedido = (props) => {
                 />
             </FormGroup>
             <FormGroup>
-                <Label>Costo:</Label>
+                <Label>Cost:</Label>
                 <Input
                     type="number"
                     value={monto}
@@ -82,13 +82,13 @@ const FormularioPedido = (props) => {
                     value={moneda}
                     onChange={(e) => setMoneda(e.target.value)}
                 >
-                    <option value="pesos">Pesos Colombianos</option>
-                    <option value="dolares">Dólares</option>
+                    <option value="pesos">Colombian pesos</option>
+                    <option value="dolares">Dollars</option>
                 </Select>
-                <ConvertButton onClick={handleConvert}>Convertir</ConvertButton>
+                <ConvertButton onClick={handleConvert}>Convert</ConvertButton>
             </FormGroup>
             <CloseOpen>
-                <ButtonState onClick={createPedido}>crear pedido</ButtonState>
+                <ButtonState onClick={createPedido}>create order</ButtonState>
             </CloseOpen>
         </FormContainer>
     );

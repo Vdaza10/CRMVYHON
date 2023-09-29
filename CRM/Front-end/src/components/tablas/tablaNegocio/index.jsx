@@ -129,13 +129,13 @@ function TablaNegocio() {
         <>
           <ContainerPrincipal>
             <Heder>
-              <h1>Tabla Negocio</h1>
+              <h1>Business Table</h1>
               <ContainerInput>
                 <AiOutlineSearch
                   style={{ fontSize: "25px", color: "#4b4848" }}
                 />
                 <Input
-                  placeholder="Buscar ..."
+                  placeholder="Look for ..."
                   value={buscar}
                   onChange={BarraDeBusqueda}
                 ></Input>
@@ -147,22 +147,22 @@ function TablaNegocio() {
             </Heder>
             <HederTabla>
               <Caja1>
-                <Parrafo>Nombre negocio</Parrafo>
+                <Parrafo>Business name</Parrafo>
               </Caja1>
               <Caja1>
-                <Parrafo>Etapas</Parrafo>
+                <Parrafo>Stages</Parrafo>
               </Caja1>
               <Caja1>
-                <Parrafo>Fuente</Parrafo>
+                <Parrafo>Fountain</Parrafo>
               </Caja1>
               <Caja1>
-                <Parrafo>Empresa</Parrafo>
+                <Parrafo>company</Parrafo>
               </Caja1>
               <Caja1>
-                <Parrafo>Contacto</Parrafo>
+                <Parrafo>Business</Parrafo>
               </Caja1>
               <Caja1>
-                <Parrafo>Acción</Parrafo>
+                <Parrafo>Action</Parrafo>
               </Caja1>
             </HederTabla>
             <ContainerSecundario>
@@ -213,7 +213,7 @@ function TablaNegocio() {
                   }
                 }}
               >
-                Crear Empresa
+                company create
               </Boton>
             </FooterTabla>
             {active && <CrearNegocios />}

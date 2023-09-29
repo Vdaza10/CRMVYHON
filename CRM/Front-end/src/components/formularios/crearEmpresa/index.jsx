@@ -105,7 +105,7 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
         {/* Sección de encabezado */}
         <Caja>
           <Parrafo>
-            <h3>Crear empresa</h3>
+            <h3>create company</h3>
           </Parrafo>
           <Img src={imagen} alt="img" onClick={cerrarcomponente} />
         </Caja>
@@ -113,10 +113,10 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
         {/* Formulario para crear una empresa */}
         <Caja1>
           <Parrafo1>
-            <h3>Nombre de la empresa</h3>
+            <h3>Company name</h3>
           </Parrafo1>
           <Input
-            placeholder="Ingresar el nombre de la empresa"
+            placeholder="Enter the company name"
             onKeyPress={(event) => {
               const inputValue = event.key;
               const regex = /[a-zA-Z0-9& ]/;
@@ -128,7 +128,7 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
           />
 
           <Parrafo1>
-            <h3> Segmento</h3>
+            <h3> Segment </h3>
           </Parrafo1>
           <SelectEmpresa
             value={selectedSegmento}
@@ -146,15 +146,15 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
             <h3>URL</h3>
           </Parrafo1>
           <Input
-            placeholder="Introduce la dirección web de la empresa"
+            placeholder="Enter the company web address"
             onChange={(e) => setUrl(e.target.value)}
           />
 
           <Parrafo1>
-            <h3>Resumen</h3>
+            <h3>Summary</h3>
           </Parrafo1>
           <Area
-            placeholder="Describe la empresa"
+            placeholder="Describe the company"
             onKeyPress={(event) => {
               const inputValue = event.key;
               const regex = /[a-zA-Z0-9 ]/;
@@ -167,11 +167,11 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
         </Caja1>
         <hr />
         <Caja2>
-          <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
+          <Boton2 onClick={cerrarcomponente}>Cancel</Boton2>
           <Boton1
           onClick={createEmpresa}
-         >
-            Crear empresa
+          >
+            Create company
           </Boton1>
         </Caja2>
       </Container1>

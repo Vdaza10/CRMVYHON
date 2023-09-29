@@ -117,20 +117,20 @@ import jwt_decode from "jwt-decode"
               
                     <ContainerPrincipal>
                         <Heder>
-                            <h1>Tabla Contacto</h1>
+                            <h1>company table</h1>
                             <ContainerInput>
                                 <AiOutlineSearch style={{fontSize:"25px" , color:"#4b4848"}}/>
-                                <Input placeholder="Buscar ..." value={buscar} onChange={BarraDeBusqueda}></Input>
+                                <Input placeholder="Look for ..." value={buscar} onChange={BarraDeBusqueda}></Input>
                                 <AiOutlineClose style={{fontSize:"20px", color:"gray", cursor:"pointer"}} onClick={Borrar} />
                             </ContainerInput>
                         </Heder>
                         <HederTabla>
-                            <Caja1><Parrafo>Nombre del contacto</Parrafo></Caja1>
-                            <Caja1><Parrafo>Cargo</Parrafo></Caja1>
-                            <Caja1><Parrafo>Telefono</Parrafo></Caja1>
-                            <Caja1><Parrafo>Correo</Parrafo></Caja1>
-                            <Caja1><Parrafo>Contacto de la empresa</Parrafo></Caja1>
-                            <Caja1><Parrafo>Accion</Parrafo></Caja1>
+                            <Caja1><Parrafo>Contact name</Parrafo></Caja1>
+                            <Caja1><Parrafo>Position</Parrafo></Caja1>
+                            <Caja1><Parrafo>Phone</Parrafo></Caja1>
+                            <Caja1><Parrafo>Email</Parrafo></Caja1>
+                            <Caja1><Parrafo>Company contact</Parrafo></Caja1>
+                            <Caja1><Parrafo>Action</Parrafo></Caja1>
                         </HederTabla>
                         <ContainerSecundario>
                         {resBusqueda.map((item, i) => (
@@ -172,7 +172,7 @@ import jwt_decode from "jwt-decode"
                         setEmpresaUpdateAbierto();
                         }
                     }}>
-                        Crear Empresa
+                        Create Company
                     </Boton>
 
                         </FooterTabla>
