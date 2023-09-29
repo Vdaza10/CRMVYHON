@@ -13,7 +13,7 @@ export const getUsers = async(req,res) =>{
         }
         res.json(rows)
 
-    } catch (error) {
+    } catch (error) {     
         return res.status(500).json({message: 'Algo va mal'})
         console.log(error.message.res.status(500));
     }
@@ -33,11 +33,12 @@ export const createUsers = async (req, res) => {
         const existe = 'SELECT correo FROM registro where correo = ? '
         const evaluar = [correo];
         const [resultado] = await pool.query(existe, evaluar);
+        
         if (resultado.length > 0) {
-            return res.json({ error: "correo_existe" });
+            return res.json({message: "correo_existe" });
         }else if(!resultado.length > 0){
-            return res.json({message: "correo no existe"});
-        };
+            return res.json({error:"correo no existe"})
+        }
 
         const encrypt = await encryptPassword(contraseña)
         const [rows] = await pool.query(
@@ -58,7 +59,6 @@ export const createUsers = async (req, res) => {
         return res.status(500).json({ message: 'Algo va mal' });
 }
 }
-
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
   try {
