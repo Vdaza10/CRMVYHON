@@ -45,7 +45,7 @@ function Recuperar  () {
 
     const cuentaRecuperada = () => {
         if (email) {
-            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`, {
+            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/user`, {
                 correo: email
             })
             .then((response) => {
