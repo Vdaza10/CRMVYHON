@@ -180,17 +180,24 @@ export const LabelInfort = styled.div`
 background-color: aqua;
 display: flex;
 flex-direction: column;
-/* justify-content: center; */
 align-items: center;
 `
 export const Caja = styled.div`
-  width: 90%;
-  height: 20%;
+  width: 70%;
+  height: 15%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: pink;
+  margin-bottom: 10px;
+  border: solid gray 1px;
   .Icono{
     font-size: 30px;
   }
+`
+export const InputInfor = styled.input`
+  height: 70%;
+  width: 90%;
+
 `
 

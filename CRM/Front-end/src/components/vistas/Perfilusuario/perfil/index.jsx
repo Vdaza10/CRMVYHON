@@ -18,7 +18,8 @@ import {
   InforperfilLetra,
   ContainerInfot,
   LabelInfort,
-  Caja
+  Caja, 
+  InputInfor
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 
@@ -152,6 +153,19 @@ function PerfilUsuario() {
                               <h3>Informacion basica</h3>
                             <Caja>
                               <HiCake className="Icono"></HiCake>
+                              <InputInfor></InputInfor>
+                            </Caja>
+                            <Caja>
+                              <HiCake className="Icono"></HiCake>
+                              <InputInfor></InputInfor>
+                            </Caja>
+                            <Caja>
+                              <HiCake className="Icono"></HiCake>
+                              <InputInfor></InputInfor>
+                            </Caja>
+                            <Caja>
+                              <HiCake className="Icono"></HiCake>
+                              <InputInfor></InputInfor>
                             </Caja>
                           </LabelInfort>
                         </ContainerInfot>
