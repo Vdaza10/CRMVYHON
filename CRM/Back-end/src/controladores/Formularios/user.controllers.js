@@ -35,7 +35,10 @@ export const createUsers = async (req, res) => {
         const [resultado] = await pool.query(existe, evaluar);
         if (resultado.length > 0) {
             return res.json({ error: "correo_existe" });
-        }
+        }else if(!resultado.length > 0){
+            return res.json({message: "correo no existe"});
+        };
+
         const encrypt = await encryptPassword(contraseña)
         const [rows] = await pool.query(
             'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
