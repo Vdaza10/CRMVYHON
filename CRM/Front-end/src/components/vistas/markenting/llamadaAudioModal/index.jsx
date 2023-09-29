@@ -20,7 +20,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
 
   const fetchNegocio = async () => {
     try {
-      const response = await Axios.get("http://localhost:3005/negocio");
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
       setNegocio(response.data);
       console.log(response.data);
     } catch (error) {
@@ -45,7 +45,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
     }
 
     if (cedula && negocio && nombre && apellido && telefono && telefonoFijo && direccion && correo && llamadaInicio && llamadaFinal) {
-      Axios.post("http://localhost:3005/llamada", {
+      Axios.post(`${process.env.REACT_APP_URL_BACKEND}/llamada`, {
         negocio: selectedNegocio.idNegocio,
         cedula: cedula,
         nombre: nombre,

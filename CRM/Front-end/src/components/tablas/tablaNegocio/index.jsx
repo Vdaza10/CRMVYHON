@@ -89,7 +89,7 @@ function TablaNegocio() {
 
   const ReflejarDatos = async () => {
     try {
-      const response = await Axios.get("http://localhost:3005/negociotabla");
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`);
       setNegocios(response.data);
     } catch (error) {
       console.error("Error al obtener datos:", error);
@@ -99,7 +99,7 @@ function TablaNegocio() {
   const TabladeleteNegocio = async (item) => {
     try {
       const res = await Axios.put(
-        `http://localhost:3005/negociotabla/desactivar/${item.idNegocio}`
+        `${process.env.REACT_APP_URL_BACKEND}/negociotabla/desactivar/${item.idNegocio}`
       );
       console.log("Negocio eliminado con éxito.", res.data);
       ReflejarDatos(); // Refresca la lista de negocios después de eliminar uno

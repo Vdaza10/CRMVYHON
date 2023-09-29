@@ -18,7 +18,7 @@ function EmpresaUpdate({ empresa }) {
       // Función para obtener los segmentos desde la base de datos
     const fetchSegmentos = async () => {
       try {
-          const response = await Axios.get("http://localhost:3005/segmento");
+          const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/segmento`);
           setSegmentos(response.data);
           console.log(response.data);
       } catch (error) {
@@ -58,7 +58,7 @@ function EmpresaUpdate({ empresa }) {
   const actualizarEmpresa = async () => {
     try {
       const res = await Axios.patch(
-        `http://localhost:3005/companytabla/${empresa.idEmpresa}`,
+        `${process.env.REACT_APP_URL_BACKEND}/companytabla/${empresa.idEmpresa}`,
         {
           nombreEmpresa,
           segmento: selectSegmento, // Utiliza el segmento seleccionado

@@ -14,7 +14,7 @@ function Retorno4({setContactoCreado}) {
 
   const fetchEmpresa = async () => {
     try {
-      const response = await Axios.get('http://localhost:3005/company');
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/company`);
       setEmpresa(response.data);
       console.log(response.data);
     } catch (error) {
@@ -45,7 +45,7 @@ function Retorno4({setContactoCreado}) {
         });
       }
 
-      Axios.post('http://localhost:3005/contacto', {
+      Axios.post(`${process.env.REACT_APP_URL_BACKEND}/contacto`, {
         nombreContacto: nombreUsuario,
         cargo: cargo,
         telefono: telefono,

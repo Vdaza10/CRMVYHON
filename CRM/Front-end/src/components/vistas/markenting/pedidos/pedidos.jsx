@@ -51,7 +51,7 @@ const Pedidos = () => {
 
     const getDataPedido = async () => {
         try {
-        const response = await axios.get("http://localhost:3005/pedidos/", {});
+        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos/`, {});
         const data = response.data.map((pedido, index) => ({
             ...pedido,
             id: index + 1, // Asignar un ID único basado en el índice

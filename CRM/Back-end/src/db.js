@@ -1,12 +1,13 @@
 import  {createPool}  from "mysql2/promise";
+import { DB_HOST,DB_PORT, DB_USER,DB_DATABASE,DB_PASSWORD} from "./config.js"
 
 // crea la conexión a la base de datos 
 export const pool  =  createPool ( { 
-    host : '192.168.12.36', 
-    user : 'root' , 
-    port :3306,
-    database:'crmvyhon',
-    password:''
+    host : DB_HOST, 
+    user : DB_USER , 
+    port :DB_PORT,
+    database:DB_DATABASE,
+    password:DB_PASSWORD
 } ) ;
 
-export const Secret = "CLAVESUPERSECRETA";
+export const Secret = "CLAVESUPERSECRETA"; 

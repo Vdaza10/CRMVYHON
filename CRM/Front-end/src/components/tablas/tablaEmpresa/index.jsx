@@ -73,15 +73,20 @@ const [buscar, setBuscar] = useState("")
 
 
   const Getempresa = async () => {
-    const empresas = await Axios.get("http://localhost:3005/companytabla");
+    try {
+      const empresas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/companytabla`)
     setEmpresa(empresas.data);
     console.log(empresas.data);
+    } catch (error) {
+      console.log("error de axio en la query");
+    }
+    
   };
 
   const TabladeleteEmpresa = async (item) => {
     try {
       const res = await Axios.put(
-        `http://localhost:3005/empresatabla/desactivar/${item.idEmpresa}`
+        `${process.env.REACT_APP_URL_BACKEND}/companytabla/desactivar/${item.idEmpresa}`
       );
       console.log("Contacto eliminado con éxito.", res.data);
       Getempresa()
