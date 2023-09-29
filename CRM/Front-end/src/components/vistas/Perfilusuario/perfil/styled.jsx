@@ -158,7 +158,7 @@ export const EditButton = styled.button`
     border-radius: 5px 20px 0px 15px;
   }
 `;
-export const InfoPersonal = styled.div
+export const InfoPersonal = styled.div`
   height: 90%;
   width: 45%;
   display: flex;
