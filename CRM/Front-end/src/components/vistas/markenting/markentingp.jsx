@@ -1,95 +1,119 @@
-import React , {useState}from "react";
-import { Contenedor, ContenedorCampañas, ContenedorCampañas1, Campañas, ContenedorCampañaImagen } from "./styled";
-import imagen from "../../img/inicio1.avif"
-import markenting from "../../img/comunicacion.png"
-import promocion from "../../img/promocion.jpg"
-import pedidos from "../../img/pedidos.jpg"
-import campañasms from "../../img/campañaSMS.png"
-import campañacorreo from "../../img/campañaCorreo.jpg"
-import llamadaaudio from "../../img/llamadaAudio.jpg"
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import Audiollamada from "../markenting/llamadaAudioModal";
+import { BoxModulos, MenuContainer } from "./styled";
 
 const Campaña = () => {
-    const [modalAbierta, setModalAbierta] = useState(false);
-    const [loading, setLoading] = useState(true)
+  const [modalAbierta, setModalAbierta] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [acordeonAbierto, setAcordeonAbierto] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
 
-    let navigate = useNavigate();
+  let navigate = useNavigate();
 
-    useEffect(() => {
+  // Definir los módulos y submódulos
+  const modulos = [
+    {
+      nombre: "Módulo 1",
+      submodulos: [
+        { nombre: "Submódulo 1.1", ruta: "/submodulo1-1" },
+        { nombre: "Submódulo 1.2", ruta: "/submodulo1-2" },
+      ],
+    },
+    {
+      nombre: "Módulo 2",
+      submodulos: [
+        { nombre: "Submódulo 2.1", ruta: "/submodulo2-1" },
+        { nombre: "Submódulo 2.2", ruta: "/submodulo2-2" },
+      ],
+    },
+    {
+      nombre: "Módulo 3",
+      submodulos: [
+        { nombre: "Submódulo 3.1", ruta: "/submodulo3-1" },
+        { nombre: "Submódulo 3.2", ruta: "/submodulo3-2" },
+      ],
+    },
+    {
+      nombre: "Módulo 4",
+      submodulos: [
+        { nombre: "Submódulo 4.1", ruta: "/submodulo4-1" },
+        { nombre: "Submódulo 4.2", ruta: "/submodulo4-2" },
+      ],
+    },
+    {
+      nombre: "Módulo 4",
+      submodulos: [
+        { nombre: "Submódulo 4.1", ruta: "/submodulo4-1" },
+        { nombre: "Submódulo 4.2", ruta: "/submodulo4-2" },
+      ],
+    },
+    {
+      nombre: "Módulo 4",
+      submodulos: [
+        { nombre: "Submódulo 4.1", ruta: "/submodulo4-1" },
+        { nombre: "Submódulo 4.2", ruta: "/submodulo4-2" },
+      ],
+    },
+    // Agrega más módulos y submódulos según sea necesario
+  ];
 
-        const userToken = localStorage.getItem("user");
-        if(userToken){
-            try {
-            const token = jwt_decode(userToken);
+  useEffect(() => {
+    const userToken = localStorage.getItem("user");
+    if (userToken) {
+      try {
+        const token = jwt_decode(userToken);
         console.log(token, "❤️❤️💕💕💕❤️");
         setLoading(false);
-            } catch (error) {
-                console.error("Error al decodificar el token:", error);
-                navigate('/'); 
-            }
-        }else{
-            navigate('/');
-        }
-    },[navigate])
+      } catch (error) {
+        console.error("Error al decodificar el token:", error);
+        navigate("/");
+      }
+    } else {
+      navigate("/");
+    }
+  }, [navigate]);
 
-    return (
+  const toggleAcordeon = (index) => {
+    const nuevosEstados = [...acordeonAbierto];
+    nuevosEstados[index] = !nuevosEstados[index];
+    setAcordeonAbierto(nuevosEstados);
+  };
+
+  return (
+    <>
+      {loading ? (
         <>
-        {loading ? (
-            <>
-            <h1>cargando.....</h1>
-            </>
-        ):(
-        <>
-        <Audiollamada 
-            estado={modalAbierta}
-            cambiarEstado={setModalAbierta}
-            ></Audiollamada>
-            <Contenedor>
-                <ContenedorCampañas>
-                    <Campañas>COMUNICATION
-                        <Link to="/camunicacion"><ContenedorCampañaImagen src={markenting}></ContenedorCampañaImagen></Link>
-                    </Campañas>                        
-                    <Campañas>
-                    <Link to="/promocion"><ContenedorCampañaImagen src={promocion}></ContenedorCampañaImagen></Link>PROMOTION
-                    </Campañas>                        
-
-                </ContenedorCampañas>
-                
-                <ContenedorCampañas1 >
-                    <Campañas >
-                        MAIL CAMPAIGN
-                    <Link to="/campañacorreo"><ContenedorCampañaImagen src={campañacorreo}></ContenedorCampañaImagen></Link>
-                    </Campañas>
-
-                    <Campañas className="center" style={{  alignConten: "center", justifyContent: 'center' }}>
-                    <ContenedorCampañaImagen src={imagen} />
-                    </Campañas>                    
-
-                    <Campañas >
-                    <Link to="/pedidos"><ContenedorCampañaImagen src={pedidos}></ContenedorCampañaImagen></Link> ORDERS
-                    </Campañas>                    
-
-                </ContenedorCampañas1>
-                <ContenedorCampañas>
-                    <Campañas onClick={() =>{ setModalAbierta(!modalAbierta)} }>
-                    AUDIO CALL <ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen>
-                    </Campañas>                    
-
-                    <Campañas>
-                    <Link to="/camapañasms"><ContenedorCampañaImagen src={campañasms}></ContenedorCampañaImagen></Link> SMS CAMPAIGN
-                    </Campañas>                    
-
-                </ContenedorCampañas>
-            </Contenedor>
-            
+          <h1>cargando.....</h1>
         </>
-        )}
-        </>
-    )
-}
+      ) : (
+          <MenuContainer>
+            {modulos.map((modulo, index) => (
+              <BoxModulos key={index}>
+                <button onClick={() => toggleAcordeon(index)}>
+                  {modulo.nombre}
+                </button>
+                {acordeonAbierto[index] && (
+                  <ul>
+                    {modulo.submodulos.map((submodulo, subIndex) => (
+                      <li key={subIndex}>
+                        <a href={submodulo.ruta}>{submodulo.nombre}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </BoxModulos>
+            ))}
+          </MenuContainer>
+      )}
+    </>
+  );
+};
 
-export default Campaña ;
+export default Campaña;
