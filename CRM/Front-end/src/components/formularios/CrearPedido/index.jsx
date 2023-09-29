@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button, FormGroup, FormularioContainer, Input, Label } from "./style.jsx";
 
-const FormularioPedido = () => {
+const FormularioPedido = ({ onTaskCreated }) => {
   const [cliente, setCliente] = useState('');
   const [monto, setMonto] = useState('');
 
@@ -22,11 +22,17 @@ const FormularioPedido = () => {
       const fecha = new Date().toISOString().slice(0, 10);
 
       // Enviar los datos a la base de datos usando la API
-      await axios.post('URL_DE_TU_API/crearPedidos', {
+      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/pedidos`, {
         cliente: cliente,
         monto: monto,
         fecha: fecha,
       });
+
+      // Obtener la nueva tarea creada desde la respuesta de la API
+      const nuevaTarea = response.data;
+
+      // Llamar a la función proporcionada por las propiedades para pasar la nueva tarea a Pedidos
+      onTaskCreated(nuevaTarea);
 
       // Restablecer los campos del formulario después de enviar los datos
       setCliente('');
