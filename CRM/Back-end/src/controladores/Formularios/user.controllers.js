@@ -26,38 +26,44 @@ export const getUsersid = async(req,res)=>{
         return res.status(401).json({message:'No se encuentra el usuario'});
     }
 }
+//       
 export const createUsers = async (req, res) => {
     try {
-        
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-        const existe = 'SELECT correo FROM registro where correo = ? '
+        
+        // Verificar si el correo ya existe en la base de datos
+        const existe = 'SELECT correo FROM registro where correo = ? ';
         const evaluar = [correo];
         const [resultado] = await pool.query(existe, evaluar);
-        
-        if (resultado.length > 0) {
-            return res.json({message: "correo_existe" });
-        }else if(!resultado.length > 0){
-            return res.json({error:"correo no existe"})
+       
+        if(!resultado.length > 0){
+            return res.json({ message: "corre_no_existe" });
         }
 
-        const encrypt = await encryptPassword(contraseña)
-        const [rows] = await pool.query(
-            'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
-            [nombreUsuario, nombreEmpresa, correo, encrypt]
-        );
+        else if (resultado.length > 0) {
+            return res.json({ message: "correo_existe" });
+        } else {
+            // Si el correo no existe, crear un nuevo registro
+            const encrypt = await encryptPassword(contraseña)
+            const [rows] = await pool.query(
+                'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
+                [nombreUsuario, nombreEmpresa, correo, encrypt]
+            );
 
-        return res.json({
-            id: rows.insertId,
-            nombreUsuario,
-            nombreEmpresa,
-            correo,
-            contraseña,
-            mensaje: "registro_exitoso"
-        });
+            return res.json({
+                id: rows.insertId,
+                nombreUsuario,
+                nombreEmpresa,
+                correo,
+                contraseña, // No se debe devolver la contraseña en texto claro
+                mensaje: "registro_exitoso"
+            });
+        }
+        
     } catch (error) {
         console.error(error); // Puedes agregar un registro del error para debug
-        return res.status(500).json({ message: 'Algo va mal' });
-}
+        return res.status(500).json({ message: 'Algo va mal' });
+    }
 }
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
