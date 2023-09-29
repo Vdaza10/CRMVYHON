@@ -32,7 +32,7 @@ function Recuperar  () {
         }
         emailjs
         .send(
-            "service_sgj6zkl",
+            "service_p9dkurr",
             "template_tkhf0aj",
             templateparams,
             "JiRl7pYlYGJshjdVB",
