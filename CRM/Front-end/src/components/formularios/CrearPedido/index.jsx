@@ -1,67 +1,58 @@
 import React, { useState } from "react";
-import { FormGroup, FormularioContainer, SubmitButton } from "./style.jsx";
 import axios from "axios";
+import { Button, FormGroup, FormularioContainer, Input, Label } from "./style.jsx";
 
-const FormularioPedido = ({ addPedido }) => {
-    const [cliente, setCliente] = useState("");
-    const [monto, setMonto] = useState("");
+const FormularioPedido = () => {
+  const [cliente, setCliente] = useState('');
+  const [monto, setMonto] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (cliente.trim() === "" || monto.trim() === "") {
-            alert("Por favor, completa todos los campos.");
-            return;
-        }
+  const handleClienteChange = (event) => {
+    setCliente(event.target.value);
+  };
 
-        try {
-            const fechaActual = new Date().toLocaleDateString(); // Obtener la fecha actual
+  const handleMontoChange = (event) => {
+    setMonto(event.target.value);
+  };
 
-            const response = await axios.post("http://localhost:3005/pedidos", {
-                cliente: cliente,
-                monto: monto,
-                fecha: fechaActual, // Usar la fecha actual
-            });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-            const nuevoPedido = response.data;
+    try {
+      // Obtener la fecha actual en el formato deseado (año/mes/día)
+      const fecha = new Date().toISOString().slice(0, 10);
 
-            addPedido(nuevoPedido);
+      // Enviar los datos a la base de datos usando la API
+      await axios.post('URL_DE_TU_API/crearPedidos', {
+        cliente: cliente,
+        monto: monto,
+        fecha: fecha,
+      });
 
-            setCliente("");
-            setMonto("");
-        } catch (error) {
-            console.error(error);
-            alert("Ocurrió un error al crear el pedido.");
-        }
-    };
+      // Restablecer los campos del formulario después de enviar los datos
+      setCliente('');
+      setMonto('');
 
-    return (
-        <FormularioContainer>
-            <h3>Formulario de Pedido</h3>
-            <form onSubmit={handleSubmit}>
-                <FormGroup>
-                    <label htmlFor="cliente">Cliente:</label>
-                    <input
-                        type="text"
-                        id="cliente"
-                        value={cliente}
-                        onChange={(e) => setCliente(e.target.value)}
-                        required
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <label htmlFor="monto">Monto:</label>
-                    <input
-                        type="number"
-                        id="monto"
-                        value={monto}
-                        onChange={(e) => setMonto(e.target.value)}
-                        required
-                    />
-                </FormGroup>
-                <SubmitButton type="submit">Agregar Pedido</SubmitButton>
-            </form>
-        </FormularioContainer>
-    );
+      // Aquí puedes manejar cualquier lógica adicional después de enviar los datos
+      console.log('Datos enviados correctamente.');
+    } catch (error) {
+      console.error('Error al enviar los datos:', error);
+      // Aquí puedes manejar errores de envío, como mostrar un mensaje de error al usuario
+    }
+  };
+
+  return (
+    <FormularioContainer onSubmit={handleSubmit}>
+      <FormGroup>
+        <Label>Cliente:</Label>
+        <Input type="text" value={cliente} onChange={handleClienteChange} required />
+      </FormGroup>
+      <FormGroup>
+        <Label>Monto:</Label>
+        <Input type="number" value={monto} onChange={handleMontoChange} required />
+      </FormGroup>
+      <Button type="submit">Enviar</Button>
+    </FormularioContainer>
+  );
 };
 
 export default FormularioPedido;

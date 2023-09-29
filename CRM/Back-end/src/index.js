@@ -3,7 +3,6 @@ import express from "express";
 import { router } from "./rutas/totals.routes.js";
 import cors from "cors"
 
-
 const app = express();
 
 

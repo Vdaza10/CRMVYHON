@@ -1,33 +1,25 @@
 import styled from "styled-components";
 
-// Estilos para el componente Kanban
-export const KanbanContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
 `;
 
-export const KanbanTable = styled.table`
-    width: 80%;
-    border-collapse: collapse;
-    margin-top: 20px;
+export const Column = styled.div`
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 0 10px;
 `;
 
-export const KanbanHeader = styled.thead`
-    background-color: #333;
-    color: white;
+export const Task = styled.div`
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  cursor: pointer;
 `;
 
-export const KanbanColumn = styled.td`
-    padding: 10px;
-    border: 1px solid #ccc;
-`;
-
-export const KanbanCard = styled.div`
-    background-color: #f5f5f5;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-`;

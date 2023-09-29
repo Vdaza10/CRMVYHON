@@ -1,26 +1,42 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const FormularioContainer = styled.div`
-    background-color: #f2f2f2;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+export const FormularioContainer = styled.form`
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 `;
 
 export const FormGroup = styled.div`
-    margin-bottom: 16px;
+  margin-bottom: 20px;
 `;
 
-export const SubmitButton = styled.button`
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+export const Label = styled.label`
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+`;
 
-    &:hover {
-        background-color: #0056b3;
-    }
+export const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+export const Button = styled.button`
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #45a049;
+  }
 `;
