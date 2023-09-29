@@ -122,6 +122,7 @@ export const InforperfilLetra = styled.div`
 export const BoxInfo = styled.div`
   width: 80%;
   height: 100%;
+  background-color: red;
 `;
 export const SectionInfor = styled.div`
   width: 100%;
@@ -129,6 +130,7 @@ export const SectionInfor = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-color: pink;
 `;
 
 export const HeaderInfor = styled.div`
@@ -156,7 +158,7 @@ export const EditButton = styled.button`
     border-radius: 5px 20px 0px 15px;
   }
 `;
-export const InfoPersonal = styled.div`
+export const InfoPersonal = styled.div
   height: 90%;
   width: 45%;
   display: flex;
