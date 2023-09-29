@@ -4,7 +4,6 @@ import { GrClose } from "react-icons/gr";
 import { FcOk } from "react-icons/fc";
 import "../../../App.css"
 
-
 const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
 
     const cerrarModalYRedirigir = () => {
@@ -17,8 +16,10 @@ const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
         // Redirige a la página de inicio
         window.location.href = "/"  
         
-      }, 2000);
+      }, 2000);
     };
+
+
 
   return (
     <>
@@ -43,4 +44,4 @@ const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
   );
 };
 
-export default VentanaModal2;
+export default VentanaModal2;
