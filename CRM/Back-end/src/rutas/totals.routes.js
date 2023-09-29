@@ -17,6 +17,7 @@ export const router = Router();
 
 router.get('/users', userCrtl.getUsers);
 router.post('/users', userCrtl.createUsers);
+router.post('/user',userCrtl.recuperar);
 router.patch('/users/:idRegistro', userCrtl.updateUsers);
 router.delete('/users', userCrtl.deleteUsers);
 
