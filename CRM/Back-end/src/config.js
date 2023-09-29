@@ -10,3 +10,5 @@ export const DB_PASSWORD = process.env.DB_PASSWORD || ''
 export const DB_DATABASE = process.env.DB_DATABASE || 'crmvyhon'
 
 export const SERVIDOR_BACKEND = process.env.SERVIDOR_BACKEND ||' http://localhost:3005'
+
+console.log(process.env.PORT)

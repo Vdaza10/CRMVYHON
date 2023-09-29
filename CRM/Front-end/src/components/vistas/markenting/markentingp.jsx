@@ -50,7 +50,7 @@ const Campaña = () => {
             ></Audiollamada>
             <Contenedor>
                 <ContenedorCampañas>
-                    <Campañas>COMUNICATION
+                    <Campañas>COMMUNICATION
                         <Link to="/camunicacion"><ContenedorCampañaImagen src={markenting}></ContenedorCampañaImagen></Link>
                     </Campañas>                        
                     <Campañas>

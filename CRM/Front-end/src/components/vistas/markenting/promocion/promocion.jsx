@@ -1,8 +1,10 @@
 import React from "react";
-import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitle, Card2,BodyCard2,HeaderCard2,RowCard2, HeaderTable, ContainerImg, LettersHeaderCard, Image, Icono  } from "./styled";
+import { BodyCard, Container, ContainerCard, FooterCard, HeaderCard, Card, Title, BoxPromotion, RowCard, RowCard1, Button, ContainerTitle, Card2,BodyCard2,HeaderCard2,RowCard2, HeaderTable, ContainerImg, LettersHeaderCard, Image, Icono, LettersRow  } from "./styled";
 import imagen from "../../../img/oro2.jpg"
 import imagen1 from "../../../img/silver.png"
 import imagen2 from "../../../img/membresia-bronce.webp"
+import { FcCheckmark } from 'react-icons/fc';
+
 const Promocion = () => {
     return(
         <>
@@ -21,13 +23,22 @@ const Promocion = () => {
                                 <ContainerImg>
                                     <Image src={imagen1} alt="" />
                                 </ContainerImg>
-                                <LettersHeaderCard>elias el rey </LettersHeaderCard>
+                                <LettersHeaderCard>
+                                <LettersHeaderCard className="letters1"> free member</LettersHeaderCard>
+                                <LettersHeaderCard className="letters2"> free </LettersHeaderCard>
+                                </LettersHeaderCard>
                             </HeaderCard>
                             <BodyCard>
                                 
-                                <RowCard> soporte 24/7 </RowCard>
-                                <RowCard> certificado </RowCard>
-                                <RowCard className="containerButton">
+                                <RowCard>
+                                <Icono><FcCheckmark/> </Icono>
+                                <LettersRow> elias el rey </LettersRow>
+                                    </RowCard>
+                                <RowCard>
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> elias el rey </LettersRow>
+                                    </RowCard>
+                                <RowCard className="containerButton"> 
                                     <Button className="button1"> SIGN UP </Button>
                                 </RowCard>
                             </BodyCard>
@@ -37,15 +48,36 @@ const Promocion = () => {
                             <ContainerImg>
                                 <Image src={imagen} alt="" />
                             </ContainerImg>
-                                <LettersHeaderCard>elias el rey </LettersHeaderCard>
+                                <LettersHeaderCard>
+                                <LettersHeaderCard className="letters1"> Monthly</LettersHeaderCard>
+                                <LettersHeaderCard className="letters2"> 1 week for free then $ 14.99/ </LettersHeaderCard>
+                                <LettersHeaderCard className="letters3"> Month</LettersHeaderCard>
+                                </LettersHeaderCard>
                             </HeaderCard2>
                             <BodyCard2>
-                                <RowCard2> $900 </RowCard2>
-                                <RowCard2> 3-6 meses </RowCard2>
-                                <RowCard2 className="card3"> ✔️ </RowCard2>
-                                <RowCard2> ✔️</RowCard2>
-                                <RowCard2> 28 </RowCard2>
-                                <RowCard2 className="card6"> ELIAS EL REY</RowCard2>
+                                <RowCard2>
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> free member </LettersRow>
+                                </RowCard2>
+                                <RowCard2> 
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> free member </LettersRow>
+                                </RowCard2>
+                                <RowCard2 className="card3"> <Icono className="icono3"><FcCheckmark/></Icono>
+                                <LettersRow>member</LettersRow>
+                                </RowCard2>
+                                <RowCard2> 
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> member </LettersRow>
+                                </RowCard2>
+                                <RowCard2> 
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> member </LettersRow>
+                                </RowCard2>
+                                <RowCard2 className="card6"> 
+                                <Icono className="icono6"><FcCheckmark/></Icono>
+                                <LettersRow> free m </LettersRow>
+                                </RowCard2>
                             </BodyCard2>
                             <FooterCard>
                                 <Button
@@ -58,22 +90,36 @@ const Promocion = () => {
                             <ContainerImg>
                                 <Image src={imagen2} alt="" />
                             </ContainerImg>
-                                <LettersHeaderCard>elias el rey </LettersHeaderCard>
+                                <LettersHeaderCard>
+                                <LettersHeaderCard className="letters1"> Yearly </LettersHeaderCard>
+                                <LettersHeaderCard className="letters2"> $129.99/ year </LettersHeaderCard>
+                                </LettersHeaderCard>
                             </HeaderCard>
                             <BodyCard>
                                 <RowCard1>
-                                    <Icono></Icono>
-                                $700 </RowCard1>
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> free member </LettersRow>
+                                </RowCard1>
                                 <RowCard1>
-                                <Icono></Icono>
-                                3-6 meses </RowCard1>
-                                <RowCard1 style={{height:"10%"}}> 
-                                <Icono></Icono>
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> free member</LettersRow>
+                                </RowCard1>
+                                <RowCard1 className="row3"> 
+                                <Icono className="icono3"><FcCheckmark/></Icono>
+                                <LettersRow> free member </LettersRow>
                                 </RowCard1>
                                 <RowCard1> 
-                                    <Icono>✔️</Icono> </RowCard1>
-                                <RowCard1> 20 </RowCard1>
-                                <RowCard1 style={{height:"10%"}}>ELIAS EL REY</RowCard1>
+                                    <Icono><FcCheckmark/></Icono>
+                                    <LettersRow> free member</LettersRow>
+                                    </RowCard1>
+                                <RowCard1> 
+                                <Icono><FcCheckmark/></Icono>
+                                <LettersRow> free member</LettersRow>
+                                </RowCard1>
+                                <RowCard1 className="row6">
+                                <Icono className="icono6"><FcCheckmark/></Icono>
+                                <LettersRow> free member </LettersRow>
+                                </RowCard1>
                             </BodyCard>
                             <FooterCard 
                             style={{backgroundColor:"#dfeef8"}}
