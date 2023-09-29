@@ -3,9 +3,10 @@ import { Fondo,Contenedor,Titulo, Parrafo , ConteinerBonton , Boton1, Boton2 , I
 import { Link } from "react-router-dom";
 import VentanaModal2 from "../../modales/mensajeRecuperarContraseña"
 import VentanaModal3 from "../../modales/mensajeContraseñaCorreo";
-import { useState } from "react";
+import { useState } from "react";   
 import Axios from "axios";
 import "../../../App.css"
+import emailjs from '@emailjs/browser'
 
 
 function Recuperar  () {
@@ -24,23 +25,44 @@ function Recuperar  () {
         cambiarEstadoModal3(!estadoModal3)
     }
 
-    const cuentaRecuperada = () =>{
-        if(email){
-            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`,{
+    const sendEmail = (user_email) => {
+        const templateparams = {
+            to_email: user_email,
+        }
+        emailjs
+        .send(
+            "service_sgj6zkl",
+            "template_tkhf0aj",
+            templateparams,
+            "hw9obwRaROyB_a5CR8r2_",
+        ).then((response)=>{
+            console.log("hola mundo", response)
+        }).catch((error)=>{
+            console.log("hola error", error)
+        })
+    }
+
+
+    const cuentaRecuperada = () => {
+        if (email) {
+            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`, {
                 correo: email
-            }).then((response) => {
-                console.log(response);
-                VentanaModal()
+            })
+            .then((response) => {
+                if (response.data.message === "correo_existe") {
+                    VentanaModal();
+                    sendEmail(email)
+                } else {
+                    VentanaModalNoencontrado();
+                }
             })
             .catch((error) => {
                 console.log(error);
-                VentanaModalNoencontrado()
-            
-            })}else{
-                alert('Porfavor ingresar su correo para poder encontrar su cuenta')
-}
+            });
+        } else {
+            alert('Por favor, ingrese su correo para poder encontrar su cuenta');
+        }
     }
-
 
 
     return(

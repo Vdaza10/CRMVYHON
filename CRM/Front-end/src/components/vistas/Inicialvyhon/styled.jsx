@@ -16,13 +16,12 @@ export const Container = styled.div`
 export const ContenedorInicial = styled.div`
     height: 10%;
     width: 100%;
-    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 2px 2px 10px 10px var( --color-boxSHADOW);
-    background: -webkit-linear-gradient(180deg, var(--color-background) 0%, var(--color-primary) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=var(--color-background),endColorstr=var(--color-primary),GradientType=1);
+    background: -webkit-linear-gradient(180deg, var(--color-opcionesHeader) 0%, var(--color-primary) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=var(--color-opcionesHeader),endColorstr=var(--color-primary),GradientType=1);
 `
 //contenedor logo
 export const Contenedor1 = styled.nav`
@@ -42,7 +41,7 @@ export const Menucontainer = styled.ul`
     align-items: center;
     `
 export const Opciones = styled.li`
-    background-color: var(--color-background);
+    background-color: var(--color-opcionesHeader);
     color: var(--colorTitulo);
     width: 140px;
     display: flex;
@@ -54,15 +53,14 @@ export const Opciones = styled.li`
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     &:hover {
-    background: -webkit-linear-gradient(180deg, var(--color-background) -10%, var(--color-primary) 250%);
+    background: -webkit-linear-gradient(180deg, var(--color-opcionesHeader) -10%, var(--color-opcionHeader) 250%);
     color: var( --colorTitulo);
 }
 `;
 
 export const Informacion = styled.div`
     height: 100%;
-    width: 100%;
-    /* background-color: blue;   */
+    width: 100%;    
 `
 //contendor tarjetas
 export const ContainerTarjetas = styled.div`
@@ -94,7 +92,7 @@ export const ContenedorImagen = styled.div`
 export const TarjetasInformativas = styled.div`
     height: 80%;
     width: 28%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-targetasInformativas);
     opacity: .9;
     border-radius: 3%;
     display: flex;

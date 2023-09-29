@@ -11,7 +11,7 @@ const VentanaModal1 = ({ estado, cambiarEstado }) => {
     cambiarEstado(false);
 
     // se redirigir a la página de inicio después de cerrar el modal
-    navigate('/principal');
+    navigate('/login');
   };
 
   return (
