@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../../vistas/menu/principal";
 import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla, Registros, Campos , Parrafo, BodyTabla, CajaIcono, FooterTabla, Boton } from "./styled";
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
@@ -77,14 +76,14 @@ const [buscar, setBuscar] = useState("")
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
-        const tareas = await Axios.get("http://localhost:3005/tareasTabla");
+        const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}}/tareasTabla`);
         console.log(tareas.data);
         setTarea(tareas.data);
     };
 
     const TabladeleteTarea = async (item) => {
         const res = await Axios.put(
-        `http://localhost:3005/tareastabla/desactivar/${item.idTarea}`
+        `${process.env.REACT_APP_URL_BACKEND}}/tareastabla/desactivar/${item.idTarea}`
         );
         console.log("Contacto eliminado con éxito.", res.data);
 
@@ -97,6 +96,9 @@ const [buscar, setBuscar] = useState("")
         ReflejarDatos();
     }, [setTarea]);
 
+    const Borrar = () => {
+        setBuscar("")
+    }
 
     return (
         <>
@@ -106,14 +108,13 @@ const [buscar, setBuscar] = useState("")
             </>
         ):(
         <>
-            <Menu /> {/* Muestra el componente Menu */}
             <ContainerPrincipal>
                 <Heder>
                     <h1>Tabla Tarea</h1>
                     <ContainerInput>
                         <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
                         <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
-                        <AiOutlineClose style={{ fontSize: "20px", color: "gray" }} />
+                        <AiOutlineClose style={{ fontSize: "20px", color: "gray", cursor:"pointer"}} onClick={Borrar}/>
                     </ContainerInput>
                 </Heder>
                 <HederTabla>

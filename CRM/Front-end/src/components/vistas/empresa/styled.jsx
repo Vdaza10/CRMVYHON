@@ -20,7 +20,7 @@ export const Parrafo = styled.p`
 `
 // Componente estilizado llamado Boton para botones
 export const Boton = styled.button`
-    background-color: #3eabee;
+    background-color: var(--color-boton);
     color: white;
     width: 115px;
     height: 39px;
@@ -33,12 +33,12 @@ export const Boton = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: #3eaaee93;
-        color: gray;
+        background-color: var(--color-botonHover);
+        color: var(--color-boton1Hover);
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 3px var( --color-buttonFocus);
         }
 `

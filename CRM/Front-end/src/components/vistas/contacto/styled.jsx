@@ -18,7 +18,7 @@ export const Parrafo = styled.p`
 `
 // Estilo para el botón
 export const Boton =styled.button`
-    background-color: #3aa8ec;
+    background-color: var(--color-boton);
     color: #eaeff1;
     width: 100px;
     height: 38px;
@@ -31,12 +31,12 @@ export const Boton =styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color:#3eaaee93;
+        background-color: var( --color-botonHover);
         color: gray;
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 3px var(--color-buttonFocus);
         }
 `

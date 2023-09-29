@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Parrafo, Boton } from "./styled";
 import imagen from "../../img/negocios.jpg";
-import Menu from "../menu/principal";
 import CrearNegocios from "../../formularios/crearNegocio";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +33,7 @@ function Retorno2() {
 
   const ReflejarDatos = async () => {
     try {
-      const response = await Axios.get("http://localhost:3005/negociotabla");
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`);
       setNegocios(response.data);
     } catch (error) {
       console.error("Error al obtener datos de negocios:", error);
@@ -53,7 +52,6 @@ function Retorno2() {
         <>
           {negocios.length <= 0 ? (
             <>
-              <Menu />
               <Container>
                 <img
                   src={imagen}

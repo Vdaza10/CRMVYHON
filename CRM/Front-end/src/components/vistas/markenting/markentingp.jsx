@@ -1,6 +1,5 @@
 import React , {useState}from "react";
 import { Contenedor, ContenedorCampañas, ContenedorCampañas1, Campañas, ContenedorCampañaImagen } from "./styled";
-import Menu from "../menu/principal";
 import imagen from "../../img/inicio1.avif"
 import markenting from "../../img/comunicacion.png"
 import promocion from "../../img/promocion.jpg"
@@ -49,20 +48,20 @@ const Campaña = () => {
             estado={modalAbierta}
             cambiarEstado={setModalAbierta}
             ></Audiollamada>
-            <Menu />
             <Contenedor>
                 <ContenedorCampañas>
-                    <Campañas>COMUNICACIÓN
+                    <Campañas>COMUNICATION
                         <Link to="/camunicacion"><ContenedorCampañaImagen src={markenting}></ContenedorCampañaImagen></Link>
                     </Campañas>                        
                     <Campañas>
-                    <Link to="/promocion"><ContenedorCampañaImagen src={promocion}></ContenedorCampañaImagen></Link>PROMOCIÓN
+                    <Link to="/promocion"><ContenedorCampañaImagen src={promocion}></ContenedorCampañaImagen></Link>PROMOTION
                     </Campañas>                        
 
                 </ContenedorCampañas>
                 
                 <ContenedorCampañas1 >
-                    <Campañas >CAMPAÑA DE CORREO
+                    <Campañas >
+                        MAIL CAMPAIGN
                     <Link to="/campañacorreo"><ContenedorCampañaImagen src={campañacorreo}></ContenedorCampañaImagen></Link>
                     </Campañas>
 
@@ -71,17 +70,17 @@ const Campaña = () => {
                     </Campañas>                    
 
                     <Campañas >
-                    <Link to="/pedidos"><ContenedorCampañaImagen src={pedidos}></ContenedorCampañaImagen></Link>PEDIDOS
+                    <Link to="/pedidos"><ContenedorCampañaImagen src={pedidos}></ContenedorCampañaImagen></Link> ORDERS
                     </Campañas>                    
 
                 </ContenedorCampañas1>
                 <ContenedorCampañas>
                     <Campañas onClick={() =>{ setModalAbierta(!modalAbierta)} }>
-                    LLAMADA DE AUDIO <ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen>
+                    AUDIO CALL <ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen>
                     </Campañas>                    
 
                     <Campañas>
-                    <Link to="/camapañasms"><ContenedorCampañaImagen src={campañasms}></ContenedorCampañaImagen></Link>CAMPAÑA SMS
+                    <Link to="/camapañasms"><ContenedorCampañaImagen src={campañasms}></ContenedorCampañaImagen></Link> SMS CAMPAIGN
                     </Campañas>                    
 
                 </ContenedorCampañas>

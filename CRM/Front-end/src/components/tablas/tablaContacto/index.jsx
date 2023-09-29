@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../../vistas/menu/principal";
 import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla, Caja1, Parrafo, ContainerSecundario, BodyTabla, CajaIcono, Boton, FooterTabla } from "./styled";
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
@@ -74,7 +73,7 @@ import jwt_decode from "jwt-decode"
 
 
     const TablagetContacto = async () => {
-        const contactos = await Axios.get("http://localhost:3005/contactotabla");
+        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
         setContacto(contactos.data);
         console.log(contactos.data);
     };
@@ -83,7 +82,7 @@ import jwt_decode from "jwt-decode"
     const TabladeleteContacto = async (item) => {
         try {
             await Axios.put(
-                `http://localhost:3005/contactotabla/desactivar/${item.idContacto}`);
+                `${process.env.REACT_APP_URL_BACKEND}/contactotabla/desactivar/${item.idContacto}`);
             console.log("Contacto desactivado con éxito.");
         } catch (error) {
             console.log("Error al desactivar el contacto", error);
@@ -111,18 +110,18 @@ import jwt_decode from "jwt-decode"
             <>
             {loading ? (
                 <>
-                <h1>cargando.....</h1>
+                <h1>cargando.....</h1>-
                 </>
             ):(
             <>
-                <Menu/> {/* Muestra el componente Menu */}
+              
                     <ContainerPrincipal>
                         <Heder>
                             <h1>Tabla Contacto</h1>
                             <ContainerInput>
                                 <AiOutlineSearch style={{fontSize:"25px" , color:"#4b4848"}}/>
                                 <Input placeholder="Buscar ..." value={buscar} onChange={BarraDeBusqueda}></Input>
-                                <AiOutlineClose style={{fontSize:"20px", color:"gray"}} onClick={Borrar} />
+                                <AiOutlineClose style={{fontSize:"20px", color:"gray", cursor:"pointer"}} onClick={Borrar} />
                             </ContainerInput>
                         </Heder>
                         <HederTabla>

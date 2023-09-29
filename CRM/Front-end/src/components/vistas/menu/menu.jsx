@@ -1,12 +1,13 @@
 // Importación de librerías y recursos necesarios
 import styled from "styled-components";
+import "../../../App.css"
 
 export const Contenedor = styled.div`
   height: 10%;
   width: 100%;
-  box-shadow: #525151bc 0px 3px 5px;
-  background-color: #0099ffac;
-  color: #000000;
+  box-shadow: var(--box-shadow) 0px 3px 5px;
+  background-color: var(--color-contenedor);
+  color: var(--colorTitulo);
   display: flex;
   align-items: center;
 `;
@@ -37,7 +38,7 @@ export const MenuItem = styled.li`
   }
   &:hover {
     width: 65%;
-    color: #333;
+    color: var(--color-MenuItem);
     transform: scale(1.2); // Aumentar ligeramente el tamaño al hacer hover
     text-decoration: underline;
   }
@@ -69,24 +70,6 @@ export const Ajustes = styled.div`
   }
 `;
 
-// // Imagen de perfil de usuario
-// export const ImagenPerfil = styled.div`
-//     background-image: url(${perfil});
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     width: 50px;
-//     height: 50px;
-//     border-radius: 100%;
-//     cursor: pointer;
-//     &:last-child {
-//     margin-right: 0;
-//     }
-//     &:hover{
-//         background-color: #ee3ed192;
-//         color: #661313;
-//     }
-// `;
 
 // Menú desplegable del perfil de usuario
 export const Menudesplegable = styled.div`

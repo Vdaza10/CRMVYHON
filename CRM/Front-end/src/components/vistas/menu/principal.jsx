@@ -1,11 +1,12 @@
     import React, { useState } from "react";
-    import { Link, NavLink, useLocation } from "react-router-dom";
+    import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
     import {Contenedor,Logo, MenuItem,Menucontainer,Menudesplegable,Navegacion, Ajustes,
     } from "./menu";
     import imagen from "../../img/logito.png";
     import Retorno1 from "../menu/configuracion";
     import { RiSettings4Fill } from "react-icons/ri";
-
+    import "../../../App.css"
+    
     const Menu = () => {
     // Estado para controlar la visibilidad del menú desplegable de perfil
     const [perfilDesplegable, setPerfilDesplegable] = useState(false);
@@ -24,6 +25,7 @@
     };
 
     return (
+        <>
         <Contenedor>
         {/* Barra de navegación */}
             <Navegacion>
@@ -90,7 +92,11 @@
             <Retorno1/>
             </Menudesplegable>
         </Ajustes>
-    </Contenedor>
+    </Contenedor> 
+    <div style={{height:"90vh", width:"100%"}}>
+        <Outlet/>
+    </div>       
+    </>
 );
 };
 export default Menu;

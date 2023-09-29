@@ -4,27 +4,25 @@ import {
   Header,
   Parrafo1,
   Main,
-  ContenedorPerfil,
-  InformacionActivacion,
-  ImagenPerfil,
-  Fecha,
-  ContenedorRegistro,
-  Registro,
-  DatosUsuario,
-  Informacion,
-  Nombre,
-  Editar,
-  Cajaheader,
   Container,
-  ContenedorPassword,
+  Cajaheader,
+  ContainPerfil,
+  BoxImgPerfil,
+  ImgPerfil,
+  InforPerfil,
+  Boxperfil,
+  SectionInfor,
+  HeaderInfor,
+  EditButton,
+  InfoPersonal,
+  BoxInfo,
+  InforperfilLetra,
 } from "./styled";
-import IPerfil from "../../../img/perfil.jpg";
-import Menu from "../../menu/principal";
+
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
-
 
 function PerfilUsuario() {
   const [modalAbierta, setModalAbierta] = useState(false);
@@ -34,10 +32,9 @@ function PerfilUsuario() {
 
   const [mostrarnotifcacion, setMostrarnotificacion] = useState(true);
   const location = useLocation();
-    const currentPath = location.pathname;
+  const currentPath = location.pathname;
 
   const notificacionClick = () => {
-    // Cambia el estado mostrarNotificacion
     setMostrarnotificacion(!mostrarnotifcacion);
   };
 
@@ -93,13 +90,19 @@ function PerfilUsuario() {
                   onUserUpdate={actualizarUsuario}
                 />
                 {/* header */}
-                <Menu />
                 <Header>
                   <Cajaheader>
-                    <Parrafo1 style={{
-                      background: currentPath === "/perfilusuario" ? "#787676d5" : "#ffffff",
-                      textDecoration: "none",
-                    }}>Mi perfil</Parrafo1>
+                    <Parrafo1
+                      style={{
+                        background:
+                          currentPath === "/perfilusuario"
+                            ? "#787676d5"
+                            : "#ffffff",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Mi perfil
+                    </Parrafo1>
                     <Parrafo1 onClick={notificacionClick}>
                       Notificaciones
                     </Parrafo1>
@@ -108,51 +111,63 @@ function PerfilUsuario() {
                 {/* body */}
                 <Main>
                   {/* informacion */}
-                  <ContenedorPerfil>
-                    <InformacionActivacion>
-                      <ImagenPerfil src={IPerfil}></ImagenPerfil>
-                      <ContenedorRegistro>
-                        <Registro style={{ marginTop: "25px" }}>
-                          Registrado el:
-                          <Fecha type="date">{userData.date}</Fecha>
-                        </Registro>
-                        <br />
-                        <Registro>
-                          Actualizado por última vez el:
-                          <Fecha type="date">09/08/2023 08:12</Fecha>
-                        </Registro>
-                      </ContenedorRegistro>
-                    </InformacionActivacion>
-                    <DatosUsuario>
-                      <h3 style={{ marginLeft: "20px" }}>Datos personales</h3>
-                      <Container>
-                        <Informacion>
-                          <Nombre>Nombre:</Nombre>
-                          <Nombre>Empresa:</Nombre>
-                          <Nombre>Email:</Nombre>
-                          <Nombre>contraseña:</Nombre>
-                        </Informacion>
-                        <Informacion>
-                          <Nombre>{userData.username.toUpperCase()}</Nombre>
-                          <Nombre>
-                            {userData.nombreEmpresa.toUpperCase()}
-                          </Nombre>
-                          <Nombre>{userData.email.toUpperCase()}</Nombre>
-                          <ContenedorPassword
-                            type="password"
-                            value={userData.password}
-                          ></ContenedorPassword>
-                        </Informacion>
-                      </Container>
-                      <Editar
-                        onClick={() => {
-                          setModalAbierta(!modalAbierta);
-                        }}
-                      >
-                        Editar
-                      </Editar>
-                    </DatosUsuario>
-                  </ContenedorPerfil>
+                  <Container>
+                    <ContainPerfil>
+                      <BoxImgPerfil>
+                        <ImgPerfil></ImgPerfil>
+                      </BoxImgPerfil>
+                      <Boxperfil>
+                        <InforPerfil>
+                          <InforperfilLetra>
+                            <h4>Email:</h4>
+                          </InforperfilLetra>
+                          <p>JASIL@GMAIL.COM</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <InforperfilLetra>
+                            <h4>Password:</h4>
+                          </InforperfilLetra>
+                          <p>Contraseña</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <InforperfilLetra>
+                            <h4>Empresa:</h4>
+                          </InforperfilLetra>
+                          <p>WowDesarrolloDigital</p>
+                        </InforPerfil>
+                      </Boxperfil>
+                    </ContainPerfil>
+
+                    <BoxInfo>
+                      <SectionInfor>
+                        <HeaderInfor>
+                          <h3>Informacion para editar</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+
+                        <InfoPersonal>
+                          <ul className="listInfor">
+                            <li>
+                              <strong>Nombre:</strong>
+                              <p>Jasil</p>
+                            </li>
+                            <li>
+                              <strong>Apellido:</strong>
+                              <p>Florez</p>
+                            </li>
+                            <li>
+                              <strong>Edad:</strong>
+                              <p>20</p>
+                            </li>
+                            <li>
+                              <strong>Fecha de inicio de Registro:</strong>
+                              <p>25/10/1925</p>
+                            </li>
+                          </ul>
+                        </InfoPersonal>
+                      </SectionInfor>
+                    </BoxInfo>
+                  </Container>
                 </Main>
               </Fondo>
             </>

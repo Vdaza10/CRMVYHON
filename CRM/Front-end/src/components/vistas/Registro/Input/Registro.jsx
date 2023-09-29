@@ -18,6 +18,7 @@ import validator from "validator";
 import VentanaModal1 from "../../../modales/mensajeRegistro";
 import UserExiste from "../../../modales/mensajeRegistroYaExiste";
 import swal from "sweetalert"
+import "../../../../App.css"
 
 const Registrarse = () => {
   const [password, setPassword] = useState("");
@@ -49,7 +50,7 @@ const Registrarse = () => {
   const Registro = (ev) => {
     ev.preventDefault();
     if (email && password && nombre && empresa) {
-      Axios.post("http://localhost:3005/users", {
+      Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`, {
         correo: email,
         contraseña: password,
         nombreUsuario: nombre,

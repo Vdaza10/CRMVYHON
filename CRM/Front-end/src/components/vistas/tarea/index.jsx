@@ -2,7 +2,6 @@ import React, { useState , useEffect } from "react";
 import Axios from "axios";
 import {  Container, Parrafo , Caja2, Boton } from "./styled";
 import imagen from "../../img/tarea.jpg"
-import Menu from "../menu/principal";
 import CrearTarea from "../../formularios/crearTarea";
 import TablaTarea from "../../tablas/tablaTarea";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +37,7 @@ function Retorno5() {
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
-        const tareas = await Axios.get("http://localhost:3005/tareasTabla");
+        const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`);
         setTarea(tareas.data);
     };
     useEffect(() => {
@@ -57,7 +56,6 @@ function Retorno5() {
         <> 
         {tarea.length <= 0 ? (
             <>
-            <Menu/>
                 <Container>
                     <Caja2>
                     <img src={imagen} alt="img" style={{width:'560px',height:'300px' }} />

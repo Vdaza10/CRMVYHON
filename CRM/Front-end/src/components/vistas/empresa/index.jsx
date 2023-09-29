@@ -1,12 +1,13 @@
 import React , { useState , useEffect } from "react";
 import {  Container , Parrafo , Boton } from "./styled";
 import imagen from "../../img/imgenempresa.jpg"
-import Menu from "../menu/principal";
 import TablaEmpresa from "../../tablas/tablaEmpresa";
 import Axios from "axios";
 import Retorno8 from "../../formularios/crearEmpresa";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+
+console.log(process.env.REACT_APP_URL_BACKEND, 'HOLAAAA')
 
 function Retorno7() {
     const [active, setActive] = useState(false); // Estado para controlar la visualización del componente Retorno8
@@ -35,7 +36,7 @@ function Retorno7() {
 
 
     const Getempresa = async() =>{
-        const empresas = await Axios.get("http://localhost:3005/companytabla");
+        const empresas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/companytabla`);
         setEmpresa (empresas.data)
     }
 
@@ -54,7 +55,6 @@ function Retorno7() {
         <>
         {empresa.length <= 0 ? (
             <>
-            <Menu/> {/* Muestra el componente Menu */}
                 <Container>
                       {/* Muestra una imagen */}
                     <img src={imagen} alt="img" style={{width:'400px',height:'355px', marginTop: "30px"}} />

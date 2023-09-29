@@ -1,23 +1,15 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js/auto"; // Importar Chart.js
-import Menu from "../../../menu/principal";
 import { Boxgrafica, ChartContainer, Container } from "./styled";
 
 function Grafica() {
   useEffect(() => {
     // Datos para el gráfico de barras
     const dataBar = {
-      labels: ["elias", "luis", "kendry", "arianis"],
+      labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
       datasets: [
         {
-          label: "Edad",
-          data: [12, 25, 12, 23],
-          backgroundColor: "#2b4df2",
-          borderColor: "#2b4df2",
-          borderWidth: 1,
-        },
-        {
-          label: "Peso",
+          label: "Pedidos",
           data: [20, 63, 30, 80],
           backgroundColor: "#18eb05",
           borderColor: "#f9f9f9",
@@ -28,7 +20,7 @@ function Grafica() {
 
     // Datos para el gráfico de tarta
     const dataPie = {
-      labels: ["grupo A", "grupo B", "grupo C", "grupo D"],
+      labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
       datasets: [
         {
           data: [4350, 7600, 5400, 2200],
@@ -42,7 +34,7 @@ function Grafica() {
       labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
       datasets: [
         {
-          label: "Valores",
+          label: "pedios",
           data: [50, 65, 70, 80, 95],
           borderColor: "#2b4df2",
           fill: false,
@@ -52,10 +44,10 @@ function Grafica() {
 
     // Datos para el gráfico de área
     const dataArea = {
-      labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
+      labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
       datasets: [
         {
-          label: "Valores",
+          label: "Pedidos",
           data: [50, 65, 70, 80, 95],
           backgroundColor: "rgba(43, 77, 242, 0.2)",
           borderColor: "#2b4df2",
@@ -115,7 +107,6 @@ function Grafica() {
 
   return (
     <Container>
-      <Menu />
 
       <Boxgrafica>
         <ChartContainer>

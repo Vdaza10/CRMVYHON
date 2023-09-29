@@ -1,4 +1,5 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter} from "react-router-dom";
+import "./App.css"
 
 import Inicio from "../src/components/vistas/Inicialvyhon/inicio";
 import Registro from "./components/vistas/Registro/Fondo/registroPrincipal";
@@ -18,6 +19,10 @@ import Campañasms from "./components/vistas/markenting/campañasms/campaña";
 import Grafica from "./components/vistas/menu/configuracion/graficas/index";
 import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campaña";
 import "./App.css"
+import Menu from "../src/components/vistas/menu/principal"
+
+
+
 
 function App() {
   return (
@@ -25,32 +30,36 @@ function App() {
       <Routes>
         {/* Rutas pricipales*/}
         <Route path="/" element={<Inicio />}>
-          {" "}
+          {" j"}
         </Route>
         <Route path="/registrarse" element={<Registro />}>
-          {" "}
+          {"j "}
         </Route>
         <Route path="/recuperar" element={<Recuperar />}>
-          {" "}
+          {" l"}
         </Route>
         <Route path="/login" element={<Login />}>
-          {" "}
+          {"j "}
         </Route>
         {/* Rutas del menu*/}
-        <Route path="/vistaprincipal" element={<Vistaprincipal />}></Route>
-        <Route path="/empresas" element={<Retorno7 />}></Route>
-        <Route path="/contactos" element={<Retorno3 />}></Route>
-        <Route path="/negocios" element={<Retorno2 />}></Route>
-        <Route path="/tareas" element={<Retorno5 />}></Route>
-        <Route path="/Marketing" element={<Campaña />}></Route>
-        <Route path="/perfilusuario" element={<PerfilUsuario />}></Route>
-        {/* Rutas de marketeting*/}
-        <Route path="/camunicacion" element={<Comunucacion />}></Route>
-        <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
-        <Route path="/promocion" element={<Promocion />}></Route>
-        <Route path="/camapañasms" element={<Campañasms />}></Route>
-        <Route path="/pedidos" element={<Pedidos />}></Route>
-        <Route path="/grafica" element={<Grafica />}></Route>
+        <Route element={<Menu/>}>
+          <Route path="/vistaprincipal" element={<Vistaprincipal />}></Route>
+          <Route path="/empresas" element={<Retorno7 />}></Route>
+          <Route path="/contactos" element={<Retorno3 />}></Route>
+          <Route path="/negocios" element={<Retorno2 />}></Route>
+          <Route path="/tareas" element={<Retorno5 />}></Route>
+          <Route path="/Marketing" element={<Campaña />}></Route>
+          {/* Rutas de marketeting*/}
+          <Route path="/camunicacion" element={<Comunucacion />}></Route>
+          <Route path="/promocion" element={<Promocion />}></Route>
+          <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
+          <Route path="/camapañasms" element={<Campañasms />}></Route>
+          <Route path="/pedidos" element={<Pedidos />}></Route>
+          <Route path="/perfilusuario" element={<PerfilUsuario/>}></Route>          
+          <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>   
+          <Route path="/grafica" element={<Grafica />}></Route>       
+        </Route>
+        
       </Routes>
     </BrowserRouter>
   );

@@ -27,7 +27,7 @@ export const crearNegocio = async (req, res) => {
 export const getNegocio = async (req, res) => {
     try {
         
-        const [rows] = await pool.query('SELECT * FROM Negocio')
+        const [rows] = await pool.query('SELECT * FROM Negocio WHERE estado ="activo"')
 
         res.json(rows)
     } catch (error) {

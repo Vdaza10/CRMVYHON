@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import {Fondo,Contenedor,Titulo,Parrafo,Input,Button,Olvidar,ContainerUltimo,Message} from "./styled";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import "../../../App.css"
 
 function Login() {
 
+  console.log(`${process.env.REACT_APP_URL_BACKEND}`,"voyytyy");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -12,7 +14,8 @@ function Login() {
     ev.preventDefault();
     setError(null);
     if (email && password) {
-      Axios.post("http://localhost:3005/login", {
+    
+      Axios.post(`${process.env.REACT_APP_URL_BACKEND}/login`, {
         correo: email,
         contraseña: password,
       })

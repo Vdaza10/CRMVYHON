@@ -5,6 +5,8 @@ import VentanaModal2 from "../../modales/mensajeRecuperarContraseña"
 import VentanaModal3 from "../../modales/mensajeContraseñaCorreo";
 import { useState } from "react";
 import Axios from "axios";
+import "../../../App.css"
+
 
 function Recuperar  () {
 
@@ -24,7 +26,7 @@ function Recuperar  () {
 
     const cuentaRecuperada = () =>{
         if(email){
-            Axios.post("http://localhost:3005/users",{
+            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`,{
                 correo: email
             }).then((response) => {
                 console.log(response);

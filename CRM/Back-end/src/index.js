@@ -1,17 +1,18 @@
 import express from "express";
-// import router from "./rutas/totals.routes.js";
+import { routers } from "./rutas/table.routes.js";
 import { router } from "./rutas/totals.routes.js";
 import cors from "cors"
+import {  PORT}from'./config.js'
 
 const app = express();
 
 
 app.use(express.json());
 app.use(cors())
-app.listen(3005, () => {
+app.listen(PORT, () => {
     console.log('Servidor corriendo en puerto 3005')
 })
 
 //ruta index//
-app.use(router)
+app.use(router, routers)
 

@@ -1,13 +1,5 @@
 import React,{useEffect,useState} from "react";
-import {
-  Container,
-  ContenedorModal,
-  Header,
-  Body,
-  Input1,
-  Caja,
-  Boton,
-  Select1,
+import {Container,ContenedorModal,Header,Body,Input1,Caja,Boton,Select1,
 } from "./styled";
 import { GrClose } from "react-icons/gr";
 import Axios from "axios";
@@ -28,7 +20,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
 
   const fetchNegocio = async () => {
     try {
-      const response = await Axios.get("http://localhost:3005/negocio");
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
       setNegocio(response.data);
       console.log(response.data);
     } catch (error) {
@@ -53,7 +45,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
     }
 
     if (cedula && negocio && nombre && apellido && telefono && telefonoFijo && direccion && correo && llamadaInicio && llamadaFinal) {
-      Axios.post("http://localhost:3005/llamada", {
+      Axios.post(`${process.env.REACT_APP_URL_BACKEND}/llamada`, {
         negocio: selectedNegocio.idNegocio,
         cedula: cedula,
         nombre: nombre,
@@ -87,7 +79,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
         <Container>
           <ContenedorModal>
             <Header>
-              <h1>Llamada</h1>
+              <h1>Call</h1>
               <GrClose
                 onClick={() => cambiarEstado(false)}
                 style={{ marginRight: "30px", color: "red", fontSize: "20px" }}
@@ -98,7 +90,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                 setSelectNegocio(event.target.value);
               }}>
 
-                <option value="option">selecionar negocio</option>
+                <option value="option">select business</option>
                 {negocio.map(negocio => (
                   <option key={negocio.idNegocio} value={negocio.idNegocio}>
                     {negocio.nombreNegocio}
@@ -106,7 +98,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                 ))};
               </Select1>
               <Input1
-                placeholder="Ingresar nombre"
+                placeholder="Enter name"
                 onKeyPress={(event) => {
                   const inputValue = event.key;
                   const regex = /[a-zA-Z ]/;
@@ -119,7 +111,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
               }}
               ></Input1>
               <Input1
-                placeholder="Ingresar apellido"
+                placeholder="Enter last name"
                 onKeyPress={(event) => {
                   const inputValue = event.key;
                   const regex = /[a-zA-Z ]/;
@@ -132,7 +124,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
               }}
               ></Input1>
               <Input1
-                placeholder="Ingresar Identificacion"
+                placeholder="Enter Identification"
                 onKeyPress={(event) => {
                   const inputValue = event.key;
                   const regex = /[0-9]/;
@@ -146,7 +138,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
               ></Input1>
               <Caja>
                 <Input1
-                  placeholder="Ingresar telefono personal"
+                  placeholder="Enter personal phone"
                   onKeyPress={(event) => {
                     const inputValue = event.key;
                     const regex = /[0-9]/;
@@ -159,8 +151,9 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                 }}
                   className="InputPequeño"
                 ></Input1>
+                
                 <Input1
-                  placeholder="Ingresar telefono fijo"
+                  placeholder="Enter landline phone"
                   onKeyPress={(event) => {
                     const inputValue = event.key;
                     const regex = /[0-9]/;
@@ -176,7 +169,8 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                 ></Input1>
               </Caja>
               <Input1
-                placeholder="Ingresar dirrecion"
+                placeholder="
+                Enter address"
                 onKeyPress={(event) => {
                   const inputValue = event.key;
                   const regex = /[a-zA-Z0-9 -#.]/;
@@ -190,7 +184,7 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
               }}
               ></Input1>
               <Input1
-                placeholder="Ingresar Correo electronico"
+                placeholder="Enter Email"
                 onKeyPress={(event) => {
                   const inputValue = event.key;
                   const regex = /[_.@a-zA-Z0-9]/;
@@ -204,13 +198,13 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
               ></Input1>
               <Caja>
                 <fieldset className="Cajafieldset">
-                  <legend>Hora inicio</legend>
+                  <legend>Start Time</legend>
                   <input className="InputHora" type="datetime-local" onChange={(event) => {
                                 setLlamadaInicio(event.target.value)
                             }} />
                 </fieldset>
                 <fieldset className="Cajafieldset">
-                  <legend>Hora final</legend>
+                  <legend>Final hour</legend>
                   <input className="InputHora" type="datetime-local" onChange={(event) => {
                                 setLlamadaFinal(event.target.value)
                             }}/>

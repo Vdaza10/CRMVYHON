@@ -128,13 +128,13 @@ export const Boton1 = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: #3eabee76;
-        color: gray;
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 3px var(--color-buttonFocus);
         }
 `
 export const Boton2 = styled.button`
@@ -147,11 +147,11 @@ export const Boton2 = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: #3eabee76;
-        color: gray;
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);}
+        box-shadow: 0 0 3px var(--color-buttonFocus);}
 `
