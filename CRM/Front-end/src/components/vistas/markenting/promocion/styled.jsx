@@ -63,9 +63,9 @@ export const ContainerImg = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    &.container{}
-    background-color: #e2cbcb;
-
+    &.containerImg{
+        background-color: #e2cbcb;
+    }
 `
 export const LettersHeaderCard = styled.div`
 color: #000;
@@ -109,7 +109,6 @@ export const LettersRow = styled.div`
     height: 70% ;
     display: flex;
     align-items: center;
-    justify-content: center;
 `
 
 export const Card = styled.div`
@@ -165,7 +164,6 @@ export const RowCard = styled.div`
 export const Card2 = styled.div`
     width: 33%;
     height: 100%;
-    border: solid 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -227,7 +225,6 @@ export const RowCard1 = styled.div`
     &.row6{
         height: 9%;
     }
-
 `
 
 export const FooterCard = styled.div`
@@ -244,6 +241,5 @@ export const Button = styled.button`
     background-color: #ffc506;
     border-radius: 4px;
     border: solid 2px #00000029;
-
 
 `

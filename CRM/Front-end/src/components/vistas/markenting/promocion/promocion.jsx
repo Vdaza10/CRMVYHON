@@ -32,11 +32,11 @@ const Promocion = () => {
                                 
                                 <RowCard>
                                 <Icono><FcCheckmark/> </Icono>
-                                <LettersRow> elias el rey </LettersRow>
+                                <LettersRow> free</LettersRow>
                                     </RowCard>
                                 <RowCard>
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> elias el rey </LettersRow>
+                                <LettersRow> free </LettersRow>
                                     </RowCard>
                                 <RowCard className="containerButton"> 
                                     <Button className="button1"> SIGN UP </Button>
@@ -45,7 +45,7 @@ const Promocion = () => {
                         </Card>
                         <Card2>
                             <HeaderCard2>
-                            <ContainerImg>
+                            <ContainerImg className="containerImg">
                                 <Image src={imagen} alt="" />
                             </ContainerImg>
                                 <LettersHeaderCard>
@@ -57,31 +57,31 @@ const Promocion = () => {
                             <BodyCard2>
                                 <RowCard2>
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> free member </LettersRow>
+                                <LettersRow> Month </LettersRow>
                                 </RowCard2>
                                 <RowCard2> 
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> free member </LettersRow>
+                                <LettersRow> Month </LettersRow>
                                 </RowCard2>
                                 <RowCard2 className="card3"> <Icono className="icono3"><FcCheckmark/></Icono>
-                                <LettersRow>member</LettersRow>
+                                <LettersRow>Month</LettersRow>
                                 </RowCard2>
                                 <RowCard2> 
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> member </LettersRow>
+                                <LettersRow> Month </LettersRow>
                                 </RowCard2>
                                 <RowCard2> 
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> member </LettersRow>
+                                <LettersRow> Month </LettersRow>
                                 </RowCard2>
                                 <RowCard2 className="card6"> 
                                 <Icono className="icono6"><FcCheckmark/></Icono>
-                                <LettersRow> free m </LettersRow>
+                                <LettersRow> Month </LettersRow>
                                 </RowCard2>
                             </BodyCard2>
                             <FooterCard>
                                 <Button
-                                style={{color:"#00000083"}}
+                            
                                 > SIGN UP </Button>
                             </FooterCard>
                         </Card2>
@@ -98,32 +98,30 @@ const Promocion = () => {
                             <BodyCard>
                                 <RowCard1>
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> free member </LettersRow>
+                                <LettersRow>  Year </LettersRow>
                                 </RowCard1>
                                 <RowCard1>
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> free member</LettersRow>
+                                <LettersRow>  Year </LettersRow>
                                 </RowCard1>
                                 <RowCard1 className="row3"> 
                                 <Icono className="icono3"><FcCheckmark/></Icono>
-                                <LettersRow> free member </LettersRow>
+                                <LettersRow> Year </LettersRow>
                                 </RowCard1>
                                 <RowCard1> 
                                     <Icono><FcCheckmark/></Icono>
-                                    <LettersRow> free member</LettersRow>
+                                    <LettersRow>  Year </LettersRow>
                                     </RowCard1>
                                 <RowCard1> 
                                 <Icono><FcCheckmark/></Icono>
-                                <LettersRow> free member</LettersRow>
+                                <LettersRow>  Year </LettersRow>
                                 </RowCard1>
                                 <RowCard1 className="row6">
                                 <Icono className="icono6"><FcCheckmark/></Icono>
-                                <LettersRow> free member </LettersRow>
+                                <LettersRow>  Year </LettersRow>
                                 </RowCard1>
                             </BodyCard>
-                            <FooterCard 
-                            style={{backgroundColor:"#dfeef8"}}
-                            >        
+                            <FooterCard>
                                 <Button>SIGN UP</Button>
                             </FooterCard>
                         </Card>

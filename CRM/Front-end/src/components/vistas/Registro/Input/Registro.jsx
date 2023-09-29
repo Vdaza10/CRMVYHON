@@ -83,14 +83,14 @@ const Registrarse = () => {
         <Contenedor2>
           <Titulo>
             <h2 style={{ fontWeight: "500", fontStyle: "italic" }}>
-              Registrate en Vyhon
+              Sign up for Vyhon
             </h2>
           </Titulo>
 
           <Contenedor1 style={{ marginTop: "20px" }}>
             <TextoImput>
               <h3 style={{ margin: "0", fontWeight: "500" }}>
-                ¿Cuál es tu nombre?
+                ¿What's your name?
               </h3>
             </TextoImput>
             <Input 
@@ -112,7 +112,7 @@ const Registrarse = () => {
           <Contenedor1>
             <TextoImput>
               <h3 style={{ margin: "0", fontWeight: "500" }}>
-                ¿ Para que empresa trabajas ?
+                ¿What company you work for ?
               </h3>
             </TextoImput>
             <Input
@@ -134,7 +134,7 @@ const Registrarse = () => {
           <Contenedor1>
             <TextoImput>
               <h3 style={{ margin: "0", fontWeight: "500" }}>
-                ¿Cuál es tu correo electrónico?
+                ¿What is your email?
               </h3>
             </TextoImput>
             <Input
@@ -166,7 +166,7 @@ const Registrarse = () => {
           <Contenedor1>
             <TextoImput>
               <h3 style={{ margin: "0", fontWeight: "500" }}>
-                Crea una contraseña para tu cuenta
+              Create a password for your account
               </h3>
             </TextoImput>
             <Input
@@ -181,14 +181,14 @@ const Registrarse = () => {
           <Checkbox>
             <Seleccionar type="checkbox" required ></Seleccionar>
             <TextoCheckbox>
-              Estoy deacuerdo con los terminos de uso del software y conozco{" "}
+              I agree with the terms of use of the software and know{" "}
               <br />
-              la polica de privacidad
+              the privacy policy
             </TextoCheckbox>
           </Checkbox>
 
           <ContaienrBoton>
-            <Boton type="submit" onClick={Registro}>Crear cuenta</Boton>
+            <Boton type="submit" onClick={Registro}>Create Account</Boton>
           </ContaienrBoton>
         </Contenedor2>
       </Contenedor>
