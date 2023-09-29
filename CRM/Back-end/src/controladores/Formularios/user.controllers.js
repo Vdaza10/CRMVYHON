@@ -26,6 +26,7 @@ export const getUsersid = async(req,res)=>{
         return res.status(401).json({message:'No se encuentra el usuario'});
     }
 }
+//       
 export const createUsers = async (req, res) => {
     try {
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;

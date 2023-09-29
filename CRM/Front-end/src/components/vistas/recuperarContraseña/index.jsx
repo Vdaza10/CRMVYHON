@@ -53,6 +53,7 @@ function Recuperar  () {
                 if (response.data.message === "correo_existe") {
                     VentanaModal();
                     sendEmail(email); 
+                    sendEmail(email)
                 } else {
                     VentanaModalNoencontrado();
                 }
