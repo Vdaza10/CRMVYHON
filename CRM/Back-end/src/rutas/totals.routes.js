@@ -8,8 +8,7 @@ import * as tareaCrtl from "../controladores/Formularios/tarea.js"; //tareas// *
 import * as logincrtl from "../controladores/Formularios/login.js"
 import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"//pedidos
 import * as llamadaCrtl from "../controladores/llamada/llamadaAudio.js"//llamada
-import { validatetoken } from "../middlewares/JwtAuth.js";
-import { SERVIDOR_BACKEND } from "../config.js";
+
 
 
 export const router = Router();

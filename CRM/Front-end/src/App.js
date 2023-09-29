@@ -18,11 +18,9 @@ import Pedidos from "./components/vistas/markenting/pedidos/pedidos";
 import Campañasms from "./components/vistas/markenting/campañasms/campaña";
 import Grafica from "./components/vistas/menu/configuracion/graficas/index";
 import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campaña";
+// import llamadaAudioModal from "./components/vistas/markenting/llamadaAudioModal/index"
 import "./App.css"
 import Menu from "../src/components/vistas/menu/principal"
-
-
-
 
 function App() {
   return (
@@ -39,8 +37,9 @@ function App() {
           {" l"}
         </Route>
         <Route path="/login" element={<Login />}>
-          {"j "}
+          {" l"}
         </Route>
+          
         {/* Rutas del menu*/}
         <Route element={<Menu/>}>
           <Route path="/vistaprincipal" element={<Vistaprincipal />}></Route>
@@ -48,8 +47,8 @@ function App() {
           <Route path="/contactos" element={<Retorno3 />}></Route>
           <Route path="/negocios" element={<Retorno2 />}></Route>
           <Route path="/tareas" element={<Retorno5 />}></Route>
-          <Route path="/Marketing" element={<Campaña />}></Route>
           {/* Rutas de marketeting*/}
+          <Route path="/Marketing" element={<Campaña />}></Route>
           <Route path="/camunicacion" element={<Comunucacion />}></Route>
           <Route path="/promocion" element={<Promocion />}></Route>
           <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
