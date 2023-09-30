@@ -142,9 +142,11 @@ function Retorno4({setContactoCreado}) {
           </Parrafo1>
           <Input placeholder="Ingresar el email del contacto" 
           maxLength={30}
+          type='email'
+          required
           onKeyPress={(event) => {
             const inputValue = event.key;
-            const regex = /[_.@a-zA-Z0-9]/;
+            const regex = /[_.@a-zA-Z0-9]/;  
             if (!regex.test(inputValue)) {
               event.preventDefault(); 
             }

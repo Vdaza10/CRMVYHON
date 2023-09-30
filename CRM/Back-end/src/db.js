@@ -10,4 +10,4 @@ export const pool  =  createPool ( {
     password:DB_PASSWORD
 } ) ;
 
-export const Secret = "CLAVESUPERSECRETA"; 
+export const Secret = "CLAVESUPERSECRETA";  

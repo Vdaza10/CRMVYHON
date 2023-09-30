@@ -1,95 +1,91 @@
-import React , {useState}from "react";
-import { Contenedor, ContenedorCampañas, ContenedorCampañas1, Campañas, ContenedorCampañaImagen } from "./styled";
-import imagen from "../../img/inicio1.avif"
-import markenting from "../../img/comunicacion.png"
-import promocion from "../../img/promocion.jpg"
-import pedidos from "../../img/pedidos.jpg"
-import campañasms from "../../img/campañaSMS.png"
-import campañacorreo from "../../img/campañaCorreo.jpg"
-import llamadaaudio from "../../img/llamadaAudio.jpg"
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect} from "react";
 import jwt_decode from "jwt-decode";
-import Audiollamada from "../markenting/llamadaAudioModal";
+import { Enlace, PanelControl, Modulo, Submodulo } from "./styled";
 
-const Campaña = () => {
-    const [modalAbierta, setModalAbierta] = useState(false);
-    const [loading, setLoading] = useState(true)
+const Campaign = () => {
+  const [loading, setLoading] = useState(true);
+  const [moduloAbierto, setModuloAbierto] = useState(null); 
+  const navigate = useNavigate();
 
-    let navigate = useNavigate();
-
-    useEffect(() => {
-
-        const userToken = localStorage.getItem("user");
-        if(userToken){
-            try {
-            const token = jwt_decode(userToken);
+  useEffect(() => {
+    const userToken = localStorage.getItem("user");
+    if (userToken) {
+      try {
+        const token = jwt_decode(userToken);
         console.log(token, "❤️❤️💕💕💕❤️");
         setLoading(false);
-            } catch (error) {
-                console.error("Error al decodificar el token:", error);
-                navigate('/'); 
-            }
-        }else{
-            navigate('/');
-        }
-    },[navigate])
+      } catch (error) {
+        console.error("Error al decodificar el token:", error);
+        navigate("/");
+      }
+    } else {
+      navigate("/");
+    }
+  }, [navigate]);
 
-    return (
+  const toggleModulo = (modulo) => {
+    if (moduloAbierto === modulo) {
+      setModuloAbierto(null);
+    } else {
+      setModuloAbierto(modulo);
+    }
+  };
+
+  return (
+    <>
+      {loading ? (
+        <h1>Cargando...</h1>
+      ) : (
         <>
-        {loading ? (
-            <>
-            <h1>cargando.....</h1>
-            </>
-        ):(
-        <>
-        <Audiollamada 
-            estado={modalAbierta}
-            cambiarEstado={setModalAbierta}
-            ></Audiollamada>
-            <Contenedor>
-                <ContenedorCampañas>
-                    <Campañas>COMUNICATION
-                        <Link to="/camunicacion"><ContenedorCampañaImagen src={markenting}></ContenedorCampañaImagen></Link>
-                    </Campañas>                        
-                    <Campañas>
-                    <Link to="/promocion"><ContenedorCampañaImagen src={promocion}></ContenedorCampañaImagen></Link>PROMOTION
-                    </Campañas>                        
+          <PanelControl>
+            <h2>Panel de Control</h2>
+            <Modulo
+              onClick={() => toggleModulo("moduloCampañas")}
+              className={moduloAbierto === "moduloCampañas" ? "abierto" : ""}
+            >
+              Communicattio
+            </Modulo>
+            {moduloAbierto === "moduloCampañas" && (
+              <Submodulo>
+                <Enlace href="/submodulo1-1">Email Campaign</Enlace>
+                <Enlace href="/submodulo1-2">Audio Call</Enlace>
+                <Enlace href="/submodulo1-3">SMS Campaign</Enlace>
+              </Submodulo>
+            )}
 
-                </ContenedorCampañas>
-                
-                <ContenedorCampañas1 >
-                    <Campañas >
-                        MAIL CAMPAIGN
-                    <Link to="/campañacorreo"><ContenedorCampañaImagen src={campañacorreo}></ContenedorCampañaImagen></Link>
-                    </Campañas>
+            <Modulo
+              onClick={() => toggleModulo("moduloOtro")}
+              className={moduloAbierto === "moduloOtro" ? "abierto" : ""}
+            >
+              Sale process
+            </Modulo>
+            {moduloAbierto === "moduloOtro" && (
+              <Submodulo>
+                <Enlace href="/submodulo2-1">menbership</Enlace>
+                <Enlace href="/submodulo2-2">orders</Enlace>
+              </Submodulo>
+            )}
 
-                    <Campañas className="center" style={{  alignConten: "center", justifyContent: 'center' }}>
-                    <ContenedorCampañaImagen src={imagen} />
-                    </Campañas>                    
-
-                    <Campañas >
-                    <Link to="/pedidos"><ContenedorCampañaImagen src={pedidos}></ContenedorCampañaImagen></Link> ORDERS
-                    </Campañas>                    
-
-                </ContenedorCampañas1>
-                <ContenedorCampañas>
-                    <Campañas onClick={() =>{ setModalAbierta(!modalAbierta)} }>
-                    AUDIO CALL <ContenedorCampañaImagen src={llamadaaudio}></ContenedorCampañaImagen>
-                    </Campañas>                    
-
-                    <Campañas>
-                    <Link to="/camapañasms"><ContenedorCampañaImagen src={campañasms}></ContenedorCampañaImagen></Link> SMS CAMPAIGN
-                    </Campañas>                    
-
-                </ContenedorCampañas>
-            </Contenedor>
-            
+            <Modulo
+              onClick={() => toggleModulo("moduloPerdido")}
+              className={moduloAbierto === "moduloPerdido" ? "abierto" : ""}
+            >
+              MODULO PERDIDO
+            </Modulo>
+            {moduloAbierto === "moduloPerdido" && (
+              <div>
+                <Submodulo>
+                  <Enlace href="/submodulo2-1">Submódulo 2.1</Enlace>
+                  <Enlace href="/submodulo2-2">Submódulo 2.2</Enlace>
+                </Submodulo>
+              </div>
+            )}
+          </PanelControl>
         </>
-        )}
-        </>
-    )
-}
+      )}
+    </>
+  );
+};
 
-export default Campaña ;
+export default Campaign;
