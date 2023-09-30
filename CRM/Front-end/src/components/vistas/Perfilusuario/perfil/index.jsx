@@ -15,20 +15,24 @@ import {
   EditButton,
   BodyInfor,
   BoxInfo,
-  InforperfilLetra,
-  ContainerInfot,
-  LabelInfort,
-  Caja, 
-  InputInfor
+  InforperfilLetra
+ /*  ContainerInfot, 
+  InputInfor,
+  Caja */
 } from "./styled";
-import { HiCake } from 'react-icons/hi';
+// import { HiCake } from 'react-icons/hi';
+// import { BiSolidUser } from 'react-icons/bi';
+// import { BsTelephoneFill } from 'react-icons/bs';
+// import { FaFlag } from 'react-icons/fa';
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
+import DatosPerfil from "../../../formularios/crearDatosPerfil";
 
 function PerfilUsuario() {
+  const [modalDatos, setModalDatos] = useState(false);
   const [modalAbierta, setModalAbierta] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({});
@@ -95,6 +99,10 @@ function PerfilUsuario() {
                 />
                 {/* header */}
                 <Header>
+                  <DatosPerfil 
+                  estado = {modalDatos}
+                  cambiarEstado = {setModalDatos}
+                  ></DatosPerfil>
                   <Cajaheader>
                     <Parrafo1
                       style={{
@@ -148,28 +156,32 @@ function PerfilUsuario() {
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
+                        {/* <Caja>
                         <ContainerInfot>
-                          <LabelInfort>
-                              <h3>Informacion basica</h3>
-                            <Caja>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
                               <HiCake className="Icono"></HiCake>
                               <InputInfor></InputInfor>
-                            </Caja>
-                            <Caja>
-                              <HiCake className="Icono"></HiCake>
+                              </fieldset>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <BiSolidUser className="Icono"></BiSolidUser>
                               <InputInfor></InputInfor>
-                            </Caja>
-                            <Caja>
-                              <HiCake className="Icono"></HiCake>
+                              </fieldset>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <BsTelephoneFill className="Icono"></BsTelephoneFill>
                               <InputInfor></InputInfor>
-                            </Caja>
-                            <Caja>
-                              <HiCake className="Icono"></HiCake>
+                              </fieldset>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <FaFlag className="Icono"></FaFlag>
                               <InputInfor></InputInfor>
-                            </Caja>
-                          </LabelInfort>
+                              </fieldset>
                         </ContainerInfot>
-                        <ContainerInfot></ContainerInfot>
+                        </Caja> */}
+                        <h3>NO HAY DATOS ADICIONALES</h3>
+                        <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
                         </BodyInfor>
                     </BoxInfo>
                   </Container>

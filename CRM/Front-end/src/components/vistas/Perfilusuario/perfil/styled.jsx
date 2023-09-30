@@ -124,7 +124,7 @@ export const BoxInfo = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #ff00008c;
+  /* background-color: #ff00008c; */
 `;
 
 
@@ -163,41 +163,57 @@ export const BodyInfor = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #a92323;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: #a92323; */
+  
+  button{
+    height: 7%;
+    width: 15%;
+    background-color: #49a3db;
+    color: white;
+    border: none;
+    font-size: 18px;
+    &:hover {
+        background-color: var(--color-buttonHover);
+        color: var(--color-boton1Hover);
+    }
+  }
 `;
+export const Caja = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`
 
 export const ContainerInfot = styled.div`
-  height: 100%;
-  width: 50%;
-  border: solid red 1px;
+  height: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-export const LabelInfort = styled.div`
-  height: 50%;
-  width: 100%;
-background-color: aqua;
-display: flex;
-flex-direction: column;
-align-items: center;
-`
-export const Caja = styled.div`
-  width: 70%;
-  height: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: pink;
-  margin-bottom: 10px;
-  border: solid gray 1px;
+  /* justify-content: center; */
+  background-color: aqua;
+
   .Icono{
     font-size: 30px;
   }
+  .Cajafieldset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 5%;
+    margin-top: 22px;
+  }
 `
 export const InputInfor = styled.input`
-  height: 70%;
-  width: 90%;
-
+  height: 20px;
+  width: 98%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 10px;
 `
 
