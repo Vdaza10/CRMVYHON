@@ -57,7 +57,7 @@ export const createUsers = async (req, res) => {
 export const  recuperar = async(req, res) =>{
     try {
         const {correo} = req.body
-        const existe = 'SELECT correo FROM registro where correo = '
+        const existe = 'SELECT correo FROM registro where correo = ?'
         const evaluar = [correo];
         const [resultado] = await pool.query(existe, evaluar);
         if (resultado.length > 0) {
