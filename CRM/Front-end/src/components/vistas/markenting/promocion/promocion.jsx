@@ -24,7 +24,7 @@ const Promocion = () => {
                                     <Image src={imagen1} alt="" />
                                 </ContainerImg>
                                 <LettersHeaderCard>
-                                <LettersHeaderCard className="letters1"> free member</LettersHeaderCard>
+                                <LettersHeaderCard className="letters1"> free member</LettersHeaderCard>23
                                 <LettersHeaderCard className="letters2"> free </LettersHeaderCard>
                                 </LettersHeaderCard>
                             </HeaderCard>
