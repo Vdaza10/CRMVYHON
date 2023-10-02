@@ -10,7 +10,6 @@ import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"//pedidos
 import * as llamadaCrtl from "../controladores/llamada/llamadaAudio.js"//llamada
 
 
-
 export const router = Router();
 
 //registro
@@ -28,7 +27,7 @@ router.get('/login/getClient/',  logincrtl.getLogin);
 
 
 //empresa// 
-router.post('/company', empresaCrtl.createEmpresa);
+router.post('/company',validatetoken, empresaCrtl.createEmpresa);
 router.get('/company', empresaCrtl.getEmpresas);
 router.get('/company/:id', empresaCrtl.getEmpresaId);
 router.patch('/company/:id', empresaCrtl.updateEmpresas)

@@ -19,11 +19,18 @@ export const Login = async(req,res) =>{
     try {
         const {correo,contraseña} = req.body;     
         const [rows] = await pool.query('SELECT * FROM registro where correo = ?',[correo]);
+        
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
         const contraseñaEncrypt = rows[0].contraseña
         const verify = await compare(contraseña,contraseñaEncrypt)
+
         if(!verify){
             return res.status(404).json({message: "contraseña invalida"})
         }
+        
+
         const Authorization = jwt.sign(
             { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
             Secret,
@@ -31,6 +38,7 @@ export const Login = async(req,res) =>{
             expiresIn: "7d",
             }
         );
+
         console.log(Authorization, "🎶🎶🎶");
         res.json(Authorization)
     } catch (error) {
