@@ -6,14 +6,13 @@ import {
   PanelControl,
   Modulo,
   Submodulo,
-  VisualComponents,
   ContenedorVisual,
+  ContenedorComponents,
 } from "./styled";
 import EmailCampaignComponent from "./campañacorreo/campaña";
 import SMSCampaignComponent from "./comunicacion/comunicacion";
-import Audiollamada from './llamadaAudioModal/index'
-import Pedidos from './pedidos/pedidos'
-
+import Audiollamada from "./llamadaAudioModal/index";
+import Pedidos from "./pedidos/pedidos";
 
 const modulesData = [
   {
@@ -117,18 +116,16 @@ const Campaign = () => {
               </div>
             ))}
           </PanelControl>
-          <VisualComponents>
-            {componenteAbierto &&
-              submoduloAbierto &&
-              modulesData
-                .find((module) => module.id === componenteAbierto)
-                .submodules.map((submodule) => (
-                  <div key={submodule.name}>
-                    {submoduloAbierto.name === submodule.name &&
-                      submodule.component && <submodule.component />}
-                  </div>
-                ))}
-          </VisualComponents>
+          {componenteAbierto &&
+            submoduloAbierto &&
+            modulesData
+              .find((module) => module.id === componenteAbierto)
+              .submodules.map((submodule) => (
+                <ContenedorComponents key={submodule.name}>
+                  {submoduloAbierto.name === submodule.name &&
+                    submodule.component && <submodule.component />}
+                </ContenedorComponents>
+              ))}
         </ContenedorVisual>
       )}
     </>

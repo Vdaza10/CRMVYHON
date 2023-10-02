@@ -1,21 +1,23 @@
 import styled from "styled-components";
 
 export const PanelControl = styled.div`
-  width: 15%;
+  width: 20%;
   height: 100%;
   flex-direction: column;
   display: flex;
   background-color: #c7c5c5;
 `;
-export const VisualComponents = styled.div`
-  width: 85%;
+
+export const ContenedorComponents = styled.div`
+  width: auto;
   height: 100%;
+  display: flex;
 `;
 export const ContenedorVisual = styled.div`
-  display: flex;
   height: 100%;
   width: 100%;
-  background-color: re;
+  background-color: #666464;
+  display: flex;
 `;
 
 export const Enlace = styled.a`
