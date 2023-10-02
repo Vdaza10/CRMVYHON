@@ -8,7 +8,7 @@ import * as tareaCrtl from "../controladores/Formularios/tarea.js"; //tareas// *
 import * as logincrtl from "../controladores/Formularios/login.js"
 import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"//pedidos
 import * as llamadaCrtl from "../controladores/llamada/llamadaAudio.js"//llamada
-
+import * as datosperfilCrtl from "../controladores/Formularios/datosPerfil.js"
 
 
 export const router = Router();
@@ -71,3 +71,6 @@ router.get('/pedidos', pedidosCrtl.getPedidos);
 
 //llamada
 router.post('/llamada', llamadaCrtl.crearLlamada);
+
+//Datos perfil
+router.post('/datosPerfil',datosperfilCrtl.datosAdicionalesPerfil)
