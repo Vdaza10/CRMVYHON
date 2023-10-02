@@ -4,7 +4,7 @@ export const crearPedidos = async (req, res) => {
     try {
         const {cliente, monto, fecha, estado } = req.body;
         const [rows] = await pool.query(
-            "INSERT INTO pedidos (cliente, monto, fecha, estado) VALUES (?,?,?, ?)",
+            "INSERT INTO pedidos (cliente, monto, fecha) VALUES (?,?,?)",
             [ cliente, monto, fecha]
         );
         console.log(rows);
@@ -12,8 +12,6 @@ export const crearPedidos = async (req, res) => {
             id: rows.insertId,
             cliente: cliente,
             monto: monto,
-            fecha: fecha,
-            estado: estado,
         });
         
     } catch (error) {
