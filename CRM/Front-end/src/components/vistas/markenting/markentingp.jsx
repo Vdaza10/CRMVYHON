@@ -1,11 +1,63 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import { Enlace, PanelControl, Modulo, Submodulo } from "./styled";
+import {
+  Enlace,
+  PanelControl,
+  Modulo,
+  Submodulo,
+  VisualComponents,
+  ContenedorVisual,
+} from "./styled";
+import EmailCampaignComponent from "./campañacorreo/campaña";
+import SMSCampaignComponent from "./comunicacion/comunicacion";
+import Audiollamada from './llamadaAudioModal/index'
+import Pedidos from './pedidos/pedidos'
+
+
+const modulesData = [
+  {
+    id: "EmailCampaign",
+    name: "Communicattio",
+    submodules: [
+      {
+        name: "Email Campaign",
+        component: EmailCampaignComponent,
+      },
+      {
+        name: "Llama Audio",
+        component: Audiollamada,
+      },
+    ],
+  },
+  {
+    id: "Adminitrativo",
+    name: "Administrativo",
+    submodules: [
+      {
+        name: "Pedidos",
+        component: Pedidos,
+      },
+      // Agrega más submódulos según sea necesario
+    ],
+  },
+  {
+    id: "SMSCampaign",
+    name: "SMS Campaign",
+    submodules: [
+      {
+        name: "SMS Campaign",
+        component: SMSCampaignComponent,
+      },
+    ],
+  },
+  // Agrega más módulos según sea necesario
+];
 
 const Campaign = () => {
   const [loading, setLoading] = useState(true);
-  const [moduloAbierto, setModuloAbierto] = useState(null); 
+  const [componenteAbierto, setComponenteAbierto] = useState(null);
+  const [submoduloAbierto, setSubmoduloAbierto] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,12 +76,18 @@ const Campaign = () => {
     }
   }, [navigate]);
 
-  const toggleModulo = (modulo) => {
-    if (moduloAbierto === modulo) {
-      setModuloAbierto(null);
+  const toggleComponente = (componente) => {
+    if (componenteAbierto === componente) {
+      setComponenteAbierto(null);
+      setSubmoduloAbierto(null);
     } else {
-      setModuloAbierto(modulo);
+      setComponenteAbierto(componente);
+      setSubmoduloAbierto(null);
     }
+  };
+
+  const toggleSubmodulo = (submodulo) => {
+    setSubmoduloAbierto(submodulo);
   };
 
   return (
@@ -37,52 +95,41 @@ const Campaign = () => {
       {loading ? (
         <h1>Cargando...</h1>
       ) : (
-        <>
+        <ContenedorVisual>
           <PanelControl>
             <h2>Panel de Control</h2>
-            <Modulo
-              onClick={() => toggleModulo("moduloCampañas")}
-              className={moduloAbierto === "moduloCampañas" ? "abierto" : ""}
-            >
-              Communicattio
-            </Modulo>
-            {moduloAbierto === "moduloCampañas" && (
-              <Submodulo>
-                <Enlace href="/submodulo1-1">Email Campaign</Enlace>
-                <Enlace href="/submodulo1-2">Audio Call</Enlace>
-                <Enlace href="/submodulo1-3">SMS Campaign</Enlace>
-              </Submodulo>
-            )}
-
-            <Modulo
-              onClick={() => toggleModulo("moduloOtro")}
-              className={moduloAbierto === "moduloOtro" ? "abierto" : ""}
-            >
-              Sale process
-            </Modulo>
-            {moduloAbierto === "moduloOtro" && (
-              <Submodulo>
-                <Enlace href="/submodulo2-1">menbership</Enlace>
-                <Enlace href="/submodulo2-2">orders</Enlace>
-              </Submodulo>
-            )}
-
-            <Modulo
-              onClick={() => toggleModulo("moduloPerdido")}
-              className={moduloAbierto === "moduloPerdido" ? "abierto" : ""}
-            >
-              MODULO PERDIDO
-            </Modulo>
-            {moduloAbierto === "moduloPerdido" && (
-              <div>
-                <Submodulo>
-                  <Enlace href="/submodulo2-1">Submódulo 2.1</Enlace>
-                  <Enlace href="/submodulo2-2">Submódulo 2.2</Enlace>
-                </Submodulo>
+            {modulesData.map((module) => (
+              <div key={module.id}>
+                <Modulo
+                  onClick={() => toggleComponente(module.id)}
+                  className={componenteAbierto === module.id ? "abierto" : ""}
+                >
+                  {module.name}
+                </Modulo>
+                {componenteAbierto === module.id &&
+                  module.submodules.map((submodule) => (
+                    <Submodulo key={submodule.name}>
+                      <Enlace onClick={() => toggleSubmodulo(submodule)}>
+                        {submodule.name}
+                      </Enlace>
+                    </Submodulo>
+                  ))}
               </div>
-            )}
+            ))}
           </PanelControl>
-        </>
+          <VisualComponents>
+            {componenteAbierto &&
+              submoduloAbierto &&
+              modulesData
+                .find((module) => module.id === componenteAbierto)
+                .submodules.map((submodule) => (
+                  <div key={submodule.name}>
+                    {submoduloAbierto.name === submodule.name &&
+                      submodule.component && <submodule.component />}
+                  </div>
+                ))}
+          </VisualComponents>
+        </ContenedorVisual>
       )}
     </>
   );
