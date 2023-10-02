@@ -63,7 +63,7 @@ const Campaign = () => {
             {moduloAbierto === "moduloOtro" && (
               <Submodulo>
                 <Enlace href="/submodulo2-1">menbership</Enlace>
-                <Enlace href="/submodulo2-2">orders</Enlace>
+                <Enlace href="/pedidos">orders</Enlace>
               </Submodulo>
             )}
 

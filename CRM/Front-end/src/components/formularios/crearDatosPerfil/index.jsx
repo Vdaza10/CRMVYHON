@@ -1,5 +1,5 @@
 import React from "react";
-import { InputInfor ,Caja , Input , Select1  } from "./styled";
+import { InputInfor ,Caja, Select1  } from "./styled";
 import { Container, ContenedorModal ,Header,Body ,Boton} from "../../vistas/markenting/llamadaAudioModal/styled";
 import { GrClose } from "react-icons/gr";
 import { BiSolidUser } from 'react-icons/bi';
