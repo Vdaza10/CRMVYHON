@@ -72,7 +72,7 @@
                 <MenuItem>Tasks</MenuItem>
             </NavLink>
             <NavLink
-                to="/Pedidos"
+                to="/pedidos"
                 style={{
                 color: currentPath === "/pedidos" ? "#000000" : "#ffffff",
                 textDecoration: "none",
