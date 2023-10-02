@@ -16,9 +16,6 @@ import {
   BodyInfor,
   BoxInfo,
   InforperfilLetra
- /*  ContainerInfot, 
-  InputInfor,
-  Caja */
 } from "./styled";
 // import { HiCake } from 'react-icons/hi';
 // import { BiSolidUser } from 'react-icons/bi';
@@ -156,30 +153,6 @@ function PerfilUsuario() {
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
-                        {/* <Caja>
-                        <ContainerInfot>
-                              <fieldset className="Cajafieldset">
-                                <legend>holaoolalaloao</legend>
-                              <HiCake className="Icono"></HiCake>
-                              <InputInfor></InputInfor>
-                              </fieldset>
-                              <fieldset className="Cajafieldset">
-                                <legend>holaoolalaloao</legend>
-                              <BiSolidUser className="Icono"></BiSolidUser>
-                              <InputInfor></InputInfor>
-                              </fieldset>
-                              <fieldset className="Cajafieldset">
-                                <legend>holaoolalaloao</legend>
-                              <BsTelephoneFill className="Icono"></BsTelephoneFill>
-                              <InputInfor></InputInfor>
-                              </fieldset>
-                              <fieldset className="Cajafieldset">
-                                <legend>holaoolalaloao</legend>
-                              <FaFlag className="Icono"></FaFlag>
-                              <InputInfor></InputInfor>
-                              </fieldset>
-                        </ContainerInfot>
-                        </Caja> */}
                         <h3>NO HAY DATOS ADICIONALES</h3>
                         <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
                         </BodyInfor>
