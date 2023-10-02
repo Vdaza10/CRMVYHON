@@ -69,12 +69,12 @@ function Recuperar  () {
     return(
         <Fondo>
             <Contenedor>
-            <Titulo>Recuperar cuenta</Titulo>
-            <Parrafo>Te solicitamos amablemente que proporciones tu dirección de correo electrónico con el fin de llevar a cabo la búsqueda de tu cuenta.</Parrafo>
-            <Input  type="email" placeholder="ingresar correo electronico"  onChange={(e)=> setEmail(e.target.value)} ></Input>
+            <Titulo>recover account</Titulo>
+            <Parrafo>We kindly request that you provide your email address in order to conduct your account search.</Parrafo>
+            <Input  type="email" placeholder="enter email"  onChange={(e)=> setEmail(e.target.value)} ></Input>
             <ConteinerBonton>
-                <Boton1 onClick={cuentaRecuperada}>Buscar</Boton1>
-                <Link to={"/"} style={{width:"35%", height:"30%"}}><Boton2>Cancelar</Boton2></Link>
+                <Boton1 onClick={cuentaRecuperada}>Look for</Boton1>
+                <Link to={"/"} style={{width:"35%", height:"30%"}}><Boton2>Cancel</Boton2></Link>
             </ConteinerBonton>
             </Contenedor>
             <VentanaModal2

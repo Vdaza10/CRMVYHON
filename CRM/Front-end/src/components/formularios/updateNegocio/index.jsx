@@ -103,7 +103,7 @@ function NegocioUpdate({ negocio }) {
         <Principal>
           <Caja1>
             <Parrafo>
-              <h3>Actualizar Negocio</h3>
+              <h3>Update Business</h3>
             </Parrafo>
             <Img src={imagen} alt="img" onClick={cerrarComponente} />
           </Caja1>
