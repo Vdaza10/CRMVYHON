@@ -48,7 +48,7 @@ function App() {
           <Route path="/negocios" element={<Retorno2 />}></Route>
           <Route path="/tareas" element={<Retorno5 />}></Route>
           {/* Rutas de marketeting*/}
-          <Route path="/Marketing" element={<Campaña />}></Route>
+          <Route path="/pedidos" element={<Campaña />}></Route>
           <Route path="/camunicacion" element={<Comunucacion />}></Route>
           <Route path="/promocion" element={<Promocion />}></Route>
           <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
