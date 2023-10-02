@@ -4,7 +4,6 @@ import { router } from "./rutas/totals.routes.js";
 import cors from "cors"
 import {  PORT}from'./config.js'
 
-
 const app = express();
 
 

@@ -9,7 +9,7 @@ const slideInRigth = keyframes`
     }
 `
 export const Contenedor = styled.div`
-    height: 90%;
+    height: 100%;
     width: 100%;
 `
 export const Contenedorcampaña1 = styled.div`

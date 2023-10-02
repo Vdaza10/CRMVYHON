@@ -11,20 +11,28 @@ import {
   ImgPerfil,
   InforPerfil,
   Boxperfil,
-  SectionInfor,
   HeaderInfor,
   EditButton,
-  InfoPersonal,
+  BodyInfor,
   BoxInfo,
-  InforperfilLetra,
+  InforperfilLetra
+ /*  ContainerInfot, 
+  InputInfor,
+  Caja */
 } from "./styled";
+// import { HiCake } from 'react-icons/hi';
+// import { BiSolidUser } from 'react-icons/bi';
+// import { BsTelephoneFill } from 'react-icons/bs';
+// import { FaFlag } from 'react-icons/fa';
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
+import DatosPerfil from "../../../formularios/crearDatosPerfil";
 
 function PerfilUsuario() {
+  const [modalDatos, setModalDatos] = useState(false);
   const [modalAbierta, setModalAbierta] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({});
@@ -91,6 +99,10 @@ function PerfilUsuario() {
                 />
                 {/* header */}
                 <Header>
+                  <DatosPerfil 
+                  estado = {modalDatos}
+                  cambiarEstado = {setModalDatos}
+                  ></DatosPerfil>
                   <Cajaheader>
                     <Parrafo1
                       style={{
@@ -139,33 +151,38 @@ function PerfilUsuario() {
                     </ContainPerfil>
 
                     <BoxInfo>
-                      <SectionInfor>
                         <HeaderInfor>
-                          <h3>Informacion para editar</h3>
+                          <h3>Información adicional</h3>
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
-
-                        <InfoPersonal>
-                          <ul className="listInfor">
-                            <li>
-                              <strong>Nombre:</strong>
-                              <p>Jasil</p>
-                            </li>
-                            <li>
-                              <strong>Apellido:</strong>
-                              <p>Florez</p>
-                            </li>
-                            <li>
-                              <strong>Edad:</strong>
-                              <p>20</p>
-                            </li>
-                            <li>
-                              <strong>Fecha de inicio de Registro:</strong>
-                              <p>25/10/1925</p>
-                            </li>
-                          </ul>
-                        </InfoPersonal>
-                      </SectionInfor>
+                        <BodyInfor>
+                        {/* <Caja>
+                        <ContainerInfot>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <HiCake className="Icono"></HiCake>
+                              <InputInfor></InputInfor>
+                              </fieldset>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <BiSolidUser className="Icono"></BiSolidUser>
+                              <InputInfor></InputInfor>
+                              </fieldset>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <BsTelephoneFill className="Icono"></BsTelephoneFill>
+                              <InputInfor></InputInfor>
+                              </fieldset>
+                              <fieldset className="Cajafieldset">
+                                <legend>holaoolalaloao</legend>
+                              <FaFlag className="Icono"></FaFlag>
+                              <InputInfor></InputInfor>
+                              </fieldset>
+                        </ContainerInfot>
+                        </Caja> */}
+                        <h3>NO HAY DATOS ADICIONALES</h3>
+                        <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
+                        </BodyInfor>
                     </BoxInfo>
                   </Container>
                 </Main>
