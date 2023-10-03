@@ -75,6 +75,14 @@ export const BoxImgPerfil = styled.div`
   align-items: center;
   justify-content: center;
 `;
+export const ImgPerfil = styled.div`
+  height: 60%;
+  width: 50%;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #c5c3c3;
+`;
 export const Boxperfil = styled.div`
   height: 50%;
   width: 100%;
@@ -84,14 +92,7 @@ export const Boxperfil = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 `;
-export const ImgPerfil = styled.div`
-  height: 60%;
-  width: 50%;
-  border-radius: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: #c5c3c3;
-`;
+
 export const InforPerfil = styled.div`
   width: 90%;
   height: 14%;
@@ -180,40 +181,56 @@ export const BodyInfor = styled.div`
     }
   }
 `;
-export const Caja = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
 
-export const ContainerInfot = styled.div`
-  height: 50%;
-  width: 100%;
+export const Cajas = styled.div`
+  height: 30%;
+  width: 95%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  /* justify-content: center; */
-  background-color: aqua;
+  justify-content: space-evenly;
+  /* background-color: aqua; */
+  /* border: solid 1px gray; */
+`
+export const Cajitas = styled.div`
+  height: 50%;
+  width: 30%;
+  display: flex;
+  /* background-color: aqua; */
+  border-bottom: 1px solid #7766552e;
+`
+export const ContainerIcono = styled.div`
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #ff7700; */
+  /* border: solid 1px red; */
 
-  .Icono{
-    font-size: 30px;
-  }
-  .Cajafieldset{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 5%;
-    margin-top: 22px;
+  .Iconos{
+    font-size: 35px;
+    color: #17163a;
   }
 `
-export const InputInfor = styled.input`
-  height: 20px;
-  width: 98%;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding-left: 10px;
+export const ContainerLetra = styled.div`
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #00ff33; */
+  /* border: solid 1px red; */
+
+  h4{
+    margin: 0;
+    margin-bottom: 7px;
+  }
+
+  p{
+    margin: 0;
+  }
 `
+
 

@@ -13,7 +13,6 @@ import * as datosperfilCrtl from "../controladores/Formularios/datosPerfil.js"
 export const router = Router();
 
 //registro
-
 router.get('/users', userCrtl.getUsers);
 router.post('/users', userCrtl.createUsers);
 router.post('/user',userCrtl.recuperar);
@@ -72,4 +71,6 @@ router.get('/pedidos', pedidosCrtl.getPedidos);
 router.post('/llamada', llamadaCrtl.crearLlamada);
 
 //Datos perfil
-router.post('/datosPerfil',datosperfilCrtl.datosAdicionalesPerfil)
+router.post('/datosPerfil/:idRegistro',datosperfilCrtl.datosAdicionalesPerfil);
+router.get('/tipoDocumeto',datosperfilCrtl.getTipoDocumento);
+router.get('/genero',datosperfilCrtl.getGenero);
