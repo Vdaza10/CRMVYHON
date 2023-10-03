@@ -2,34 +2,37 @@ import { pool } from "../../db.js";
 
 export const crearPedidos = async (req, res) => {
     try {
-        const {cliente, monto, fecha, estado } = req.body;
-        const [rows] = await pool.query(
-            "INSERT INTO pedidos (cliente, monto, fecha) VALUES (?,?,?)",
-            [ cliente, monto, fecha]
-        );
-        console.log(rows);
-        res.send({
-            id: rows.insertId,
-            cliente: cliente,
-            monto: monto,
-        });
-        
+      const { cliente, monto, fecha} = req.body;
+      const [rows] = await pool.query(
+        "INSERT INTO pedidos (cliente, monto, fecha) VALUES (?,?,?)",
+        [cliente, monto, fecha]
+      );
+  
+      console.log(rows);
+      res.send({
+        id: rows.insertId,
+        cliente: cliente,
+        monto: monto,
+        fecha: fecha,
+      });
+  
     } catch (error) {
-        console.error(error);
-        return res.status(500).json({ message: "Algo anda mal" });
+      console.error(error);
+      return res.status(500).json({ message: "Algo anda mal" });
     }
-};
+  };
 
-export const getPedidos = async (req, res) => {
+
+  export const getPedidos = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM pedidos')
-
-        res.json(rows)
+      const [rows] = await pool.query('SELECT * FROM pedidos');
+      res.json(rows);
     } catch (error) {
-        console.error(error);
-        return res.status(500).json({ message: "Algo anda mal" });
+      console.error(error);
+      return res.status(500).json({ message: "Algo anda mal" });
     }
-};
+  };
+  
 
 export const getPedidosId = async (req, res) => {
     const idPedido = req.params.id;

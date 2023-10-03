@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Button, FormGroup, FormularioContainer, Input, Label } from "./style.jsx";
+import React, { useState } from 'react';
+import { Button, FormGroup, FormularioContainer, Input, Label } from './style.jsx';
+import axios from 'axios';
 
 const FormularioPedido = ({ onTaskCreated }) => {
-    const [cliente, setCliente] = useState('');
-    const [monto, setMonto] = useState('');
+  const [cliente, setCliente] = useState('');
+  const [monto, setMonto] = useState('');
 
     const handleClienteChange = (event) => {
     setCliente(event.target.value);
@@ -17,19 +18,26 @@ const FormularioPedido = ({ onTaskCreated }) => {
     event.preventDefault();
 
     try {
-      // Obtener la fecha actual en el formato deseado (año/mes/día)
-        const fecha = new Date().toISOString().slice(0, 10);
-        const nuevaTarea = {
+      const fecha = new Date().toISOString().slice(0, 10);
+      const nuevaTarea = {
         cliente: cliente,
         monto: monto,
         fecha: fecha,
-        };
-        onTaskCreated(nuevaTarea);
-        setCliente('');
-        setMonto('');
-        console.log('Datos enviados correctamente.');
+      };
+
+      // Enviar la nueva tarea a la base de datos mediante una solicitud POST
+      const response = await axios.post("http://localhost:3005/pedidos", nuevaTarea);
+      const createdTask = response.data;
+
+      // Llamar a la función onTaskCreated y pasarle la nueva tarea creada
+      onTaskCreated(createdTask);
+
+      // Limpiar los campos después de enviar la tarea
+      setCliente('');
+      setMonto('');
+      console.log('Tarea creada correctamente.');
     } catch (error) {
-        console.error('Error al enviar los datos:', error);
+      console.error('Error al crear la tarea:', error);
     }
     };
 
