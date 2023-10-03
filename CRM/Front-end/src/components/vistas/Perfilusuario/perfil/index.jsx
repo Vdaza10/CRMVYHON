@@ -19,7 +19,7 @@ import {
   Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra
+  ContainerLetra,
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
@@ -57,7 +57,6 @@ function PerfilUsuario() {
       try {
         const token = jwt_decode(userToken);
         setUserData(token);
-        console.log( jwt_decode(userToken));
         setLoading(false);
       } catch (error) {
         console.error("Error al decodificar el token:", error);
@@ -148,7 +147,7 @@ function PerfilUsuario() {
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <p >{userData.password}</p>
+                          <p>{userData.password}</p>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>

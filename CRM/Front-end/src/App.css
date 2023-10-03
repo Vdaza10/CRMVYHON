@@ -1,11 +1,13 @@
-body,html{
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@1,8..144,300&display=swap");
+body,
+html {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Roboto Serif", serif;
 }
-#root{
+#root {
   width: 100%;
   height: 100%;
 }
@@ -14,22 +16,22 @@ body,html{
   /*vista tarjetas vyhon*/
   --color-primary: rgb(255, 255, 255);
   --color-targetasInformativas: #4ea9f9;
-  --color-opcionesHeader: #0099ff; 
+  --color-opcionesHeader: #0099ff;
   --color-boxSHADOW: #0099ff4c;
   --color-Footer: rgb(62 171 238);
   /* Define otras variables de estilo según sea necesario */
   /*vista login*/
-  --color-fondo: rgb(0,153,255);
-  --color-fondoo: rgba(0,153,255,1);
-  --color-input :  #0ba0e63c;
+  --color-fondo: rgb(0, 153, 255);
+  --color-fondoo: rgba(0, 153, 255, 1);
+  --color-input: #0ba0e63c;
   --color-button: rgb(82 186 250);
   --color-buttonHover: #3eabee76;
   --color-buttonFocus: rgba(0, 0, 0, 0.3);
   /*vista recuperar cuenta*/
   --color-boton1Hover: gray;
   --color-boton2: #00aaffcd;
-  --color-boton2Hover:#808080aa;
-  --colorboxShadow: rgba(0,0,0,0.77);
+  --color-boton2Hover: #808080aa;
+  --colorboxShadow: rgba(0, 0, 0, 0.77);
   --colorTitulo: #000000;
   /*vista registrarse*/
   --color-boton: #3aa8ec;
@@ -37,7 +39,7 @@ body,html{
   /*Vista Menu*/
   --color-contenedor: #0099ffac;
   --box-shadow: #525151bc;
-  --color-MenuItem: #333
+  --color-MenuItem: #333;
 }
 
 /* body {
