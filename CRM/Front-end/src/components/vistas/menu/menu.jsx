@@ -30,7 +30,6 @@ export const Menucontainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
 `;
 // Ítem individual del menú
 export const MenuItem = styled.li`
