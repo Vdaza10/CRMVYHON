@@ -158,7 +158,7 @@ const Registrarse = () => {
             ></Input>
             {mostrarAlertaCorreo && (
               <div style={{color:"red"}} className="alert alert-danger" role="alert">
-                ingrese todos los carracteres 
+                ingrese todos los caracteres 
               </div>
             )}
             {correoExistente && (
