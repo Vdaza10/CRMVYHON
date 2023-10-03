@@ -1,21 +1,29 @@
 import styled from "styled-components";
 
+export const ContenedorVisual = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ContenedorComponents = styled.div`
+  background-color: #4e4b4b;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: auto;
+  padding: 10px;
+
+`;
+
 export const PanelControl = styled.div`
   width: 15%;
   height: 100%;
   flex-direction: column;
   display: flex;
-  background-color: #c7c5c5;
-`;
-export const VisualComponents = styled.div`
-  width: 85%;
-  height: 100%;
-`;
-export const ContenedorVisual = styled.div`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  background-color: re;
+  background-color: #2793a3;
 `;
 
 export const Enlace = styled.a`
@@ -28,6 +36,7 @@ export const Enlace = styled.a`
     cursor: pointer;
   }
 `;
+
 export const Modulo = styled.div`
   width: 80%;
   font-size: 20px;

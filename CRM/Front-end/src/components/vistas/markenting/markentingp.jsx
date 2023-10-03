@@ -6,14 +6,13 @@ import {
   PanelControl,
   Modulo,
   Submodulo,
-  VisualComponents,
   ContenedorVisual,
+  ContenedorComponents, // Asegúrate de importar ContenedorComponents
 } from "./styled";
 import EmailCampaignComponent from "./campañacorreo/campaña";
 import SMSCampaignComponent from "./comunicacion/comunicacion";
-import Audiollamada from './llamadaAudioModal/index'
-import Pedidos from './pedidos/pedidos'
-
+import Audiollamada from "./llamadaAudioModal/index";
+import Promocion from "./promocion/promocion";
 
 const modulesData = [
   {
@@ -36,7 +35,11 @@ const modulesData = [
     submodules: [
       {
         name: "Pedidos",
-        component: Pedidos,
+        component: Promocion,
+      },
+      {
+        name: "Promotion",
+        component: Promocion,
       },
       // Agrega más submódulos según sea necesario
     ],
@@ -117,18 +120,18 @@ const Campaign = () => {
               </div>
             ))}
           </PanelControl>
-          <VisualComponents>
+          <ContenedorComponents>
             {componenteAbierto &&
               submoduloAbierto &&
               modulesData
                 .find((module) => module.id === componenteAbierto)
                 .submodules.map((submodule) => (
-                  <div key={submodule.name}>
+                  <div className="Pruebna" key={submodule.name}>
                     {submoduloAbierto.name === submodule.name &&
                       submodule.component && <submodule.component />}
                   </div>
                 ))}
-          </VisualComponents>
+          </ContenedorComponents>
         </ContenedorVisual>
       )}
     </>

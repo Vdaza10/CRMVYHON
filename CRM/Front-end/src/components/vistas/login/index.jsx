@@ -23,17 +23,19 @@ function Login() {
           console.log(response.data, "😊😊😊");
           const result = response.data
           if (response.data === "") {
-            alert("el usuario no existe");
+            alert("Bienvenido VYHON");
           } else {
             localStorage.setItem("user", JSON?.stringify(result));
             setTimeout(() => {
               window.location.href = "/vistaprincipal";
+             
             }, 1000)
           }
         })
         .catch((error) => {
           console.error(error);
-          alert("Error en la solicitud");
+          // alert("Error en la solicitud");
+          alert("el usuario no existe");
         });
     } else {
       setError(`ingrese tanto el usuario como la contraseña`);

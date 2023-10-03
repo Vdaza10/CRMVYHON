@@ -11,22 +11,22 @@ height: 25px;
 `
 export const Select1= styled.select`
 width: 95%;
-height: 9%;
-  /* background-color: transparent; */
+height: 43px;
   border: none;
   outline: none;
   margin-bottom: 5px;
-  /* padding-left: 10px; */
+  padding-right: 20px;
+  border: solid gray 1px;
+`
+export const CajaInput= styled.div`
+width: 95%;
+height: 8%;
+background-color: aqua;
+display: flex;
+align-items: center;
+justify-content: center;
 `
 
-export const Input = styled.input`
-width: 94%;
-height: 9%;
-  border: none;
-  outline: none;
-  padding-left: 5px;
-  margin-top: 10px;
-`
 
 export const Caja = styled.div`
     width: 100%;
@@ -35,10 +35,8 @@ export const Caja = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: red;
-
     .Icono{
-        font-size: 25px;
+        font-size: 19px;
     }
 
     .IconoGrandes{
@@ -48,7 +46,7 @@ export const Caja = styled.div`
     .Cajafieldset{
         width: 90%;
         height: 7%;
-        margin-bottom: 4px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
         justify-content: center;

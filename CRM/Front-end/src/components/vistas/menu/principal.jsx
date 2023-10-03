@@ -72,13 +72,13 @@
                 <MenuItem>Tareas</MenuItem>
             </NavLink>
             <NavLink
-                to="/Marketing"
+                to="/pedidos"
                 style={{
-                color: currentPath === "/Marketing" ? "#000000" : "#ffffff",
+                color: currentPath === "/pedidos" ? "#000000" : "#ffffff",
                 textDecoration: "none",
                 }}
-                onClick={() => opcionElegida("marketing")}>
-                <MenuItem>Marketing</MenuItem>
+                onClick={() => opcionElegida("pedidos")}>
+                <MenuItem>Pedidos</MenuItem>
             </NavLink>
         </Menucontainer>
 
