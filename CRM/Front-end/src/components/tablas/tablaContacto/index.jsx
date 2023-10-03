@@ -27,8 +27,7 @@ import jwt_decode from "jwt-decode"
             const userToken = localStorage.getItem("user");
             if(userToken){
                 try {
-                const token = jwt_decode(userToken);
-        console.log(token, "❤❤💕💕💕❤");
+            jwt_decode(userToken);
         setLoading(false);
                 } catch (error) {
                     console.error("Error al decodificar el token:", error);
@@ -47,7 +46,6 @@ import jwt_decode from "jwt-decode"
     //Inicio, Función de busqueda
         const BarraDeBusqueda = (e) => {
         setBuscar(e.target.value);
-        console.log(e.target.value);
     };
 
     //Metodo de filtrado tabla empresa
@@ -75,7 +73,7 @@ import jwt_decode from "jwt-decode"
     const TablagetContacto = async () => {
         const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
         setContacto(contactos.data);
-        console.log(contactos.data);
+       
     };
 
 

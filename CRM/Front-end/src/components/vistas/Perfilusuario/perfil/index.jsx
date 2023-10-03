@@ -50,8 +50,8 @@ function PerfilUsuario() {
       try {
         const token = jwt_decode(userToken);
         setUserData(token);
+        console.log( jwt_decode(userToken));
         setLoading(false);
-        console.log(token, "💕💕💕💕");
       } catch (error) {
         console.error("Error al decodificar el token:", error);
         navigate("/");
@@ -63,7 +63,6 @@ function PerfilUsuario() {
 
   const actualizarUsuario = () => {
     const updateUserToken = localStorage.getItem("user");
-    console.log(`Variable updateuserToken -->${updateUserToken}`);
     if (updateUserToken) {
       try {
         const token = jwt_decode(updateUserToken);
@@ -74,7 +73,6 @@ function PerfilUsuario() {
         navigate("/");
       }
     }
-    console.log(updateUserToken, "🤷‍♂️🤷‍♂️");
   };
 
   return (
@@ -130,19 +128,19 @@ function PerfilUsuario() {
                           <InforperfilLetra>
                             <h4>Email:</h4>
                           </InforperfilLetra>
-                          <p>JASIL@GMAIL.COM</p>
+                          <p>{userData.email}</p>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
                             <h4>Password:</h4>
-                          </InforperfilLetra>
-                          <p>Contraseña</p>
+                          </InforperfilLetra >
+                          <p >{userData.password}</p>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
                             <h4>Empresa:</h4>
                           </InforperfilLetra>
-                          <p>WowDesarrolloDigital</p>
+                          <p>{userData.nombreEmpresa}</p>
                         </InforPerfil>
                       </Boxperfil>
                     </ContainPerfil>

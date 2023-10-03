@@ -16,7 +16,7 @@ function Retorno4({setContactoCreado}) {
     try {
       const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/company`);
       setEmpresa(response.data);
-      console.log(response.data);
+
     } catch (error) {
       console.error('Error al obtener segmentos:', error);
     }
@@ -53,7 +53,7 @@ function Retorno4({setContactoCreado}) {
         contactoEmpresa: empresaContacto,
       })
         .then((response) => {
-          console.log(response.data);
+  
           const contactoCreado = {
             nombreContacto: nombreUsuario,
             cargo: cargo,

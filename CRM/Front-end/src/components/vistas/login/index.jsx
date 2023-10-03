@@ -6,7 +6,7 @@ import "../../../App.css"
 
 function Login() {
 
-  console.log(`${process.env.REACT_APP_URL_BACKEND}`,"voyytyy");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -20,7 +20,6 @@ function Login() {
         contraseña: password,
       })
         .then((response) => {
-          console.log(response.data, "😊😊😊");
           const result = response.data
           if (response.data === "") {
             alert("Bienvenido VYHON");
@@ -50,6 +49,7 @@ function Login() {
 
             <Parrafo>
               <h4 style={{ margin: "0" }}>Correo electronico</h4>
+            
             </Parrafo>
 
             <Input
@@ -57,6 +57,7 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
               name="email"
             ></Input>
+            <Message>{error}</Message>
 
             <Parrafo>
               <h4 style={{ margin: "0" }}>Contraseña</h4>

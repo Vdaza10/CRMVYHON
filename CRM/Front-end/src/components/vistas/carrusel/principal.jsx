@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {Carrusel, Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
-
 import {useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import carrusel from "../../img/imagenCarrusel.jpg"
@@ -51,8 +50,7 @@ useEffect(() => {
     const userToken = localStorage.getItem("user");
     if(userToken){
         try {
-        const token = jwt_decode(userToken);
-        console.log(token, "💕💕💕💕");
+            jwt_decode(userToken);
     setLoading(false);
         } catch (error) {
             console.error("Error al decodificar el token:", error);
