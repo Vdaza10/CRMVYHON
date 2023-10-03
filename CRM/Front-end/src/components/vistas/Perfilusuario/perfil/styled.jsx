@@ -232,5 +232,14 @@ export const ContainerLetra = styled.div`
     margin: 0;
   }
 `
+export const Inforpass = styled.div`
+  width: 90%;
+  background-color: red;
+`
+export const Password = styled.input`
+  width: 80%;
+  outline:none;
+
+`
 
 
