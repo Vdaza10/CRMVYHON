@@ -1,119 +1,15 @@
-/* import React, { useState, useEffect } from "react";
-import {
-  KanbanContainer,
-  KanbanTable,
-  KanbanHeader,
-  KanbanColumn,
-  KanbanCard,
-  CardData,
-  CardHead
-} from "./style.jsx";
-import FormularioPedido from "../../../formularios/CrearPedido/index.jsx";
-import axios from "axios";
-
-const Pedidos = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [pedidos, setPedidos] = useState({
-    porHacer: [],
-    enProgreso: [],
-    completado: []
-  });
-
-  const toggleForm = () => {
-    setShowForm(!showForm);
-  };
-
-  const createCard = async () => {
-    try {
-      const response = await axios.get("http://localhost:3005/pedidos");
-      setPedidos({
-        porHacer: response.data,
-        enProgreso: [],
-        completado: []
-      });
-    } catch (error) {
-      console.error("Error al obtener pedidos:", error);
-    }
-  };
-
-  useEffect(() => {
-    createCard();
-  }, []);
-
-  return (
-    <KanbanContainer>
-      <h2>Kanban View</h2>
-      <button onClick={toggleForm}>
-        {showForm ? "Ocultar Formulario" : "Mostrar Formulario"}
-      </button>
-      <KanbanTable>
-        <KanbanHeader>
-          <tr>
-            <th>Por Hacer</th>
-            <th>En Progreso</th>
-            <th>Completado</th>
-          </tr>
-        </KanbanHeader>
-        <tbody>
-          <tr>
-            <KanbanColumn>
-              <div className="kanban-column">
-                {pedidos.porHacer.map((pedido) => (
-                  <KanbanCard key={pedido.id}>
-                    <CardHead>{pedido.cliente}</CardHead>
-                    <CardData>cliente {pedido.cliente}</CardData>
-                    <CardData>monto {pedido.monto}</CardData>
-                    <CardData>fecha {pedido.fecha}</CardData>
-                  </KanbanCard>
-                ))}
-              </div>
-            </KanbanColumn>
-            <KanbanColumn>
-              <div className="kanban-column">
-                {pedidos.enProgreso.map((pedido) => (
-                  <KanbanCard key={pedido.id}>
-                    <CardHead>{pedido.cliente}</CardHead>
-                    <CardData>cliente {pedido.cliente}</CardData>
-                    <CardData>monto {pedido.monto}</CardData>
-                    <CardData>fecha {pedido.fecha}</CardData>
-                  </KanbanCard>
-                ))}
-              </div>
-            </KanbanColumn>
-            <KanbanColumn>
-              <div className="kanban-column">
-                {pedidos.completado.map((pedido) => (
-                  <KanbanCard key={pedido.id}>
-                    <CardHead>{pedido.cliente}</CardHead>
-                    <CardData>cliente {pedido.cliente}</CardData>
-                    <CardData>monto {pedido.monto}</CardData>
-                    <CardData>fecha {pedido.fecha}</CardData>
-                  </KanbanCard>
-                ))}
-              </div>
-            </KanbanColumn>
-          </tr>
-        </tbody>
-      </KanbanTable>
-      {showForm && <FormularioPedido />}
-    </KanbanContainer>
-  );
-};
-
-export default Pedidos; */
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Column, Container, Task } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
 
 const Pedidos = () => {
-  const initialTasks = {
-    todo: ['Tarea 1', 'Tarea 2', 'Tarea 3'],
-    inProgress: ['Tarea 4', 'Tarea 5'],
-    done: ['Tarea 6']
-  };
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState({
+    todo: [],
+    inProgress: [],
+    done: [],
+    newColumn: [],
+  });
   const [showForm, setShowForm] = useState(false);
 
   const toggleForm = () => {
@@ -135,40 +31,72 @@ const Pedidos = () => {
     updatedTasks[targetTaskType].push(movedTask);
 
     setTasks(updatedTasks);
+    // Guardar el estado actual de las tareas en el almacenamiento local
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   };
+
+  const createCard = async (newTask) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/pedidos`, newTask);
+      return response.data;
+    } catch (error) {
+      console.error('Error al crear la tarea:', error);
+      throw error; // Propagar el error para manejarlo en el componente que llama a createCard
+    }
+  };
+
+  const handleTaskCreated = async (newTask) => {
+    try {
+      const createdTask = await createCard(newTask);
+
+      // Agregar la nueva tarea a la columna 'Por hacer' y guardar el estado actual en el almacenamiento local
+      const updatedTasks = { ...tasks, todo: [...tasks.todo, createdTask] };
+      setTasks(updatedTasks);
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+
+      console.log('Tarea creada exitosamente:', createdTask);
+    } catch (error) {
+      console.error('Error al crear la tarea:', error);
+      // Manejar el error aquí o dejar que el componente que llama a handleTaskCreated lo maneje
+    }
+  };
+
+  const getTasks = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos`);
+      const tasksData = response.data;
+      console.log('Datos de las tareas obtenidas:', tasksData);
+      setTasks(tasksData); // Actualizar el estado con las tareas obtenidas del servidor
+    } catch (error) {
+      console.error('Error al obtener las tareas:', error);
+      // Manejar el error aquí o dejar que el componente que llama a getTasks lo maneje
+    }
+  };
+
+  useEffect(() => {
+    console.log('Obteniendo tareas...');
+    getTasks();
+  }, []); // Vacío para que se ejecute solo una vez al montar el componente
 
   return (
     <>
       <button onClick={toggleForm}>
         {showForm ? 'Ocultar Formulario' : 'Mostrar Formulario'}
       </button>
-      {showForm && <FormularioPedido/>}
-    <Container>
-      <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
-        <h2>Por hacer</h2>
-        {tasks.todo.map((task, index) => (
-          <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
-            {task}
-          </Task>
-        ))}
-      </Column>
-      <Column onDrop={(event) => handleDrop(event, 'inProgress')} onDragOver={(event) => event.preventDefault()}>
-        <h2>En progreso</h2>
-        {tasks.inProgress.map((task, index) => (
-          <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'inProgress', index)}>
-            {task}
-          </Task>
-        ))}
-      </Column>
-      <Column onDrop={(event) => handleDrop(event, 'done')} onDragOver={(event) => event.preventDefault()}>
-        <h2>Hecho</h2>
-        {tasks.done.map((task, index) => (
-          <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'done', index)}>
-            {task}
-          </Task>
-        ))}
-      </Column>
-    </Container>
+      {showForm && <FormularioPedido onTaskCreated={handleTaskCreated} />}
+      <Container>
+        <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
+          <h2>Por hacer</h2>
+          {tasks.todo.map((task, index) => (
+            <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
+              <div>{task.pedidos?.cliente}</div>
+              <div>{task.pedidos?.monto}</div>
+              <div>{task.pedidos?.fecha}</div>
+            </Task>
+          ))}
+        </Column>
+        {/* Resto de las columnas */}
+      </Container>
     </>
   );
 };
