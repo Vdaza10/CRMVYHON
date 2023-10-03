@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {DivContainer,Container,Caja1,Caja2,Caja4,Cajita,} from "./styled";
+import {DivContainer,Container,Caja1,Caja2,Caja4,Cajita,Button} from "./styled";
 import imagen from "../../../img/logito.png";
 import { Link, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -39,32 +39,23 @@ function Retorno1() {
         <Container>
           <Caja1>
             <p style={{fontStyle: "italic",fontSize: "13px",color: "gray",marginLeft: "7px"}}>{userData?.nombreEmpresa ? userData.nombreEmpresa.toUpperCase() : ''}</p>
-            <p style={{fontStyle: "italic",fontSize: "15px",color: "gray",marginLeft: "7px",}}>I sold this month</p>
+            <p style={{fontStyle: "italic",fontSize: "15px",color: "#00000065",marginLeft: "7px",}}>I sold this month</p>
             <Cajita>
-              <p style={{ fontSize: "18px", color: "black", marginLeft: "7px" }}><h1>cop 0,00</h1></p>
-              <img src={imagen} alt="img" style={{ width: "30px", height: "30px" }}/>
+              <h2 style={{ fontSize: "25px", color: "whitw", marginLeft: "7px" }}>cop 0,00</h2>
             </Cajita>
           </Caja1>
           <Caja2 style={{marginTop:"10px"}}>
             <Link to="/perfilusuario" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
-              <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>profile{" "}</p>
+              <h3 style={{fontStyle: "italic",fontSize: "16px",color: "white",marginLeft: "7px"}}>profile{" "}</h3>
             </Link>
           </Caja2>
           <Caja2>
           <Link to="/grafica" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
-              <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>Graphic history{" "}</p>
-            </Link>
-          </Caja2>
-          <Caja2>
-            <p
-              style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>Settings</p>
-            <Link to="/markenting" onClick={verPerfil}style={{ textDecoration: "none", color: "white" }}>
+              <h3 style={{fontStyle: "italic",fontSize: "16px",color: "#ffffff",marginLeft: "7px"}}>Graphic history{" "}</h3>
             </Link>
           </Caja2>
           <Caja4>
-            <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>
-              <button  onClick={Logout} style={{ textDecoration: "none", color: "black", outline:"none"}}>Go out</button>
-            </p>
+              <Button onClick={Logout}>Go out</Button>
           </Caja4>
         </Container>
       </DivContainer>

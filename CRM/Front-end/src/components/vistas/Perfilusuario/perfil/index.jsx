@@ -17,10 +17,6 @@ import {
   BoxInfo,
   InforperfilLetra
 } from "./styled";
-// import { HiCake } from 'react-icons/hi';
-// import { BiSolidUser } from 'react-icons/bi';
-// import { BsTelephoneFill } from 'react-icons/bs';
-// import { FaFlag } from 'react-icons/fa';
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate } from "react-router-dom";

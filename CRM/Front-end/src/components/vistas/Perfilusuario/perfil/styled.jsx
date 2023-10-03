@@ -124,7 +124,7 @@ export const BoxInfo = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: #ff00008c; */
+
 `;
 
 
@@ -132,7 +132,6 @@ export const HeaderInfor = styled.div`
   height: 10%;
   width: 100%;
   display: flex;
-  /* flex-direction: row; */
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
@@ -165,8 +164,6 @@ export const BodyInfor = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background-color: #a92323; */
-  
   button{
     height: 7%;
     width: 15%;
@@ -193,7 +190,6 @@ export const ContainerInfot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   background-color: aqua;
 
   .Icono{
