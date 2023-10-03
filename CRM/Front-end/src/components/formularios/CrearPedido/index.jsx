@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { Button, FormGroup, FormularioContainer, Input, Label } from './style.jsx';
 import axios from 'axios';
+import { Button, FormGroup, FormularioContainer, Input, Label } from './style.jsx';
 
 const FormularioPedido = ({ onTaskCreated }) => {
   const [cliente, setCliente] = useState('');
   const [monto, setMonto] = useState('');
 
-    const handleClienteChange = (event) => {
+  const handleClienteChange = (event) => {
     setCliente(event.target.value);
-    };
+  };
 
-    const handleMontoChange = (event) => {
+  const handleMontoChange = (event) => {
     setMonto(event.target.value);
-    };
+  };
 
-    const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -26,7 +26,7 @@ const FormularioPedido = ({ onTaskCreated }) => {
       };
 
       // Enviar la nueva tarea a la base de datos mediante una solicitud POST
-      const response = await axios.post("http://localhost:3005/pedidos", nuevaTarea);
+      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/pedidos`, nuevaTarea);
       const createdTask = response.data;
 
       // Llamar a la función onTaskCreated y pasarle la nueva tarea creada
@@ -39,21 +39,21 @@ const FormularioPedido = ({ onTaskCreated }) => {
     } catch (error) {
       console.error('Error al crear la tarea:', error);
     }
-    };
+  };
 
-    return (
+  return (
     <FormularioContainer onSubmit={handleSubmit}>
-        <FormGroup>
-            <Label>Cliente:</Label>
-            <Input type="text" value={cliente} onChange={handleClienteChange} required />
-        </FormGroup>
-        <FormGroup>
-            <Label>Monto:</Label>
-            <Input type="number" value={monto} onChange={handleMontoChange} required />
-        </FormGroup>
-        <Button type="submit">Enviar</Button>
+      <FormGroup>
+        <Label>Cliente:</Label>
+        <Input type="text" value={cliente} onChange={handleClienteChange} required />
+      </FormGroup>
+      <FormGroup>
+        <Label>Monto:</Label>
+        <Input type="number" value={monto} onChange={handleMontoChange} required />
+      </FormGroup>
+      <Button type="submit">Enviar</Button>
     </FormularioContainer>
-    );
+  );
 };
 
 export default FormularioPedido;

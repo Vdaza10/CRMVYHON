@@ -11,6 +11,7 @@ const Pedidos = () => {
     newColumn: [],
   });
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const toggleForm = () => {
     setShowForm(!showForm);
@@ -31,55 +32,82 @@ const Pedidos = () => {
     updatedTasks[targetTaskType].push(movedTask);
 
     setTasks(updatedTasks);
-    // Guardar el estado actual de las tareas en el almacenamiento local
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    updateTasksInLocalStorage(updatedTasks);
   };
 
-  const createCard = async (newTask) => {
+  const updateTasksInLocalStorage = (updatedTasks) => {
+    localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
+  };
+
+  const handleTaskCreated = async (newTaskData) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/pedidos`, newTask);
-      return response.data;
+      // Verificar si la tarea ya existe en la lista actual de tareas
+      const taskExists = tasks.todo.some(task => task.id === newTaskData.id);
+
+      if (!taskExists) {
+        setTasks((prevTasks) => {
+          return {
+            ...prevTasks,
+            todo: [...prevTasks.todo, newTaskData],
+          };
+        });
+
+        updateTasksInLocalStorage((prevTasks) => {
+          return {
+            ...prevTasks,
+            todo: [...prevTasks.todo, newTaskData],
+          };
+        });
+
+        console.log('Tarea creada exitosamente:', newTaskData);
+      } else {
+        console.log('La tarea ya existe en la lista.');
+      }
     } catch (error) {
       console.error('Error al crear la tarea:', error);
-      throw error; // Propagar el error para manejarlo en el componente que llama a createCard
-    }
-  };
-
-  const handleTaskCreated = async (newTask) => {
-    try {
-      const createdTask = await createCard(newTask);
-
-      // Agregar la nueva tarea a la columna 'Por hacer' y guardar el estado actual en el almacenamiento local
-      const updatedTasks = { ...tasks, todo: [...tasks.todo, createdTask] };
-      setTasks(updatedTasks);
-      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-
-      console.log('Tarea creada exitosamente:', createdTask);
-    } catch (error) {
-      console.error('Error al crear la tarea:', error);
-      // Manejar el error aquí o dejar que el componente que llama a handleTaskCreated lo maneje
-    }
-  };
-
-  const getTasks = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos`);
-      const tasksData = response.data;
-      console.log('Datos de las tareas obtenidas:', tasksData);
-      setTasks(tasksData); // Actualizar el estado con las tareas obtenidas del servidor
-    } catch (error) {
-      console.error('Error al obtener las tareas:', error);
-      // Manejar el error aquí o dejar que el componente que llama a getTasks lo maneje
     }
   };
 
   useEffect(() => {
-    console.log('Obteniendo tareas...');
-    getTasks();
-  }, []); // Vacío para que se ejecute solo una vez al montar el componente
+    const loadTasks = async () => {
+      try {
+        const storedTasks = JSON.parse(localStorage.getItem('tasks_v7'));
+        const initialTasks = storedTasks
+          ? storedTasks
+          : {
+              todo: [],
+              inProgress: [],
+              done: [],
+              newColumn: [],
+            };
+
+        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos`);
+        const tasksData = response.data;
+
+        const updatedTasks = {
+          todo: [...initialTasks.todo, ...tasksData.filter(task => task.estado === 'todo')],
+          inProgress: [...initialTasks.inProgress, ...tasksData.filter(task => task.estado === 'inProgress')],
+          done: [...initialTasks.done, ...tasksData.filter(task => task.estado === 'done')],
+          newColumn: [...initialTasks.newColumn, ...tasksData.filter(task => task.estado === 'newColumn')],
+        };
+
+        setTasks(updatedTasks);
+        setLoading(false);
+        updateTasksInLocalStorage(updatedTasks);
+
+        console.log('Tareas cargadas:', updatedTasks);
+      } catch (error) {
+        console.error('Error al obtener las tareas:', error);
+        setLoading(false);
+      }
+    };
+
+    loadTasks();
+  }, []);
 
   return (
     <>
+      {loading && <p>Cargando tareas...</p>}
       <button onClick={toggleForm}>
         {showForm ? 'Ocultar Formulario' : 'Mostrar Formulario'}
       </button>
@@ -87,15 +115,47 @@ const Pedidos = () => {
       <Container>
         <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
           <h2>Por hacer</h2>
-          {tasks.todo.map((task, index) => (
+          {tasks?.todo && tasks?.todo.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
-              <div>{task.pedidos?.cliente}</div>
-              <div>{task.pedidos?.monto}</div>
-              <div>{task.pedidos?.fecha}</div>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
             </Task>
           ))}
         </Column>
-        {/* Resto de las columnas */}
+
+        <Column onDrop={(event) => handleDrop(event, 'inProgress')} onDragOver={(event) => event.preventDefault()}>
+          <h2>En progreso</h2>
+          {tasks?.inProgress && tasks?.inProgress.map((task, index) => (
+            <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'inProgress', index)}>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+            </Task>
+          ))}
+        </Column>
+
+        <Column onDrop={(event) => handleDrop(event, 'done')} onDragOver={(event) => event.preventDefault()}>
+          <h2>Completadas</h2>
+          {tasks?.done && tasks?.done.map((task, index) => (
+            <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'done', index)}>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+            </Task>
+          ))}
+        </Column>
+
+        <Column onDrop={(event) => handleDrop(event, 'newColumn')} onDragOver={(event) => event.preventDefault()}>
+          <h2>Nueva columna</h2>
+          {tasks?.newColumn && tasks?.newColumn.map((task, index) => (
+            <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'newColumn', index)}>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+            </Task>
+          ))}
+        </Column>
       </Container>
     </>
   );
