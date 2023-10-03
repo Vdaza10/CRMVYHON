@@ -14,7 +14,7 @@ import carrusel from "../../img/imagenCarrusel.jpg"
             {title: "HISTORIAL DE INTERRACCIONES", descripcion: "Registros de llamadas", descripcion2: "correos electrónicos enviados y recibidos."},
             {title: "INFORMACIÓN SOBRE OPORTUNIDADES DE VENTA ", descripcion: "Detalles sobre las oportunidades de negocio con el cliente, incluyendo el estado, el valor estimado y las fechas importantes."},
             {title: "ACTIVIDADES PENDIENTES", descripcion: "Tareas y recordatorios relacionados con el cliente, como seguimientos programados, llamadas de seguimientos, presentaciones pendientes."},
-            {title: "HITORIAL DE COMPRAS", descripcion: "información sobre las compras previas realizadas por el cliente, productos o servios adquiridos y fechas de compras."},
+            {title: "HISTORIAL DE COMPRAS", descripcion: "información sobre las compras previas realizadas por el cliente, productos o servios adquiridos y fechas de compras."},
         ]
         // Función para asignar animaciones a las tarjetas.
     const asignarAnimacion = (claseActual, claseSiguiente) => {
