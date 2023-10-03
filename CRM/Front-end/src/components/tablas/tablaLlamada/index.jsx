@@ -1,13 +1,14 @@
 import React from "react";
-import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla,  ContainerSecundario } from "../tablaEmpresa/styled";
+import { ContainerPrincipal, Heder, ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla,  ContainerSecundario ,FooterTabla,Boton } from "../tablaEmpresa/styled";
 import Axios from "axios";
 import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode"
 import { useState, useEffect } from "react";
+import Audiollamada from "../../vistas/markenting/llamadaAudioModal/index"
 
 function Tablallamada(){
-
+  const [llamadaAbierta, setLlamadaAbierta] = useState(false);
     const[llamada, setLlamada] = useState([])
     const [loading, setLoading] = useState(true)
     const [buscar, setBuscar] = useState("")
@@ -157,39 +158,18 @@ return(
             <Caja1>
               <Parrafo>{item.duracionLlamada}</Parrafo>
             </Caja1>
-            {/* <Caja1>
-              <CajaIcono style={{ justifyContent: "end" }}>
-                <MdDelete
-                  style={{ fontSize: "30px", cursor: "pointer"}}
-                  onClick={() => TabladeleteEmpresa(item)}
-                />
-              </CajaIcono>
-              <CajaIcono>
-                <BiSolidEditAlt style={{ fontSize: "30px", cursor: "pointer"}} onClick={() => handleEditarClick(item)} />
-              </CajaIcono>
-            </Caja1> */}
           </BodyTabla>
         ))}
         </ContainerSecundario>
-        {/* <FooterTabla> */}
-        {/* <Boton onClick={() => {
-                setActive(!active);
-                // Cierra EmpresaUpdate si está abierto al hacer clic en "Crear Empresa"
-                if (activeEditar) {
-                  setActiveEditar(false);
-                }
-                if (empresaUpdateAbierto) {
-                  setEmpresaUpdateAbierto();
-                }
-              }}>
-                Crear Empresa
-              </Boton>
-              </FooterTabla> */}
-            {/* {active && <Retorno8 />}
-            {activeEditar && (
-              <EmpresaUpdate empresa={empresaEditar}  setEmpresaUpdateAbierto={setEmpresaUpdateAbierto} />
-            )} */}
+        <FooterTabla>
+          <Boton onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Call register</Boton>
+        </FooterTabla>
+        
           </ContainerPrincipal>
+          <Audiollamada 
+                estado={llamadaAbierta}
+                cambiarEstado={setLlamadaAbierta}
+                ></Audiollamada>
         </>
       )}
     </>
