@@ -159,7 +159,7 @@ function PerfilUsuario() {
                       </Boxperfil>
                     </ContainPerfil>
 
-                    {/* <BoxInfo>
+                    <BoxInfo>
                         <HeaderInfor>
                           <h3 onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Información adicional</h3>
                           <EditButton>Editar</EditButton>
@@ -168,8 +168,8 @@ function PerfilUsuario() {
                         <h3>NO HAY DATOS ADICIONALES</h3>
                         <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
                         </BodyInfor>
-                    </BoxInfo> */}
-                    <BoxInfo>
+                    </BoxInfo>
+                    {/* <BoxInfo>
                         <HeaderInfor>
                           <h3>Informacion Personal</h3>
                           <EditButton>Editar</EditButton>
@@ -256,7 +256,7 @@ function PerfilUsuario() {
                             </Cajitas>
                           </Cajas>
                         </BodyInfor>
-                    </BoxInfo>
+                    </BoxInfo> */}
                   </Container>
                 </Main>
               </Fondo>
