@@ -105,8 +105,8 @@ export const FooterTabla = styled.span`
 export const Boton = styled.button`
   background-color: #3eabee;
   color: #eaeff1;
-  width: 10%;
-  height: 60%;
+  width: 225px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
