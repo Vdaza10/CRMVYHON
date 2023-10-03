@@ -81,7 +81,7 @@ function EmpresaUpdate({ empresa }) {
         {/* Sección de encabezado */}
         <Caja>
           <Parrafo>
-            <h3>Actualizar empresa</h3>
+            <h3>Update company</h3>
           </Parrafo>
           <Img src={imagen} alt="img" onClick={cerrarComponente} />
         </Caja>
@@ -89,16 +89,16 @@ function EmpresaUpdate({ empresa }) {
         {/* Formulario para crear una empresa */}
         <Caja1>
           <Parrafo1>
-            <h3>Nombre de la empresa</h3>
+            <h3>Company name</h3>
           </Parrafo1>
           <Input
-            placeholder="Ingresar el nombre de la empresa"
+            placeholder="Enter the company name"
             onChange={(e) => setNombreEmpresa(e.target.value)}
             value={nombreEmpresa}
           />
 
           <Parrafo1>
-            <h3>Segmento</h3>
+            <h3>Segment</h3>
           </Parrafo1>
           <SelectEmpresa
             value={selectSegmento}
@@ -120,23 +120,23 @@ function EmpresaUpdate({ empresa }) {
           </Parrafo1>
           <Input
             value={url}
-            placeholder="Introduce la dirección web de la empresa"
+            placeholder="Enter the company's web address."
             onChange={(e) => setUrl(e.target.value)}
           />
 
           <Parrafo1>
-            <h3>Resumen</h3>
+            <h3>Summary</h3>
           </Parrafo1>
           <Area
             value={descripcion}
-            placeholder="Describe la empresa"
+            placeholder="Describe the company"
             onChange={(e) => setDescripcion(e.target.value)}
           />
         </Caja1>
         <hr />
         <Caja2>
-          <Boton2 onClick={cerrarComponente}>Cancelar</Boton2>
-          <Boton1 onClick={actualizarEmpresa}>Actualizar</Boton1>
+          <Boton2 onClick={cerrarComponente}>Cancel</Boton2>
+          <Boton1 onClick={actualizarEmpresa}>Update</Boton1>
         </Caja2>
       </Container1>
     </Div1>

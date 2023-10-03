@@ -40,7 +40,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     }
   }, []);
 
-  console.log("clgggggg", userData);
+
   const updateUser = async () => {
     // Verificar si el correo es válido antes de guardar los datos
     if (!emailInputRef.current.validity.valid) {
@@ -72,7 +72,6 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
 
       // Actualiza los datos en el localStorage después de una actualización exitosa
       setToken(res.data.token)
-      console.log("Usuario actualizado.", res.data);
       
       if(onUserUpdate){
         onUserUpdate();
@@ -92,7 +91,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
         <Container>
           <ContenedorModal>
             <Encabezado>
-              <h1>Cambiar datos personales</h1>
+              <h1>Change personal data</h1>
               <GrClose
                 style={{ marginRight: "30px", color: "red", fontSize: "20px" }}
                 onClick={() => changeStatus(false)}
@@ -103,7 +102,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
                 <Foto src={IPerfil}></Foto>
               </ContainerFoto>
               <ContainerInput>
-                <Texto>Nombre</Texto>
+                <Texto>name</Texto>
                 <Input1
                   value={nombreUsuario}
                   onKeyPress={(event) => {
@@ -148,7 +147,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
                   onChange={(e) => setCorreo(e.target.value)}
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 />
-                <Texto>Contraseña</Texto>
+                <Texto>password</Texto>
                 <Input1
                   type="password"
                   value={contraseña}
@@ -156,7 +155,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
                 />
               </ContainerInput>
             </Contenido>
-            <Boton onClick={updateUser}>Editar</Boton>
+            <Boton onClick={updateUser}>Edit</Boton>
           </ContenedorModal>
         </Container>
       )}

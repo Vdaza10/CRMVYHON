@@ -21,13 +21,13 @@ const Inicio = () => {
             to="registrarse"
             style={{ textDecoration: "none", color: "white" }}
           >
-            <Opciones>Crear su cuenta</Opciones>
+            <Opciones>Create your account</Opciones>
           </Link>
           <Link
             to="/login"
             style={{ textDecoration: "none", color: "white" }}
           >
-            <Opciones>Iniciar sesion</Opciones>
+            <Opciones>Log in</Opciones>
           </Link>
         </Menucontainer>
       </ContenedorInicial>
@@ -41,68 +41,69 @@ const Inicio = () => {
       >
         <ContainerTarjetas className="boxTarjet">
           <TarjetasInformativas>
-            <h2>VISTA GRAFICA </h2>
+            <h2>GRAPHIC VIEW </h2>
             <ContenedorImagen
               style={{ backgroundImage: `url(${graficas})` }}
             ></ContenedorImagen>
             <p >
-              <b>Feedback Visual:</b> Proporcionar retroalimentación visual
-              cuando los usuarios interactúan con la aplicación, como resaltar
-              botones presionados o mostrar mensajes de éxito o error
+              <b>Visual Feedback:</b> Provide visual feedback
+              when users interact with the app, such as highlighting
+              buttons pressed or display success or error messages
               <p>
-                <b>Usabilidad:</b> La usabilidad se centra en hacer que la
-                aplicación sea fácil de usar. Esto implica la disposición lógica
-                de los elementos, la navegación intuitiva y la minimización de
-                la fricción en la interacción del usuario.
+                <b>Usability:</b> 
+                Usability focuses on making the
+                application is easy to use. This implies the logical arrangement
+                of elements, intuitive navigation and minimization of
+                friction in user interaction.
               </p>
               <p>
-                <b>Jerarquía Visual:</b> Utilizar tamaños, colores y estilos
-                para indicar la jerarquía de la información. Esto ayuda a los
-                usuarios a identificar rápidamente lo más importante.
+                <b>Visual Hierarchy:</b> Use sizes, colors and styles
+                to indicate the hierarchy of information. This helps the
+                users to quickly identify what is most important.
               </p>
             </p>
           </TarjetasInformativas>
           <TarjetasInformativas>
-            <h2>SEGURIDAD</h2>{" "}
+            <h2>SECURITY</h2>{" "}
             <ContenedorImagen
               style={{ backgroundImage: `url(${seguridad})` }}
             ></ContenedorImagen>
             <p style={{ marginLeft: "1em", marginRight: "1em" }}>
               <p>
-                <b>Control de Acceso Basado en Roles(RBAC):</b> Permite asignar
-                roles y permisos específicos a los usuarios, restringiendo su
-                acceso solo a las funciones y datos necesarios para realizar su
-                trabajo. Esto minimiza el riesgo de acceso no autorizado
+                <b>Role-Based Access Control(RBAC):</b> Allows you assign
+                specific roles and permissions to users, restricting their
+                access only to the functions and data necessary to perform your
+                job. This minimizes the risk of unauthorized access
               </p>
             </p>
           </TarjetasInformativas>
           <TarjetasInformativas>
-            <h2>HERRAMIENTAS</h2>
+            <h2>TOOLS</h2>
             <ContenedorImagen
               style={{ backgroundImage: `url(${herramientas})` }}
             ></ContenedorImagen>
             <p style={{ marginLeft: "1em", marginRight: "1em" }}>
               <p>
-                <b>Gestión de Contactos:</b> Estas herramientas permiten
-                gestionar de manera eficiente la información de contacto de los
-                clientes, incluyendo nombres, direcciones de correo electrónico,
-                números de teléfono, historial de comunicación, etc.
+                <b>Contact Management:</b> These tools allow
+                Efficiently manage customer contact information
+                customers, including names, email addresses,
+                phone numbers, communication history, etc.
               </p>
               <p>
                 {" "}
-                <b>Gestión de Ventas:</b> Herramientas de automatización de
-                ventas que ayudan a los equipos de ventas a rastrear
-                oportunidades, gestionar el ciclo de ventas y cerrar tratos de
-                manera efectiva
+                <b>Gestión de Ventas:</b> automation tools
+                sales that help sales teams track
+                opportunities, manage the sales cycle and close deals
+                effective way
               </p>{" "}
-              <b>Automatización de Flujo de Trabajo:</b> Software que automatiza
-              procesos internos, como la asignación de tareas, la aprobación de
-              documentos y la gestión de flujos de trabajo.
+              <b>Workflow Automation:</b> Software that automates
+              internal processes, such as assigning tasks, approving
+              documents and workflow management.
             </p>
           </TarjetasInformativas>
         </ContainerTarjetas>
         <Footer>
-          <TextoFooter>informacion de contacto </TextoFooter>
+          <TextoFooter>contact information </TextoFooter>
         </Footer>
       </Container>
     </>
