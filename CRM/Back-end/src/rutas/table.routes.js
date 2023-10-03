@@ -3,6 +3,7 @@ import * as tablaEmpresa from "../controladores/Tablas/empresa.js"
 import * as tablaContacto from "../controladores/Tablas/contacto.js"
 import * as tablaNegocio from "../controladores/Tablas/negocio.js"
 import * as tablaTarea from "../controladores/Tablas/tareas.js"
+import * as llamada from "../controladores/Tablas/registro_llamada.js"
 
 
 export const routers = Router();
@@ -28,3 +29,6 @@ routers.put('/negociotabla/desactivar/:idNegocio',tablaNegocio.desactivarTablaNe
 routers.get('/tareastabla',tablaTarea.getTablaTarea)
 routers.patch('/tareastabla/:idTareas',tablaTarea.updatetablaTareas)
 routers.put('/tareastabla/desactivar/:idTareas',tablaTarea.desactivarTablaTarea)
+
+//tabla llamadas
+routers.get('/llamadatabla', llamada.getTablallamada)

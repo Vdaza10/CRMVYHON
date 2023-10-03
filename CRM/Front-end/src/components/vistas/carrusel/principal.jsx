@@ -71,11 +71,12 @@ return (
 
     <>
         <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"90vh"}}>
-        <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1>
+        {/* <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1> */}
 
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
         {/* <button onClick={handleClickPrev}>Prev</button> */}
 
+<br /><br />
         <ContenedorTarjeta>{/*// Renderiza un componente llamado ContenedorTarjeta.*/}
                 <Carrusel className="carousel">
             {/*Mapea los objetos 'tarjeta' en el arreglo 'tarjetas'.*/}

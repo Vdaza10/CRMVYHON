@@ -94,6 +94,7 @@ const Registrarse = () => {
               </h3>
             </TextoImput>
             <Input 
+              required
             onKeyPress={(event) => {
               const inputValue = event.key;
               const regex = /[a-zA-Z ]/; // Expresión regular que permite letras y números
@@ -105,7 +106,7 @@ const Registrarse = () => {
                 setNombre(event.target.value);
               }}
               type="text"
-              required
+           
             ></Input>
           </Contenedor1>
 
