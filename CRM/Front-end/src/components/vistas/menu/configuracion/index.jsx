@@ -39,7 +39,7 @@ function Retorno1() {
         <Container>
           <Caja1>
             <p style={{fontStyle: "italic",fontSize: "13px",color: "gray",marginLeft: "7px"}}>{userData?.nombreEmpresa ? userData.nombreEmpresa.toUpperCase() : ''}</p>
-            <p style={{fontStyle: "italic",fontSize: "15px",color: "gray",marginLeft: "7px",}}>Vendí este mes</p>
+            <p style={{fontStyle: "italic",fontSize: "15px",color: "gray",marginLeft: "7px",}}>I sold this month</p>
             <Cajita>
               <p style={{ fontSize: "18px", color: "black", marginLeft: "7px" }}><h1>cop 0,00</h1></p>
               <img src={imagen} alt="img" style={{ width: "30px", height: "30px" }}/>
@@ -47,23 +47,23 @@ function Retorno1() {
           </Caja1>
           <Caja2 style={{marginTop:"10px"}}>
             <Link to="/perfilusuario" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
-              <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>perfil{" "}</p>
+              <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>profile{" "}</p>
             </Link>
           </Caja2>
           <Caja2>
           <Link to="/grafica" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
-              <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>Historial grafico{" "}</p>
+              <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px"}}>Graphic history{" "}</p>
             </Link>
           </Caja2>
           <Caja2>
             <p
-              style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>Ajustes</p>
+              style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>Settings</p>
             <Link to="/markenting" onClick={verPerfil}style={{ textDecoration: "none", color: "white" }}>
             </Link>
           </Caja2>
           <Caja4>
             <p style={{fontStyle: "italic",fontSize: "16px",color: "black",marginLeft: "7px",}}>
-              <button  onClick={Logout} style={{ textDecoration: "none", color: "black", outline:"none"}}>Salir</button>
+              <button  onClick={Logout} style={{ textDecoration: "none", color: "black", outline:"none"}}>Go out</button>
             </p>
           </Caja4>
         </Container>

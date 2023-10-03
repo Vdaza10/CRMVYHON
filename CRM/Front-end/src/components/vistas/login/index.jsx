@@ -6,7 +6,7 @@ import "../../../App.css"
 
 function Login() {
 
-  console.log(`${process.env.REACT_APP_URL_BACKEND}`,"voyytyy");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -20,7 +20,6 @@ function Login() {
         contraseña: password,
       })
         .then((response) => {
-          console.log(response.data, "😊😊😊");
           const result = response.data
           if (response.data === "") {
             alert("Bienvenido VYHON");
@@ -45,11 +44,11 @@ function Login() {
   return (
         <Fondo>
           <Contenedor>
-            <Titulo>¡Bienvenido a VYHON!</Titulo>
+            <Titulo>!Welcome to VYHON!</Titulo>
             <Message>{error}</Message>
 
             <Parrafo>
-              <h4 style={{ margin: "0" }}>Correo electronico</h4>
+              <h4 style={{ margin: "0" }}>Email</h4>
             </Parrafo>
 
             <Input
@@ -57,9 +56,10 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
               name="email"
             ></Input>
+            <Message>{error}</Message>
 
             <Parrafo>
-              <h4 style={{ margin: "0" }}>Contraseña</h4>
+              <h4 style={{ margin: "0" }}>password</h4>
             </Parrafo>
 
             <Input
@@ -70,18 +70,18 @@ function Login() {
 
             <ContainerUltimo>
               <Button type="submit" onClick={Login}>
-                Iniciar sesión
+                Log in 
               </Button>
               <br />
               <Link to={"/recuperar"} style={{ color: "black" }}>
                 <Olvidar style={{ margin: "0" }}>
-                  <h4 style={{ margin: "0" }}>Olvidaste tu contraseña?</h4>
+                  <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
                 </Olvidar>
               </Link>
               <Olvidar>
                 <Link to={"/registrarse"} style={{ color: "black" }}>
                   <h4 style={{ margin: "0", color: "black", marginTop: "" }}>
-                    Registrate
+                  Sign up
                   </h4>
                 </Link>
               </Olvidar>

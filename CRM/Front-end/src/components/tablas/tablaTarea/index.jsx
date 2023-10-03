@@ -27,8 +27,7 @@ function TablaTarea() {
         const userToken = localStorage.getItem("user");
         if(userToken){
             try {
-            const token = jwt_decode(userToken);
-        console.log(token, "❤️❤️💕💕💕❤️");
+            jwt_decode(userToken);
         setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
@@ -47,7 +46,7 @@ const [buscar, setBuscar] = useState("")
 //Inicio, Función de busqueda
     const BarraDeBusqueda = (e) => {
     setBuscar(e.target.value);
-    console.log(e.target.value);
+
 };
 
 //Metodo de filtrado tabla empresa
@@ -76,7 +75,6 @@ const [buscar, setBuscar] = useState("")
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`);
-        console.log(tareas.data);
         setTarea(tareas.data);
     };
 
@@ -109,21 +107,21 @@ const [buscar, setBuscar] = useState("")
         <>
             <ContainerPrincipal>
                 <Heder>
-                    <h1>Tabla Tarea</h1>
+                    <h1>Task Table</h1>
                     <ContainerInput>
                         <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-                        <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
+                        <Input placeholder="Look for ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
                         <AiOutlineClose style={{ fontSize: "20px", color: "gray", cursor:"pointer"}} onClick={Borrar}/>
                     </ContainerInput>
                 </Heder>
                 <HederTabla>
-                    <Campos><Parrafo>Negocio</Parrafo></Campos>
+                    <Campos><Parrafo>Business</Parrafo></Campos>
                     <Campos><Parrafo>Asunto</Parrafo></Campos>
-                    <Campos><Parrafo>Responsable</Parrafo></Campos>
-                    <Campos><Parrafo>Tipo de tarea</Parrafo></Campos>
-                    <Campos><Parrafo>Fecha</Parrafo></Campos>
-                    <Campos><Parrafo>Hora</Parrafo></Campos>
-                    <Campos><Parrafo>Acción</Parrafo></Campos>
+                    <Campos><Parrafo>Responsible</Parrafo></Campos>
+                    <Campos><Parrafo>Task type</Parrafo></Campos>
+                    <Campos><Parrafo>Date</Parrafo></Campos>
+                    <Campos><Parrafo>Time</Parrafo></Campos>
+                    <Campos><Parrafo>Action</Parrafo></Campos>
                 </HederTabla>
                 <div className="ContainerSecundario">
                 {resBusqueda.map((item, i) => (

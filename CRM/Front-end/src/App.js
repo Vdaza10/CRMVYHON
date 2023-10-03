@@ -19,6 +19,7 @@ import Campañasms from "./components/vistas/markenting/campañasms/campaña";
 import Grafica from "./components/vistas/menu/configuracion/graficas/index";
 import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campaña";
 // import llamadaAudioModal from "./components/vistas/markenting/llamadaAudioModal/index"
+import Tablallamada from "./components/tablas/tablaLlamada";
 import "./App.css"
 import Menu from "../src/components/vistas/menu/principal"
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/contactos" element={<Retorno3 />}></Route>
           <Route path="/negocios" element={<Retorno2 />}></Route>
           <Route path="/tareas" element={<Retorno5 />}></Route>
+          <Route path="/call" element={<Tablallamada/>}></Route>
           {/* Rutas de marketeting*/}
           <Route path="/Marketing" element={<Campaña />}></Route>
           <Route path="/camunicacion" element={<Comunucacion />}></Route>
@@ -58,6 +60,7 @@ function App() {
           <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>   
           <Route path="/grafica" element={<Grafica />}></Route>       
         </Route>
+        
         
       </Routes>
     </BrowserRouter>
