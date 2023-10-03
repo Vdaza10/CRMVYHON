@@ -27,8 +27,7 @@ function TablaTarea() {
         const userToken = localStorage.getItem("user");
         if(userToken){
             try {
-            const token = jwt_decode(userToken);
-        console.log(token, "❤️❤️💕💕💕❤️");
+            jwt_decode(userToken);
         setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);
@@ -47,7 +46,7 @@ const [buscar, setBuscar] = useState("")
 //Inicio, Función de busqueda
     const BarraDeBusqueda = (e) => {
     setBuscar(e.target.value);
-    console.log(e.target.value);
+
 };
 
 //Metodo de filtrado tabla empresa
@@ -76,7 +75,6 @@ const [buscar, setBuscar] = useState("")
     const ReflejarDatos = async () => {
         // ev.preventDefault();
         const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`);
-        console.log(tareas.data);
         setTarea(tareas.data);
     };
 

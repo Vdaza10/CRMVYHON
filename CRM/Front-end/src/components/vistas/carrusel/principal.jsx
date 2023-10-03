@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {Carrusel, Contenedor,ContenedorTarjeta,Tarjeta1,} from "./styled";
-
 import {useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import carrusel from "../../img/imagenCarrusel.jpg"
@@ -51,8 +50,7 @@ useEffect(() => {
     const userToken = localStorage.getItem("user");
     if(userToken){
         try {
-        const token = jwt_decode(userToken);
-        console.log(token, "💕💕💕💕");
+            jwt_decode(userToken);
     setLoading(false);
         } catch (error) {
             console.error("Error decoding token:", error);
@@ -78,6 +76,7 @@ return (
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
         {/* <button onClick={handleClickPrev}>Prev</button> */}
 
+<br /><br />
         <ContenedorTarjeta>{/*// Renderiza un componente llamado ContenedorTarjeta.*/}
                 <Carrusel className="carousel">
             {/*Mapea los objetos 'tarjeta' en el arreglo 'tarjetas'.*/}

@@ -20,7 +20,6 @@ import swal from "sweetalert";
 
 
 function Retorno8() {
-console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [selectedSegmento, setSelectedSegmento] = useState(""); // Estado para el segmento seleccionado
   const [url, setUrl] = useState("");
@@ -31,7 +30,6 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
     try {
       const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/segmento`);
       setSegmento(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error al obtener segmentos:", error);
     }
@@ -71,7 +69,6 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
       }
 
       try {
-        console.log(`Valor de SERVIDOR_BACKEND: ${process.env.REACT_APP_URL_BACKEND}`);
         const response = await axios.post(
           `${process.env.REACT_APP_URL_BACKEND}/company`,
           {
@@ -82,11 +79,10 @@ console.log(`${process.env.REACT_APP_URL_BACKEND}`,"yaaa ");
           },
        
         );
-        // console.log(response.data.headers.accessToken);
-        // setTimeout(() => {
+        setTimeout(() => {
 
-        //     window.location.href = "/empresas"
-        // }, 0);
+            window.location.href = "/empresas"
+        }, 0);
         console.log("Empresa creada:", response.data);
       } catch (error) {
         console.log("Error al crear empresa:", error);

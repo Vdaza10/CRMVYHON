@@ -111,7 +111,7 @@ const Registrarse = () => {
                 setNombre(event.target.value);
               }}
               type="text"
-              required
+           
             ></Input>
           </Contenedor1>
 

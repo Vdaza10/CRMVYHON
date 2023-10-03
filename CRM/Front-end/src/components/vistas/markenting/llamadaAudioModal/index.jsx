@@ -22,7 +22,6 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
     try {
       const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
       setNegocio(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error al obtener segmentos:", error);
     }

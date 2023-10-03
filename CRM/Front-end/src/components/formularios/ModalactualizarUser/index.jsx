@@ -40,7 +40,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     }
   }, []);
 
-  console.log("clgggggg", userData);
+
   const updateUser = async () => {
     // Verificar si el correo es válido antes de guardar los datos
     if (!emailInputRef.current.validity.valid) {
@@ -72,7 +72,6 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
 
       // Actualiza los datos en el localStorage después de una actualización exitosa
       setToken(res.data.token)
-      console.log("Usuario actualizado.", res.data);
       
       if(onUserUpdate){
         onUserUpdate();

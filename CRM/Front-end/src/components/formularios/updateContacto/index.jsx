@@ -77,7 +77,7 @@ function Retorno4({contacto}) {
           contactoEmpresa:selectContactoEmpresa
         }
       );
-      console.log("Contacto actualizado.", res.data);
+      return res.data
     } catch (error) {
       console.error(error);
     }

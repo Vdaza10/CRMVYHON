@@ -22,7 +22,6 @@ const UpdateTarea = ({ tarea }) => {
             try {
                 const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
                 setNegocio(response.data);
-                console.log(response.data);
             } catch (error) {
                 console.error("Error al obtener Negocio:", error);
             }
@@ -53,7 +52,7 @@ const UpdateTarea = ({ tarea }) => {
     if (!cerrar) {
         return null
     }
-console.log(tarea.idTarea);
+
     const actualizarTarea = async () => {
         try {
             const res = await Axios.patch(
@@ -67,7 +66,7 @@ console.log(tarea.idTarea);
                     hora,
                 }
             );
-            console.log("Tarea actualizado.", res.data);
+                return res.data
         } catch (error) {
             console.error(error);
         }

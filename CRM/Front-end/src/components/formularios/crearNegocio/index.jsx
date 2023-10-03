@@ -81,7 +81,7 @@ function CrearNegocios() {
                         
                 window.location.href = "/negocios"  
         },0)
-            console.log("Negocio creado:", response.data);
+        return response.data
         }catch (error) {
             console.log("Error al crear negocio:", error);
         }
@@ -155,7 +155,7 @@ function CrearNegocios() {
                             <option value="">Select campaign...</option>
                             {contacto.map((contacto) => (
                                 <option key={contacto.idContacto} value={contacto.idContacto}>
-                                    {contacto.nombreContacto}
+                                    {contacto.g}
                                 </option>
                             ))}
                         </Select>

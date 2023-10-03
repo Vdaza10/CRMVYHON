@@ -80,6 +80,15 @@
                 onClick={() => opcionElegida("pedidos")}>
                 <MenuItem>Pedidos</MenuItem>
             </NavLink>
+            <NavLink
+            to="/call"
+                style={{
+                color: currentPath === "/call" ? "#000000" : "#ffffff",
+                textDecoration: "none",
+                }}
+                onClick={() => opcionElegida("call")}>
+                <MenuItem>call log</MenuItem>
+            </NavLink>
         </Menucontainer>
 
         <Ajustes>

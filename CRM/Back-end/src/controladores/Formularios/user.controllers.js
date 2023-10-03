@@ -2,7 +2,9 @@ import { pool } from "../../db.js";
 import { encryptPassword } from "../../helpers/Bycrypt.js";
 import jwt from "jsonwebtoken";
 import { Secret } from "../../db.js";
-// const crypto = require('crypto');
+import crypto from 'crypto'
+import nodemailer from 'nodemailer'
+
 
 export const getUsers = async(req,res) =>{
     try {
@@ -52,43 +54,18 @@ export const createUsers = async (req, res) => {
     } catch (error) {
     
         console.error(error); // Puedes agregar un registro del error para debug
-        return res.status(500).json({ message: 'Algo va mal' });
+        return res.status(500).json({ message: 'Algo va mal...' });
     }
 }
-
-export const  recuperar = async(req, res) =>{
-    try {
-        const {correo} = req.body
-        const existe = 'SELECT correo FROM registro where correo = ?'
-        const evaluar = [correo];
-        const [resultado] = await pool.query(existe, evaluar);
-        if (resultado.length > 0) {
-
-            return res.json({ message: "correo_existe" });
-        }else{
-            return res.json({ message: "correo_no_existe" });
-        }
-
-    }
-    catch (error){
-        console.error(error); // Puedes agregar un registro del error para debug
-        return res.status(500).json({ message: 'Algo va mal' });
-    }
-} 
 
 // export const  recuperar = async(req, res) =>{
 //     try {
 //         const {correo} = req.body
-//         const existe = 'SELECT correo, contraseña FROM registro where correo = ?'
+//         const existe = 'SELECT correo FROM registro where correo = ?'
 //         const evaluar = [correo];
 //         const [resultado] = await pool.query(existe, evaluar);
 //         if (resultado.length > 0) {
-//             const usuario = resultado[0];
-//             const contrasenaValida = crypto.randomBytes(20).toString('hex');
-//             const contraseñaExpirada = new Date(Date.now() + 3600000);
-//             await pool.query('INSERT INTO re')
-//             if 
-            
+
 //             return res.json({ message: "correo_existe" });
 //         }else{
 //             return res.json({ message: "correo_no_existe" });
@@ -100,6 +77,104 @@ export const  recuperar = async(req, res) =>{
 //         return res.status(500).json({ message: 'Algo va mal' });
 //     }
 // } 
+
+// export const  recuperar = async(req, res) =>{
+//     try {
+//         const {correo} = req.body
+//         const existe = 'SELECT correo, contraseña FROM registro where correo = ?'
+//         const evaluar = [correo];
+//         const [resultado] = await pool.query(existe, evaluar);
+//         if (resultado.length > 0) {
+//             const usuario = resultado[0];
+//             const contrasenaValida = crypto.randomBytes(20).toString('hex');// aleatorio
+//             const contraseñaExpirada = new Date(Date.now() + 3600000);// expiracion
+//             await pool.query('INSERT INTO reset_tokens (usuario, correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?, ?)', [usuario, correo, contrasenaValida, contraseñaExpirada]);
+            
+//             const transporter = nodemailer.createTransport({
+//                 service: 'vyhoncrm@gmail.com',
+//                 auth:{
+//                     user: 'hdealba30@gmail.com',
+//                     pass: '$2a$10$rvwmTd94t/Xa.J2X0TYQOu/TkMJS5FTLHUX3QTI/xSlVVscdmOKO6',
+//                 }
+//             })
+//             const mailOptions = {
+//                 from: 'hdealba30@gmail.com',
+//                 to: usuario.correo,
+//                 subject: 'contraseña generada',
+//                 text: `tu contraseña es: ${contrasenaValida}`
+//             }
+//             transporter.sendMail(mailOptions, (error, info)=> {
+//                 if(error){
+//                     console.error(error);
+//                     return res.status(500).json({
+//                         message: 'enviar correo'});
+//                 } else{
+//                     console.log('correo enviando:' +info.response);
+//                     return res.json({message: 'correo_existe'})
+//                 }
+//             })
+//         }else{
+//             return res.json({ message: "correo_no_existe" });
+//         }
+//     }
+//     catch (error){
+//         console.error(error); // Puedes agregar un registro del error para debug
+//         return res.status(500).json({ message: 'prueba...' });
+//     }
+// } 
+
+export const  recuperar = async(req, res) =>{
+    try {
+        const {correo} = req.body
+        const existe = 'SELECT correo, contraseña FROM registro where correo = ?'
+        const evaluar = [correo];
+        const [resultado] = await pool.query(existe, evaluar);
+        if (resultado.length > 0) 
+        
+        {
+            const contrasenaValida = crypto.randomBytes(20).toString('hex');// aleatorio
+            const contraseñaExpirada = new Date(Date.now() + 3600000);// expiracion
+            await pool.query('INSERT INTO reset_tokens (correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?)', [correo, contrasenaValida, contraseñaExpirada]);
+            
+            const transporter = nodemailer.createTransport({
+                service: 'vyhoncrm@gmail.com',
+                auth:{
+                    user: 'vyhoncrm@gmail.com',
+                    pass: 'Vyhon2023',
+                }
+            })
+            const mailOptions = {
+                from: 'vyhoncrm@gmail.com',
+                to: correo,
+                subject: 'contraseña generada',
+                text: `tu contraseña es: ${contrasenaValida}`
+            }
+            transporter.sendMail(mailOptions, (error, info)=> {
+                if(error){
+                    console.error(error);
+                    return res.status(500).json({
+                        message: 'enviar correo'});
+                } else{
+                    console.log('correo enviando:' +info.response);
+                    return res.json({message: 'correo_existe'})
+                }
+            })
+        }else{
+            return res.json({ message: "correo_no_existe" });
+        }
+    }
+    catch (error){
+        console.error(error); // Puedes agregar un registro del error para debug
+        return res.status(500).json({ message: 'prueba...' });
+    }
+} 
+
+
+
+
+
+
+
 
 
 export const updateUsers = async (req, res) => {
