@@ -17,6 +17,7 @@
     "express-handlebars": "^7.1.2",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.6.0",
+    "nodemailer": "^6.9.5",
     "nodemon": "^3.0.1",
     "react-beautiful-dnd": "^13.1.1",
     "react-icons": "^4.11.0",
