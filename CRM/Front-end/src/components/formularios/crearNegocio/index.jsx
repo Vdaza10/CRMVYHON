@@ -81,7 +81,7 @@ function CrearNegocios() {
                         
                 window.location.href = "/negocios"  
         },0)
-            console.log("Negocio creado:", response.data);
+        return response.data
         }catch (error) {
             console.log("Error al crear negocio:", error);
         }
@@ -102,13 +102,13 @@ function CrearNegocios() {
             <Container>
                 <Principal>
                     <Caja1>
-                        <Parrafo><h3>Crear negocio</h3></Parrafo>
+                        <Parrafo><h3>Create business</h3></Parrafo>
                         <Img src={imagen} alt="img" onClick={cerrarcomponente} />
                     </Caja1>
                     <hr />
                     <Caja2>
-                        <Parrafo1><h3>Nombre del negocio</h3></Parrafo1>
-                        <Input placeholder="Ingresar el nombre del negocio" 
+                        <Parrafo1><h3>Business name</h3></Parrafo1>
+                        <Input placeholder="Enter the name of the business" 
                         maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
@@ -118,8 +118,8 @@ function CrearNegocios() {
                             }
                         }}
                         onChange={(e) => setNombreNegocio(e.target.value)} />
-                        <Parrafo1><h3>Etapa del embudo</h3></Parrafo1>
-                        <Input placeholder="Ingresar la etapa del embudo"
+                        <Parrafo1><h3>Funnel stage</h3></Parrafo1>
+                        <Input placeholder="Enter the funnel stage"
                         maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
@@ -129,8 +129,8 @@ function CrearNegocios() {
                             }
                         }}
                         onChange={(e) => setEtapas(e.target.value)} />
-                        <Parrafo1><h3>Fuente</h3></Parrafo1>
-                        <Input placeholder="Ingresar la fuente" 
+                        <Parrafo1><h3>Fountain</h3></Parrafo1>
+                        <Input placeholder="Enter the source" 
                         maxLength={50}
                         onKeyPress={(event) => {
                             const inputValue = event.key;
@@ -140,9 +140,9 @@ function CrearNegocios() {
                             }
                         }}
                         onChange={(e) => setFuente(e.target.value)} />
-                        <Parrafo1><h3>Campaña</h3></Parrafo1>
+                        <Parrafo1><h3>Campaign</h3></Parrafo1>
                         <Select value={selectEmpresa} onChange={(e) => setSelectEmpresa(e.target.value)}>
-                            <option value="">Seleccionar campaña...</option>
+                            <option value="">Select campaign...</option>
                             {empresa.map((empresa) => (
                                 <option key={empresa.idEmpresa} value={empresa.idEmpresa}>
                                     {empresa.nombreEmpresa}
@@ -150,20 +150,20 @@ function CrearNegocios() {
                             ))}
                         </Select>
                         <Parrafo1 style={{ color: 'gray', marginTop: '8%' }}></Parrafo1>
-                        <Parrafo1><h3>Contacto</h3></Parrafo1>
+                        <Parrafo1><h3>Contact</h3></Parrafo1>
                         <Select value={selectContacto} onChange={(e) => setSelectContacto(e.target.value)}>
-                            <option value="">Seleccionar contacto...</option>
+                            <option value="">Select campaign...</option>
                             {contacto.map((contacto) => (
                                 <option key={contacto.idContacto} value={contacto.idContacto}>
-                                    {contacto.nombreContacto}
+                                    {contacto.g}
                                 </option>
                             ))}
                         </Select>
                     </Caja2>
                     <hr />
                     <Caja3>
-                        <Boton1 onClick={createNegocio}>Crear negocio</Boton1>
-                        <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
+                        <Boton1 onClick={createNegocio}>Create business</Boton1>
+                        <Boton2 onClick={cerrarcomponente}>Cancel</Boton2>
                     </Caja3>
                 </Principal>
             </Container>

@@ -16,7 +16,7 @@ function Retorno4({setContactoCreado}) {
     try {
       const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/company`);
       setEmpresa(response.data);
-      console.log(response.data);
+
     } catch (error) {
       console.error('Error al obtener segmentos:', error);
     }
@@ -53,7 +53,7 @@ function Retorno4({setContactoCreado}) {
         contactoEmpresa: empresaContacto,
       })
         .then((response) => {
-          console.log(response.data);
+  
           const contactoCreado = {
             nombreContacto: nombreUsuario,
             cargo: cargo,
@@ -90,7 +90,7 @@ function Retorno4({setContactoCreado}) {
         {/* Primera sección */}
         <Caja>
           <Parrafo>
-            <h3>Crear contacto</h3>
+            <h3>Create contact</h3>
           </Parrafo>
           {/* Imagen para cerrar el componente */}
           <Img src={imagen} alt="img" onClick={cerrarcomponente} />
@@ -99,9 +99,9 @@ function Retorno4({setContactoCreado}) {
         {/* Segunda sección */}
         <Caja1>
           <Parrafo1>
-            <h3>Nombre</h3>
+            <h3>Name</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el nombre del contacto" 
+          <Input placeholder="Enter the contact name" 
           maxLength={50}
           onKeyPress={(event) => {
             const inputValue = event.key;
@@ -112,9 +112,9 @@ function Retorno4({setContactoCreado}) {
           }}
           onChange={(e) => setNombreUsuario(e.target.value)}></Input>
           <Parrafo1>
-            <h3> Cargo</h3>
+            <h3> Position</h3>
           </Parrafo1>
-          <Input placeholder="Ingresa el contacto del contacto"
+          <Input placeholder="Enter the contact's contact"
           maxLength={50}
           onKeyPress={(event) => {
             const inputValue = event.key;
@@ -125,9 +125,9 @@ function Retorno4({setContactoCreado}) {
           }}
           onChange={(e) => setCargo(e.target.value)}></Input>
           <Parrafo1>
-            <h3>Telefono</h3>
+            <h3>Phone</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el telefono del contacto"
+          <Input placeholder="Enter the contact phone number"
           maxLength={10} 
           onKeyPress={(event) => {
             const inputValue = event.key;
@@ -140,7 +140,7 @@ function Retorno4({setContactoCreado}) {
           <Parrafo1>
             <h3>Email</h3>
           </Parrafo1>
-          <Input placeholder="Ingresar el email del contacto" 
+          <Input placeholder="Enter the contact email" 
           maxLength={30}
           type='email'
           required
@@ -153,7 +153,7 @@ function Retorno4({setContactoCreado}) {
           }}
           onChange={(e) => setEmail(e.target.value)}></Input>
           <Parrafo1>
-            <h3>Empresa del contacto </h3>
+            <h3>Contact company </h3>
           </Parrafo1>
           <Select value={empresaContacto} onChange={(e) => setEmpresaContacto(e.target.value)}>
             <option value="option"></option>
@@ -168,8 +168,8 @@ function Retorno4({setContactoCreado}) {
         {/* Tercera sección */}
         <Caja2>
           {/* Botones para cancelar o crear el contacto */}
-          <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
-          <Boton1 onClick={createContacto}>Crear contacto</Boton1>
+          <Boton2 onClick={cerrarcomponente}>Cancel</Boton2>
+          <Boton1 onClick={createContacto}>Create contact</Boton1>
         </Caja2>
       </Container1>
     </Div1>

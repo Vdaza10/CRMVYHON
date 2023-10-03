@@ -42,7 +42,7 @@
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("empresas")}>
-                <MenuItem>Empresas</MenuItem>
+                <MenuItem>Companies</MenuItem>
             </NavLink>
             <NavLink
                 to="/contactos"
@@ -51,7 +51,7 @@
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("contactos")}>
-                <MenuItem>Contactos</MenuItem>
+                <MenuItem>Contacts</MenuItem>
             </NavLink>
             <NavLink
                 to="/negocios"
@@ -60,7 +60,7 @@
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("negocios")}>
-                <MenuItem>Negocios</MenuItem>
+                <MenuItem>Business</MenuItem>
             </NavLink>
             <NavLink
                 to="/tareas"
@@ -69,7 +69,7 @@
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("tareas")}>
-                <MenuItem>Tareas</MenuItem>
+                <MenuItem>Tasks</MenuItem>
             </NavLink>
             <NavLink
                 to="/pedidos"
@@ -79,6 +79,15 @@
                 }}
                 onClick={() => opcionElegida("pedidos")}>
                 <MenuItem>Pedidos</MenuItem>
+            </NavLink>
+            <NavLink
+            to="/call"
+                style={{
+                color: currentPath === "/call" ? "#000000" : "#ffffff",
+                textDecoration: "none",
+                }}
+                onClick={() => opcionElegida("call")}>
+                <MenuItem>call log</MenuItem>
             </NavLink>
         </Menucontainer>
 

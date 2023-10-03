@@ -9,7 +9,7 @@ import EmpresaUpdate from "../../formularios/updateEmpresa";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode"
-// import { useRef } from "react";
+
 
 function TablaEmpresa() {
   const [active, setActive] = useState(false);
@@ -28,8 +28,8 @@ function TablaEmpresa() {
     const userToken = localStorage.getItem("user");
     if(userToken){
         try {
-        const token = jwt_decode(userToken);
-  console.log(token, "❤️❤️💕💕💕❤️");
+        jwt_decode(userToken);
+
   setLoading(false);
         } catch (error) {
             console.error("Error al decodificar el token:", error);
@@ -47,7 +47,7 @@ const [buscar, setBuscar] = useState("")
 //Inicio, Función de busqueda
   const BarraDeBusqueda = (e) => {
   setBuscar(e.target.value);
-  console.log(e.target.value);
+ 
 };
 
 //Metodo de filtrado tabla empresa
@@ -76,7 +76,6 @@ const [buscar, setBuscar] = useState("")
     try {
       const empresas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/companytabla`)
     setEmpresa(empresas.data);
-    console.log(empresas.data);
     } catch (error) {
       console.log("error de axio en la query");
     }
@@ -88,8 +87,10 @@ const [buscar, setBuscar] = useState("")
       const res = await Axios.put(
         `${process.env.REACT_APP_URL_BACKEND}/companytabla/desactivar/${item.idEmpresa}`
       );
-      console.log("Contacto eliminado con éxito.", res.data);
       Getempresa()
+      return res.data
+    
+   
     } catch (error) {
       console.log("Error al eliminar la empresa:", error);
     }
@@ -116,28 +117,28 @@ const [buscar, setBuscar] = useState("")
     <>
       <ContainerPrincipal>
         <Heder>
-          <h1>Tabla empresa</h1>
+          <h1>Company table</h1>
           <ContainerInput>
             <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-            <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
+            <Input placeholder="Look for ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
             <AiOutlineClose onClick={Borrar} style={{ fontSize: "20px", color: "gray", cursor:"pointer" }} />
           </ContainerInput>
         </Heder>
         <HederTabla>
           <Caja1>
-            <Parrafo>nombre empresa</Parrafo>
+            <Parrafo>company name</Parrafo>
           </Caja1>
           <Caja1>
-            <Parrafo>segmento</Parrafo>
+            <Parrafo>segment</Parrafo>
           </Caja1>
           <Caja1>
             <Parrafo>url</Parrafo>
           </Caja1>
           <Caja1>
-            <Parrafo>Descripción</Parrafo>
+            <Parrafo>Description</Parrafo>
           </Caja1>
           <Caja1>
-            <Parrafo>acción</Parrafo>
+            <Parrafo>action</Parrafo>
           </Caja1>
         </HederTabla>
         <ContainerSecundario>
@@ -180,7 +181,7 @@ const [buscar, setBuscar] = useState("")
                   setEmpresaUpdateAbierto();
                 }
               }}>
-                Crear Empresa
+                Company create
               </Boton>
               </FooterTabla>
             {active && <Retorno8 />}

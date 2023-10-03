@@ -15,22 +15,29 @@ import {
   EditButton,
   BodyInfor,
   BoxInfo,
-  InforperfilLetra
+  InforperfilLetra,
+  Cajas,
+  Cajitas,
+  ContainerIcono,
+  ContainerLetra
 } from "./styled";
-// import { HiCake } from 'react-icons/hi';
-// import { BiSolidUser } from 'react-icons/bi';
-// import { BsTelephoneFill } from 'react-icons/bs';
-// import { FaFlag } from 'react-icons/fa';
+import { HiCake } from 'react-icons/hi';
+import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
+import { BsTelephoneFill,BsGeoAltFill,BsFillClipboard2CheckFill } from 'react-icons/bs';
+import { FaFlag } from 'react-icons/fa';
+import { PiGenderIntersex } from 'react-icons/pi';
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
 import DatosPerfil from "../../../formularios/crearDatosPerfil";
+import Audiollamada from "../../markenting/llamadaAudioModal/index"
 
 function PerfilUsuario() {
   const [modalDatos, setModalDatos] = useState(false);
   const [modalAbierta, setModalAbierta] = useState(false);
+  const [llamadaAbierta, setLlamadaAbierta] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({});
   const [userToken, setUserToken] = useState(localStorage.getItem("user"));
@@ -50,8 +57,8 @@ function PerfilUsuario() {
       try {
         const token = jwt_decode(userToken);
         setUserData(token);
+        console.log( jwt_decode(userToken));
         setLoading(false);
-        console.log(token, "💕💕💕💕");
       } catch (error) {
         console.error("Error al decodificar el token:", error);
         navigate("/");
@@ -63,7 +70,6 @@ function PerfilUsuario() {
 
   const actualizarUsuario = () => {
     const updateUserToken = localStorage.getItem("user");
-    console.log(`Variable updateuserToken -->${updateUserToken}`);
     if (updateUserToken) {
       try {
         const token = jwt_decode(updateUserToken);
@@ -74,7 +80,6 @@ function PerfilUsuario() {
         navigate("/");
       }
     }
-    console.log(updateUserToken, "🤷‍♂️🤷‍♂️");
   };
 
   return (
@@ -88,6 +93,13 @@ function PerfilUsuario() {
           {mostrarnotifcacion ? (
             <>
               <Fondo>
+                <Audiollamada 
+                estado={llamadaAbierta}
+                cambiarEstado={setLlamadaAbierta}
+                >
+
+                </Audiollamada>
+
                 <UserEditar
                   status={modalAbierta}
                   changeStatus={setModalAbierta}
@@ -130,31 +142,119 @@ function PerfilUsuario() {
                           <InforperfilLetra>
                             <h4>Email:</h4>
                           </InforperfilLetra>
-                          <p>JASIL@GMAIL.COM</p>
+                          <p>{userData.email}</p>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
                             <h4>Password:</h4>
-                          </InforperfilLetra>
-                          <p>Contraseña</p>
+                          </InforperfilLetra >
+                          <p >{userData.password}</p>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
                             <h4>Empresa:</h4>
                           </InforperfilLetra>
-                          <p>WowDesarrolloDigital</p>
+                          <p>{userData.nombreEmpresa}</p>
                         </InforPerfil>
                       </Boxperfil>
                     </ContainPerfil>
 
-                    <BoxInfo>
+                    {/* <BoxInfo>
                         <HeaderInfor>
-                          <h3>Información adicional</h3>
+                          <h3 onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Información adicional</h3>
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
                         <h3>NO HAY DATOS ADICIONALES</h3>
                         <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
+                        </BodyInfor>
+                    </BoxInfo> */}
+                    <BoxInfo>
+                        <HeaderInfor>
+                          <h3>Informacion Personal</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+                        <BodyInfor>
+                          <Cajas>
+                            <Cajitas>
+                              <ContainerIcono>
+                                <BiSolidUser className="Iconos"></BiSolidUser>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Identificacion</h4>
+                                <p>456669988</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                            <Cajitas>
+                              <ContainerIcono>
+                                <BsFillClipboard2CheckFill className="Iconos"></BsFillClipboard2CheckFill>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Tipo de documento</h4>
+                                <p>cedula</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                            <Cajitas>
+                              <ContainerIcono>
+                              <HiCake className="Iconos"></HiCake>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Fecha de nacimiento</h4>
+                                <p>2004/13/07</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                          </Cajas>
+
+                          <Cajas>
+                          <Cajitas>
+                              <ContainerIcono>
+                                <PiGenderIntersex className="Iconos"></PiGenderIntersex>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Sexo</h4>
+                                <p>otros</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                            <Cajitas>
+                              <ContainerIcono>
+                                <BiSolidMessageEdit className="Iconos"></BiSolidMessageEdit>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Edad</h4>
+                                <p>45</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                            <Cajitas>
+                              <ContainerIcono>
+                                <BsTelephoneFill className="Iconos"></BsTelephoneFill>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Contacto</h4>
+                                <p>456669988</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                          </Cajas>
+
+                          <Cajas>
+                          <Cajitas>
+                              <ContainerIcono>
+                                <FaFlag className="Iconos"></FaFlag>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Nacionalidad</h4>
+                                <p>Colombia</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                            <Cajitas>
+                              <ContainerIcono>
+                                <BsGeoAltFill className="Iconos"></BsGeoAltFill>
+                              </ContainerIcono>
+                              <ContainerLetra>
+                                <h4>Lugar de residencia</h4>
+                                <p>Barranquilla</p>
+                              </ContainerLetra>
+                            </Cajitas>
+                          </Cajas>
                         </BodyInfor>
                     </BoxInfo>
                   </Container>

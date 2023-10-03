@@ -7,7 +7,6 @@ import Retorno8 from "../../formularios/crearEmpresa";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
-console.log(process.env.REACT_APP_URL_BACKEND, 'HOLAAAA')
 
 function Retorno7() {
     const [active, setActive] = useState(false); // Estado para controlar la visualización del componente Retorno8
@@ -22,8 +21,7 @@ function Retorno7() {
         const userToken = localStorage.getItem("user");
         if(userToken){
             try {
-            const token = jwt_decode(userToken);
-        console.log(token, "❤️❤️💕💕💕❤️");
+            jwt_decode(userToken);
         setLoading(false);
             } catch (error) {
                 console.error("Error al decodificar el token:", error);

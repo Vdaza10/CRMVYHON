@@ -20,7 +20,7 @@ const CrearTarea = () => {
         try {
             const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
             setNegocio(response.data);
-            console.log(response.data);
+
         } catch (error) {
             console.error("Error al obtener segmentos:", error);
         }
@@ -84,12 +84,12 @@ const CrearTarea = () => {
             <Container>
                 <Principal>
                     <Caja1>
-                        <Parrafo><h3>Crear tarea</h3></Parrafo>
+                        <Parrafo><h3>Create task</h3></Parrafo>
                         <Img src={imagen} alt="img" onClick={cerrarcomponente}></Img>
                     </Caja1>
                     <hr />
                     <Caja2>
-                        <Parrafo1><h3>Negocio</h3></Parrafo1>
+                        <Parrafo1><h3>Business</h3></Parrafo1>
                         <Select value={selectNegocio} onChange={(event) => {
                             setSelectNegocio(event.target.value);
                         }}>
@@ -102,7 +102,7 @@ const CrearTarea = () => {
                             ))};
                         </Select>
 
-                        <Parrafo1><h3>Asunto de la tarea</h3></Parrafo1>
+                        <Parrafo1><h3>Task subject</h3></Parrafo1>
                         <Input
                             onKeyPress={(event) => {
                                 const inputValue = event.key;
@@ -113,12 +113,12 @@ const CrearTarea = () => {
                             }}
                             onChange={(event) => {
                                 seAsunto(event.target.value)
-                            }} placeholder="ingresar asunto de tarea"
+                            }} placeholder="enter task subject"
                             maxLength={50}
                             >
                                 
                             </Input>
-                        <Parrafo1><h3>Responsable</h3></Parrafo1>
+                        <Parrafo1><h3>Responsible</h3></Parrafo1>
                         <ContainerInput>
                             <Input
                                 onKeyPress={(event) => {
@@ -130,12 +130,12 @@ const CrearTarea = () => {
                                 }}
                                 onChange={(event) => {
                                     setResponsable(event.target.value)
-                                }} placeholder="Ingresar nombre del responsable" 
+                                }} placeholder="Enter name of person responsible" 
                                 maxLength={50}
                                 style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
                             <FaUser style={{ marginRight: "5px" }} />
                         </ContainerInput>
-                        <Parrafo1><h3>Tipo de tarea</h3></Parrafo1>
+                        <Parrafo1><h3>Task type</h3></Parrafo1>
                         <ContainerInput>
                             <Input
                                 onKeyPress={(event) => {
@@ -150,7 +150,7 @@ const CrearTarea = () => {
                                 }} placeholder="Ingresar tipo de tarea" maxLength={50} style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
                             <BsFillCalendar2CheckFill style={{ marginRight: "5px" }} />
                         </ContainerInput>
-                        <Parrafo1><h3>Fecha</h3></Parrafo1>
+                        <Parrafo1><h3>date</h3></Parrafo1>
                         <Input type="date" style={{ color: 'gray' }} onChange={(event) => {
                             setFecha(event.target.value)
                         }}></Input>
@@ -161,8 +161,8 @@ const CrearTarea = () => {
                     </Caja2>
                     <hr />
                     <Caja3>
-                        <Boton1 onClick={Compromiso}>Crear tarea</Boton1>
-                        <Boton2 onClick={cerrarcomponente}>Cancelar</Boton2>
+                        <Boton1 onClick={Compromiso}>Create task</Boton1>
+                        <Boton2 onClick={cerrarcomponente}>Cancel</Boton2>
                     </Caja3>
                 </Principal>
             </Container>

@@ -1,6 +1,6 @@
 // Importación de librerías y recursos necesarios
 import styled from "styled-components";
-import "../../../App.css"
+import "../../../App.css";
 
 export const Contenedor = styled.div`
   height: 10%;
@@ -24,13 +24,15 @@ export const Logo = styled.img`
 `;
 // Contenedor de los elementos del menú
 export const Menucontainer = styled.ul`
+  height: 100%;
+  width: 45%;
   list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 // Ítem individual del menú
 export const MenuItem = styled.li`
-  margin-right: 5%;
-  margin-left: 3%;
   cursor: pointer;
   transition: all 0.2s ease; // Transición suave para todos los cambios
   &:last-child {
@@ -69,7 +71,6 @@ export const Ajustes = styled.div`
     margin-inline-end: 40px;
   }
 `;
-
 
 // Menú desplegable del perfil de usuario
 export const Menudesplegable = styled.div`
