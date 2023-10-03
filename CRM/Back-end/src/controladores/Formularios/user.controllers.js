@@ -2,6 +2,8 @@ import { pool } from "../../db.js";
 import { encryptPassword } from "../../helpers/Bycrypt.js";
 import jwt from "jsonwebtoken";
 import { Secret } from "../../db.js";
+// const crypto = require('crypto');
+
 export const getUsers = async(req,res) =>{
     try {
         const{correo}=req.body
@@ -74,47 +76,72 @@ export const  recuperar = async(req, res) =>{
     }
 } 
 
+// export const  recuperar = async(req, res) =>{
+//     try {
+//         const {correo} = req.body
+//         const existe = 'SELECT correo, contraseña FROM registro where correo = ?'
+//         const evaluar = [correo];
+//         const [resultado] = await pool.query(existe, evaluar);
+//         if (resultado.length > 0) {
+//             const usuario = resultado[0];
+//             const contrasenaValida = crypto.randomBytes(20).toString('hex');
+//             const contraseñaExpirada = new Date(Date.now() + 3600000);
+//             await pool.query('INSERT INTO re')
+//             if 
+            
+//             return res.json({ message: "correo_existe" });
+//         }else{
+//             return res.json({ message: "correo_no_existe" });
+//         }
+
+//     }
+//     catch (error){
+//         console.error(error); // Puedes agregar un registro del error para debug
+//         return res.status(500).json({ message: 'Algo va mal' });
+//     }
+// } 
+
 
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
-  try {
-    const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-  
-    const [rows]  = await pool.query(
-        'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-    [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
-    );
-    encrypt = await encryptPassword(contraseña)
-    console.log(encrypt, "contraseña incriptada exitosa");
-    const refreshToken = jwt.sign(
-        { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
-        Secret,
-        {
-          expiresIn: "1h",
-        }
-    );
-   
-    res.json({refreshToken,
-        data:{
-            idRegistro,
-            nombreUsuario,
-            nombreEmpresa,
-            correo,
-            contraseña
-        }})
-    console.log(refreshToken,"lalala");
+    try {
+        const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
+    
+        const [rows]  = await pool.query(
+            'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
+        [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
+        );
+        encrypt = await encryptPassword(contraseña)
+        console.log(encrypt, "contraseña incriptada exitosa");
+        const refreshToken = jwt.sign(
+            { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
+            Secret,
+            {
+            expiresIn: "1h",
+            }
+        );
+    
+        res.json({refreshToken,
+            data:{
+                idRegistro,
+                nombreUsuario,
+                nombreEmpresa,
+                correo,
+                contraseña
+            }})
+        console.log(refreshToken,"lalala");
 
-} catch (error) {
-    console.error(error);
-    res.status(500).json({ mensaje: 'Error al actualizar usuario' });
-}
-};
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ mensaje: 'Error al actualizar usuario' });
+    }
+    };
 
-export const deleteUsers = async (req, res) => {
-try {
-} catch (error) {
-    return res.status(404).json({
-    message: "Register in database was not delete",
-    });
-}
-};
+    export const deleteUsers = async (req, res) => {
+    try {
+    } catch (error) {
+        return res.status(404).json({
+        message: "Register in database was not delete",
+        });
+    }
+    };
