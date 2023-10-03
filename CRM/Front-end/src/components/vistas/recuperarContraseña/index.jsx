@@ -6,7 +6,8 @@ import VentanaModal3 from "../../modales/mensajeContraseñaCorreo";
 import { useState } from "react";   
 import Axios from "axios";
 import "../../../App.css"
-import emailjs from '@emailjs/browser'
+
+
 
 
 function Recuperar  () {
@@ -26,23 +27,6 @@ function Recuperar  () {
     }
 
 
-    const sendEmail = (user_email) => {
-        const templateparams = {
-            to_email: user_email,
-        }
-        emailjs
-        .send(
-            "service_p9dkurr",
-            "template_tkhf0aj",
-            templateparams,
-            "JiRl7pYlYGJshjdVB",
-        ).then((response)=>{
-            console.log("Correo electrónico enviado con éxito", response)
-        }).catch((error)=>{
-            console.log("Error al enviar el correo electrónico", error)
-        })
-    }
-
 
     const cuentaRecuperada = () => {
         if (email) {
@@ -52,7 +36,6 @@ function Recuperar  () {
             .then((response) => {
                 if (response.data.message === "correo_existe") {
                     VentanaModal();
-                    sendEmail(email); 
                 } else {
                     VentanaModalNoencontrado();
                 }
