@@ -9,11 +9,11 @@ import carrusel from "../../img/imagenCarrusel.jpg"
     const [loading, setLoading] = useState(true)
     
     const tarjetas = [
-            {title: "DATOS DE CONTACTO DEL CLIENTE", descripcion: "Nombre" ,descripcion2: "Dirección de correo electrónico."},
-            {title: "HISTORIAL DE INTERRACCIONES", descripcion: "Registros de llamadas", descripcion2: "correos electrónicos enviados y recibidos."},
-            {title: "INFORMACIÓN SOBRE OPORTUNIDADES DE VENTA ", descripcion: "Detalles sobre las oportunidades de negocio con el cliente, incluyendo el estado, el valor estimado y las fechas importantes."},
-            {title: "ACTIVIDADES PENDIENTES", descripcion: "Tareas y recordatorios relacionados con el cliente, como seguimientos programados, llamadas de seguimientos, presentaciones pendientes."},
-            {title: "HISTORIAL DE COMPRAS", descripcion: "información sobre las compras previas realizadas por el cliente, productos o servios adquiridos y fechas de compras."},
+            {title: "CUSTOMER CONTACT DATA", description: "name" ,description2: "Email address."},
+            {title: "INTERRACTION HISTORY", descripcion: "Call logs", descripcion2: "emails sent and received."},
+            {title: "INFORMATION ON SALES OPPORTUNITIES ", description: "Details about business opportunities with the client, including status, estimated value, and important dates."},
+            {title: "PENDING ACTIVITIES", descripcion: "Client-related tasks and reminders, such as scheduled follow-ups, follow-up calls, pending presentations."},
+            {title: "PURCHASE HISTORY", descripcion: "information about previous purchases made by the customer, products or services purchased and purchase dates."},
         ]
         // Función para asignar animaciones a las tarjetas.
     const asignarAnimacion = (claseActual, claseSiguiente) => {
@@ -53,7 +53,7 @@ useEffect(() => {
             jwt_decode(userToken);
     setLoading(false);
         } catch (error) {
-            console.error("Error al decodificar el token:", error);
+            console.error("Error decoding token:", error);
             navigate('/'); 
         }
     }else{
@@ -71,7 +71,7 @@ return (
 
     <>
         <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"90vh"}}>
-        {/* <h1 style={{textAlign:"center", margin:"0", color:"white"}}>TARJETAS INFORMATIVAS</h1> */}
+        <h1 style={{textAlign:"center", margin:"0", color:"white"}}>INFORMATION CARDS</h1>
 
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
         {/* <button onClick={handleClickPrev}>Prev</button> */}

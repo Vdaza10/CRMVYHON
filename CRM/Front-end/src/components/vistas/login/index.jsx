@@ -44,12 +44,11 @@ function Login() {
   return (
         <Fondo>
           <Contenedor>
-            <Titulo>¡Bienvenido a VYHON!</Titulo>
+            <Titulo>!Welcome to VYHON!</Titulo>
             <Message>{error}</Message>
 
             <Parrafo>
-              <h4 style={{ margin: "0" }}>Correo electronico</h4>
-            
+              <h4 style={{ margin: "0" }}>Email</h4>
             </Parrafo>
 
             <Input
@@ -60,7 +59,7 @@ function Login() {
             <Message>{error}</Message>
 
             <Parrafo>
-              <h4 style={{ margin: "0" }}>Contraseña</h4>
+              <h4 style={{ margin: "0" }}>password</h4>
             </Parrafo>
 
             <Input
@@ -71,18 +70,18 @@ function Login() {
 
             <ContainerUltimo>
               <Button type="submit" onClick={Login}>
-                Iniciar sesión
+                Log in 
               </Button>
               <br />
               <Link to={"/recuperar"} style={{ color: "black" }}>
                 <Olvidar style={{ margin: "0" }}>
-                  <h4 style={{ margin: "0" }}>Olvidaste tu contraseña?</h4>
+                  <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
                 </Olvidar>
               </Link>
               <Olvidar>
                 <Link to={"/registrarse"} style={{ color: "black" }}>
                   <h4 style={{ margin: "0", color: "black", marginTop: "" }}>
-                    Registrate
+                  Sign up
                   </h4>
                 </Link>
               </Olvidar>

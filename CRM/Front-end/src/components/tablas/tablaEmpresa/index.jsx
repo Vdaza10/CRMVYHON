@@ -117,28 +117,28 @@ const [buscar, setBuscar] = useState("")
     <>
       <ContainerPrincipal>
         <Heder>
-          <h1>Tabla empresa</h1>
+          <h1>Company table</h1>
           <ContainerInput>
             <AiOutlineSearch style={{ fontSize: "25px", color: "#4b4848" }} />
-            <Input placeholder="Buscar ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
+            <Input placeholder="Look for ..."  value={buscar} onChange={BarraDeBusqueda}></Input>
             <AiOutlineClose onClick={Borrar} style={{ fontSize: "20px", color: "gray", cursor:"pointer" }} />
           </ContainerInput>
         </Heder>
         <HederTabla>
           <Caja1>
-            <Parrafo>nombre empresa</Parrafo>
+            <Parrafo>company name</Parrafo>
           </Caja1>
           <Caja1>
-            <Parrafo>segmento</Parrafo>
+            <Parrafo>segment</Parrafo>
           </Caja1>
           <Caja1>
             <Parrafo>url</Parrafo>
           </Caja1>
           <Caja1>
-            <Parrafo>Descripción</Parrafo>
+            <Parrafo>Description</Parrafo>
           </Caja1>
           <Caja1>
-            <Parrafo>acción</Parrafo>
+            <Parrafo>action</Parrafo>
           </Caja1>
         </HederTabla>
         <ContainerSecundario>
@@ -181,7 +181,7 @@ const [buscar, setBuscar] = useState("")
                   setEmpresaUpdateAbierto();
                 }
               }}>
-                Crear Empresa
+                Company create
               </Boton>
               </FooterTabla>
             {active && <Retorno8 />}
