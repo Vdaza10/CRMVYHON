@@ -102,7 +102,7 @@ const Registrarse = () => {
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
-                const regex = /[a-zA-Z ]/;
+                const regex = /[a-zA-]/;
                 if (!regex.test(inputValue)) {
                   event.preventDefault();
                 }
@@ -124,7 +124,7 @@ const Registrarse = () => {
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
-                const regex = /[a-zA-Z0-9& ]/;
+                const regex = /[a-zA-Z0-9&]/;
                 if (!regex.test(inputValue)) {
                   event.preventDefault();
                 }
@@ -146,7 +146,7 @@ const Registrarse = () => {
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
-                const regex = /[_.@a-zA-Z0-9]/;
+                const regex = /[_.@a-zA-Z0-9&]/;
                 if (!regex.test(inputValue)) {
                   event.preventDefault();
                 }
@@ -158,7 +158,7 @@ const Registrarse = () => {
             ></Input>
             {mostrarAlertaCorreo && (
               <div style={{color:"red"}} className="alert alert-danger" role="alert">
-                ingrese todos los carracteres (@,.com)
+                ingrese todos los carracteres 
               </div>
             )}
             {correoExistente && (
