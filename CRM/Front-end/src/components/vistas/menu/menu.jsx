@@ -17,6 +17,7 @@ export const Navegacion = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1% 1%;
+
 `;
 // Logo de la aplicación
 export const Logo = styled.img`

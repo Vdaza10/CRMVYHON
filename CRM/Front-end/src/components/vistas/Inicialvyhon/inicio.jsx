@@ -10,7 +10,7 @@ import {
   Menucontainer,
   Opciones,
   TarjetasInformativas,
-  TextoFooter
+  TextoFooter,
 } from "./styled";
 import imagen from "../../img/logito.svg";
 import inicio from "../../img/Fondo.jpeg";
@@ -32,10 +32,14 @@ const Inicio = () => {
             to="registrarse"
             style={{ textDecoration: "none", color: "white" }}
           >
-            <Opciones>Create your account</Opciones>
+            <Opciones style={{ background: "#6ab9c0f9", textAlign: "center" }}>
+              Create your account
+            </Opciones>
           </Link>
           <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
-            <Opciones>Log in</Opciones>
+            <Opciones style={{ textAlign: "center", background: "#6ab9c0f9" }}>
+              Log in
+            </Opciones>
           </Link>
         </Menucontainer>
       </ContenedorInicial>
@@ -55,7 +59,7 @@ const Inicio = () => {
             backgroundImage: `url(${inicio})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            opacity: 0.8, 
+            opacity: 0.8,
           }}
         />
         <ContainerTarjetas className="boxTarjet">
@@ -69,10 +73,10 @@ const Inicio = () => {
               interact with the app, such as highlighting buttons pressed or
               display success or error messages
               <p>
-                <b>Usability:</b> Usability focuses on making the application
-                is easy to use. This implies the logical arrangement of
-                elements, intuitive navigation and minimization of friction in
-                user interaction.
+                <b>Usability:</b> Usability focuses on making the application is
+                easy to use. This implies the logical arrangement of elements,
+                intuitive navigation and minimization of friction in user
+                interaction.
               </p>
               <p>
                 <b>Visual Hierarchy:</b> Use sizes, colors, and styles to
@@ -108,9 +112,9 @@ const Inicio = () => {
               </p>
               <p>
                 {" "}
-                <b>Gestión de Ventas:</b> automation tools sales that help
-                sales teams track opportunities, manage the sales cycle and
-                close deals effective way
+                <b>Gestión de Ventas:</b> automation tools sales that help sales
+                teams track opportunities, manage the sales cycle and close
+                deals effective way
               </p>{" "}
               <b>Workflow Automation:</b> Software that automates internal
               processes, such as assigning tasks, approving documents, and
