@@ -1,13 +1,24 @@
 import React from "react";
-import {Container,ContainerTarjetas,Contenedor1,ContenedorImagen,ContenedorInicial,Footer,Logo,Menucontainer,Opciones,TarjetasInformativas,TextoFooter} from "./styled";
+import {
+  Container,
+  ContainerTarjetas,
+  Contenedor1,
+  ContenedorImagen,
+  ContenedorInicial,
+  Footer,
+  Logo,
+  Menucontainer,
+  Opciones,
+  TarjetasInformativas,
+  TextoFooter
+} from "./styled";
 import imagen from "../../img/logito.svg";
-import inicio from "../../img/crminicio.jpg";
+import inicio from "../../img/Fondo.jpeg";
 import herramientas from "../../img/herramientas.png";
 import graficas from "../../img/graficas.jpeg";
 import seguridad from "../../img/seguridad.webp";
 import { Link } from "react-router-dom";
-import "../../../App.css"
-
+import "../../../App.css";
 
 const Inicio = () => {
   return (
@@ -23,43 +34,50 @@ const Inicio = () => {
           >
             <Opciones>Create your account</Opciones>
           </Link>
-          <Link
-            to="/login"
-            style={{ textDecoration: "none", color: "white" }}
-          >
+          <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
             <Opciones>Log in</Opciones>
           </Link>
         </Menucontainer>
       </ContenedorInicial>
       <Container
         style={{
-          backgroundImage: `url(${inicio})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          height:"90%"
+          height: "90%",
+          position: "relative",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url(${inicio})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            opacity: 0.8, 
+          }}
+        />
         <ContainerTarjetas className="boxTarjet">
           <TarjetasInformativas>
             <h2>GRAPHIC VIEW </h2>
             <ContenedorImagen
               style={{ backgroundImage: `url(${graficas})` }}
             ></ContenedorImagen>
-            <p >
-              <b>Visual Feedback:</b> Provide visual feedback
-              when users interact with the app, such as highlighting
-              buttons pressed or display success or error messages
+            <p>
+              <b>Visual Feedback:</b> Provide visual feedback when users
+              interact with the app, such as highlighting buttons pressed or
+              display success or error messages
               <p>
-                <b>Usability:</b> 
-                Usability focuses on making the
-                application is easy to use. This implies the logical arrangement
-                of elements, intuitive navigation and minimization of
-                friction in user interaction.
+                <b>Usability:</b> Usability focuses on making the application
+                is easy to use. This implies the logical arrangement of
+                elements, intuitive navigation and minimization of friction in
+                user interaction.
               </p>
               <p>
-                <b>Visual Hierarchy:</b> Use sizes, colors and styles
-                to indicate the hierarchy of information. This helps the
-                users to quickly identify what is most important.
+                <b>Visual Hierarchy:</b> Use sizes, colors, and styles to
+                indicate the hierarchy of information. This helps the users to
+                quickly identify what is most important.
               </p>
             </p>
           </TarjetasInformativas>
@@ -84,21 +102,19 @@ const Inicio = () => {
             ></ContenedorImagen>
             <p style={{ marginLeft: "1em", marginRight: "1em" }}>
               <p>
-                <b>Contact Management:</b> These tools allow
-                Efficiently manage customer contact information
-                customers, including names, email addresses,
-                phone numbers, communication history, etc.
+                <b>Contact Management:</b> These tools allow Efficiently manage
+                customer contact information customers, including names, email
+                addresses, phone numbers, communication history, etc.
               </p>
               <p>
                 {" "}
-                <b>Gestión de Ventas:</b> automation tools
-                sales that help sales teams track
-                opportunities, manage the sales cycle and close deals
-                effective way
+                <b>Gestión de Ventas:</b> automation tools sales that help
+                sales teams track opportunities, manage the sales cycle and
+                close deals effective way
               </p>{" "}
-              <b>Workflow Automation:</b> Software that automates
-              internal processes, such as assigning tasks, approving
-              documents and workflow management.
+              <b>Workflow Automation:</b> Software that automates internal
+              processes, such as assigning tasks, approving documents, and
+              workflow management.
             </p>
           </TarjetasInformativas>
         </ContainerTarjetas>

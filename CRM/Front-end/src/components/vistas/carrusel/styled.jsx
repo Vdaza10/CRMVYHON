@@ -34,10 +34,10 @@ export const Carrusel = styled.div`
 export const Tarjeta1 = styled.div`
 width: 320px;
 height: 435px;
-background-color: #2d5affb8;
-transition: all 0.3s ease;
+background-color: #5e6163c9;
+transition: all 1s ease;
 border-radius: 30px;
-box-shadow: #7b7a7a 1px 0px 15px 5px ;
+box-shadow: #1c1c1c 1px 0px 15px 5px ;
 opacity: 0;
 transform: translateX(20px);
 display: flex;
