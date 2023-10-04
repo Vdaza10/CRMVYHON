@@ -4,7 +4,7 @@ import { Container, ContenedorModal, Header, Body, Boton } from "../../vistas/ma
 import { GrClose } from "react-icons/gr";
 import axios from "axios";
 
-function DatosPerfil({ estado, cambiarEstado }) {
+function DatosPerfil({ estado, cambiarEstado,userData }) {
 
   const [tipoDocumentoSelect, setTipoDocumentoSelect] = useState("");
   const [identificacion, setIdentificacion] = useState("");
@@ -50,13 +50,13 @@ function DatosPerfil({ estado, cambiarEstado }) {
   const GuardarDatosPerfil = async () => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_URL_BACKEND}/datosPerfil`,
+        `${process.env.REACT_APP_URL_BACKEND}/datosPerfil/${userData.idRegistro}`,
         {
           identificacion: identificacion,
-          tipoDocumento : tipoDocumentoSelect,
+          tipo_documento : tipoDocumentoSelect,
           fechaNacimiento : fechaNacimiento,
           nacionalidad : nacionalidad,
-          contacto : contacto,
+          Telefono: contacto,
           lugarResidencia : lugarResidencia,
           sexo : sexoSelect,
         }
@@ -67,6 +67,7 @@ function DatosPerfil({ estado, cambiarEstado }) {
     }, 0);
       console.log(response.data); // Manejar la respuesta del servidor
     } catch (error) {
+      console.log(error);
       console.error("Hubo un error al enviar los datos:", error);
     }
   };

@@ -108,6 +108,7 @@ function PerfilUsuario() {
                 {/* header */}
                 <Header>
                   <DatosPerfil 
+                  userData={userData}
                   estado = {modalDatos}
                   cambiarEstado = {setModalDatos}
                   ></DatosPerfil>
