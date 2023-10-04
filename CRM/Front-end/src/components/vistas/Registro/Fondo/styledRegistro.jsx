@@ -5,8 +5,8 @@ export const Fondo = styled.div`
 background: var( --color-fondo);
 background: -moz-linear-gradient(180deg,var(--color-fondoo) 0%, #545454 100%);
 background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, #515151 100%);
-background: linear-gradient(180deg, var(--color-fondoo) 0%, #3e3e3e 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#eeeeee",GradientType=1);
+background: linear-gradient(180deg, var(--color-fondoo) 0%, #545454 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#545454",endColorstr="#545454",GradientType=1);
     width: 100%;
     height:100vh;
     display: flex;

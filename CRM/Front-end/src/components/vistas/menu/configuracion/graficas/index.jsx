@@ -29,7 +29,8 @@ function Grafica() {
       datasets: [
         {
           data: [4350, 7600, 5400, 2200],
-          backgroundColor: ["#f00", "#04f61c", "#000", "#0546f9"],
+          backgroundColor: ["#f00", "#04f61c", "#000000", "#0546f9"],
+          
         },
       ],
     };
