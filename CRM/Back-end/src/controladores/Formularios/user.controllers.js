@@ -140,14 +140,14 @@ export const  recuperar = async(req, res) =>{
             await pool.query('INSERT INTO reset_tokens (correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?)', [correo, contrasenaValida, contraseñaExpirada]);
             
             const transporter = nodemailer.createTransport({
-                service: 'crmVyhon@outlook.com',
+                service: 'helenadealba3103@outlook.com',
                 auth:{
-                    user: 'crmVyhon@outlook.com',
-                    pass: 'Vyhon2023',
+                    user: 'helenadealba3103@outlook.com',
+                    pass: 'Delida3005',
                 }
             })
             const mailOptions = {
-                from: 'crmVyhon@outlook.com',
+                from: 'helenadealba3103@outlook.com',
                 to: correo,
                 subject: 'contraseña generada',
                 text: `tu contraseña es: ${contrasenaValida} Recupera tu contraseña aqui: ${linkAleatorio}`
@@ -181,7 +181,7 @@ function generateRandomLink (){
         link += characters.charAt(randomIndex);
     }
     const sitioUrl = 'http://localhost:3000/restablecer'
-    return sitioUrl + link
+    return sitioUrl 
 }
 
 

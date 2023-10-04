@@ -61,7 +61,7 @@ export const ConteinerBonton = styled.div`
 
 export const Boton1 = styled.button`
   background-color: var(--color-button);
-  color: white;
+  color: #0c0b0b;
   width: 35%;
   height: 30%;
   border: none;
