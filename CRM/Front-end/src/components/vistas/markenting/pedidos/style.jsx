@@ -14,7 +14,6 @@ export const ButtonCont = styled.div`
   height: 10%;
   background-color: #ffffff;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
 `;

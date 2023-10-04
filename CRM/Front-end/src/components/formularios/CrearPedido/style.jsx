@@ -5,14 +5,14 @@ export const FormularioContainer = styled.form`
   height: 80%;
   display: flex;
   align-items: center;
-  background-color: #ffffff;
 `;
 
 export const FormGroup = styled.div`
-  width: 100%;
+  width: 90%;
   height: 50%;
-  background-color: #ffffff;
   display: flex;
+  padding: 0;
+  margin-left: -20px;
 `;
 
 export const Div = styled.div`
@@ -35,5 +35,9 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  width: 70px;
+  background-color: green;
 `;

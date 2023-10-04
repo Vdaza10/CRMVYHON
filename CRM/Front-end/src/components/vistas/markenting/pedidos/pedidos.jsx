@@ -32,7 +32,7 @@ const Pedidos = () => {
   
     try {
       await axios.put(`${process.env.REACT_APP_URL_BACKEND}/pedidos/${movedTask.id}`, {
-        estado: targetTaskType,
+        estado: targetTaskType.toLowerCase(),
       });
       console.log('Estado de la tarea actualizado correctamente en el servidor');
     } catch (error) {
