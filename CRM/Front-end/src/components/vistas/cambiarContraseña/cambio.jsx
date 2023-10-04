@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import "../../../App.css"
 
-
 function CambioContraseña () {
 
     const [email,setEmail]=useState("")
+    const [contraseña, setContraseña] = useState("")
 
     const cuentaRecuperada = () => {
         if (email) {
-            Axios.post(`${process.env.REACT_APP_URL_BACKEND}/user`, {
-                correo: email
+            Axios.put(`${process.env.REACT_APP_URL_BACKEND}/user/${email}`, {
+                correo: email,
+                contraseña : contraseña
             })
             .then((response) => {
                 if (response.data.message === "correo_existe") {
@@ -35,8 +36,8 @@ function CambioContraseña () {
             <Contenedor>
             <Titulo>Reset Account</Titulo>
             <Parrafo>We kindly request that you provide your email address so that we can reset your password..</Parrafo>
-            <Input  type="email" placeholder="Old Password"  onChange={(e)=> setEmail(e.target.value)} ></Input>
-            <Input  type="password" placeholder="New Password"  onChange={(e)=> setEmail(e.target.value)} ></Input>
+            <Input  type="email" placeholder="email"  onChange={(e)=> setEmail(e.target.value)} ></Input>
+            <Input  type="password" placeholder="New Password"  onChange={(e)=> setContraseña(e.target.value)} ></Input>
             <ConteinerBonton>
                 <Link to="/login"><Boton1 onClick={cuentaRecuperada}>restore</Boton1></Link>
                 <Link to="/" style={{width:"35%", height:"30%"}}><Boton2>Cancel</Boton2></Link>

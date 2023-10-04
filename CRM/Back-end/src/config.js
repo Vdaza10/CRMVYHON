@@ -10,4 +10,7 @@ export const DB_PASSWORD = process.env.DB_PASSWORD || ''
 export const DB_DATABASE = process.env.DB_DATABASE || 'crmvyhon'
 
 export const SERVIDOR_BACKEND = process.env.SERVIDOR_BACKEND ||' http://localhost:3005'
+export const SERVICE = process.env.SERVICE ||  'vyhoncrm@outlook.com'
+export const USER = process.env.USER || 'vyhoncrm@outlook.com'
+export const PASS = process.env.PASS ||  'CrmVyhon2023'
 
