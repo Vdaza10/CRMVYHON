@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Column, Container, Task } from './style';
+import { Div, Column, Container, Task, ButtonCont, H2 } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
 const Pedidos = () => {
@@ -9,29 +9,35 @@ const Pedidos = () => {
     done: [],
     newColumn: [],
   });
-  const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const toggleForm = () => {
-    setShowForm(!showForm);
-  };
+
 
   const handleDragStart = (event, taskType, taskIndex) => {
     event.dataTransfer.setData('taskType', taskType);
     event.dataTransfer.setData('taskIndex', taskIndex);
   };
 
-  const handleDrop = (event, targetTaskType) => {
+  const handleDrop = async (event, targetTaskType) => {
     const sourceTaskType = event.dataTransfer.getData('taskType');
     const sourceTaskIndex = event.dataTransfer.getData('taskIndex');
-
+  
     const movedTask = tasks[sourceTaskType][sourceTaskIndex];
     const updatedTasks = { ...tasks };
     updatedTasks[sourceTaskType].splice(sourceTaskIndex, 1);
     updatedTasks[targetTaskType].push(movedTask);
-
+  
     setTasks(updatedTasks);
     updateTasksInLocalStorage(updatedTasks);
+  
+    try {
+      await axios.put(`${process.env.REACT_APP_URL_BACKEND}/pedidos/${movedTask.id}`, {
+        estado: targetTaskType.toLowerCase(),
+      });
+      console.log('Estado de la tarea actualizado correctamente en el servidor');
+    } catch (error) {
+      console.error('Error al actualizar el estado de la tarea en el servidor:', error);
+    }
   };
 
   const updateTasksInLocalStorage = (updatedTasks) => {
@@ -112,15 +118,14 @@ const Pedidos = () => {
   }, []);
 
   return (
-    <>
-      {loading && <p>Cargando tareas...</p>}
-      <button onClick={toggleForm}>
-        {showForm ? 'Ocultar Formulario' : 'Mostrar Formulario'}
-      </button>
-      {showForm && <FormularioPedido onTaskCreated={handleTaskCreated} />}
+    <Div>        
+      <ButtonCont>
+        {<FormularioPedido onTaskCreated={handleTaskCreated} />}
+      </ButtonCont> 
       <Container>
+
         <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
-          <h2>Por hacer</h2>
+          <H2>Por hacer</H2>
           {tasks?.todo && tasks?.todo.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
               <div>{task?.cliente}</div>
@@ -132,7 +137,7 @@ const Pedidos = () => {
         </Column>
 
         <Column onDrop={(event) => handleDrop(event, 'inProgress')} onDragOver={(event) => event.preventDefault()}>
-          <h2>En progreso</h2>
+          <H2>En progreso</H2>
           {tasks?.inProgress && tasks?.inProgress.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'inProgress', index)}>
               <div>{task?.cliente}</div>
@@ -144,7 +149,7 @@ const Pedidos = () => {
         </Column>
 
         <Column onDrop={(event) => handleDrop(event, 'done')} onDragOver={(event) => event.preventDefault()}>
-          <h2>Completadas</h2>
+          <H2>Completados</H2>
           {tasks?.done && tasks?.done.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'done', index)}>
               <div>{task?.cliente}</div>
@@ -156,7 +161,7 @@ const Pedidos = () => {
         </Column>
 
         <Column onDrop={(event) => handleDrop(event, 'newColumn')} onDragOver={(event) => event.preventDefault()}>
-          <h2>Nueva columna</h2>
+          <H2>realizado</H2>
           {tasks?.newColumn && tasks?.newColumn.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'newColumn', index)}>
               <div>{task?.cliente}</div>
@@ -166,8 +171,9 @@ const Pedidos = () => {
             </Task>
           ))}
         </Column>
+
       </Container>
-    </>
+    </Div>
   );
 };
 

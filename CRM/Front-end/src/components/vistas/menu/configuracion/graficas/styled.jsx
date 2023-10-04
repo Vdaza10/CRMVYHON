@@ -6,6 +6,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(180deg,var(--color-fondoo) 0%,#c1afaf 100%);
+
 `;
 
 export const ChartContainer = styled.div`
@@ -20,5 +22,4 @@ export const Boxgrafica = styled.div`
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-  
 `;

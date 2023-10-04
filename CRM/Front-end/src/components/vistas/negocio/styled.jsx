@@ -32,7 +32,7 @@ export const Boton = styled.button`
     padding: 0;
     margin-top: 20px;
     cursor: pointer;
-
+    font-family: "Roboto Serif", serif;
     &:hover {
         background-color: var(--color-botonHover);
         color: var(--color-boton1Hover);

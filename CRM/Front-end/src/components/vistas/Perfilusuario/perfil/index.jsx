@@ -16,16 +16,16 @@ import {
   BodyInfor,
   BoxInfo,
   InforperfilLetra,
-  Cajas,
+ /* Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra,
+  ContainerLetra*/
 } from "./styled";
-import { HiCake } from 'react-icons/hi';
-import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
-import { BsTelephoneFill,BsGeoAltFill,BsFillClipboard2CheckFill } from 'react-icons/bs';
-import { FaFlag } from 'react-icons/fa';
-import { PiGenderIntersex } from 'react-icons/pi';
+// import { HiCake } from 'react-icons/hi';
+// import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
+// import { BsTelephoneFill,BsGeoAltFill,BsFillClipboard2CheckFill } from 'react-icons/bs';
+// import { FaFlag } from 'react-icons/fa';
+// import { PiGenderIntersex } from 'react-icons/pi';
 
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate} from "react-router-dom";

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {DivContainer,Container,Caja1,Caja2,Caja4,Cajita,Button} from "./styled";
-import imagen from "../../../img/logito.png";
 import { Link, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
@@ -38,6 +37,7 @@ function Retorno1() {
       <DivContainer>
         <Container>
           <Caja1>
+            
             <p style={{fontStyle: "italic",fontSize: "13px",color: "gray",marginLeft: "7px"}}>{userData?.nombreEmpresa ? userData.nombreEmpresa.toUpperCase() : ''}</p>
             <p style={{fontStyle: "italic",fontSize: "15px",color: "#00000065",marginLeft: "7px",}}>I sold this month</p>
             <Cajita>
