@@ -103,8 +103,8 @@ export const FooterTabla = styled.span`
 `;
 
 export const Boton = styled.button`
-  background-color: #3f424487;
-  color: #eaeff1;
+  background-color: #818587;
+  color: #ffffff;
   width: 180px;
   height: 35px;
   display: flex;
