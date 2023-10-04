@@ -35,7 +35,7 @@ export const createUsers = async (req, res) => {
     try {
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
             const encrypt = await encryptPassword(contraseña)
-            const [rows] = await pool.query(
+                const [rows] = await pool.query(
                 'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
                 [nombreUsuario, nombreEmpresa, correo, encrypt]
             );
