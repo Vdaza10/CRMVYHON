@@ -22,11 +22,13 @@ import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campa�
 import Tablallamada from "./components/tablas/tablaLlamada";
 import "./App.css"
 import Menu from "../src/components/vistas/menu/principal"
+import CambioContraseña from "./components/vistas/cambiarContraseña/cambio";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route  path="/restablecer" element={<CambioContraseña/>}></Route>
         {/* Rutas pricipales*/}
         <Route path="/" element={<Inicio />}>
           {" j"}

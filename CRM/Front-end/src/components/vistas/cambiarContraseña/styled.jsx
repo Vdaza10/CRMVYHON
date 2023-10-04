@@ -3,15 +3,19 @@ import "../../../App.css";
 
 export const Fondo = styled.div`
   background: var(--color-fondo);
-  background: -moz-linear-gradient(180deg, var(--color-fondoo) 0%, #545454);
+  background: -moz-linear-gradient(
+    180deg,
+    var(--color-fondoo) 0%,
+    #3f3f3f 100%
+  );
   background: -webkit-linear-gradient(
     180deg,
     var(--color-fondoo) 0%,
-    #545454 100%
+    #535252 100%
   );
-  background: linear-gradient(180deg, var(--color-fondoo) 0%, #545454 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="##545454",GradientType=1);
-  height: 100vh;
+  background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -20,7 +24,6 @@ export const Fondo = styled.div`
 
 export const Contenedor = styled.div`
   border-radius: 3px solid;
-  background-color: #3B636D;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,9 +47,9 @@ export const Titulo = styled.h1`
 
 export const Parrafo = styled.p`
   font-size: 22px;
-  font-weight: 200;
   font-style: italic;
   display: flex;
+  color: white;
   margin-left: 5%;
   margin-right: 5%;
   /* justify-content: center; */
@@ -59,17 +62,17 @@ export const ConteinerBonton = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   /* display: flex; */
 `;
 
 export const Boton1 = styled.button`
   background-color: var(--color-button);
-  color: white;
-  width: 35%;
-  height: 30%;
+  color: #f6f4f4;
+  width: 125px;
+  height: 40px;
   border: none;
-  margin-right: 20px;
-  margin-top: 30px;
   font-size: 15px;
   cursor: pointer;
   &:hover {
@@ -84,14 +87,12 @@ export const Boton1 = styled.button`
 `;
 
 export const Boton2 = styled.button`
-  background-color: #d3dbdf2c;
+  background-color: var(--color-button);
+  color: #f6f4f4;
+  width: 125px;
+  height: 40px;
   border: none;
-  color: var(--color-boton2);
-  width: 100%;
-  height: 100%;
   font-size: 15px;
-  margin-top: 30px;
-  border: solid 1px gray;
   cursor: pointer;
 
   &:hover {
@@ -106,11 +107,12 @@ export const Boton2 = styled.button`
 `;
 
 export const Input = styled.input`
-  width: 80%;
-  height: 9%;
+  width: 280px;
+  height: 35px;
   border: none;
   margin-bottom: 20px;
-  font-size: 16.5px;
+  font-size: 20px;
+  color: #ffffff;
   padding-left: 8px;
   background-color: var(--color-input);
 `;

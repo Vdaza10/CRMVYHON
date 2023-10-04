@@ -148,7 +148,7 @@ const CrearTarea = () => {
                                 onChange={(event) => {
                                     setTipotarea(event.target.value)
                                 }} placeholder="Ingresar tipo de tarea" maxLength={50} style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
-                            <BsFillCalendar2CheckFill style={{ marginRight: "5px" }} />
+                            <BsFillCalendar2CheckFill style={{ marginRight: "5px"}} />
                         </ContainerInput>
                         <Parrafo1><h3>date</h3></Parrafo1>
                         <Input type="date" style={{ color: 'gray' }} onChange={(event) => {

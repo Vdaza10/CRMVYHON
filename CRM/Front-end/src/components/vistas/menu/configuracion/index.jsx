@@ -38,6 +38,7 @@ function Retorno1() {
       <DivContainer>
         <Container>
           <Caja1>
+            
             <p style={{fontStyle: "italic",fontSize: "13px",color: "gray",marginLeft: "7px"}}>{userData?.nombreEmpresa ? userData.nombreEmpresa.toUpperCase() : ''}</p>
             <p style={{fontStyle: "italic",fontSize: "15px",color: "#00000065",marginLeft: "7px",}}>I sold this month</p>
             <Cajita>

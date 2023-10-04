@@ -43,7 +43,7 @@ export const datosAdicionalesPerfil = async (req, res) =>{
                 tipo_documento,
                 fechaNacimiento,
                 nacionalidad,
-               Telefono,
+                Telefono,
                 lugarResidencia,
                 edad,
                 sexo

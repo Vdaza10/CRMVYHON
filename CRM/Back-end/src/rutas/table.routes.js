@@ -32,3 +32,4 @@ routers.put('/tareastabla/desactivar/:idTareas',tablaTarea.desactivarTablaTarea)
 
 //tabla llamadas
 routers.get('/llamadatabla', llamada.getTablallamada)
+routers.get('/graficallamada', llamada.graficaLlamada)

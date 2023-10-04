@@ -52,8 +52,11 @@ export const Olvidar = styled.a`
   color: #fafafa;
   /* font-family:'Open Sans', sans-serif; */
   font-size: 15px;
-
-  margin-left: 15px;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Button = styled.button`

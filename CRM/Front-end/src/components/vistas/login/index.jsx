@@ -27,7 +27,7 @@ function Login() {
             localStorage.setItem("user", JSON?.stringify(result));
             setTimeout(() => {
               window.location.href = "/vistaprincipal";
-             
+            
             }, 1000)
           }
         })

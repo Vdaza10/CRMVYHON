@@ -29,7 +29,7 @@ export const Boton =styled.button`
     border: none;
     font-size: 16px; 
     cursor: pointer;
-
+    font-family: "Roboto Serif", serif;
     &:hover {
         background-color: var( --color-botonHover);
         color: var(--color-boton1Hover);

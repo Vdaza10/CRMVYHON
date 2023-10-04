@@ -16,10 +16,10 @@ import {
   BodyInfor,
   BoxInfo,
   InforperfilLetra,
-  Cajas,
+ /* Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra,
+  ContainerLetra*/
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';

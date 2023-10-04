@@ -31,7 +31,6 @@ export const Heder = styled.div`
     margin-bottom: 15px;
     font-size: 30px;
     font-weight: 300;
-    font-family: "DM Sans", sans-serif;
   }
 `;
 
@@ -103,20 +102,20 @@ export const FooterTabla = styled.span`
 `;
 
 export const Boton = styled.button`
-  background-color: #3eabee;
-  color: #eaeff1;
-  width: 225px;
-  height: 30px;
+  background-color: #818587;
+  color: #ffffff;
+  width: 180px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2px;
   border: none;
-  font-size: 16px;
+  font-size: 19px;
   cursor: pointer;
-
+  font-family: "Roboto Serif", serif;
   &:hover {
-    background-color: #3eabee76;
+    background-color: #129ff676;
     color: gray;
   }
 

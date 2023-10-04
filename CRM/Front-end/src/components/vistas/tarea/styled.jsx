@@ -47,7 +47,7 @@
 
     export const Boton = styled.button`
     background-color: var( --color-boton);
-    color: #eaeff1;
+    color: #161616;
     width: 100px;
     height: 35px ;
     margin-top: 10px;
@@ -58,6 +58,7 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
+    font-family: "Roboto Serif", serif;
     &:hover {
         background-color: var(--color-buttonHover);
         color: var(--color-boton1Hover);
