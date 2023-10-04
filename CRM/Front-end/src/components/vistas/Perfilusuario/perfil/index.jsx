@@ -103,6 +103,7 @@ function PerfilUsuario() {
   }, 0)
 ;
 
+useEffect(() => {
 const DatosPerfilReflejar = async () => {
   try {
     const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/reflejarDatos/${guardar}`);
@@ -111,10 +112,8 @@ const DatosPerfilReflejar = async () => {
     console.error('Error al obtener los datos:', error);
   }
 }
-
-useEffect(() => {
-  DatosPerfilReflejar()
-}, [setReflejarDatos])
+DatosPerfilReflejar()
+}, [guardar])
 
   return (
     <>

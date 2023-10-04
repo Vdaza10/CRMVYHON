@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {DivContainer,Container,Caja1,Caja2,Caja4,Cajita,Button} from "./styled";
-import imagen from "../../../img/logito.png";
+// import imagen from "../../../img/logito.png";
 import { Link, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
