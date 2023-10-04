@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Column, Container, Task } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
-
 const Pedidos = () => {
   const [tasks, setTasks] = useState({
     todo: [],
@@ -68,6 +67,13 @@ const Pedidos = () => {
     }
   };
 
+  const handleDeleteTask = (taskType, taskIndex) => {
+    const updatedTasks = { ...tasks };
+    updatedTasks[taskType].splice(taskIndex, 1);
+    setTasks(updatedTasks);
+    updateTasksInLocalStorage(updatedTasks);
+  };
+
   useEffect(() => {
     const loadTasks = async () => {
       try {
@@ -120,6 +126,7 @@ const Pedidos = () => {
               <div>{task?.cliente}</div>
               <div>{task?.monto}</div>
               <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('todo', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
@@ -131,6 +138,7 @@ const Pedidos = () => {
               <div>{task?.cliente}</div>
               <div>{task?.monto}</div>
               <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
@@ -142,6 +150,7 @@ const Pedidos = () => {
               <div>{task?.cliente}</div>
               <div>{task?.monto}</div>
               <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('done', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
@@ -153,6 +162,7 @@ const Pedidos = () => {
               <div>{task?.cliente}</div>
               <div>{task?.monto}</div>
               <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('newColumn', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
