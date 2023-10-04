@@ -86,9 +86,6 @@ import { useState } from "react";
 import Axios from "axios";
 import "../../../App.css"
 
-
-
-
 function Recuperar  () {
 
     const [email,setEmail]=useState("")

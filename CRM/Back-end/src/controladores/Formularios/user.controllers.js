@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import { Secret } from "../../db.js";
 import crypto from 'crypto'
 import nodemailer from 'nodemailer'
+import{PASS, SERVICE, USER} from '../../config.js'
 
 
 export const getUsers = async(req,res) =>{
@@ -57,72 +58,6 @@ export const createUsers = async (req, res) => {
         return res.status(500).json({ message: 'Algo va mal...' });
     }
 }
-
-// export const  recuperar = async(req, res) =>{
-//     try {
-//         const {correo} = req.body
-//         const existe = 'SELECT correo FROM registro where correo = ?'
-//         const evaluar = [correo];
-//         const [resultado] = await pool.query(existe, evaluar);
-//         if (resultado.length > 0) {
-
-//             return res.json({ message: "correo_existe" });
-//         }else{
-//             return res.json({ message: "correo_no_existe" });
-//         }
-
-//     }
-//     catch (error){
-//         console.error(error); // Puedes agregar un registro del error para debug
-//         return res.status(500).json({ message: 'Algo va mal' });
-//     }
-// } 
-
-// export const  recuperar = async(req, res) =>{
-//     try {
-//         const {correo} = req.body
-//         const existe = 'SELECT correo, contraseña FROM registro where correo = ?'
-//         const evaluar = [correo];
-//         const [resultado] = await pool.query(existe, evaluar);
-//         if (resultado.length > 0) {
-//             const usuario = resultado[0];
-//             const contrasenaValida = crypto.randomBytes(20).toString('hex');// aleatorio
-//             const contraseñaExpirada = new Date(Date.now() + 3600000);// expiracion
-//             await pool.query('INSERT INTO reset_tokens (usuario, correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?, ?)', [usuario, correo, contrasenaValida, contraseñaExpirada]);
-            
-//             const transporter = nodemailer.createTransport({
-//                 service: 'vyhoncrm@gmail.com',
-//                 auth:{
-//                     user: 'hdealba30@gmail.com',
-//                     pass: '$2a$10$rvwmTd94t/Xa.J2X0TYQOu/TkMJS5FTLHUX3QTI/xSlVVscdmOKO6',
-//                 }
-//             })
-//             const mailOptions = {
-//                 from: 'hdealba30@gmail.com',
-//                 to: usuario.correo,
-//                 subject: 'contraseña generada',
-//                 text: `tu contraseña es: ${contrasenaValida}`
-//             }
-//             transporter.sendMail(mailOptions, (error, info)=> {
-//                 if(error){
-//                     console.error(error);
-//                     return res.status(500).json({
-//                         message: 'enviar correo'});
-//                 } else{
-//                     console.log('correo enviando:' +info.response);
-//                     return res.json({message: 'correo_existe'})
-//                 }
-//             })
-//         }else{
-//             return res.json({ message: "correo_no_existe" });
-//         }
-//     }
-//     catch (error){
-//         console.error(error); // Puedes agregar un registro del error para debug
-//         return res.status(500).json({ message: 'prueba...' });
-//     }
-// } 
-
 export const  recuperar = async(req, res) =>{
     try {
         const {correo} = req.body
@@ -140,14 +75,14 @@ export const  recuperar = async(req, res) =>{
             await pool.query('INSERT INTO reset_tokens (correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?)', [correo, contrasenaValida, contraseñaExpirada]);
             
             const transporter = nodemailer.createTransport({
-                service: 'helenadealba3103@outlook.com',
+                service: SERVICE,
                 auth:{
-                    user: 'helenadealba3103@outlook.com',
-                    pass: 'Delida3005',
+                    user: USER,
+                    pass: PASS,
                 }
             })
             const mailOptions = {
-                from: 'helenadealba3103@outlook.com',
+                from: 'vyhoncrm@outlook.com',
                 to: correo,
                 subject: 'contraseña generada',
                 text: `tu contraseña es: ${contrasenaValida} Recupera tu contraseña aqui: ${linkAleatorio}`
@@ -184,12 +119,24 @@ function generateRandomLink (){
     return sitioUrl 
 }
 
-
-
-
-
-
-
+export const actualizarContraseña = async (req, res) => {
+    try{
+        const {email} = req.params;
+        const {contraseña} = req.body;
+        const encrypt = await encryptPassword(contraseña)
+        console.log(encrypt,"❤️❤️❤️")
+        const existeUsuario = 'SELECT * FROM registro WHERE correo = ?'
+        const [usuario] = await pool.query(existeUsuario, [email]);
+        if (usuario.length === 0){
+            return res.status(404).json({message: 'el usuario no existe'})
+        }
+        const {actualizarContraseña} = await pool.query( 'UPDATE registro SET contraseña = ? WHERE correo = ?',[encrypt, email])
+        return res.status(200).json({message: 'contraseña actualizada con exito'})
+    }catch (error){
+        console.error(error);
+        return res.status(500).json({message: 'error al actualizar la contraseña'})
+    }
+}
 
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
