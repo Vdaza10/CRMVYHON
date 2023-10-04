@@ -31,7 +31,6 @@ export const Heder = styled.div`
     margin-bottom: 15px;
     font-size: 30px;
     font-weight: 300;
-    font-family: "DM Sans", sans-serif;
   }
 `;
 
@@ -114,7 +113,7 @@ export const Boton = styled.button`
   border: none;
   font-size: 19px;
   cursor: pointer;
-
+  font-family: "Roboto Serif", serif;
   &:hover {
     background-color: #129ff676;
     color: gray;
