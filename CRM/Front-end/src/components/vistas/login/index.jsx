@@ -72,7 +72,6 @@ function Login() {
               <Button type="submit" onClick={Login}>
                 Log in 
               </Button>
-              <br />
               <Link to={"/recuperar"} style={{ color: "black" }}>
                 <Olvidar style={{ margin: "0" }}>
                   <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
@@ -80,12 +79,11 @@ function Login() {
               </Link>
               <Olvidar>
                 <Link to={"/registrarse"} style={{ color: "black" }}>
-                  <h4 style={{ margin: "0", color: "black", marginTop: "" }}>
+                  <h4 style={{ color: "white", marginTop: "" }}>
                   Sign up
                   </h4>
                 </Link>
               </Olvidar>
-              <br />
             </ContainerUltimo>
           </Contenedor>
         </Fondo>

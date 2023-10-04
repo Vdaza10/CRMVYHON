@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Column, Container, Task } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
-
 const Pedidos = () => {
-  const storedTasks = JSON.parse(localStorage.getItem('tasks')) || {
+  const [tasks, setTasks] = useState({
     todo: [],
     inProgress: [],
     done: [],
     newColumn: [],
-  };
-
-  const [tasks, setTasks] = useState(storedTasks);
+  });
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const toggleForm = () => {
     setShowForm(!showForm);
@@ -33,29 +31,89 @@ const Pedidos = () => {
     updatedTasks[targetTaskType].push(movedTask);
 
     setTasks(updatedTasks);
-    // Guardar el estado actual de las tareas en el almacenamiento local
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    updateTasksInLocalStorage(updatedTasks);
   };
 
-  const createCard = async (newTask) => {
+  const updateTasksInLocalStorage = (updatedTasks) => {
+    localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
+  };
+
+  const handleTaskCreated = async (newTaskData) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/pedidos`, newTask);
-      return response.data;
+      // Verificar si la tarea ya existe en la lista actual de tareas
+      const taskExists = tasks.todo.some(task => task.id === newTaskData.id);
+
+      if (!taskExists) {
+        setTasks((prevTasks) => {
+          return {
+            ...prevTasks,
+            todo: [...prevTasks.todo, newTaskData],
+          };
+        });
+
+        updateTasksInLocalStorage((prevTasks) => {
+          return {
+            ...prevTasks,
+            todo: [...prevTasks.todo, newTaskData],
+          };
+        });
+
+        console.log('Tarea creada exitosamente:', newTaskData);
+      } else {
+        console.log('La tarea ya existe en la lista.');
+      }
     } catch (error) {
       console.error('Error al crear la tarea:', error);
     }
   };
 
-  const handleTaskCreated = async (newTask) => {
-    const createdTask = await createCard(newTask);
-    // Agregar la nueva tarea a la columna 'Por hacer' y guardar el estado actual en el almacenamiento local
-    const updatedTasks = { ...tasks, todo: [...tasks.todo, createdTask] };
+  const handleDeleteTask = (taskType, taskIndex) => {
+    const updatedTasks = { ...tasks };
+    updatedTasks[taskType].splice(taskIndex, 1);
     setTasks(updatedTasks);
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    updateTasksInLocalStorage(updatedTasks);
   };
+
+  useEffect(() => {
+    const loadTasks = async () => {
+      try {
+        const storedTasks = JSON.parse(localStorage.getItem('tasks_v7'));
+        const initialTasks = storedTasks
+          ? storedTasks
+          : {
+              todo: [],
+              inProgress: [],
+              done: [],
+              newColumn: [],
+            };
+
+        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos`);
+        const tasksData = response.data;
+
+        const updatedTasks = {
+          todo: [...initialTasks.todo, ...tasksData.filter(task => task.estado === 'todo')],
+          inProgress: [...initialTasks.inProgress, ...tasksData.filter(task => task.estado === 'inProgress')],
+          done: [...initialTasks.done, ...tasksData.filter(task => task.estado === 'done')],
+          newColumn: [...initialTasks.newColumn, ...tasksData.filter(task => task.estado === 'newColumn')],
+        };
+
+        setTasks(updatedTasks);
+        setLoading(false);
+        updateTasksInLocalStorage(updatedTasks);
+
+        console.log('Tareas cargadas:', updatedTasks);
+      } catch (error) {
+        console.error('Error al obtener las tareas:', error);
+        setLoading(false);
+      }
+    };
+
+    loadTasks();
+  }, []);
 
   return (
     <>
+      {loading && <p>Cargando tareas...</p>}
       <button onClick={toggleForm}>
         {showForm ? 'Ocultar Formulario' : 'Mostrar Formulario'}
       </button>
@@ -63,44 +121,51 @@ const Pedidos = () => {
       <Container>
         <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
           <h2>Por hacer</h2>
-          {tasks.todo.map((task, index) => (
+          {tasks?.todo && tasks?.todo.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
-              <div>{task.cliente}</div>
-              <div>{task.monto}</div>
-              <div>{task.fecha}</div>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('todo', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
+
         <Column onDrop={(event) => handleDrop(event, 'inProgress')} onDragOver={(event) => event.preventDefault()}>
           <h2>En progreso</h2>
-          {tasks.inProgress.map((task, index) => (
+          {tasks?.inProgress && tasks?.inProgress.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'inProgress', index)}>
-              <div>{task.cliente}</div>
-              <div>{task.monto}</div>
-              <div>{task.fecha}</div>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
+
         <Column onDrop={(event) => handleDrop(event, 'done')} onDragOver={(event) => event.preventDefault()}>
-          <h2>Hecho</h2>
-          {tasks.done.map((task, index) => (
+          <h2>Completadas</h2>
+          {tasks?.done && tasks?.done.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'done', index)}>
-              <div>{task.cliente}</div>
-              <div>{task.monto}</div>
-              <div>{task.fecha}</div>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('done', index)}>Eliminar</button>
             </Task>
           ))}
         </Column>
+
         <Column onDrop={(event) => handleDrop(event, 'newColumn')} onDragOver={(event) => event.preventDefault()}>
-          <h2>Nueva Columna</h2>
-          {tasks.newColumn.map((task, index) => (
+          <h2>Nueva columna</h2>
+          {tasks?.newColumn && tasks?.newColumn.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'newColumn', index)}>
-              <div>{task.cliente}</div>
-              <div>{task.monto}</div>
-              <div>{task.fecha}</div>
+              <div>{task?.cliente}</div>
+              <div>{task?.monto}</div>
+              <div>{task?.fecha}</div>
+              <button onClick={() => handleDeleteTask('newColumn', index)}>Eliminar</button>
             </Task>
           ))}
-        </Column> 
+        </Column>
       </Container>
     </>
   );
