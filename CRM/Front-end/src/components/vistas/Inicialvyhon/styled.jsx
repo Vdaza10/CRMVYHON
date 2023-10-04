@@ -70,6 +70,7 @@ export const ContainerTarjetas = styled.div`
     justify-items: center;
     align-items: center;
     justify-content: space-around;
+    color: white;
     margin-top: 0%;
     @media (min-width: 360px) and (max-height: 700px) {
     height: auto;

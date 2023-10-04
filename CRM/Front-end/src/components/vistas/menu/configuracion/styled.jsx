@@ -3,10 +3,11 @@ import styled from "styled-components"
 export const DivContainer = styled.div`
     height: 100%;
     width: 100%;
+    background-color: #4a4040c2;
 `;
 
 export const Container = styled.div`
-    background-color: #92c5df;
+    background-color: #bec0c2;
     width: 99%;
     height: 100%;
     display: flex;
@@ -14,7 +15,7 @@ export const Container = styled.div`
     position: absolute;
     z-index: 1 ;
     border-radius: 0px 0px 0px 50px;
-    box-shadow: 0px 5px 10px 7px #48b0d6;
+    box-shadow: 0px 5px 10px 7px #00000054;
     justify-content: space-evenly;
 `
 export const Caja1 = styled.div`
@@ -48,9 +49,10 @@ export const Caja4 = styled.div`
 export const Button = styled.button`
     width: 75px;
     height: 35px;
-    background-color: #ff000018;
+    background-color: #034b8af2;
     color: #fff;
     border-radius: 10px;
-    border: solid 1px
-    #6a91079a;
+    border: none;
+    cursor: pointer;
+   
 `

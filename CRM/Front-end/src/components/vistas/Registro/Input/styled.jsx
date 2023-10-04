@@ -22,7 +22,7 @@ export const Contenedor2 = styled.div`
     bottom: 90px;
     z-index: 0;
     /* margin-top: 40px; */
-    background-color: #fff;
+    background-color: #18375127;
     border-radius: 15px;
     box-shadow: 4px 4px 55px -29px var(--colorboxShadow) ;
     @media screen and (max-width: 700px) {
@@ -36,15 +36,14 @@ export const Contenedor2 = styled.div`
 export const Titulo = styled.div`
     width: 100%;
     height: 10%;
-    color: black;
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
 `
 
 export const Contenedor1 = styled.div`
-    /* background-color: #3eee61; */
     margin-top: 10px;
     width:75% ;
     height: 15%;
@@ -93,6 +92,7 @@ export const TextoCheckbox = styled.p`
     font-size: 11px;
     font-style: italic;
     font-weight: 500;
+    color: #ffffff;
 `
 
 export const Seleccionar = styled.input`

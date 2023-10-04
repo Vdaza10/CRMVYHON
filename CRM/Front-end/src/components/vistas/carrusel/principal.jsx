@@ -70,7 +70,7 @@ return (
     ):(
 
     <>
-        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"cover",height:"90vh"}}>
+        <div style={{backgroundImage: `url(${carrusel})`, backgroundRepeat:"no-repeat",backgroundPosition:"center", backgroundSize:"100% 140%",height:"100%"}}>
         <h1 style={{textAlign:"center", margin:"0", color:"white"}}>INFORMATION CARDS</h1>
 
         <Contenedor className="container"> {/*Renderiza un componente con la clase CSS "container".*/}
