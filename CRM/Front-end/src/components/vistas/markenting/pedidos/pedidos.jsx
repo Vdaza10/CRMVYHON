@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Column, Container, Task } from './style';
+import { Div, Column, Container, Task, ButtonCont } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
 const Pedidos = () => {
@@ -112,12 +112,7 @@ const Pedidos = () => {
   }, []);
 
   return (
-    <>
-      {loading && <p>Cargando tareas...</p>}
-      <button onClick={toggleForm}>
-        {showForm ? 'Ocultar Formulario' : 'Mostrar Formulario'}
-      </button>
-      {showForm && <FormularioPedido onTaskCreated={handleTaskCreated} />}
+    <Div>
       <Container>
         <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
           <h2>Por hacer</h2>
@@ -167,7 +162,13 @@ const Pedidos = () => {
           ))}
         </Column>
       </Container>
-    </>
+      <ButtonCont>{loading && <p>Cargando tareas...</p>}
+        <button onClick={toggleForm}>
+        {showForm ? 'Ocultar Formulario' : 'Mostrar Formulario'}
+        </button>
+        {showForm && <FormularioPedido onTaskCreated={handleTaskCreated} />}
+      </ButtonCont>
+    </Div>
   );
 };
 
