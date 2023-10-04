@@ -105,18 +105,18 @@ export const FooterTabla = styled.span`
 export const Boton = styled.button`
   background-color: #3eabee;
   color: #eaeff1;
-  width: 225px;
-  height: 30px;
+  width: 180px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2px;
   border: none;
-  font-size: 16px;
+  font-size: 19px;
   cursor: pointer;
 
   &:hover {
-    background-color: #3eabee76;
+    background-color: #129ff676;
     color: gray;
   }
 

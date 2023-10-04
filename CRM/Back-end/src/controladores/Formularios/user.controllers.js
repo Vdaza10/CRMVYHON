@@ -147,7 +147,7 @@ export const  recuperar = async(req, res) =>{
                 from: 'vyhoncrm@gmail.com',
                 to: correo,
                 subject: 'contraseña generada',
-                text: `tu contraseña es: ${contrasenaValida}`
+                // text: `tu contraseña es: ${contrasenaValida}` jhjhuhuh
             }
             transporter.sendMail(mailOptions, (error, info)=> {
                 if(error){

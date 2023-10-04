@@ -3,10 +3,10 @@ import "../../../App.css"
 
 export const Fondo = styled.div`
 background: var(--color-fondo);
-background: -moz-linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
-background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
-background: linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#eeeeee",GradientType=1);
+background: -moz-linear-gradient(180deg, var(--color-fondoo) 0%, #3f3f3f 100%);
+background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, #535252 100%);
+background: linear-gradient(180deg, var(--color-fondoo) 0%, #555454 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -16,26 +16,26 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-ba
 
 export const Contenedor = styled.div`
   border-radius: 3px solid;
-  background-color: #ffff;
+  background-color: #18375127;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 25em;
   height: 30em;
   border-radius: 15px;
-  box-shadow: 4px 4px 55px -29px rgba(0,0,0,0.77);
+  box-shadow: 2px 2px 13px 5px rgba(50, 50, 50, 0.654);
 `;
 export const Titulo = styled.h1`
   text-align: center;
   font-style: italic;
-  color: #000000;
+  color: #f4f3f3;
   font-size: 25px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 export const Parrafo = styled.p`
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  color: #000000f5;
+  color: #f7f7f7f5;
   margin-left: 10%;
 `;
 export const Input = styled.input`
@@ -43,14 +43,16 @@ export const Input = styled.input`
   height: 8%;
   margin-left: 10%;
   border: none;
+  color: white;
   background-color: var(--color-input);
 `;
 export const Olvidar = styled.a`
   /* text-decoration: none; */
 
-  color: #070707;
+  color: #fafafa;
   /* font-family:'Open Sans', sans-serif; */
   font-size: 15px;
+
   margin-left: 15px;
 `;
 
