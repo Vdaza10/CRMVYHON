@@ -74,3 +74,5 @@ router.post('/llamada', llamadaCrtl.crearLlamada);
 router.post('/datosPerfil/:idRegistro',datosperfilCrtl.datosAdicionalesPerfil);
 router.get('/tipoDocumeto',datosperfilCrtl.getTipoDocumento);
 router.get('/genero',datosperfilCrtl.getGenero);
+router.get('/buscarDatos/:id',datosperfilCrtl.getBucar)
+router.get('/reflejarDatos/:id',datosperfilCrtl.getDatosPerfil)
