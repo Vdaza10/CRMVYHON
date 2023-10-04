@@ -6,7 +6,7 @@ export const Fondo = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #98c8f5;
+  background-color: #7a7d81;
 `;
 
 //Header y su contenido
