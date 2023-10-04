@@ -61,6 +61,10 @@ function DatosPerfil({ estado, cambiarEstado }) {
           sexo : sexoSelect,
         }
       );
+      setTimeout(() => {
+
+        window.location.href = "/perfilusuario"
+    }, 0);
       console.log(response.data); // Manejar la respuesta del servidor
     } catch (error) {
       console.error("Hubo un error al enviar los datos:", error);

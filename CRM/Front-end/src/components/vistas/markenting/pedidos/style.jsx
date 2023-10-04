@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 20px;
+  justify-content: center;
 `;
 
 export const Column = styled.div`
