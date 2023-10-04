@@ -1,9 +1,37 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js/auto"; // Importar Chart.js
 import { Boxgrafica, ChartContainer, Container } from "./styled";
+import { getEnero,getFebrero,getMarzo,getAbril,getMayo,getJunio,getJulio,getAgosto,getSeptiembre,getOctumbre,getNoviembre,getDiciembre } from "../peticion_Axios/registrollamada";
+
+import { useState } from "react";
 
 function Grafica() {
+ const[Enero,setEnero]= useState([])
+ const[Febrero,setFebrero]= useState([])
+ const[Marzo,setMarzo]= useState([])
+ const[Abril,setAbril]= useState([])
+ const[Mayo,setMayo]= useState([])
+ const[Junio,setJunio]= useState([])
+ const[Julio,setJulio]= useState([])
+ const[Agosto,setAgosto]= useState([])
+ const[Septiembre,setSeptiembre]= useState([])
+ const[Octumbre,setOctumbre]= useState([])
+ const[Noviembre,setNoviembre]= useState([])
+ const[Diciembre,setDiciembre]= useState([])
+ 
   useEffect(() => {
+    getEnero(setEnero);
+    getFebrero(setFebrero);
+    getMarzo(setMarzo);
+    getAbril(setAbril);
+    getMayo(setMayo);
+    getJunio(setJunio);
+    getJulio(setJulio);
+    getAgosto(setAgosto);
+    getSeptiembre(setSeptiembre)
+    getOctumbre(setOctumbre);
+    getNoviembre(setNoviembre);
+    getDiciembre(setDiciembre);
     // Datos para el gráfico de barras
     const dataBar = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
@@ -20,28 +48,32 @@ function Grafica() {
 
     // Datos para el gráfico de tarta
     const dataPie = {
-      labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
+      labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "junio", "julio","agosto", "septiembre", "octubre", "noviembre" ," diciembre"],
       datasets: [
         {
-          data: [4350, 7600, 5400, 2200],
-          backgroundColor: ["#f00", "#04f61c", "#000", "#0546f9"],
+          data: [Enero.length,Febrero.length,Marzo.length,Abril.length, Mayo.length,Junio.length,Julio.length,Agosto.length,Septiembre.length,Octumbre.length,Noviembre.length,Diciembre.length],
+          backgroundColor: ["#f00", "#04f61c", "#000", "#0546f9","#D2691E","#ED5565","#C4EA70","#7945BF","#FBD1D1","#1199B7","#F4D451","#F19195"],
         },
       ],
     };
-
+   
+   
     // Datos para el gráfico de línea
+    
     const dataLine = {
-      labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
+      
+      labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "junio", "julio","agosto", "septiembre", "octubre", "noviembre" ," diciembre"],
       datasets: [
         {
-          label: "pedios",
-          data: [50, 65, 70, 80, 95],
+          label: "Registro de llamadas por mes",
+          data: [],
           borderColor: "#2b4df2",
           fill: false,
+          
         },
       ],
     };
-
+   
     // Datos para el gráfico de área
     const dataArea = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
@@ -95,7 +127,8 @@ function Grafica() {
       data: dataArea,
       options: chartOptions,
     });
-
+  
+   
     // Limpia los gráficos al desmontar el componente
     return () => {
       barChart.destroy();
@@ -103,6 +136,7 @@ function Grafica() {
       lineChart.destroy();
       areaChart.destroy();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

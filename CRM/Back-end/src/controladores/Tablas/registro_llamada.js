@@ -13,7 +13,7 @@ export const getTablallamada = async(req, res) => {
 
 export const graficaLlamada = async(req, res) => {
     try {
-        const[rows] = await pool.query('SELECT DATE_FORMAT(fechaLlamada, "%m") AS mes, COUNT(cedula) AS cantidad, SUM(negocio) AS negocios_Mes FROM llamada GROUP BY DATE_FORMAT(fechaLlamada, "%m") ORDER BY mes;')
+        const[rows] = await pool.query('SELECT DATE_FORMAT(fechaLlamada, "%m") AS mes, COUNT(cedula) AS cantidad, SUM(negocio) AS negocios_Mes FROM llamada GROUP BY DATE_FORMAT(fechaLlamada, "%m") ORDER BY mes')
         res.json(rows)
     } catch (error) {
         console.log(error,"algo va mal");
