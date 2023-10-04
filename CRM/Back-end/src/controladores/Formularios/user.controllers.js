@@ -133,21 +133,24 @@ export const  recuperar = async(req, res) =>{
         
         {
             const contrasenaValida = crypto.randomBytes(20).toString('hex');// aleatorio
+            console.log('Contraseña generada:', contrasenaValida);
+            console.log('Longitud de la contraseña generada:', contrasenaValida.length);
+            const linkAleatorio = generateRandomLink();
             const contraseñaExpirada = new Date(Date.now() + 3600000);// expiracion
             await pool.query('INSERT INTO reset_tokens (correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?)', [correo, contrasenaValida, contraseñaExpirada]);
             
             const transporter = nodemailer.createTransport({
-                service: 'vyhoncrm@gmail.com',
+                service: 'crmVyhon@outlook.com',
                 auth:{
-                    user: 'vyhoncrm@gmail.com',
+                    user: 'crmVyhon@outlook.com',
                     pass: 'Vyhon2023',
                 }
             })
             const mailOptions = {
-                from: 'vyhoncrm@gmail.com',
+                from: 'crmVyhon@outlook.com',
                 to: correo,
                 subject: 'contraseña generada',
-                // text: `tu contraseña es: ${contrasenaValida}` jhjhuhuh
+                text: `tu contraseña es: ${contrasenaValida} Recupera tu contraseña aqui: ${linkAleatorio}`
             }
             transporter.sendMail(mailOptions, (error, info)=> {
                 if(error){
@@ -169,6 +172,17 @@ export const  recuperar = async(req, res) =>{
     }
 } 
 
+function generateRandomLink (){
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    const linkLength = 32;
+    let link = '';
+    for (let i = 0; i < linkLength; i++){
+        const randomIndex = Math.floor(Math.random() * characters.length)
+        link += characters.charAt(randomIndex);
+    }
+    const sitioUrl = 'http://localhost:3000/restablecer'
+    return sitioUrl + link
+}
 
 
 
