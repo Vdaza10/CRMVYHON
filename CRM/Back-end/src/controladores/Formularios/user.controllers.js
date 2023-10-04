@@ -49,75 +49,76 @@ export const createUsers = async (req, res) => {
                 contraseña,
                 mensaje: "registro_exitoso"
             });
-        
-            
-        
     } catch (error) {
     
         console.error(error); // Puedes agregar un registro del error para debug
         return res.status(500).json({ message: 'Algo va mal...' });
     }
 }
-export const  recuperar = async(req, res) =>{
+export const recuperar = async (req, res) => {
     try {
-        const {correo} = req.body
-        const existe = 'SELECT correo, contraseña FROM registro where correo = ?'
+        const { correo } = req.body;
+        const existe = 'SELECT correo FROM registro WHERE correo = ?';
         const evaluar = [correo];
         const [resultado] = await pool.query(existe, evaluar);
-        if (resultado.length > 0) 
-        
-        {
-            const contrasenaValida = crypto.randomBytes(20).toString('hex');// aleatorio
-            console.log('Contraseña generada:', contrasenaValida);
-            console.log('Longitud de la contraseña generada:', contrasenaValida.length);
+
+        if (resultado.length > 0) {
             const linkAleatorio = generateRandomLink();
-            const contraseñaExpirada = new Date(Date.now() + 3600000);// expiracion
-            await pool.query('INSERT INTO reset_tokens (correo, contrasenaValida, contraseñaExpirada) VALUES (?, ?, ?)', [correo, contrasenaValida, contraseñaExpirada]);
-            
+            const contraseñaExpirada = new Date(Date.now() + 3600000);
+
+            await pool.query('INSERT INTO reset_tokens (correo, contraseñaExpirada) VALUES (?, ?)', [
+                correo,
+                contraseñaExpirada,
+            ]);
+
             const transporter = nodemailer.createTransport({
                 service: SERVICE,
-                auth:{
+                auth: {
                     user: USER,
                     pass: PASS,
-                }
-            })
+                },
+            });
+
             const mailOptions = {
                 from: 'vyhoncrm@outlook.com',
                 to: correo,
-                subject: 'contraseña generada',
-                text: `tu contraseña es: ${contrasenaValida} Recupera tu contraseña aqui: ${linkAleatorio}`
-            }
-            transporter.sendMail(mailOptions, (error, info)=> {
-                if(error){
+                subject: 'Restablecimiento de contraseña',
+                text: `Haga clic en el siguiente enlace para restablecer su contraseña: ${linkAleatorio}`,
+                
+            };
+
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
                     console.error(error);
                     return res.status(500).json({
-                        message: 'enviar correo'});
-                } else{
-                    console.log('correo enviando:' +info.response);
-                    return res.json({message: 'correo_existe'})
+                        message: 'No se pudo enviar el correo',
+                    });
+                } else {
+                    console.log('Correo enviado: ' + info.response);
+                    return res.json({ message: 'correo_existe' });
                 }
-            })
-        }else{
-            return res.json({ message: "correo_no_existe" });
+            });
+        } else {
+            return res.json({ message: 'correo_no_existe' });
         }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Error interno' });
     }
-    catch (error){
-        console.error(error); // Puedes agregar un registro del error para debug
-        return res.status(500).json({ message: 'prueba...' });
-    }
-} 
+};
 
-function generateRandomLink (){
-    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+function generateRandomLink() {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     const linkLength = 32;
     let link = '';
-    for (let i = 0; i < linkLength; i++){
-        const randomIndex = Math.floor(Math.random() * characters.length)
+    for (let i = 0; i < linkLength; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
         link += characters.charAt(randomIndex);
     }
-    const sitioUrl = 'http://localhost:3000/restablecer'
-    return sitioUrl 
+    const sitioUrl = 'http://localhost:3000/restablecer';
+    return sitioUrl ;
 }
+
 
 export const actualizarContraseña = async (req, res) => {
     try{
