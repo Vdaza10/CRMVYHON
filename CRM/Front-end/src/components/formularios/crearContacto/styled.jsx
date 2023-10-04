@@ -18,14 +18,11 @@ position: absolute;
 export const Container1 = styled.div`
     height: 852px;
     width: 345px;
-    background-color: white;
-    /* background-color: aqua; */
-    border: solid 1px black;
+    background-color: #575c5e;
     @media (max-width: 920px)and (max-height: 850px){
     height: 750px;
     width: 386px;
     background-color: white;
-    /* background-color: aqua; */
     border: solid 1px black;
     }
 `
@@ -47,7 +44,7 @@ export const Parrafo = styled.p`
     display: flex;
     align-items: center;
     padding-left: 20px;
-    
+    color: #fff;
 `
 // Estilo para una imagen
 export const Img = styled.img`
@@ -59,13 +56,13 @@ export const Img = styled.img`
 export const Parrafo1 = styled.p`
     font-size: 15px;
     font-style: italic;
+    color: #fff;
 `
 // Estilo para una caja que contiene elementos
 export const Caja1 = styled.div`
     height: 620px;
     width: 324px;
     padding-left: 20px;
-    /* background-color: red; */
     @media (max-width: 920px)and (max-height: 850px){
     height: 500px;
     width: 366px;
@@ -78,7 +75,9 @@ export const Input = styled.input`
     width: 300px;
     font-size: 17px;
     outline: none;
+    background-color: #ffffff;
     /* background-color: #91ed11; */
+    border: none;
     @media (max-width: 920px)and (max-height: 850px){
         height: 35px;
         width: 350px;
@@ -91,17 +90,18 @@ export const Input = styled.input`
 export const Parrafo2 = styled.p`
     font-size: 16px;
     font-style: italic;
+    color: #fff;
     /* color: gray; */
 `
 // Estilo para un botón con color de fondo y color de texto
 export const Boton1 = styled.button`
-    background-color: #49a3db;
-    color: white;
-    width: 100px;
-    height: 40px;
+    background-color: #6AB7BD;
+    color: #ffffff;
+    width: 85px;
+    height: 42px;
+    font-size: 15px; 
     border: none;
-    border-radius: 2px;
-    font-size: 14px; 
+    border-radius: 10px;
     cursor: pointer;
     &:hover {
         background-color: var(--color-buttonHover);
@@ -114,15 +114,14 @@ export const Boton1 = styled.button`
 `
 // Estilo para otro botón con color de fondo y color de texto
 export const Boton2 = styled.button`
-    background-color: white;
-    scroll-padding-right: none;
-    color: #49a3db;
-    width: 100px;
-    height: 40px;
-    font-size: 14px; 
-    border: solid 1px #80808044;
+  background-color: #6AB7BD;
+    color: #ffffff;
+    width: 85px;
+    height: 42px;
+    font-size: 15px; 
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-
     &:hover {
         background-color: var(--color-buttonHover);
         color: var( --color-boton1Hover);
@@ -157,8 +156,8 @@ export const Caja2 = styled.div`
 export const Select = styled.select`
     width: 310px;
     height: 35px;
-    border: solid 1px gray;
-    /* background-color: pink; */
+    background-color: #fcfcfc;
+    border: none;
     @media (max-width: 865px) and (max-height: 850px){
         width: 359px;
         height: 35px;
