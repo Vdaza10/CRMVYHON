@@ -3,9 +3,9 @@ import "../../../../App.css"
 
 export const Fondo = styled.div`
 background: var( --color-fondo);
-background: -moz-linear-gradient(180deg,var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
-background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
-background: linear-gradient(180deg, var(--color-fondoo) 0%, rgba(238,238,238,1) 100%);
+background: -moz-linear-gradient(180deg,var(--color-fondoo) 0%, #545454 100%);
+background: -webkit-linear-gradient(180deg, var(--color-fondoo) 0%, #515151 100%);
+background: linear-gradient(180deg, var(--color-fondoo) 0%, #3e3e3e 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0099ff",endColorstr="#eeeeee",GradientType=1);
     width: 100%;
     height:100vh;
@@ -28,7 +28,7 @@ export const Idioma = styled.select`
 `
 
 export const Ladero = styled.div`
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(8, 1, 1, 0.149);
     width: 25em;
     height:100vh;
     display: flex;
@@ -77,22 +77,14 @@ export const Img = styled.img`
     width: 160px;
 `
 
-export const ContainerSelect = styled.div`
-    width: 18%;
-    height: 3%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    cursor: pointer;
-    margin-top: 17px;
 
-`
 export const Ingresar = styled.p`
     margin-right: 10px;
     height: 15%;
     font-size: 18px;
     font-weight:500;
     cursor: pointer;
+    color: #fff;
     &:hover {
         color: #c6dde7;
     }
@@ -104,10 +96,12 @@ export const Parrafo = styled.p`
     font-style: italic;
     display: flex;
     text-align: center;
+    color: #fff;
 `
 export const Parrafo1 = styled.p`
     font-size: 20px;
     font-style: italic;
     display: flex;
     text-align: center;
+    color: #fff;
 `
