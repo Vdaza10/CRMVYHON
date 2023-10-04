@@ -1,26 +1,29 @@
 import { pool } from "../../db.js";
 
 export const crearPedidos = async (req, res) => {
-    try {
-      const { cliente, monto, fecha} = req.body;
-      const [rows] = await pool.query(
-        "INSERT INTO pedidos (cliente, monto, fecha) VALUES (?,?,?)",
-        [cliente, monto, fecha]
-      );
-  
-      console.log(rows);
-      res.send({
-        id: rows.insertId,
-        cliente: cliente,
-        monto: monto,
-        fecha: fecha,
-      });
-  
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ message: "Algo anda mal" });
-    }
-  };
+  try {
+    const { cliente, monto, fecha } = req.body;
+    const estado = 'cotizado';
+    const [rows] = await pool.query(
+      "INSERT INTO pedidos (cliente, monto, fecha, estado) VALUES (?, ?, ?, ?)",
+      [cliente, monto, fecha, estado]
+    );
+
+    console.log(rows);
+    res.send({
+      id: rows.insertId,
+      cliente: cliente,
+      monto: monto,
+      fecha: fecha,
+      estado: estado,
+    });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Algo anda mal" });
+  }
+};
+
 
 
   export const getPedidos = async (req, res) => {
@@ -46,19 +49,26 @@ export const getPedidosId = async (req, res) => {
 };
 
 export const updatePedidos = async (req, res) => {
-    try {
-        const {cliente, producto, monto, fecha } = req.body;
+  try {
+      const { estado } = req.body;
+      const { id } = req.params;
+      const allowedStates = ['cotizado', 'en progreso', 'cancelar', 'realizado'];
+      if (!allowedStates.includes(estado)) {
+          return res.status(400).json({ message: 'Estado no válido' });
+      }
 
-        const updateData = await pool.query(
-            'UPDATE pedidos SET cliente = ?, producto = ?, monto = ?, fecha = ? WHERE idPedido = ?',
-            [cliente, producto, monto, fecha, req.params.id]
-        );
-        res.status(200).json({ message: 'A company has been updated' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'An error was detected' });
-    }
+      const updateData = await pool.query(
+          'UPDATE pedidos SET estado = ? WHERE idPedido = ?',
+          [estado, id]
+      );
+
+      res.status(200).json({ message: 'Estado de la tarea actualizado correctamente' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Se detectó un error al actualizar el estado de la tarea' });
+  }
 };
+
 
 export const deletePedidos = async (req, res) => {
     try {

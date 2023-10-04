@@ -1,42 +1,39 @@
 import styled from 'styled-components';
 
 export const FormularioContainer = styled.form`
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
 `;
 
 export const FormGroup = styled.div`
-  margin-bottom: 20px;
+  width: 100%;
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
 `;
 
-export const Label = styled.label`
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
+export const Div = styled.div`
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Label = styled.h4`
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border: solid none;
+  width: 50%;
 `;
 
 export const Button = styled.button`
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 
-  &:hover {
-    background-color: #45a049;
-  }
 `;

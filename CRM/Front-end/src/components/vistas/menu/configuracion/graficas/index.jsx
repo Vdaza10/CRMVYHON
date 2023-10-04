@@ -4,6 +4,11 @@ import { Boxgrafica, ChartContainer, Container } from "./styled";
 
 function Grafica() {
   useEffect(() => {
+    
+    
+
+
+
     // Datos para el gráfico de barras
     const dataBar = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
