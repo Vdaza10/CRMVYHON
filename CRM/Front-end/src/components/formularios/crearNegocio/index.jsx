@@ -155,7 +155,7 @@ function CrearNegocios() {
                             <option value="">Select campaign...</option>
                             {contacto.map((contacto) => (
                                 <option key={contacto.idContacto} value={contacto.idContacto}>
-                                    {contacto.g}
+                                    {contacto.nombreContacto}
                                 </option>
                             ))}
                         </Select>

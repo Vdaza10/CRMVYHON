@@ -52,7 +52,7 @@ function EmpresaUpdate({ empresa }) {
 
   // Si cerrar es falso, no se renderiza el componente
   if (!cerrar) {
-    return null;
+    return true;
   }
 
   const actualizarEmpresa = async () => {

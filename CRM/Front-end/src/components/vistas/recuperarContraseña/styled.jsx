@@ -118,5 +118,6 @@ export const Input = styled.input`
   margin-bottom: 20px;
   font-size: 16.5px;
   padding-left: 8px;
+  background-color: white;
   background-color: var(--color-input);
 `;
