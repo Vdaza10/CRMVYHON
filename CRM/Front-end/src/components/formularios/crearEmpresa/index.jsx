@@ -56,8 +56,7 @@ function Retorno8() {
     /* e.preventDefault(); */
 
     if (nombreEmpresa && url && descripcion) {
-      const elegirSegmento = segmento.find(
-        (n) => n.idSegmento === parseInt(selectedSegmento)
+      const elegirSegmento = segmento.find((n) => n.idSegmento === parseInt(selectedSegmento)
       );
       if (!elegirSegmento) {
         swal({

@@ -3,6 +3,7 @@ import { InputInfor, Caja, Select1 } from "./styled";
 import { Container, ContenedorModal, Header, Body, Boton } from "../../vistas/markenting/llamadaAudioModal/styled";
 import { GrClose } from "react-icons/gr";
 import axios from "axios";
+import swal from "sweetalert";
 
 function DatosPerfil({ estado, cambiarEstado,userData }) {
 
@@ -48,6 +49,26 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
 
 
   const GuardarDatosPerfil = async () => {
+
+    if (identificacion&&fechaNacimiento&&nacionalidad&&contacto&&lugarResidencia) {
+      const elergirTipoDocumento = tipoDocumeto.find((n) => n.id_personal === parseInt(tipoDocumentoSelect));
+      const elergirGenero = genero.find((n) => n.id_sexo === parseInt(sexoSelect));
+
+      if (!elergirTipoDocumento) {
+        swal({
+          title: "El tipo de documneto no es valido",
+          text: "Porfavor seleccionar tipo de documento",
+          icon: "warning",
+        });
+      }
+      if (!elergirGenero) {
+        swal({
+          title: "El genero no es valido",
+          text: "Porfavor seleccionar gereno",
+          icon: "warning",
+        });
+      }
+    
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_URL_BACKEND}/datosPerfil/${userData.idRegistro}`,
@@ -70,6 +91,12 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
       console.log(error);
       console.error("Hubo un error al enviar los datos:", error);
     }
+  }else {
+    swal({
+      text: "Porfavor llenar todo",
+      icon: "error",
+    });
+  }
   };
 
 
