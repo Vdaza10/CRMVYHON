@@ -19,7 +19,8 @@ import {
   Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra
+  ContainerLetra,
+
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
@@ -194,7 +195,11 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <Password type="password" value={userData.password}/>
+                          <input style={{outline:"none",border:"0", backgroundColor:"#eee9e6"}}
+                          type="password"
+                          value={userData.password}
+                        />
+                          {/* <Password type="password" value={userData.password}/> */}
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
