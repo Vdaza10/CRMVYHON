@@ -1,6 +1,6 @@
 import {Router} from "express";
 import  * as getMeses from "../controladores/query.grafics/llamada.js"
-
+import { validatetoken } from "../middlewares/JwtAuth.js";
 export const getrouter= Router();
 
 getrouter.get('/enero',getMeses.Enerollamada)
