@@ -23,11 +23,12 @@ export const Logo = styled.img`
 `;
 export const Menucontainer = styled.ul`
   height: 100%;
-  width: 45%;
+  width: 65%;
   list-style: none;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  /* background-color: red; */
 `;
 export const MenuItem = styled.li`
   cursor: pointer;

@@ -105,6 +105,12 @@ export const Boton2 = styled.button`
   }
 `;
 
+export const Letras = styled.div`
+  background-color: aliceblue;
+  width: 100%;
+  height: 7%;
+`
+
 export const Input = styled.input`
   width: 80%;
   height: 9%;
@@ -112,5 +118,6 @@ export const Input = styled.input`
   margin-bottom: 20px;
   font-size: 16.5px;
   padding-left: 8px;
+  background-color: white;
   background-color: var(--color-input);
 `;

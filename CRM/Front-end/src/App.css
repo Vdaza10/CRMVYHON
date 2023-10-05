@@ -23,12 +23,12 @@ html {
   /*vista login*/
   --color-fondo: rgba(21, 22, 22, 0.776);
   --color-fondoo: #458086;
-  --color-input: #d3dbdf2c;
-  --color-button: #d3dbdf2c;
-  --color-buttonHover: #3eabee76;
+  --color-input: #c5dfec44;
+  --color-button: #1d1e1eb4;
+  --color-buttonHover: #2b2c2c76;
   --color-buttonFocus: rgba(0, 0, 0, 0.3);
   /*vista recuperar cuenta*/
-  --color-boton1Hover: rgb(244, 246, 248);
+  --color-boton1Hover: rgb(11, 118, 225);
   --color-boton2: #f9f6f6cd;
   --color-boton2Hover: #f7f3f3;
   --colorboxShadow: rgba(0, 0, 0, 0.77);

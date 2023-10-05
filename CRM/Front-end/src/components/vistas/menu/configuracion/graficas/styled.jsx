@@ -14,6 +14,7 @@ export const ChartContainer = styled.div`
   width: 680px;
   height: 350px;
   margin: 20px;
+  
 `;
 export const Boxgrafica = styled.div`
   height: 50%;

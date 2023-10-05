@@ -51,4 +51,7 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   font-family: "Roboto Serif", serif;
+  :hover{
+    background-color: #69a0c1;
+  }
 `;

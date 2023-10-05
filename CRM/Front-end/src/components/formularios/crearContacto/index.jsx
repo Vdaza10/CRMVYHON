@@ -11,10 +11,12 @@ function Retorno4({setContactoCreado}) {
   const [email, setEmail] = useState('');
   const [empresaContacto, setEmpresaContacto] = useState('');
   const [empresa, setEmpresa] = useState([]);
-
+console.log(localStorage.getItem('user',"❤️❤️❤️"));
   const fetchEmpresa = async () => {
     try {
-      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/company`);
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/company`,{
+        headers: {'Authorization': `Bearer ${localStorage.getItem('user')}`}
+      });
       setEmpresa(response.data);
 
     } catch (error) {
