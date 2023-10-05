@@ -22,7 +22,6 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
     try {
       const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/genero`);
       setGenero(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error al obtener sexo:", error);
     }
@@ -36,7 +35,6 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
     try {
       const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tipoDocumeto`);
       setTipoDocumeto(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error al obtener tipo de documento:", error);
     }
@@ -49,7 +47,7 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
 
   const GuardarDatosPerfil = async () => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_URL_BACKEND}/datosPerfil/${userData.idRegistro}`,
         {
           identificacion: identificacion,
@@ -65,9 +63,9 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
 
         window.location.href = "/perfilusuario"
     }, 0);
-      console.log(response.data); // Manejar la respuesta del servidor
+   // Manejar la respuesta del servidor
     } catch (error) {
-      console.log(error);
+      console.error(error);
       console.error("Hubo un error al enviar los datos:", error);
     }
   };

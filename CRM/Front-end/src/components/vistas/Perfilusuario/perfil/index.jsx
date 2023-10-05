@@ -16,6 +16,7 @@ import {
   BodyInfor,
   BoxInfo,
   InforperfilLetra,
+  Password
  /* Cajas,
   Cajitas,
   ContainerIcono,
@@ -148,7 +149,7 @@ function PerfilUsuario() {
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <p>{userData.password}</p>
+                          <Password type="password" value={userData.password}/>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>

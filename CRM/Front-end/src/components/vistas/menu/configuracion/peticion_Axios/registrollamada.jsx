@@ -12,7 +12,7 @@ export const getFebrero = async(setFebrero)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/febrero`);
         setFebrero(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error febrero",error);
     }
 }
 export const getMarzo= async(setMarzo)=>{
@@ -20,7 +20,7 @@ export const getMarzo= async(setMarzo)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/marzo`);
         setMarzo(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error marzo",error);
     }
 }
 export const getAbril = async(setAbril)=>{
@@ -28,7 +28,7 @@ export const getAbril = async(setAbril)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/abril`);
         setAbril(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error abril",error);
     }
 }
 export const getMayo = async(setMayo)=>{
@@ -36,7 +36,7 @@ export const getMayo = async(setMayo)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/mayo`);
         setMayo(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error mayo",error);
     }
 }
 export const getJunio = async(setJunio)=>{
@@ -44,7 +44,7 @@ export const getJunio = async(setJunio)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/junio`);
         setJunio(res.data)
     } catch (error) {
-        console.error("error e",error);
+        console.error("error junio",error);
     }
 }
 export const getJulio = async(setJulio)=>{
@@ -52,7 +52,7 @@ export const getJulio = async(setJulio)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/julio`);
         setJulio(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error julio",error);
     }
 }
 export const getAgosto = async(setAgosto)=>{
@@ -60,7 +60,7 @@ export const getAgosto = async(setAgosto)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/agosto`);
         setAgosto(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error agosto",error);
     }
 }
 export const getSeptiembre = async(setSeptiembre)=>{
@@ -68,7 +68,7 @@ export const getSeptiembre = async(setSeptiembre)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/septiembre`);
         setSeptiembre(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error septiembre",error);
     }
 }
 export const getOctumbre = async(setOcumbre)=>{
@@ -84,7 +84,7 @@ export const getNoviembre = async(setNoviembre)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/noviembre`);
         setNoviembre(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error noviembre",error);
     }
 }
 export const getDiciembre = async(setDiciembre)=>{
@@ -92,6 +92,6 @@ export const getDiciembre = async(setDiciembre)=>{
         const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/diciembre`);
         setDiciembre(res.data)
     } catch (error) {
-        console.error("error enero",error);
+        console.error("error Diciembre",error);
     }
 }
