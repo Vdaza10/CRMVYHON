@@ -19,9 +19,7 @@ import {
   Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra,
-  Password
-
+  ContainerLetra
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
@@ -196,7 +194,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <Password type="password" value={userData.password}/>
+                          <p>{userData.password}</p>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
@@ -207,7 +205,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                       </Boxperfil>
                     </ContainPerfil>
                       {registro ? (
-                          // <>
+                        reflejarDatos.length > 0 ? (
                           <BoxInfo>
                         <HeaderInfor>
                           <h3>Informacion Personal</h3>
@@ -243,6 +241,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
+
                           <Cajas>
                           <Cajitas>
                               <ContainerIcono>
@@ -295,12 +294,21 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           </Cajas>
                         </BodyInfor>
                     </BoxInfo>
-                          // </>
+                        ):(
+                          <BoxInfo>
+                        <HeaderInfor>
+                          <h3>Información adicional</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+                        <BodyInfor>
+                        <h1>Cargando...</h1>
+                        </BodyInfor>
+                    </BoxInfo>
+                        )
                       ) : (
-                        //  <>
                          <BoxInfo>
                         <HeaderInfor>
-                          <h3 onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Información adicional</h3>
+                          <h3>Información adicional</h3>
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
@@ -308,7 +316,6 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                         <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
                         </BodyInfor>
                     </BoxInfo>
-                    //  </>
                       )}
                   </Container>
                 </Main>
