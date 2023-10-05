@@ -6,19 +6,19 @@ import { getEnero,getFebrero,getMarzo,getAbril,getMayo,getJunio,getJulio,getAgos
 import { useState } from "react";
 
 function Grafica() {
- const[Enero,setEnero]= useState([])
- const[Febrero,setFebrero]= useState([])
- const[Marzo,setMarzo]= useState([])
- const[Abril,setAbril]= useState([])
- const[Mayo,setMayo]= useState([])
- const[Junio,setJunio]= useState([])
- const[Julio,setJulio]= useState([])
- const[Agosto,setAgosto]= useState([])
- const[Septiembre,setSeptiembre]= useState([])
- const[Octumbre,setOctumbre]= useState([])
- const[Noviembre,setNoviembre]= useState([])
- const[Diciembre,setDiciembre]= useState([])
- 
+  const[Enero,setEnero]= useState([])
+  const[Febrero,setFebrero]= useState([])
+  const[Marzo,setMarzo]= useState([])
+  const[Abril,setAbril]= useState([])
+  const[Mayo,setMayo]= useState([])
+  const[Junio,setJunio]= useState([])
+  const[Julio,setJulio]= useState([])
+  const[Agosto,setAgosto]= useState([])
+  const[Septiembre,setSeptiembre]= useState([])
+  const[Octumbre,setOctumbre]= useState([])
+  const[Noviembre,setNoviembre]= useState([])
+  const[Diciembre,setDiciembre]= useState([])
+  
   useEffect(() => {
     getEnero(setEnero);
     getFebrero(setFebrero);
@@ -30,7 +30,7 @@ function Grafica() {
     getAgosto(setAgosto);
     getSeptiembre(setSeptiembre)
     getOctumbre(setOctumbre);
-    getNoviembre(setNoviembre);
+    getNoviembre(setNoviembre); 
     getDiciembre(setDiciembre);
     // Datos para el gráfico de barras
     const dataBar = {
@@ -56,8 +56,7 @@ function Grafica() {
         },
       ],
     };
-   
-   
+
     // Datos para el gráfico de línea
     
     const dataLine = {
@@ -138,7 +137,7 @@ function Grafica() {
       areaChart.destroy();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [Enero]);
 
   return (
     <Container>
