@@ -1,6 +1,7 @@
 import { compare } from "../../helpers/Bycrypt.js"; // Asegúrate de que la ruta y el nombre del archivo sean correctos
 import { pool } from "../../db.js";
-import { Secret } from "../../db.js";
+// import { Secret } from "../../db.js";
+import { SECRET } from "../../config.js";
 import jwt from "jsonwebtoken";
 //login 
 export const getLogin = async (req, res) => {
@@ -33,7 +34,7 @@ export const Login = async(req,res) =>{
 
         const Authorization = jwt.sign(
             { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
-            Secret,
+            SECRET,
             {
             expiresIn: "7d",
             }

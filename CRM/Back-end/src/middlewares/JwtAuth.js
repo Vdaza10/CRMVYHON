@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 // import { Secret } from "../db.js";
-const Secret = "CLAVESUPERSECRETA";
+import { SECRET } from "../config.js";
+
 
 export const validatetoken = async (req,res,next) => {
     const accessToken = req.header("Authorization");
@@ -9,12 +10,12 @@ export const validatetoken = async (req,res,next) => {
 
     if(!accessToken) return res.status(403).json({message: 'Usuario no logueado'})
     try {
-        const validtoken = jwt.verify(accessToken,Secret);
+        const validtoken = jwt.verify(accessToken,SECRET);
         console.log(validtoken,"👌👌👌");
-        req.Username = validtoken.username
-        req.UserId = validtoken.idRegistro;
-        req.useremail = validatetoken.email;
-        req.userpass = validatetoken.password;
+        // req.Username = validtoken.username
+        // req.UserId = validtoken.idRegistro;
+        // req.useremail = validatetoken.email;
+        // req.userpass = validatetoken.password;
         
 
         next()
