@@ -10,8 +10,8 @@ import carrusel from "../../img/imagenCarrusel.jpg"
     
     const tarjetas = [
             {title: "CUSTOMER CONTACT DATA", description: "name" ,description2: "Email address."},
-            {title: "INTERRACTION HISTORY", descripcion: "Call logs", descripcion2: "emails sent and received."},
-            {title: "INFORMATION ON SALES OPPORTUNITIES ", description: "Details about business opportunities with the client, including status, estimated value, and important dates."},
+            {title: "INTERRACTION HISTORY", descripcion: "Call logs", description2: "emails sent and received."},
+            {title: "INFORMATION ON SALES OPPORTUNITIES ", description2: "Details about business opportunities with the client, including status, estimated value, and important dates."},
             {title: "PENDING ACTIVITIES", descripcion: "Client-related tasks and reminders, such as scheduled follow-ups, follow-up calls, pending presentations."},
             {title: "PURCHASE HISTORY", descripcion: "information about previous purchases made by the customer, products or services purchased and purchase dates."},
         ]
@@ -86,7 +86,7 @@ return (
                 className={`tarjeta ${tarjeta === tarjetas[tarjetaActual] ? "active" : ""}`}>
                 <h2 style={{textAlign:"center", color:"white"}}>{tarjeta.title}</h2>
                 <p style={{textAlign:"center", color:"white"}}>{tarjeta.descripcion}</p>
-                <p style={{textAlign:"center", color:"white"}}>{tarjeta.descripcion2}</p>
+                <p style={{textAlign:"center", color:"white"}}>{tarjeta.description2}</p>
             </Tarjeta1>
             ))}
                 </Carrusel>
