@@ -107,7 +107,5 @@ export const Footer = styled.div`
     text-align: center;
     height: 10%;
 `
-export const TextoFooter = styled.p`
-    margin: 0;
-    font-size: 50px;
+export const P = styled.p`
 `

@@ -233,13 +233,5 @@ export const Inforpass = styled.div`
   width: 90%;
   background-color: red;
 `
-export const Password = styled.input`
-  width: 40%;
-  outline:none;
-  border: 0;
-  background-color: #eee9e6;
-  
-
-`
 
 

@@ -20,7 +20,6 @@ import {
   Cajitas,
   ContainerIcono,
   ContainerLetra,
-  Password
 
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
@@ -186,7 +185,12 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <Password type="password" value={userData.password}/>
+                          <input style={{outline:"none",border:"0", backgroundColor:"#eee9e6"}}
+                          type="password"
+                          value={userData.password}
+                          readOnly
+                        />
+                          {/* <Password type="password" value={userData.password}/> */}
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>

@@ -73,17 +73,17 @@ function Login() {
                 Log in 
               </Button>
               <Link to={"/recuperar"} style={{ color: "white" }}>
-                <Olvidar style={{ margin: "0" }}>
+                <Olvidar >
                   <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
                 </Olvidar>
               </Link>
-              <Olvidar>
-                <Link to={"/registrarse"} style={{ color: "white" }}>
-                  <h4 style={{ color: "white", marginTop: "" }}>
+              <Link to={"/registrarse"} style={{ color: "white" }}>
+                <Olvidar>
+                  <h4 style={{ color: "white", margin: "0" }}>
                   Sign up
-                  </h4>
-                </Link>
-              </Olvidar>
+                  </h4>                  
+                </Olvidar>
+              </Link>
             </ContainerUltimo>
           </Contenedor>
         </Fondo>
