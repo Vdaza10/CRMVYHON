@@ -1,5 +1,13 @@
-import React,{useEffect,useState} from "react";
-import {Container,ContenedorModal,Header,Body,Input1,Caja,Boton,Select1,
+import React, { useEffect, useState } from "react";
+import {
+  Container,
+  ContenedorModal,
+  Header,
+  Body,
+  Input1,
+  Caja,
+  Boton,
+  Select1,
 } from "./styled";
 import { GrClose } from "react-icons/gr";
 import Axios from "axios";
@@ -17,33 +25,45 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
   const [llamadaInicio, setLlamadaInicio] = useState("");
   const [llamadaFinal, setLlamadaFinal] = useState("");
 
-
-  const fetchNegocio = async () => {
-    try {
-      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
-      setNegocio(response.data);
-    } catch (error) {
-      console.error("Error al obtener segmentos:", error);
-    }
-  };
-
   useEffect(() => {
+    const fetchNegocio = async () => {
+      try {
+        const response = await Axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/negocio`
+        );
+        setNegocio(response.data);
+      } catch (error) {
+        console.error("Error al obtener segmentos:", error);
+      }
+    };
+
     fetchNegocio();
   }, []);
-
-
 
   const CrearLlamada = (ev) => {
     ev.preventDefault();
 
     // Buscar si el valor seleccionado en selectNegocio existe en el estado negocio
-    const selectedNegocio = negocio.find((n) => n.idNegocio === parseInt(selectNegocio));
+    const selectedNegocio = negocio.find(
+      (n) => n.idNegocio === parseInt(selectNegocio)
+    );
     if (!selectedNegocio) {
-      alert('El negocio seleccionado no es válido');
+      alert("El negocio seleccionado no es válido");
       return;
     }
 
-    if (cedula && negocio && nombre && apellido && telefono && telefonoFijo && direccion && correo && llamadaInicio && llamadaFinal) {
+    if (
+      cedula &&
+      negocio &&
+      nombre &&
+      apellido &&
+      telefono &&
+      telefonoFijo &&
+      direccion &&
+      correo &&
+      llamadaInicio &&
+      llamadaFinal
+    ) {
       Axios.post(`${process.env.REACT_APP_URL_BACKEND}/llamada`, {
         negocio: selectedNegocio.idNegocio,
         cedula: cedula,
@@ -58,19 +78,16 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
       })
         .then((response) => {
           console.log(response.data);
+          cambiarEstado(false)
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-      alert('Ingresa todos los valores');
+      alert("Ingresa todos los valores");
     }
-    setTimeout(() => {
-
-      window.location.href = "/Marketing"
-    }, 0);
-  }
-
+    
+  };
 
   return (
     <>
@@ -85,16 +102,19 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
               ></GrClose>
             </Header>
             <Body>
-              <Select1 value={selectNegocio} onChange={(event) => {
-                setSelectNegocio(event.target.value);
-              }}>
-
+              <Select1
+                value={selectNegocio}
+                onChange={(event) => {
+                  setSelectNegocio(event.target.value);
+                }}
+              >
                 <option value="option">select business</option>
-                {negocio.map(negocio => (
+                {negocio.map((negocio) => (
                   <option key={negocio.idNegocio} value={negocio.idNegocio}>
                     {negocio.nombreNegocio}
                   </option>
-                ))};
+                ))}
+                ;
               </Select1>
               <Input1
                 placeholder="Enter name"
@@ -106,8 +126,8 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                   }
                 }}
                 onChange={(event) => {
-                  setNombre(event.target.value)
-              }}
+                  setNombre(event.target.value);
+                }}
               ></Input1>
               <Input1
                 placeholder="Enter last name"
@@ -115,12 +135,12 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                   const inputValue = event.key;
                   const regex = /[a-zA-Z ]/;
                   if (!regex.test(inputValue)) {
-                    event.preventDefault(); 
+                    event.preventDefault();
                   }
                 }}
                 onChange={(event) => {
-                  setApellido(event.target.value)
-              }}
+                  setApellido(event.target.value);
+                }}
               ></Input1>
               <Input1
                 placeholder="Enter Identification"
@@ -128,12 +148,12 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                   const inputValue = event.key;
                   const regex = /[0-9]/;
                   if (!regex.test(inputValue)) {
-                    event.preventDefault(); 
+                    event.preventDefault();
                   }
                 }}
                 onChange={(event) => {
-                  setCedula(event.target.value)
-              }}
+                  setCedula(event.target.value);
+                }}
               ></Input1>
               <Caja>
                 <Input1
@@ -142,15 +162,15 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                     const inputValue = event.key;
                     const regex = /[0-9]/;
                     if (!regex.test(inputValue)) {
-                      event.preventDefault(); 
+                      event.preventDefault();
                     }
                   }}
                   onChange={(event) => {
-                    setTelefono(event.target.value)
-                }}
+                    setTelefono(event.target.value);
+                  }}
                   className="InputPequeño"
                 ></Input1>
-                
+
                 <Input1
                   placeholder="Enter landline phone"
                   onKeyPress={(event) => {
@@ -161,10 +181,9 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                     }
                   }}
                   className="InputPequeño"
-
                   onChange={(event) => {
-                    setTelefonoFijo(event.target.value)
-                }}
+                    setTelefonoFijo(event.target.value);
+                  }}
                 ></Input1>
               </Caja>
               <Input1
@@ -177,10 +196,9 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                     event.preventDefault();
                   }
                 }}
-
                 onChange={(event) => {
-                  setDireccion(event.target.value)
-              }}
+                  setDireccion(event.target.value);
+                }}
               ></Input1>
               <Input1
                 placeholder="Enter Email"
@@ -188,32 +206,38 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
                   const inputValue = event.key;
                   const regex = /[_.@a-zA-Z0-9]/;
                   if (!regex.test(inputValue)) {
-                    event.preventDefault(); 
+                    event.preventDefault();
                   }
                 }}
                 onChange={(event) => {
-                  setCorreo(event.target.value)
-              }}
+                  setCorreo(event.target.value);
+                }}
               ></Input1>
               <Caja>
                 <fieldset className="Cajafieldset">
                   <legend>Start Time</legend>
-                  <input className="InputHora" type="datetime-local" onChange={(event) => {
-                                setLlamadaInicio(event.target.value)
-                            }} />
+                  <input
+                    className="InputHora"
+                    type="datetime-local"
+                    onChange={(event) => {
+                      setLlamadaInicio(event.target.value);
+                    }}
+                  />
                 </fieldset>
                 <fieldset className="Cajafieldset">
                   <legend>Final hour</legend>
-                  <input className="InputHora" type="datetime-local" onChange={(event) => {
-                                setLlamadaFinal(event.target.value)
-                            }}/>
+                  <input
+                    className="InputHora"
+                    type="datetime-local"
+                    onChange={(event) => {
+                      setLlamadaFinal(event.target.value);
+                    }}
+                  />
                 </fieldset>
               </Caja>
             </Body>
             <Boton onClick={CrearLlamada}> Guardar</Boton>
           </ContenedorModal>
-          
-          
         </Container>
       )}
     </>

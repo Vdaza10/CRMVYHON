@@ -3,6 +3,7 @@ import { InputInfor, Caja, Select1 } from "./styled";
 import { Container, ContenedorModal, Header, Body, Boton } from "../../vistas/markenting/llamadaAudioModal/styled";
 import { GrClose } from "react-icons/gr";
 import axios from "axios";
+import swal from "sweetalert";
 
 function DatosPerfil({ estado, cambiarEstado,userData }) {
 
@@ -46,6 +47,26 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
 
 
   const GuardarDatosPerfil = async () => {
+
+    if (identificacion&&fechaNacimiento&&nacionalidad&&contacto&&lugarResidencia) {
+      const elergirTipoDocumento = tipoDocumeto.find((n) => n.id_personal === parseInt(tipoDocumentoSelect));
+      const elergirGenero = genero.find((n) => n.id_sexo === parseInt(sexoSelect));
+
+      if (!elergirTipoDocumento) {
+        swal({
+          title: "El tipo de documneto no es valido",
+          text: "Porfavor seleccionar tipo de documento",
+          icon: "warning",
+        });
+      }
+      if (!elergirGenero) {
+        swal({
+          title: "El genero no es valido",
+          text: "Porfavor seleccionar gereno",
+          icon: "warning",
+        });
+      }
+    
     try {
       await axios.post(
         `${process.env.REACT_APP_URL_BACKEND}/datosPerfil/${userData.idRegistro}`,
@@ -68,6 +89,12 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
       console.error(error);
       console.error("Hubo un error al enviar los datos:", error);
     }
+  }else {
+    swal({
+      text: "Porfavor llenar todo",
+      icon: "error",
+    });
+  }
   };
 
 
@@ -97,10 +124,34 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
                     </option>
                 ))}
                 </Select1>
-                  <InputInfor placeholder="Ingresar Identificacion" onChange={(e) => setIdentificacion(e.target.value)}></InputInfor>
-                  <InputInfor placeholder="Ingresar nacionalidad" onChange={(e) => setNacionalidad(e.target.value)} ></InputInfor>
-                  <InputInfor placeholder="Ingresar contacto"  onChange={(e) => setContacto(e.target.value)}></InputInfor>
-                  <InputInfor placeholder="Ingresar lugar de residencia"  onChange={(e) => setLugarResidencia(e.target.value)}></InputInfor>
+                  <InputInfor placeholder="Ingresar Identificacion" onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[0-9]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }} onChange={(e) => setIdentificacion(e.target.value)}></InputInfor>
+                  <InputInfor placeholder="Ingresar nacionalidad"onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[a-zA-ZÑñ]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}  onChange={(e) => setNacionalidad(e.target.value)} ></InputInfor>
+                  <InputInfor placeholder="Ingresar contacto" onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[0-9]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }} onChange={(e) => setContacto(e.target.value)}></InputInfor>
+                  <InputInfor placeholder="Ingresar lugar de residencia"onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[a-zA-ZÑñ ]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}  onChange={(e) => setLugarResidencia(e.target.value)}></InputInfor>
                 <Select1 value={sexoSelect}
                 onChange={(e) => setSexoSelect(e.target.value)}>
                   <option value=''>sexo</option>

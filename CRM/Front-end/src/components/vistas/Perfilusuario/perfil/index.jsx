@@ -16,24 +16,25 @@ import {
   BodyInfor,
   BoxInfo,
   InforperfilLetra,
-  Password
- /* Cajas,
+  Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra*/
-} from "./styled";
-// import { HiCake } from 'react-icons/hi';
-// import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
-// import { BsTelephoneFill,BsGeoAltFill,BsFillClipboard2CheckFill } from 'react-icons/bs';
-// import { FaFlag } from 'react-icons/fa';
-// import { PiGenderIntersex } from 'react-icons/pi';
+  ContainerLetra,
+  Password
 
+} from "./styled";
+import { HiCake } from 'react-icons/hi';
+import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
+import { BsTelephoneFill,BsGeoAltFill,BsFillClipboard2CheckFill } from 'react-icons/bs';
+import { FaFlag } from 'react-icons/fa';
+import { PiGenderIntersex } from 'react-icons/pi';
 import UserEditar from "../../../formularios/ModalactualizarUser";
 import { useLocation, useNavigate} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
 import DatosPerfil from "../../../formularios/crearDatosPerfil";
 import Audiollamada from "../../markenting/llamadaAudioModal/index"
+import Axios from "axios";
 
 function PerfilUsuario() {
   const [modalDatos, setModalDatos] = useState(false);
@@ -42,7 +43,11 @@ function PerfilUsuario() {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({});
   const [userToken, setUserToken] = useState(localStorage.getItem("user"));
-
+  const guardar = userData.idRegistro
+  // console.log(guardar, "guardar")
+  const [registro, setRegistro] = useState(false) 
+  const [reflejarDatos,setReflejarDatos] = useState([]) 
+  console.log(reflejarDatos,"aqui yuli");
   const [mostrarnotifcacion, setMostrarnotificacion] = useState(true);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -81,6 +86,38 @@ function PerfilUsuario() {
       }
     }
   };
+
+  const fetchDatosPerfil = async () => {
+    try {
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/buscarDatos/${guardar}`);
+      if(response.data.length > 0){
+        setRegistro(true)
+      }
+        
+      // console.log(response.data.length, "aqui data")
+    } catch (error) {
+      console.error('Error al obtener los datos del perfil:', error);
+    }
+  }
+
+  setTimeout(() => {
+    fetchDatosPerfil()
+  }, 0)
+;
+
+useEffect(() => {
+const DatosPerfilReflejar = async () => {
+  try {
+    const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/reflejarDatos/${guardar}`);
+      setReflejarDatos(response.data)
+  } catch (error) {
+    console.error('Error al obtener los datos:', error);
+  }
+}
+DatosPerfilReflejar()
+}, [guardar])
+
+console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
 
   return (
     <>
@@ -159,18 +196,9 @@ function PerfilUsuario() {
                         </InforPerfil>
                       </Boxperfil>
                     </ContainPerfil>
-
-                    <BoxInfo>
-                        <HeaderInfor>
-                          <h3 onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Información adicional</h3>
-                          <EditButton>Editar</EditButton>
-                        </HeaderInfor>
-                        <BodyInfor>
-                        <h3>NO HAY DATOS ADICIONALES</h3>
-                        <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
-                        </BodyInfor>
-                    </BoxInfo>
-                    {/* <BoxInfo>
+                      {registro ? (
+                          // <>
+                          <BoxInfo>
                         <HeaderInfor>
                           <h3>Informacion Personal</h3>
                           <EditButton>Editar</EditButton>
@@ -183,7 +211,7 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Identificacion</h4>
-                                <p>456669988</p>
+                                <p>{reflejarDatos[0].identificacion}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -192,7 +220,7 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Tipo de documento</h4>
-                                <p>cedula</p>
+                                <p>{reflejarDatos[0].tipo_documento}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -201,11 +229,10 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Fecha de nacimiento</h4>
-                                <p>2004/13/07</p>
+                                <p>{reflejarDatos[0].fechaNacimiento}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
-
                           <Cajas>
                           <Cajitas>
                               <ContainerIcono>
@@ -213,7 +240,7 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Sexo</h4>
-                                <p>otros</p>
+                                <p>{reflejarDatos[0].sexo}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -222,7 +249,7 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Edad</h4>
-                                <p>45</p>
+                                <p>{reflejarDatos[0].edad}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -231,7 +258,7 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Contacto</h4>
-                                <p>456669988</p>
+                                <p>{reflejarDatos[0].Telefono}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
@@ -243,7 +270,7 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Nacionalidad</h4>
-                                <p>Colombia</p>
+                                <p>{reflejarDatos[0].nacionalidad}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -252,12 +279,27 @@ function PerfilUsuario() {
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Lugar de residencia</h4>
-                                <p>Barranquilla</p>
+                                <p>{reflejarDatos[0].lugarResidencia}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
                         </BodyInfor>
-                    </BoxInfo> */}
+                    </BoxInfo>
+                          // </>
+                      ) : (
+                        //  <>
+                         <BoxInfo>
+                        <HeaderInfor>
+                          <h3 onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Información adicional</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+                        <BodyInfor>
+                        <h3>NO HAY DATOS ADICIONALES</h3>
+                        <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
+                        </BodyInfor>
+                    </BoxInfo>
+                    //  </>
+                      )}
                   </Container>
                 </Main>
               </Fondo>
