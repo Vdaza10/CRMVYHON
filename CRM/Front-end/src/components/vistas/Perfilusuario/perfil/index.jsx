@@ -115,6 +115,8 @@ const DatosPerfilReflejar = async () => {
 DatosPerfilReflejar()
 }, [guardar])
 
+console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
+
   return (
     <>
       {loading ? (
@@ -207,7 +209,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Identificacion</h4>
-                                <p>{reflejarDatos.identificacion}</p>
+                                <p>{reflejarDatos[0].identificacion}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -216,7 +218,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Tipo de documento</h4>
-                                <p></p>
+                                <p>{reflejarDatos[0].tipo_documento}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -225,7 +227,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Fecha de nacimiento</h4>
-                                <p>2004/07/8</p>
+                                <p>{reflejarDatos[0].fechaNacimiento}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
@@ -237,7 +239,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Sexo</h4>
-                                <p>otros</p>
+                                <p>{reflejarDatos[0].sexo}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -246,7 +248,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Edad</h4>
-                                <p>45</p>
+                                <p>{reflejarDatos[0].edad}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -255,7 +257,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Contacto</h4>
-                                <p>456669988</p>
+                                <p>{reflejarDatos[0].Telefono}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
@@ -267,7 +269,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Nacionalidad</h4>
-                                <p>Colombia</p>
+                                <p>{reflejarDatos[0].nacionalidad}</p>
                               </ContainerLetra>
                             </Cajitas>
                             <Cajitas>
@@ -276,7 +278,7 @@ DatosPerfilReflejar()
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Lugar de residencia</h4>
-                                <p>Barranquilla</p>
+                                <p>{reflejarDatos[0].lugarResidencia}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>

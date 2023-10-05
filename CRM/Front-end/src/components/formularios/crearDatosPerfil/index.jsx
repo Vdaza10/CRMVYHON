@@ -99,10 +99,34 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
                     </option>
                 ))}
                 </Select1>
-                  <InputInfor placeholder="Ingresar Identificacion" onChange={(e) => setIdentificacion(e.target.value)}></InputInfor>
-                  <InputInfor placeholder="Ingresar nacionalidad" onChange={(e) => setNacionalidad(e.target.value)} ></InputInfor>
-                  <InputInfor placeholder="Ingresar contacto"  onChange={(e) => setContacto(e.target.value)}></InputInfor>
-                  <InputInfor placeholder="Ingresar lugar de residencia"  onChange={(e) => setLugarResidencia(e.target.value)}></InputInfor>
+                  <InputInfor placeholder="Ingresar Identificacion" onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[0-9]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }} onChange={(e) => setIdentificacion(e.target.value)}></InputInfor>
+                  <InputInfor placeholder="Ingresar nacionalidad"onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[a-zA-ZÑñ]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}  onChange={(e) => setNacionalidad(e.target.value)} ></InputInfor>
+                  <InputInfor placeholder="Ingresar contacto" onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[0-9]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }} onChange={(e) => setContacto(e.target.value)}></InputInfor>
+                  <InputInfor placeholder="Ingresar lugar de residencia"onKeyPress={(event) => {
+              const inputValue = event.key;
+              const regex = /[a-zA-ZÑñ ]/;
+              if (!regex.test(inputValue)) {
+                event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
+              }
+            }}  onChange={(e) => setLugarResidencia(e.target.value)}></InputInfor>
                 <Select1 value={sexoSelect}
                 onChange={(e) => setSexoSelect(e.target.value)}>
                   <option value=''>sexo</option>
