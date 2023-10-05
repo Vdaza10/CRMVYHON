@@ -155,7 +155,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                       style={{
                         background:
                           currentPath === "/perfilusuario"
-                            ? "#787676d5"
+                            ? "#6AB7BD"
                             : "#ffffff",
                         textDecoration: "none",
                       }}
