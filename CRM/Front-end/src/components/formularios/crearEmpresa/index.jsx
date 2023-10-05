@@ -75,7 +75,11 @@ function Retorno8() {
             segmento: selectedSegmento, // Usando el valor seleccionado
             url: url,
             descripcion: descripcion,
-          },
+          },//{
+          //   headers:{
+          //     Authorization:localStorage.getItem("Authorization"),
+          //   }
+          // }
        
         );
         setTimeout(() => {

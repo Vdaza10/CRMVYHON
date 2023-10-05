@@ -12,10 +12,9 @@ export const validatetoken = async (req,res,next) => {
     try {
         const validtoken = jwt.verify(accessToken,SECRET);
         console.log(validtoken,"👌👌👌");
-        // req.Username = validtoken.username
-        // req.UserId = validtoken.idRegistro;
-        // req.useremail = validatetoken.email;
-        // req.userpass = validatetoken.password;
+        req.Username = validtoken.username
+        req.UserId = validtoken.idRegistro;
+       
         
 
         next()

@@ -194,7 +194,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <p>{userData.password}</p>
+                          <input type="password" style={{outline:"none",border:"0",backgroundColor:"#eee9e6"}} value={userData.password}/>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
@@ -288,7 +288,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Lugar de residencia</h4>
-                                <p>{reflejarDatos[0].lugarResidencia}</p>
+                                <p>{reflejarDatos.lugarResidencia}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
