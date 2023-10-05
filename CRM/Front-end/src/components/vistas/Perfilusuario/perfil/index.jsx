@@ -194,7 +194,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <p>{userData.password}</p>
+                          <input type="password" style={{outline:"none",border:"0",backgroundColor:"#eee9e6"}} value={userData.password}/>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
