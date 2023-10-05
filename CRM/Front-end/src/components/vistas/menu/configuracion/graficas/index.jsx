@@ -33,6 +33,7 @@ function Grafica() {
     getNoviembre(setNoviembre); 
     getDiciembre(setDiciembre);
     // Datos para el gráfico de barras
+    
     const dataBar = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
       datasets: [
@@ -42,6 +43,7 @@ function Grafica() {
           backgroundColor: "#18eb05",
           borderColor: "#f9f9f9",
           borderWidth: 1,
+          fill: true,
         },
       ],
     };
@@ -53,6 +55,7 @@ function Grafica() {
         {
           data: [Enero,Febrero,Marzo,Abril, Mayo,Junio,Julio,Agosto,Septiembre,Octumbre,Noviembre,Diciembre],
           backgroundColor: ["#f00", "#04f61c", "#000", "#0546f9","#D2691E","#ED5565","#C4EA70","#7945BF","#FBD1D1","#1199B7","#F4D451","#F19195"],
+          fill: true,
         },
       ],
     };
@@ -71,9 +74,8 @@ function Grafica() {
           
         },
       ],
-      setTimeout:0,
     };
-   
+    
     // Datos para el gráfico de área
     const dataArea = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
@@ -137,7 +139,7 @@ function Grafica() {
       areaChart.destroy();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Enero]);
+  }, [Enero,Febrero,Marzo,Abril, Mayo,Junio,Julio,Agosto,Septiembre,Octumbre,Noviembre,Diciembre]);
 
   return (
     <Container>

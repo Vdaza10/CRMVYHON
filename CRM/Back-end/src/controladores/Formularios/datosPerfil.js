@@ -17,6 +17,7 @@ export const getBucar = async(req,res) => {
 export const getDatosPerfil = async(req,res) => {
     try {
         const {id} = req.params
+        // console.log(id)
         const [rows] = await pool.query('SELECT datospersonales.identificacion,registro.idRegistro,tipo_documento.tipo_documento,datospersonales.fechaNacimiento,datospersonales.nacionalidad,datospersonales.Telefono,datospersonales.lugarResidencia,datospersonales.edad,sexo.sexo FROM datospersonales INNER JOIN registro ON datospersonales.registro = registro.idRegistro INNER JOIN tipo_documento ON datospersonales.tipo_documento = tipo_documento.id_personal INNER JOIN sexo ON datospersonales.sexo = sexo.id_sexo WHERE datospersonales.registro = ?',[id])
 
         res.json(rows)

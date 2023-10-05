@@ -1,5 +1,5 @@
 import React from "react";
-import { Fondo,Contenedor,Titulo, Parrafo , ConteinerBonton , Boton1, Boton2 , Input} from "./styled";
+import { Fondo,Contenedor,Titulo, Parrafo , ConteinerBonton , Boton1, Boton2 , Input,  } from "./styled";
 import { Link } from "react-router-dom";
 import VentanaModal2 from "../../modales/mensajeRecuperarContraseña"
 import VentanaModal3 from "../../modales/mensajeContraseñaCorreo";
@@ -51,7 +51,8 @@ function Recuperar  () {
             <Contenedor>
             <Titulo>recover account</Titulo>
             <Parrafo>We kindly request that you provide your email address in order to conduct your account search.</Parrafo>
-            <Input  type="email" placeholder="enter email"  onChange={(e)=> setEmail(e.target.value)} ></Input>
+
+            <Input  type="email" placeholder ="enter email "  onChange={(e)=> setEmail(e.target.value)} ></Input>
             <ConteinerBonton>
                 <Boton1 onClick={cuentaRecuperada}>Look for</Boton1>
                 <Link to={"/"} style={{width:"35%", height:"30%"}}><Boton2>Cancel</Boton2></Link>

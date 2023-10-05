@@ -19,8 +19,7 @@ import {
   Cajas,
   Cajitas,
   ContainerIcono,
-  ContainerLetra,
-
+  ContainerLetra
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
@@ -42,8 +41,8 @@ function PerfilUsuario() {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({});
   const [userToken, setUserToken] = useState(localStorage.getItem("user"));
-  const guardar = userData.idRegistro
-  // console.log(guardar, "guardar")
+  const guardarId =  userData.idRegistro
+   console.log(guardarId, "guardarId")
   const [registro, setRegistro] = useState(false) 
   const [reflejarDatos,setReflejarDatos] = useState([]) 
   console.log(reflejarDatos,"aqui yuli");
@@ -88,9 +87,10 @@ function PerfilUsuario() {
 
   const fetchDatosPerfil = async () => {
     try {
-      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/buscarDatos/${guardar}`);
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/buscarDatos/${guardarId}`);
       if(response.data.length > 0){
         setRegistro(true)
+
       }
         
       // console.log(response.data.length, "aqui data")
@@ -99,22 +99,31 @@ function PerfilUsuario() {
     }
   }
 
-  setTimeout(() => {
-    fetchDatosPerfil()
-  }, 0)
-;
+//   setTimeout(() => {
+//     // fetchDatosPerfil()
+//   }, 0)
+// ;
+
 
 useEffect(() => {
 const DatosPerfilReflejar = async () => {
   try {
-    const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/reflejarDatos/${guardar}`);
+    const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/reflejarDatos/${guardarId}`);
+    
       setReflejarDatos(response.data)
   } catch (error) {
     console.error('Error al obtener los datos:', error);
   }
 }
+
 DatosPerfilReflejar()
-}, [guardar])
+}, [guardarId])
+
+
+useEffect(()=>{
+    fetchDatosPerfil()
+},[guardarId])
+
 
 console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
 
@@ -154,7 +163,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                       style={{
                         background:
                           currentPath === "/perfilusuario"
-                            ? "#787676d5"
+                            ? "#6AB7BD"
                             : "#ffffff",
                         textDecoration: "none",
                       }}
@@ -185,12 +194,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <InforperfilLetra>
                             <h4>Password:</h4>
                           </InforperfilLetra >
-                          <input style={{outline:"none",border:"0", backgroundColor:"#eee9e6"}}
-                          type="password"
-                          value={userData.password}
-                          readOnly
-                        />
-                          {/* <Password type="password" value={userData.password}/> */}
+                          <Password type="password" value={userData.password}/>
                         </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
@@ -201,7 +205,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                       </Boxperfil>
                     </ContainPerfil>
                       {registro ? (
-                          // <>
+                        reflejarDatos.length > 0 ? (
                           <BoxInfo>
                         <HeaderInfor>
                           <h3>Informacion Personal</h3>
@@ -237,6 +241,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
+
                           <Cajas>
                           <Cajitas>
                               <ContainerIcono>
@@ -283,18 +288,27 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Lugar de residencia</h4>
-                                <p>{reflejarDatos[0].lugarResidencia}</p>
+                                <p>{reflejarDatos.lugarResidencia}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
                         </BodyInfor>
                     </BoxInfo>
-                          // </>
+                        ):(
+                          <BoxInfo>
+                        <HeaderInfor>
+                          <h3>Información adicional</h3>
+                          <EditButton>Editar</EditButton>
+                        </HeaderInfor>
+                        <BodyInfor>
+                        <h1>Cargando...</h1>
+                        </BodyInfor>
+                    </BoxInfo>
+                        )
                       ) : (
-                        //  <>
                          <BoxInfo>
                         <HeaderInfor>
-                          <h3 onClick={() => {setLlamadaAbierta(!llamadaAbierta)}}>Información adicional</h3>
+                          <h3>Información adicional</h3>
                           <EditButton>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
@@ -302,7 +316,6 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                         <button onClick={() => {setModalDatos(!modalDatos)}}>Agregar</button>
                         </BodyInfor>
                     </BoxInfo>
-                    //  </>
                       )}
                   </Container>
                 </Main>
