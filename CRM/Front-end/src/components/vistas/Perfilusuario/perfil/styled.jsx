@@ -6,7 +6,8 @@ export const Fondo = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #7a7d81;
+  background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
 `;
 
 //Header y su contenido
@@ -17,7 +18,7 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
+`
 export const Cajaheader = styled.div`
   height: 90%;
   width: 90%;
@@ -28,20 +29,21 @@ export const Cajaheader = styled.div`
   border-bottom: 1px solid black;
   border-radius: 100px 100px 0px 0px;
   box-shadow: #0f0e0ef0 0px 4px 6px 0px;
-  background-color: #fcfcfc;
+  
 `;
 export const Parrafo1 = styled.button`
   height: 40px;
   width: 250px;
   font-size: 20px;
   border-radius: 0px 20px 0px 10px;
-  background-color: #14141445;
+  background-color: #6AB7BD;
+  color: #ffffff;
   font-family: "Times New Roman", Times, serif;
   border: none;
   &:hover {
     color: black;
     cursor: pointer;
-    background-color: #53baff;
+    background-color: #4193c9a6;
     border-radius: 10px;
     border-radius: 0px 25px 0px 25px;
     font-family: "Times New Roman", Times, serif;
@@ -58,7 +60,6 @@ export const Container = styled.div`
   height: 95%;
   width: 90%;
   display: flex;
-  background-color: #ffffff;
   box-shadow: #08080899 10px 12px 6px 1px;
   border-radius: 20px;
 `;
@@ -81,7 +82,7 @@ export const ImgPerfil = styled.div`
   border-radius: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #c5c3c3;
+  background-color: #ffffff;
 `;
 export const Boxperfil = styled.div`
   height: 50%;
@@ -110,6 +111,7 @@ export const InforPerfil = styled.div`
 export const InforperfilLetra = styled.div`
   width: 30%;
   height: 100%;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,7 +127,6 @@ export const BoxInfo = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-
 `;
 
 
@@ -168,7 +169,7 @@ export const BodyInfor = styled.div`
   button{
     height: 7%;
     width: 15%;
-    background-color: #49a3db;
+    background-color: #6AB7BD;
     color: white;
     border: none;
     font-size: 18px;
