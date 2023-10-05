@@ -279,7 +279,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Lugar de residencia</h4>
-                                <p>{reflejarDatos[0].lugarResidencia}</p>
+                                <p>{reflejarDatos.lugarResidencia}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
