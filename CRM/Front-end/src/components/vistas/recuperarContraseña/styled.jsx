@@ -105,6 +105,12 @@ export const Boton2 = styled.button`
   }
 `;
 
+export const Letras = styled.div`
+  background-color: aliceblue;
+  width: 100%;
+  height: 7%;
+`
+
 export const Input = styled.input`
   width: 80%;
   height: 9%;

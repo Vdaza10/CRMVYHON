@@ -152,7 +152,7 @@ function TablaNegocio() {
                 <Parrafo>Stages</Parrafo>
               </Caja1>
               <Caja1>
-                <Parrafo>Fountain</Parrafo>
+                <Parrafo>source</Parrafo>
               </Caja1>
               <Caja1>
                 <Parrafo>company</Parrafo>
