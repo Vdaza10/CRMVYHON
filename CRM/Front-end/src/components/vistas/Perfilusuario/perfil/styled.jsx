@@ -234,8 +234,11 @@ export const Inforpass = styled.div`
   background-color: red;
 `
 export const Password = styled.input`
-  width: 80%;
+  width: 40%;
   outline:none;
+  border: 0;
+  background-color: #eee9e6;
+  
 
 `
 

@@ -56,8 +56,7 @@ function Retorno8() {
     /* e.preventDefault(); */
 
     if (nombreEmpresa && url && descripcion) {
-      const elegirSegmento = segmento.find(
-        (n) => n.idSegmento === parseInt(selectedSegmento)
+      const elegirSegmento = segmento.find((n) => n.idSegmento === parseInt(selectedSegmento)
       );
       if (!elegirSegmento) {
         swal({
@@ -115,7 +114,7 @@ function Retorno8() {
             placeholder="Enter the company name"
             onKeyPress={(event) => {
               const inputValue = event.key;
-              const regex = /[a-zA-Z0-9& ]/;
+              const regex = /[a-zA-ZñÑ0-9& ]/;
               if (!regex.test(inputValue)) {
                 event.preventDefault(); // Evita que se ingrese el carácter si no cumple con la expresión regular
               }
@@ -153,7 +152,7 @@ function Retorno8() {
             placeholder="Describe the company"
             onKeyPress={(event) => {
               const inputValue = event.key;
-              const regex = /[a-zA-Z0-9 ]/;
+              const regex = /[a-zA-ZñÑ0-9 ]/;
               if (!regex.test(inputValue)) {
                 event.preventDefault();
               }
