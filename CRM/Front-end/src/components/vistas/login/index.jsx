@@ -10,9 +10,13 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [errorCorreo,setErrorCorreo ] = useState(null);
+  const [errorContraseña,setErrorContraseña ] = useState(null);
   const Login = (ev) => {
     ev.preventDefault();
     setError(null);
+    setErrorContraseña(null);
+    setErrorCorreo(null);
     if (email && password) {
     
       Axios.post(`${process.env.REACT_APP_URL_BACKEND}/login`, {
@@ -36,10 +40,17 @@ function Login() {
           // alert("Error en la solicitud");
           alert("el usuario no existe");
         });
-    } else {
+    } else
+      if (!email && !password) {
       setError(`ingrese tanto el usuario como la contraseña`);
+    }else
+    if(!email) {
+      setErrorCorreo(`ingresar correo`);
+    } else 
+    if (!password){
+      setErrorContraseña(`ingresar contraseña`);
     }
-  }; 
+  };
 
   return (
         <Fondo>
@@ -56,7 +67,7 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
               name="email"
             ></Input>
-            <Message>{error}</Message>
+            <Message>{errorCorreo}</Message>
 
             <Parrafo>
               <h4 style={{ margin: "0" }}>password</h4>
@@ -67,6 +78,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               name="password"
             ></Input>
+            <Message>{errorContraseña}</Message>
 
             <ContainerUltimo>
               <Button type="submit" onClick={Login}>
