@@ -43,7 +43,7 @@ function PerfilUsuario() {
   const [userData, setUserData] = useState({});
   const [userToken, setUserToken] = useState(localStorage.getItem("user"));
   const guardarId =  userData.idRegistro
-   console.log(guardarId, "guardarId")
+    console.log(guardarId, "guardarId")
   const [registro, setRegistro] = useState(false) 
   const [reflejarDatos,setReflejarDatos] = useState([]) 
   console.log(reflejarDatos,"aqui yuli");
@@ -198,6 +198,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <input style={{outline:"none",border:"0", backgroundColor:"#eee9e6"}}
                           type="password"
                           value={userData.password}
+                          readOnly // no se puede quitar esto porque da error en la consola del navegador y evita ediciones no deeadas
                         />
                           {/* <Password type="password" value={userData.password}/> */}
                         </InforPerfil>
