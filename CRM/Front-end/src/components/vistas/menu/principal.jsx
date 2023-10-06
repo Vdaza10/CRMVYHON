@@ -2,7 +2,7 @@
     import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
     import {Contenedor,Logo, MenuItem,Menucontainer,Menudesplegable,Navegacion, Ajustes,
     } from "./menu";
-    import imagen from "../../img/logito.png";
+    import imagen from "../../img/logito.svg";
     import Retorno1 from "../menu/configuracion";
     import { RiSettings4Fill } from "react-icons/ri";
     import "../../../App.css"
