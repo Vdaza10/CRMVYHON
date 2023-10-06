@@ -10,32 +10,11 @@ const Vistaprincipal = () => {
   const [loading, setLoading] = useState(true);
 
   const tarjetas = [
-    {
-      title: "CUSTOMER CONTACT DATA",
-      description: "name",
-      description2:
-        "Feedback Visual: Proporcionar retroalimentación visual cuando los usuarios interactúan con la aplicación, como resaltar botones presionados o mostrar mensajes de éxito o error Usabilidad: La usabilidad se centra en hacer que la aplicación sea fácil de usar. Esto implica la disposición lógica de los elementos, la navegación intuitiva y la minimización de la fricción en la interacción del usuario. Jerarquía Visual: Utilizar tamaños, colores y estilos para indicar la jerarquía de la información. Esto ayuda a los usuarios a identificar rápidamente lo más importante.",
-    },
-    {
-      title: "INTERRACTION HISTORY",
-      descripcion: "Call logs",
-      description2:
-        "Control de Acceso Basado en Roles(RBAC): Permite asignar roles y permisos específicos a los usuarios, restringiendo su acceso solo a las funciones y datos necesarios para realizar su trabajo. Esto minimiza el riesgo de acceso no autorizado",
-    },
-    {
-      title: "INFORMATION ON SALES OPPORTUNITIES ",
-      description2:
-        "Gestión de Contactos: Estas herramientas permiten gestionar de manera eficiente la información de contacto de los clientes, incluyendo nombres, direcciones de correo electrónico, números de teléfono, historial de comunicación, etc.Gestión de Ventas: Herramientas de automatización de ventas que ayudan a los equipos de ventas a rastrear oportunidades, gestionar el ciclo de ventas y cerrar tratos de manera efectiva Automatización de Flujo de Trabajo: Software que automatiza procesos internos, como la asignación de tareas, la aprobación de documentos y la gestión de flujos de trabajo.",
-    },
-    {
-      title: "PENDING ACTIVITIES",
-      descripcion:
-        "Client-related tasks and reminders, such as scheduled follow-ups, follow-up calls, pending presentations.",
-    },
-    {
-      title: "PURCHASE HISTORY",
-      descripcion:
-        "information about previous purchases made by the customer, products or services purchased and purchase dates.",
+    {title: "CUSTOMER CONTACT DATA",description: "name",description2: "Email address."},
+    {title: "INTERRACTION HISTORY",description: "Call logs", description2: "emails sent and received."},
+    {title: "INFORMATION ON SALES OPPORTUNITIES ",description2: "Details about business opportunities with the client, including status, estimated value, and important dates."},
+    {title: "PENDING ACTIVITIES",descripcion:"Client-related tasks and reminders, such as scheduled follow-ups, follow-up calls, pending presentations.",},
+    {title: "PURCHASE HISTORY",descripcion: "information about previous purchases made by the customer, products or services purchased and purchase dates.",
     },
   ];
   // Función para asignar animaciones a las tarjetas.
