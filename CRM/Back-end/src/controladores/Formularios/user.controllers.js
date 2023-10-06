@@ -20,7 +20,6 @@ export const getUsers = async(req,res) =>{
 
     } catch (error) {     
         return res.status(500).json({message: 'Algo va mal'})
-        console.log(error.message.res.status(500));
     }
 }
 export const getUsersid = async(req,res)=>{
@@ -45,7 +44,6 @@ export const createUsers = async (req, res) => {
 
         // Si existe un usuario con el mismo correo, devuelve un mensaje de error
         if (existingUser.length > 0) {
-            console.log("El correo ya existe, por favor cambie el correo.");
             return res.status(400).json({ message: "El correo ya está en uso." });
         }
 
@@ -140,7 +138,6 @@ export const actualizarContraseña = async (req, res) => {
         const {email} = req.params;
         const {contraseña} = req.body;
         const encrypt = await encryptPassword(contraseña)
-        console.log(encrypt,"❤️❤️❤️")
         const existeUsuario = 'SELECT * FROM registro WHERE correo = ?'
         const [usuario] = await pool.query(existeUsuario, [email]);
         if (usuario.length === 0){
@@ -158,30 +155,18 @@ export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
     try {
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-    
+        const encrypt = await encryptPassword(contraseña)
         const [rows]  = await pool.query(
             'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
         [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
         );
-        encrypt = await encryptPassword(contraseña)
-        console.log(encrypt, "contraseña incriptada exitosa");
-        const refreshToken = jwt.sign(
-            { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
-            Secret,
-            {
-            expiresIn: "1h",
-            }
-        );
-    
-        res.json({refreshToken,
-            data:{
-                idRegistro,
+        res.json({
+                id:rows.idRegistro,
                 nombreUsuario,
                 nombreEmpresa,
                 correo,
                 contraseña
-            }})
-        console.log(refreshToken,"lalala");
+            })
 
     } catch (error) {
         console.error(error);

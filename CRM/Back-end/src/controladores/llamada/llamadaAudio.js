@@ -21,7 +21,7 @@ export const crearLlamada = async (req, res) => {
             [cedula, negocio, nombre, apellido, telefono, telefonoFijo, direccion, correo, llamadaInicio, llamadaFinal, duracionLlamada]
         );
 
-        console.log(rows);
+    
 
         res.send({
             cedula,

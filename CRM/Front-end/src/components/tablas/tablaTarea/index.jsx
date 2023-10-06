@@ -83,10 +83,12 @@ const [buscar, setBuscar] = useState("")
         const token = localStorage.getItem('user')
         const tokensincomillas = token.replace(/"/g,"")
         const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`,{
-            headers:{
-                Authorization:`${tokensincomillas}`
-            }
+        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`,{      
+          
+        },{
+          headers:{
+            Authorization: tokensincomillas,
+          }
         }
         );
         console.log("Contacto eliminado con éxito.", res.data);

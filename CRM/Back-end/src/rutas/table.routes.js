@@ -9,7 +9,7 @@ import { validatetoken } from "../middlewares/JwtAuth.js";
 export const routers = Router();
 
 //tabla empresa
-routers.get('/companytabla',tablaEmpresa.getTablaEmpresa)
+routers.get('/companytabla',validatetoken,tablaEmpresa.getTablaEmpresa)
 routers.patch('/companytabla/:idEmpresa',validatetoken ,tablaEmpresa.updatetablaEmpresa)
 // router.delete('/companytabla/:idEmpresa', tablaEmpresa.deleteTablaEmpresa)
 routers.put('/companytabla/desactivar/:idEmpresa',validatetoken , tablaEmpresa.desactivarTablaEmpresa);

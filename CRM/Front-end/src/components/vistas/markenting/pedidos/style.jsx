@@ -6,13 +6,12 @@ export const Div = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Cambiado a verde oscuro */
 `;
 
 export const ButtonCont = styled.div`
   width: 90%;
   height: 10%;
-  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,9 +30,11 @@ export const Column = styled.div`
   width: 24%;
   max-height: 100%;
   border-radius: 10px;
-  border: solid 1px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
   overflow-y: auto;
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     overflow: hidden;
   }
 `;
@@ -43,19 +44,19 @@ export const H2 = styled.h2`
   border-bottom: solid #9e9c9c;
   text-align: center;
   margin: 5px;
-`
+`;
 
 export const Task = styled.div`
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
+  background-color: #4b6e5b; /* Cambiado a un tono más claro de verde */
+  border: 1px solid #3a5240; /* Cambiado a un tono más oscuro de verde */
   border-radius: 5px;
   padding: 15px;
-  margin-bottom: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-
   &:hover {
-    background-color: #ffffff;
+    background-color: #5c8366; /* Cambiado a un tono más claro de verde en hover */
+  }
+  &:active {
+    transform: translateY(-4px);
   }
 `;
 
@@ -66,16 +67,17 @@ export const DeleteButton = styled.button`
   border-radius: 5px;
   padding: 8px 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
     background-color: #ff3333;
+    transform: scale(1.05);
   }
 `;
 
 export const Form = styled.form`
   width: 300px;
-  background-color: #ffffff;
+  background-color: #2e4739; /* Cambiado a verde oscuro */
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -94,7 +96,7 @@ export const FormLabel = styled.label`
 export const FormInput = styled.input`
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #3a5240; /* Cambiado a un tono más oscuro de verde */
   border-radius: 5px;
 `;
 

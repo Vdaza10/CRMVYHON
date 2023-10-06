@@ -39,11 +39,8 @@ export const Login = async(req,res) =>{
             expiresIn: "7d",
             }
         );
-
-        console.log(Authorization, "🎶🎶🎶");
         res.json(Authorization)
     } catch (error) {
-        console.log(error)
         return res.status(500).json({message: 'Algo va mal'})
     }
 }

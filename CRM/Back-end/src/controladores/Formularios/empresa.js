@@ -3,7 +3,6 @@ import { pool } from "../../db.js";
 export const createEmpresa = async (req, res) =>{
     try {
         const {nombreEmpresa, url, descripcion, segmento} = req.body;
-        console.log(req.body);
         const [rows] = await pool.query(
             "INSERT INTO empresa (nombreEmpresa, segmento, url, descripcion ) VALUES (?,?,?,?)",
             [nombreEmpresa, segmento, url, descripcion])
