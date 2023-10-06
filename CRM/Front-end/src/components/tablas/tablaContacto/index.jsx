@@ -75,17 +75,13 @@ import jwt_decode from "jwt-decode"
 
         const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`)
         setContacto(contactos.data);
-<<<<<<< HEAD
-=======
     }catch{
         console.log("error de axio en la query");
     }
->>>>>>> 49ffa30d0cb676f9fdf3ab6ba4097419df773776
     };
 
 
     const TabladeleteContacto = async (item) => {
-       
         try {
             const token = localStorage.getItem('user')
             const tokensincomillas = token.replace(/"/g,"")

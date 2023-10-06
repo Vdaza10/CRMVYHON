@@ -33,7 +33,6 @@ function Retorno4({contacto}) {
         headers: {Authorization: `${tokensincomillas}`}
       });
       setContactoEmpresa(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error('Error al obtener empresa:', error);
     }
@@ -70,10 +69,11 @@ function Retorno4({contacto}) {
   }
 
   const actualizarContacto = async () => {
-    try {
-      const token = localStorage.getItem('user')
+    const token = localStorage.getItem('user')
       const tokensincomillas = token.replace(/"/g,"")
-      const res = await Axios.patch(
+    try {
+      
+      await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/contactotabla/${contacto.idContacto}`,
         {
           nombreContacto,

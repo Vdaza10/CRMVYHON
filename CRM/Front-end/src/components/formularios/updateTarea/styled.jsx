@@ -44,7 +44,7 @@ export const Parrafo1 = styled.div`
     font-size: 15px;
     font-style: italic;
 `
-export const Input = styled.input`
+export const Input1 = styled.input`
     height: 6%;
     width: 94%;
     font-size: 17px;
