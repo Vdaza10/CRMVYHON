@@ -87,8 +87,15 @@ function TablaNegocio() {
   };
 
   const ReflejarDatos = async () => {
+    const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
     try {
-      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`);
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`,{      
+      },{
+        headers:{
+          Authorization: tokensincomillas,
+        }
+      });
       setNegocios(response.data);
     } catch (error) {
       console.error("Error al obtener datos:", error);
@@ -100,8 +107,12 @@ function TablaNegocio() {
     const tokensincomillas = token.replace(/"/g,"")
     try {
       const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}/negociotabla/desactivar/${item.idNegocio}`,{
-          headers:{ Authorization:`${tokensincomillas}` }
+        `${process.env.REACT_APP_URL_BACKEND}/negociotabla/desactivar/${item.idNegocio}`,{      
+          
+        },{
+          headers:{
+            Authorization: tokensincomillas,
+          }
         }
       );
       console.log("Negocio eliminado con éxito.", res.data);

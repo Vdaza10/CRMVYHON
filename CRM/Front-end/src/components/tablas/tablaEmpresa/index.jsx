@@ -78,8 +78,13 @@ const [buscar, setBuscar] = useState("")
       const tokensincomillas = token.replace(/"/g,"")
       console.log(tokensincomillas,"💕💕");
       const empresas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/companytabla`
-       
+      ,{      
+          headers:{
+            Authorization: tokensincomillas
+          }
+      }
       )
+      console.log(empresas,"luz💕💕");
     setEmpresa(empresas.data);
     } catch (error) {
       console.log("error de axio en la query");
@@ -92,14 +97,16 @@ const [buscar, setBuscar] = useState("")
     const tokensincomillas = token.replace(/"/g,"")
     try {
       const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}/companytabla/desactivar/${item.idEmpresa}`,{
-          headers:{ Authorization:`${tokensincomillas}`},
-        }
-      );
+        `${process.env.REACT_APP_URL_BACKEND}/companytabla/desactivar/${item.idEmpresa}`,{      
+          
+        },{
+          headers:{
+            Authorization: tokensincomillas,
+          }
+        });
       Getempresa()
       return res.data
     
-   
     } catch (error) {
       console.log("Error al eliminar la empresa:", error);
     }

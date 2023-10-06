@@ -36,7 +36,14 @@ function Retorno5() {
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
-        const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`);
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
+        console.log(tokensincomillas,"💕💕");
+        const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`,{      
+            headers:{
+              Authorization: tokensincomillas
+            }
+        });
         setTarea(tareas.data);
     };
     useEffect(() => {

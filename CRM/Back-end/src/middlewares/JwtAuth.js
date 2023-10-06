@@ -14,9 +14,6 @@ export const validatetoken = async (req,res,next) => {
         console.log(validtoken,"👌👌👌");
         // req.Username = validtoken.username
         // req.UserId = validtoken.idRegistro;
-       
-        
-
         next()
     } catch (error) {
         console.log("nada",error);

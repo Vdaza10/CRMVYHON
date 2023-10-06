@@ -71,9 +71,17 @@ import jwt_decode from "jwt-decode"
 
 
     const TablagetContacto = async () => {
+        const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
         try{
 
-        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`)
+        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`,{      
+          
+        },{
+          headers:{
+            Authorization: tokensincomillas,
+          }
+        })
         setContacto(contactos.data);
     }catch{
         console.log("error de axio en la query");
@@ -87,10 +95,12 @@ import jwt_decode from "jwt-decode"
             const token = localStorage.getItem('user')
             const tokensincomillas = token.replace(/"/g,"")
             await Axios.put(
-                `${process.env.REACT_APP_URL_BACKEND}/contactotabla/desactivar/${item.idContacto}`,{
-                    headers:{
-                        Authorization: `${tokensincomillas}`,
-                    }
+                `${process.env.REACT_APP_URL_BACKEND}/contactotabla/desactivar/${item.idContacto}`,{      
+          
+                },{
+                  headers:{
+                    Authorization: tokensincomillas,
+                  }
                 });
             console.log("Contacto desactivado con éxito.");
         } catch (error) {

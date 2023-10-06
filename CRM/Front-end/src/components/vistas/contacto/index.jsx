@@ -33,7 +33,14 @@ function Retorno3() {
     },[navigate])
 
     const TablagetContacto = async () => {
-        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
+        console.log(tokensincomillas,"💕💕");
+        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`,{      
+            headers:{
+              Authorization: tokensincomillas
+            }
+        });
         setContacto(contactos.data)
     }
 

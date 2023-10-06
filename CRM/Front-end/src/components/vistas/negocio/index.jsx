@@ -32,7 +32,14 @@ function Retorno2() {
 
   const ReflejarDatos = async () => {
     try {
-      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`);
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
+      console.log(tokensincomillas,"💕💕");
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`,{      
+        headers:{
+          Authorization: tokensincomillas
+        }
+    });
       setNegocios(response.data);
     } catch (error) {
       console.error("Error al obtener datos de negocios:", error);
