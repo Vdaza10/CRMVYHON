@@ -67,12 +67,13 @@ function EmpresaUpdate({ empresa }) {
         }
       );
       console.log("Empresa actualizada.", res.data);
+      setTimeout(() => {
+        window.location.href = "/empresas";
+      }, 1000);
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => {
-      window.location.href = "/empresas";
-    }, 1000);
+    
   };
 
   return (

@@ -66,15 +66,15 @@ const UpdateTarea = ({ tarea }) => {
                     hora,
                 }
             );
+            setTimeout(() => {
+            window.location.href = "/tareas";
+        }, 1000);
                 return res.data
         } catch (error) {
             console.error(error);
         }
-        setTimeout(() => {
-            window.location.href = "/tareas";
-        }, 1000);
+        
     };
-
 
     return (
         <div>

@@ -77,13 +77,13 @@ function Retorno4({contacto}) {
           contactoEmpresa:selectContactoEmpresa
         }
       );
+      setTimeout(() => {
+        window.location.href = "/contactos";
+      }, 1000);
       return res.data
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => {
-      window.location.href = "/contactos";
-    }, 1000);
   };
 
 

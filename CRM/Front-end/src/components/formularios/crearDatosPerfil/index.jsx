@@ -14,6 +14,8 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
   const [contacto, setContacto] = useState("");
   const [lugarResidencia, setLugarResidencia] = useState("");
   const [sexoSelect, setSexoSelect] = useState("");
+  // Obten la fecha actual en formato "YYYY-MM-DD"
+  const fechaActual = new Date().toISOString().split("T")[0];
 
   const [genero, setGenero] = useState([]);
   const [tipoDocumeto, setTipoDocumeto] = useState([]);
@@ -114,7 +116,7 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
               <Caja>
               <fieldset className="Cajafieldset">
                   <legend>Fecha de nacimiento</legend>
-                  <InputInfor className="InputFecha" type="date" onChange={(e) => setFechaNacimiento(e.target.value)}></InputInfor>
+                  <InputInfor className="InputFecha" type="date" max={fechaActual} onChange={(e) => setFechaNacimiento(e.target.value)}></InputInfor>
                 </fieldset>
               <Select1 value={tipoDocumentoSelect} onChange={(e) => setTipoDocumentoSelect(e.target.value)}>
                 <option value=''>tipo documento</option>
