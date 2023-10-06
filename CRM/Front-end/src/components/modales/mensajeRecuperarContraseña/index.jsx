@@ -14,7 +14,7 @@ const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
       setTimeout(() => {
 
         // Redirige a la página de inicio
-        window.location.href = "/"  
+        window.location.href = "/login"
         
       }, 2000);
     };
@@ -28,7 +28,7 @@ const VentanaModal2 = ({ estado1, cambiarEstado1 }) => {
             <ContenedorModal>
                 <Encabezado>
                     <h1>¡Hola!</h1>
-                    <GrClose style={{marginRight:"20px"}} onClick={() => cambiarEstado1(false)}/>
+                    <GrClose style={{marginRight:"20px"}} onClick={cerrarModalYRedirigir}/>
                 </Encabezado>
                 <Body>
                     <h1 style={{fontSize:"90px", marginTop:"25px"}}><FcOk></FcOk></h1>

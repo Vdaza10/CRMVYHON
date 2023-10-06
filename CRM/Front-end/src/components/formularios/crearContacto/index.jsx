@@ -11,11 +11,14 @@ function Retorno4({setContactoCreado}) {
   const [email, setEmail] = useState('');
   const [empresaContacto, setEmpresaContacto] = useState('');
   const [empresa, setEmpresa] = useState([]);
-console.log(localStorage.getItem('user',"❤️❤️❤️"));
+
+ 
   const fetchEmpresa = async () => {
+  const token = localStorage.getItem('user')
+  const tokensincomillas = token.replace(/"/g,"")
     try {
       const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND }/company`,{
-        headers: {'Authorization': `Bearer ${localStorage.getItem('user')}`}
+        headers: {Authorization: `${tokensincomillas}`}
       });
       setEmpresa(response.data);
 
@@ -46,13 +49,18 @@ console.log(localStorage.getItem('user',"❤️❤️❤️"));
           icon: "error",
         });
       }
-
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
       Axios.post(`${process.env.REACT_APP_URL_BACKEND}/contacto`, {
         nombreContacto: nombreUsuario,
         cargo: cargo,
         telefono: telefono,
         correo:email,
         contactoEmpresa: empresaContacto,
+      },{
+        headers:{
+          Authorization:`${tokensincomillas}`
+        }
       })
         .then((response) => {
   
