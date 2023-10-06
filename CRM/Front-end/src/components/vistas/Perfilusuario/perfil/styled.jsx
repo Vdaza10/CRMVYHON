@@ -6,7 +6,8 @@ export const Fondo = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #7a7d81;
+  background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
 `;
 
 //Header y su contenido
@@ -17,7 +18,7 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
+`
 export const Cajaheader = styled.div`
   height: 90%;
   width: 90%;
@@ -25,23 +26,26 @@ export const Cajaheader = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-bottom: 1px solid black;
   border-radius: 100px 100px 0px 0px;
   box-shadow: #0f0e0ef0 0px 4px 6px 0px;
-  background-color: #fcfcfc;
+  border-top: 1px solid #ffffff94 ;
+
+
+  
 `;
 export const Parrafo1 = styled.button`
   height: 40px;
   width: 250px;
   font-size: 20px;
   border-radius: 0px 20px 0px 10px;
-  background-color: #14141445;
+  background-color: #6AB7BD;
+  color: #ffffff;
   font-family: "Times New Roman", Times, serif;
   border: none;
   &:hover {
     color: black;
     cursor: pointer;
-    background-color: #53baff;
+    background-color: #4193c9a6;
     border-radius: 10px;
     border-radius: 0px 25px 0px 25px;
     font-family: "Times New Roman", Times, serif;
@@ -52,21 +56,25 @@ export const Main = styled.div`
   width: 100%;
   justify-content: center;
   height: 90%;
+
 `;
 
 export const Container = styled.div`
   height: 95%;
   width: 90%;
   display: flex;
-  background-color: #ffffff;
   box-shadow: #08080899 10px 12px 6px 1px;
   border-radius: 20px;
+  color: white;
+  border: solid 1px #ffffff94;
+
 `;
 export const ContainPerfil = styled.div`
   height: 100%;
   width: 28%;
-  border-right: 1px solid gray;
+  border-right: solid 1px #ffffff94;
   border-radius: 15px 15px 0px 0px;
+  color: black;
 `;
 export const BoxImgPerfil = styled.div`
   height: 50%;
@@ -81,7 +89,7 @@ export const ImgPerfil = styled.div`
   border-radius: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #c5c3c3;
+  background-color: #ffffff;
 `;
 export const Boxperfil = styled.div`
   height: 50%;
@@ -110,6 +118,7 @@ export const InforPerfil = styled.div`
 export const InforperfilLetra = styled.div`
   width: 30%;
   height: 100%;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,7 +134,6 @@ export const BoxInfo = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-
 `;
 
 
@@ -168,7 +176,7 @@ export const BodyInfor = styled.div`
   button{
     height: 7%;
     width: 15%;
-    background-color: #49a3db;
+    background-color: #6AB7BD;
     color: white;
     border: none;
     font-size: 18px;
@@ -186,15 +194,14 @@ export const Cajas = styled.div`
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-  /* background-color: aqua; */
   /* border: solid 1px gray; */
 `
 export const Cajitas = styled.div`
   height: 50%;
   width: 30%;
   display: flex;
-  /* background-color: aqua; */
-  border-bottom: 1px solid #7766552e;
+  border-bottom: 1px solid #f4f4f42d;
+  border-radius: 20px;
 `
 export const ContainerIcono = styled.div`
   height: 100%;
@@ -202,12 +209,10 @@ export const ContainerIcono = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #ff7700; */
-  /* border: solid 1px red; */
 
   .Iconos{
     font-size: 35px;
-    color: #17163a;
+    color: white;
   }
 `
 export const ContainerLetra = styled.div`
@@ -232,11 +237,6 @@ export const ContainerLetra = styled.div`
 export const Inforpass = styled.div`
   width: 90%;
   background-color: red;
-`
-export const Password = styled.input`
-  width: 80%;
-  outline:none;
-
 `
 
 

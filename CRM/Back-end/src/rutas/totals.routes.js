@@ -9,7 +9,7 @@ import * as logincrtl from "../controladores/Formularios/login.js"
 import * as pedidosCrtl from "../controladores/Formularios/pedidos.js"//pedidos
 import * as llamadaCrtl from "../controladores/llamada/llamadaAudio.js"//llamada
 import * as datosperfilCrtl from "../controladores/Formularios/datosPerfil.js"
-
+import { validatetoken } from "../middlewares/JwtAuth.js";
 export const router = Router();
 
 //registro
@@ -27,7 +27,7 @@ router.get('/login/getClient/',  logincrtl.getLogin);
 
 
 //empresa// 
-router.post('/company', empresaCrtl.createEmpresa);
+router.post('/company',empresaCrtl.createEmpresa);
 router.get('/company', empresaCrtl.getEmpresas);
 router.get('/company/:id', empresaCrtl.getEmpresaId);
 router.patch('/company/:id', empresaCrtl.updateEmpresas)
@@ -75,5 +75,5 @@ router.post('/llamada', llamadaCrtl.crearLlamada);
 router.post('/datosPerfil/:idRegistro',datosperfilCrtl.datosAdicionalesPerfil);
 router.get('/tipoDocumeto',datosperfilCrtl.getTipoDocumento);
 router.get('/genero',datosperfilCrtl.getGenero);
-router.get('/buscarDatos/:id',datosperfilCrtl.getBucar)
-router.get('/reflejarDatos/:id',datosperfilCrtl.getDatosPerfil)
+router.get('/buscarDatos/:id',datosperfilCrtl.getBucar);
+router.get('/reflejarDatos/:id',datosperfilCrtl.getDatosPerfil);

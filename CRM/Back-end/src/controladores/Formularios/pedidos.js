@@ -35,7 +35,6 @@ export const crearPedidos = async (req, res) => {
       return res.status(500).json({ message: "Algo anda mal" });
     }
   };
-  
 
 export const getPedidosId = async (req, res) => {
     const idPedido = req.params.id;

@@ -13,4 +13,4 @@ export const SERVIDOR_BACKEND = process.env.SERVIDOR_BACKEND ||' http://localhos
 export const SERVICE = process.env.SERVICE ||  'vyhoncrm@outlook.com'
 export const USER = process.env.USER || 'vyhoncrm@outlook.com'
 export const PASS = process.env.PASS ||  'CrmVyhon2023'
-
+export const SECRET = process.env.SECRET ||  "CLAVESUPERSECRETA"

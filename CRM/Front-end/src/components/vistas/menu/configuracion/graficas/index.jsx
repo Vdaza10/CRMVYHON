@@ -6,19 +6,19 @@ import { getEnero,getFebrero,getMarzo,getAbril,getMayo,getJunio,getJulio,getAgos
 import { useState } from "react";
 
 function Grafica() {
- const[Enero,setEnero]= useState([])
- const[Febrero,setFebrero]= useState([])
- const[Marzo,setMarzo]= useState([])
- const[Abril,setAbril]= useState([])
- const[Mayo,setMayo]= useState([])
- const[Junio,setJunio]= useState([])
- const[Julio,setJulio]= useState([])
- const[Agosto,setAgosto]= useState([])
- const[Septiembre,setSeptiembre]= useState([])
- const[Octumbre,setOctumbre]= useState([])
- const[Noviembre,setNoviembre]= useState([])
- const[Diciembre,setDiciembre]= useState([])
- 
+  const[Enero,setEnero]= useState([])
+  const[Febrero,setFebrero]= useState([])
+  const[Marzo,setMarzo]= useState([])
+  const[Abril,setAbril]= useState([])
+  const[Mayo,setMayo]= useState([])
+  const[Junio,setJunio]= useState([])
+  const[Julio,setJulio]= useState([])
+  const[Agosto,setAgosto]= useState([])
+  const[Septiembre,setSeptiembre]= useState([])
+  const[Octumbre,setOctumbre]= useState([])
+  const[Noviembre,setNoviembre]= useState([])
+  const[Diciembre,setDiciembre]= useState([])
+  
   useEffect(() => {
     getEnero(setEnero);
     getFebrero(setFebrero);
@@ -30,9 +30,10 @@ function Grafica() {
     getAgosto(setAgosto);
     getSeptiembre(setSeptiembre)
     getOctumbre(setOctumbre);
-    getNoviembre(setNoviembre);
+    getNoviembre(setNoviembre); 
     getDiciembre(setDiciembre);
     // Datos para el gráfico de barras
+    
     const dataBar = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
       datasets: [
@@ -42,6 +43,7 @@ function Grafica() {
           backgroundColor: "#18eb05",
           borderColor: "#f9f9f9",
           borderWidth: 1,
+          fill: true,
         },
       ],
     };
@@ -51,13 +53,13 @@ function Grafica() {
       labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "junio", "julio","agosto", "septiembre", "octubre", "noviembre" ," diciembre"],
       datasets: [
         {
-          data: [Enero.length,Febrero.length,Marzo.length,Abril.length, Mayo.length,Junio.length,Julio.length,Agosto.length,Septiembre.length,Octumbre.length,Noviembre.length,Diciembre.length],
+          data: [Enero,Febrero,Marzo,Abril, Mayo,Junio,Julio,Agosto,Septiembre,Octumbre,Noviembre,Diciembre],
           backgroundColor: ["#f00", "#04f61c", "#000", "#0546f9","#D2691E","#ED5565","#C4EA70","#7945BF","#FBD1D1","#1199B7","#F4D451","#F19195"],
+          fill: true,
         },
       ],
     };
-   
-   
+
     // Datos para el gráfico de línea
     
     const dataLine = {
@@ -66,14 +68,14 @@ function Grafica() {
       datasets: [
         {
           label: "Registro de llamadas por mes",
-          data: [],
+          data: [Enero,Febrero,Marzo,Abril, Mayo,Junio,Julio,Agosto,Septiembre,Octumbre,Noviembre,Diciembre],
           borderColor: "#2b4df2",
-          fill: false,
+          fill: true,
           
         },
       ],
     };
-   
+    
     // Datos para el gráfico de área
     const dataArea = {
       labels: ["Cotizados", "Cancelados", "En proceso", "Vendidos"],
@@ -137,7 +139,7 @@ function Grafica() {
       areaChart.destroy();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [Enero,Febrero,Marzo,Abril, Mayo,Junio,Julio,Agosto,Septiembre,Octumbre,Noviembre,Diciembre]);
 
   return (
     <Container>

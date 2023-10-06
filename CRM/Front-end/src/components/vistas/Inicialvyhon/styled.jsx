@@ -89,6 +89,7 @@ export const ContenedorImagen = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
 `
 export const TarjetasInformativas = styled.div`
     height: 80%;
@@ -107,7 +108,5 @@ export const Footer = styled.div`
     text-align: center;
     height: 10%;
 `
-export const TextoFooter = styled.p`
-    margin: 0;
-    font-size: 50px;
+export const P = styled.p`
 `
