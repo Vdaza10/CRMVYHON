@@ -2,7 +2,7 @@
     import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
     import {Contenedor,Logo, MenuItem,Menucontainer,Menudesplegable,Navegacion, Ajustes,
     } from "./menu";
-    import imagen from "../../img/logito.png";
+    import imagen from "../../img/logito.svg";
     import Retorno1 from "../menu/configuracion";
     import { RiSettings4Fill } from "react-icons/ri";
     import "../../../App.css"
@@ -38,7 +38,7 @@
             <NavLink
                 to="/empresas"
                 style={{
-                color: currentPath === "/empresas" ? "#000000" : "#ffffff",
+                color: currentPath === "/empresas" ? "#6AB7BD" : "#ffffff",
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("empresas")}>
@@ -47,7 +47,7 @@
             <NavLink
                 to="/contactos"
                 style={{
-                color: currentPath === "/contactos" ? "#000000" : "#ffffff",
+                color: currentPath === "/contactos" ? "#6AB7BD" : "#ffffff",
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("contactos")}>
@@ -56,7 +56,7 @@
             <NavLink
                 to="/negocios"
                 style={{
-                color: currentPath === "/negocios" ? "#000000" : "#ffffff",
+                color: currentPath === "/negocios" ? "#6AB7BD" : "#ffffff",
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("negocios")}>
@@ -65,7 +65,7 @@
             <NavLink
                 to="/tareas"
                 style={{
-                color: currentPath === "/tareas" ? "#000000" : "#ffffff",
+                color: currentPath === "/tareas" ? "#6AB7BD" : "#ffffff",
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("tareas")}>
@@ -74,7 +74,7 @@
             <NavLink
                 to="/pedidos"
                 style={{
-                color: currentPath === "/pedidos" ? "#000000" : "#ffffff",
+                color: currentPath === "/pedidos" ? "#6AB7BD" : "#ffffff",
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("pedidos")}>
@@ -83,7 +83,7 @@
             <NavLink
             to="/call"
                 style={{
-                color: currentPath === "/call" ? "#000000" : "#ffffff",
+                color: currentPath === "/call" ? "#6AB7BD" : "#ffffff",
                 textDecoration: "none",
                 }}
                 onClick={() => opcionElegida("call")}>
