@@ -32,6 +32,7 @@ export const Input = styled.input`
   border-radius: 5px;
   border: solid none;
   width: 50%;
+  padding:5px;
 `;
 
 export const Button = styled.button`

@@ -27,7 +27,7 @@ export const Caja = styled.div`
     cursor: pointer;
 `
 // Estilo para un párrafo con estilo itálico
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
     font-size: 18px;
     font-style: italic;
     display: flex;
@@ -41,7 +41,7 @@ export const Img = styled.img`
     padding-right: 30px;
 `
 // Estilo para un párrafo con estilo itálico
-export const Parrafo1 = styled.p`
+export const Parrafo1 = styled.div`
     font-size: 15px;
     font-style: italic;
 `

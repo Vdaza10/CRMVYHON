@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Container, Principal, Caja1, Parrafo, Img, Caja2, Parrafo1, Input, Caja3, Boton1, Boton2, ContainerInput, Select } from "./styled.jsx";
+import { Container, Principal, Caja1, Parrafo, Img, Caja2, Parrafo1, Input1, Caja3, Boton1, Boton2, ContainerInput, Select } from "./styled.jsx";
 import imagen from "../../img/img_x.webp"
 import { BsFillCalendar2CheckFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import Axios from "axios";
-
-
 
 const UpdateTarea = ({ tarea }) => {
     const [cerrar, setCerrar] = useState(true);
@@ -37,12 +35,12 @@ const UpdateTarea = ({ tarea }) => {
 
     useEffect(() => {
         if (tarea) {
-            setSelectNegocio(setNegocio.negocio);
-            setAsunto(tarea.asunto);
-            setResponsable(tarea.responsable);
-            setTipotarea(tarea.tipotarea);
-            setFecha(tarea.fecha);
-            setHora(tarea.hora)
+            setSelectNegocio(tarea.negocio || "");
+            setAsunto(tarea.asunto || "");
+            setResponsable(tarea.responsable || "");
+            setTipotarea(tarea.tipotarea || "");
+            setFecha(tarea.fecha || "");
+            setHora(tarea.hora || "")
         }
     }, [tarea]);
 
@@ -61,7 +59,7 @@ const UpdateTarea = ({ tarea }) => {
         const token = localStorage.getItem('user')
         const tokensincomillas = token.replace(/"/g,"")
         try {
-            const res = await Axios.patch(
+            await Axios.patch(
                 `${process.env.REACT_APP_URL_BACKEND}/tareastabla/${tarea.idTarea}`,
                 {
                     negocio: selectNegocio,
@@ -77,7 +75,7 @@ const UpdateTarea = ({ tarea }) => {
             setTimeout(() => {
             window.location.href = "/tareas";
         }, 1000);
-                return res.data
+
         } catch (error) {
             console.error(error);
         }
@@ -95,44 +93,52 @@ const UpdateTarea = ({ tarea }) => {
                     <hr />
                     <Caja2>
                         <Parrafo1><h3>Negocio</h3></Parrafo1>
-                        <Select value={selectNegocio} onChange={(e) => {
-                            setSelectNegocio(e.target.value)
-                        }}>
-
+                        <Select onChange={(e) => setSelectNegocio(e.target.value)}>
                             <option value="option">option</option>
-                            {negocio.map(negocio => (
-                                <option key={negocio.idNegocio} value={negocio.idNegocio}>
+                            {negocio.map((negocio,index) => (
+                                <option key={index} value={negocio.idNegocio}>
                                     {negocio.nombreNegocio}
                                 </option>
                             ))};
                         </Select>
-
                         <Parrafo1><h3>Asunto de la tarea</h3></Parrafo1>
-                        <Input value={asunto} onChange={(e) => {
-                            setAsunto(e.target.value)
-                        }} placeholder="ingresar asunto de tarea"></Input>
+                            <Input1 value={asunto} 
+                            type="text"
+                            onChange={(e) => setAsunto(e.target.value)}
+                            placeholder="ingresar asunto de tarea"
+                            >                           
+                            </Input1>
                         <Parrafo1><h3>Responsable</h3></Parrafo1>
                         <ContainerInput>
-                            <Input value={responsable} onChange={(e) => {
-                                setResponsable(e.target.value)
-                            }} placeholder="Ingresar nombre del responsable" style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
-                            <FaUser style={{ marginRight: "5px" }} />
+                            <Input1 value={responsable} 
+                                type="text"
+                                onChange={(e) => setResponsable(e.target.value)} 
+                                placeholder="Ingresar nombre del responsable" 
+                                style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }}
+                                >
+                            </Input1>
+                            <FaUser style={{ marginRight: "5px" }}/>
                         </ContainerInput>
                         <Parrafo1><h3>Tipo de tarea</h3></Parrafo1>
                         <ContainerInput>
-                            <Input value={tipoTarea} onChange={(e) => {
-                                setTipotarea(e.target.value)
-                            }} placeholder="Ingresar tipo de tarea" style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} ></Input>
+                            <Input1 value={tipoTarea} 
+                                type="text"
+                                onChange={(e) => setTipotarea(e.target.value)}
+                                placeholder="Ingresar tipo de tarea" 
+                                style={{ color: 'gray', height: "90%", width: "90%", border: "none", outline: "none" }} 
+                                >
+                            </Input1>
                             <BsFillCalendar2CheckFill style={{ marginRight: "5px" }} />
                         </ContainerInput>
                         <Parrafo1><h3>Fecha</h3></Parrafo1>
-                        <Input type="date" style={{ color: 'gray' }} value={fecha} onChange={(e) => {
+                        <Input1 type="date" style={{ color: 'gray' }} value={fecha} onChange={(e) => 
                             setFecha(e.target.value)
-                        }}></Input>
+                        }>
+                        </Input1>
                         <Parrafo1><h3>Horario de la tarea</h3></Parrafo1>
-                        <Input type="time" style={{ color: 'gray' }} value={hora} onChange={(e) => {
+                        <Input1 type="time" style={{ color: 'gray' }} value={hora} onChange={(e) => 
                             setHora(e.target.value)
-                        }} ></Input>
+                        }></Input1>
                     </Caja2>
                     <hr />
                     <Caja3>
@@ -146,3 +152,4 @@ const UpdateTarea = ({ tarea }) => {
 }
 
 export default UpdateTarea;
+

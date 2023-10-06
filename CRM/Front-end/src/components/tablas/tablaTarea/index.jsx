@@ -15,7 +15,7 @@ function TablaTarea() {
     const [active, setActive] = useState(false);
     const [activeEditar, setActiveEditar] = useState(false);
     const [tarea, setTarea] = useState([]);
-    const [tareaEditar, setTareaEditar] = useState(null);
+    const [tareaEditar, setTareaEditar] = useState([]);
     
     const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
     const [loading, setLoading] = useState(true)

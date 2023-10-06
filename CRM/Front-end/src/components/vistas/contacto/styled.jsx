@@ -10,7 +10,7 @@ export const Container= styled.div`
     flex-direction: column;
 `
 // Estilo para el párrafo
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
     font-size: 20px;
     font-style: italic;
     display: flex;
