@@ -32,29 +32,44 @@ export const getUsersid = async(req,res)=>{
     }
 }
 
+
 export const createUsers = async (req, res) => {
     try {
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-            const encrypt = await encryptPassword(contraseña)
-                const [rows] = await pool.query(
-                'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
-                [nombreUsuario, nombreEmpresa, correo, encrypt]
-            );
 
-            return res.json({
-                id: rows.insertId,
-                nombreUsuario,
-                nombreEmpresa,
-                correo,
-                contraseña,
-                mensaje: "registro_exitoso"
-            });
+        // Consulta SQL para verificar si el correo ya existe
+        const [existingUser] = await pool.query(
+            'SELECT correo FROM registro WHERE correo = ?',
+            [correo]
+        );
+
+        // Si existe un usuario con el mismo correo, devuelve un mensaje de error
+        if (existingUser.length > 0) {
+            console.log("El correo ya existe, por favor cambie el correo.");
+            return res.status(400).json({ message: "El correo ya está en uso." });
+        }
+
+        // Si el correo no existe, procede con el registro
+        const encrypt = await encryptPassword(contraseña);
+        const [rows] = await pool.query(
+            'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
+            [nombreUsuario, nombreEmpresa, correo, encrypt]
+        );
+
+        return res.json({
+            id: rows.insertId,
+            nombreUsuario,
+            nombreEmpresa,
+            correo,
+            contraseña,
+            mensaje: "registro_exitoso"
+        });
     } catch (error) {
-    
         console.error(error); // Puedes agregar un registro del error para debug
         return res.status(500).json({ message: 'Algo va mal...' });
     }
 }
+
 export const recuperar = async (req, res) => {
     try {
         const { correo } = req.body;
