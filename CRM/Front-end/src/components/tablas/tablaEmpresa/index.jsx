@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import { ContainerPrincipal , Heder , ContainerInput, Input, HederTabla , Caja1 , Parrafo, BodyTabla, CajaIcono, Boton , FooterTabla , ContainerSecundario} from "./styled";
 import { AiOutlineClose , AiOutlineSearch } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'

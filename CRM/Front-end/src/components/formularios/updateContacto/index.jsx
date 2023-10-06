@@ -43,7 +43,7 @@ function Retorno4({contacto}) {
   useEffect(() => {
     if (contacto) {
       // Verifica si hay un negocio para editar
-      setNombreContacto(contacto.nombreEmpresa);
+      setNombreContacto(contacto.nombreContacto);
       setCargo(contacto.cargo);
       setTelefono(contacto.telefono);
       setCorreo(contacto.correo);
@@ -77,7 +77,6 @@ function Retorno4({contacto}) {
           contactoEmpresa:selectContactoEmpresa
         }
       );
-      return res.data
     } catch (error) {
       console.error(error);
     }
@@ -124,8 +123,8 @@ function Retorno4({contacto}) {
           <Select  value={selectContactoEmpresa} onChange={(e) => setSelectContactoEmpresa(e.target.value)}
           >
             <option value="">Ingrese la empresa</option>
-            {contactoEmpresa.map((empresa) => (
-              <option key={empresa.idEmpresa} value={empresa.idEmpresa}>
+            {contactoEmpresa.map((empresa, index) => (
+              <option key={index} value={empresa.idEmpresa}>
                 {empresa.nombreEmpresa}
               </option>
             ))}
