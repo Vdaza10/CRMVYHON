@@ -11,7 +11,7 @@ export const Container = styled.div`
     cursor: pointer;
 `
 // Componente estilizado llamado Parrafo para párrafos
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
     font-size: 22px;
     font-style: italic;
     display: flex;

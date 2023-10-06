@@ -18,7 +18,6 @@ const[estadoModal, cambiarEstadoModal] = useState(false)
             <Ladero>
                 <Ladero1>
                 </Ladero1>
-
                 <Ladero2>
                     <Parrafo><h2 style={{margin:"0"}}>create your account in Vyhon CRM</h2></Parrafo>
                     <Parrafo1>Join us and create your account to enjoy a new and effective way to streamline your processes, improve the profitability of your business and, most importantly, maintain constant communication with your clients. At Vyhon, we are committed to you every step of the way, providing you with solutions that always have your back. Join our community and discover how we can help you achieve your goals!</Parrafo1>

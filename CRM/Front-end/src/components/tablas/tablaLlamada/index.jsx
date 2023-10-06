@@ -32,8 +32,13 @@ function Tablallamada(){
   },[navigate])
 
 const llamadas = async () =>{
+
     try {
-        const registrollamada = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/llamadatabla`)
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
+        const registrollamada = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/llamadatabla`,{
+          headers:{ Authorization: `${tokensincomillas}`}
+        })
         setLlamada(registrollamada.data);
     }
     catch{

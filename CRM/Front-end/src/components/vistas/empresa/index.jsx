@@ -56,7 +56,7 @@ function Retorno7() {
                 <Container>
                       {/* Muestra una imagen */}
                     <img src={imagen} alt="img" style={{width:'400px',height:'355px', marginTop: "30px"}} />
-                    <Parrafo><h3>Crea empresas</h3></Parrafo>
+                    <h3>Crea empresas</h3>
                     <Parrafo>Mantén el historial de todos los negocios con tu base de empresas.</Parrafo>
                     <Boton onClick={() => setActive(!active)}>Crear empresa</Boton>
                       {/* Muestra el componente Retorno8 si 'active' es true */}

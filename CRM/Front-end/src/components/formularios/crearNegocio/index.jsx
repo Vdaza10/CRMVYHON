@@ -22,8 +22,12 @@ function CrearNegocios() {
     useEffect(() => {
         // Función para obtener empresas desde la base de datos
         const fetchEmpresas = async () => {
+            const token = localStorage.getItem('user')
+            const tokensincomillas = token.replace(/"/g,"")
             try {
-                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/company`);
+                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/company`,{
+                    headers: {Authorization: `${tokensincomillas}`}
+                });
                 setEmpresa(response.data);
             } catch (error) {
                 console.error("Error al obtener empresas:", error);
@@ -32,8 +36,12 @@ function CrearNegocios() {
 
         // Función para obtener contactos desde la base de datos
         const fetchContactos = async () => {
+            const token = localStorage.getItem('user')
+            const tokensincomillas = token.replace(/"/g,"")
             try {
-                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contacto`);
+                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contacto`,{
+                    headers:{Authorization:`${tokensincomillas}`}
+                });
                 setContacto(response.data);
             } catch (error) {
                 console.error("Error al obtener contactos:", error);
@@ -70,12 +78,16 @@ function CrearNegocios() {
                 return;
             }
         try {
+            const token = localStorage.getItem('user')
+            const tokensincomillas = token.replace(/"/g,"")
             const response = await Axios.post(`${process.env.REACT_APP_URL_BACKEND}/negocio`, {
                 nombreNegocio,
                 etapas,
                 fuente,
                 empresa: selectEmpresa,
                 contacto: selectContacto,
+            },{
+                headers:{ Authorization:`${tokensincomillas}`}
             });
             setTimeout(() => {
                         

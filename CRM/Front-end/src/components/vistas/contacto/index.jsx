@@ -55,7 +55,7 @@ function Retorno3() {
           
                 <Container>
                     <img src={imagen} alt="img" style={{ width: '450px', height: '240px', marginTop: "110px"}} />
-                    <Parrafo><h3>No hemos encontrado contactos en tu cuenta ni con los filtros <br /> que seleccionaste</h3></Parrafo>
+                    <h2>No hemos encontrado contactos en tu cuenta ni con los filtros <br /> que seleccionaste</h2>
                     <Parrafo> Crear contactos para llevar el registro y los datos de todas las personas <br />con las que negocias. o prueba a cambiar los filtros seleccionados para encontrar <br /> nuevos resultados   </Parrafo>
                     {/* Botón para crear contactos */}
                     <Boton onClick={() => setActive(!active)}>Crear contactos</Boton>                    

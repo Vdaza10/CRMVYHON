@@ -41,7 +41,7 @@ export const Caja = styled.div`
   align-items: center;
 `;
 // Estilo para el párrafo
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
   height: 100%;
   color: #ffffff;
   font-size: 20px;
@@ -60,7 +60,7 @@ export const Img = styled.img`
   // background-color: blueviolet;
 `;
 // Estilo para otro párrafo
-export const Parrafo1 = styled.p`
+export const Parrafo1 = styled.div`
   font-size: 15px;
   color: #ffffff;
   font-style: italic;
