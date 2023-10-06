@@ -87,7 +87,7 @@ export const Input = styled.input`
     }
 `
 // Estilo para un párrafo con estilo itálico y color gris
-export const Parrafo2 = styled.p`
+export const Parrafo2 = styled.div`
     font-size: 16px;
     font-style: italic;
     color: #fff;

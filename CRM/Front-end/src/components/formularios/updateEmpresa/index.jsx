@@ -10,9 +10,6 @@ function EmpresaUpdate({ empresa }) {
   const [url, setUrl] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [segmentos, setSegmentos] = useState([]); // Estado para almacenar todos los segmentos disponibles
-  
-  // const modalRef = useRef(null);
-  // const [modalAbierta, setModalAbierta] = useState(true);
 
     useEffect(() =>{
       // Función para obtener los segmentos desde la base de datos
@@ -24,9 +21,7 @@ function EmpresaUpdate({ empresa }) {
               headers: {Authorization: `${tokensincomillas}`},
           });
           setSegmentos(response.data);
-          console.log(response.data);
       } catch (error) {
-          console.error("Error al obtener segmentos:", error);
       }
     };
 
@@ -79,7 +74,6 @@ function EmpresaUpdate({ empresa }) {
         window.location.href = "/empresas";
       }, 1000);
     } catch (error) {
-      console.error(error);
     }
     
   };

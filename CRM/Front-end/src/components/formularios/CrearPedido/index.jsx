@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Div, FormGroup, FormularioContainer, Input, Label } from './style.jsx';
 
-
 const FormularioPedido = ({ onTaskCreated }) => {
   const [cliente, setCliente] = useState('');
   const [monto, setMonto] = useState('');
 
   const handleClienteChange = (event) => {
-    setCliente(event.target.value);
+    // Validar que el valor del cliente solo contenga letras
+    const regex = /^[A-Za-z]+$/;
+    const inputValue = event.target.value;
+
+    if (inputValue === '' || regex.test(inputValue)) {
+      setCliente(inputValue);
+    }
   };
 
   const handleMontoChange = (event) => {
@@ -42,7 +47,7 @@ const FormularioPedido = ({ onTaskCreated }) => {
     <FormularioContainer onSubmit={handleSubmit}>
       <FormGroup>
         <Div><Label>Cliente:</Label></Div>
-        <Input type="text" value={cliente} onChange={handleClienteChange} required />
+        <Input value={cliente} onChange={handleClienteChange} type="text" required />
       </FormGroup>
       <FormGroup>
         <Div><Label>Monto:</Label></Div>

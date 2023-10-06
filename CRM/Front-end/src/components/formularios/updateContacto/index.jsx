@@ -33,7 +33,6 @@ function Retorno4({contacto}) {
         headers: {Authorization: `${tokensincomillas}`}
       });
       setContactoEmpresa(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error('Error al obtener empresa:', error);
     }
@@ -47,7 +46,7 @@ function Retorno4({contacto}) {
   useEffect(() => {
     if (contacto) {
       // Verifica si hay un negocio para editar
-      setNombreContacto(contacto.nombreEmpresa);
+      setNombreContacto(contacto.nombreContacto);
       setCargo(contacto.cargo);
       setTelefono(contacto.telefono);
       setCorreo(contacto.correo);
@@ -70,10 +69,11 @@ function Retorno4({contacto}) {
   }
 
   const actualizarContacto = async () => {
-    try {
-      const token = localStorage.getItem('user')
+    const token = localStorage.getItem('user')
       const tokensincomillas = token.replace(/"/g,"")
-      const res = await Axios.patch(
+    try {
+      
+      await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/contactotabla/${contacto.idContacto}`,
         {
           nombreContacto,
@@ -87,10 +87,6 @@ function Retorno4({contacto}) {
           }
         }
       );
-      setTimeout(() => {
-        window.location.href = "/contactos";
-      }, 1000);
-      return res.data
     } catch (error) {
       console.error(error);
     }
@@ -134,8 +130,8 @@ function Retorno4({contacto}) {
           <Select  value={selectContactoEmpresa} onChange={(e) => setSelectContactoEmpresa(e.target.value)}
           >
             <option value="">Ingrese la empresa</option>
-            {contactoEmpresa.map((empresa) => (
-              <option key={empresa.idEmpresa} value={empresa.idEmpresa}>
+            {contactoEmpresa.map((empresa, index) => (
+              <option key={index} value={empresa.idEmpresa}>
                 {empresa.nombreEmpresa}
               </option>
             ))}

@@ -15,7 +15,7 @@ function TablaTarea() {
     const [active, setActive] = useState(false);
     const [activeEditar, setActiveEditar] = useState(false);
     const [tarea, setTarea] = useState([]);
-    const [tareaEditar, setTareaEditar] = useState(null);
+    const [tareaEditar, setTareaEditar] = useState([]);
     
     const [empresaUpdateAbierto, setEmpresaUpdateAbierto] = useState(true);
     const [loading, setLoading] = useState(true)
@@ -83,10 +83,12 @@ const [buscar, setBuscar] = useState("")
         const token = localStorage.getItem('user')
         const tokensincomillas = token.replace(/"/g,"")
         const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`,{
-            headers:{
-                Authorization:`${tokensincomillas}`
-            }
+        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`,{      
+          
+        },{
+          headers:{
+            Authorization: tokensincomillas,
+          }
         }
         );
         console.log("Contacto eliminado con éxito.", res.data);

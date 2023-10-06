@@ -76,7 +76,7 @@ export const Caja1 = styled.div`
   justify-content: center;
 `;
 
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
   margin: 0;
   font-size: 18px;
   font-weight: 500;

@@ -59,6 +59,7 @@ function PerfilUsuario() {
     if (userToken) {
       try {
         const token = jwt_decode(userToken);
+        console.log(token);
         setUserData(token);
         setLoading(false);
       } catch (error) {
@@ -98,9 +99,10 @@ function PerfilUsuario() {
     }
   }
 
-  setTimeout(() => {
-    fetchDatosPerfil()
-  }, 0)
+  // setTimeout(() => {
+  //   
+  // }, 0)
+  fetchDatosPerfil()
 ;
 
 
