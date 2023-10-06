@@ -122,7 +122,7 @@ DatosPerfilReflejar()
 
 useEffect(()=>{
     fetchDatosPerfil()
-},[guardarId])
+},[])
 
 
 console.log(reflejarDatos,'❤️❤️❤️❤️❤️');

@@ -26,8 +26,12 @@ function Retorno4({contacto}) {
   useEffect(() => {
 
   const fetchEmpresa = async () => {
+    const token = localStorage.getItem('user')
+    const tokensincomillas = token.replace(/"/g,"")
     try {
-      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
+      const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`,{
+        headers: {Authorization: `${tokensincomillas}`}
+      });
       setContactoEmpresa(response.data);
       console.log(response.data);
     } catch (error) {
@@ -67,6 +71,8 @@ function Retorno4({contacto}) {
 
   const actualizarContacto = async () => {
     try {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
       const res = await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/contactotabla/${contacto.idContacto}`,
         {
@@ -75,6 +81,10 @@ function Retorno4({contacto}) {
           telefono,
           correo,
           contactoEmpresa:selectContactoEmpresa
+        },{
+          headers:{
+            Authorization:`${tokensincomillas}`
+          }
         }
       );
       return res.data

@@ -18,10 +18,17 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
   const [genero, setGenero] = useState([]);
   const [tipoDocumeto, setTipoDocumeto] = useState([]);
 
-  
+ 
   const fetchGenero = async () => {
+   
+    const token = localStorage.getItem('user')
+    const tokensincomillas = token.replace(/"/g,"")
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/genero`);
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/genero`,{
+        headers:{
+          Authorization: `${tokensincomillas}`
+        }
+      })
       setGenero(response.data);
     } catch (error) {
       console.error("Error al obtener sexo:", error);
@@ -33,8 +40,14 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
   }, []);
 
   const fetchDocumeto = async () => {
+    const token = localStorage.getItem('user')
+    const tokensincomillas = token.replace(/"/g,"")
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tipoDocumeto`);
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tipoDocumeto`,{
+        headers:{
+          Authorization:`${tokensincomillas}`
+        }
+      });
       setTipoDocumeto(response.data);
     } catch (error) {
       console.error("Error al obtener tipo de documento:", error);
@@ -68,6 +81,8 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
       }
     
     try {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
       await axios.post(
         `${process.env.REACT_APP_URL_BACKEND}/datosPerfil/${userData.idRegistro}`,
         {
@@ -78,6 +93,10 @@ function DatosPerfil({ estado, cambiarEstado,userData }) {
           Telefono: contacto,
           lugarResidencia : lugarResidencia,
           sexo : sexoSelect,
+        },{
+          headers:{
+            Authorization:` ${tokensincomillas}`
+          }
         }
       );
       setTimeout(() => {

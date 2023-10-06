@@ -71,16 +71,27 @@ import jwt_decode from "jwt-decode"
 
 
     const TablagetContacto = async () => {
-        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`);
+        try{
+
+        const contactos = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contactotabla`)
         setContacto(contactos.data);
-       
+    }catch{
+        console.log("error de axio en la query");
+    }
     };
 
 
     const TabladeleteContacto = async (item) => {
+       
         try {
+            const token = localStorage.getItem('user')
+            const tokensincomillas = token.replace(/"/g,"")
             await Axios.put(
-                `${process.env.REACT_APP_URL_BACKEND}/contactotabla/desactivar/${item.idContacto}`);
+                `${process.env.REACT_APP_URL_BACKEND}/contactotabla/desactivar/${item.idContacto}`,{
+                    headers:{
+                        Authorization: `${tokensincomillas}`,
+                    }
+                });
             console.log("Contacto desactivado con éxito.");
         } catch (error) {
             console.log("Error al desactivar el contacto", error);

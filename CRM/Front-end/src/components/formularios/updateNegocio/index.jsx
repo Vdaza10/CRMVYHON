@@ -30,8 +30,14 @@ function NegocioUpdate({ negocio }) {
   useEffect(() => {
     // Función para obtener empresas desde la base de datos
     const fetchEmpresas = async () => {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
         try {
-            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/company`);
+            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/company`,{
+              headers:{
+                Authorization: `${tokensincomillas}`
+              }
+            });
             setEmpresa(response.data);
         } catch (error) {
             console.error("Error al obtener empresas:", error);
@@ -40,8 +46,14 @@ function NegocioUpdate({ negocio }) {
 
     // Función para obtener contactos desde la base de datos
     const fetchContactos = async () => {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
         try {
-            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contacto`);
+            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/contacto`,{
+              headers:{
+                Authorization: `${tokensincomillas}`,
+              }
+            });
             setContacto(response.data);
         } catch (error) {
             console.error("Error al obtener contactos:", error);
@@ -78,6 +90,8 @@ function NegocioUpdate({ negocio }) {
 
   const actualizarNegocio = async () => {
     try {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
       const res = await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/negociotabla/${negocio.idNegocio}`,
         {
@@ -86,6 +100,10 @@ function NegocioUpdate({ negocio }) {
           fuente,
           empresa:selectEmpresa ,
           contacto:selectContacto,
+        },{
+          headers:{
+            authorization:`${tokensincomillas}`
+          }
         }
       );
       console.log("Negocio actualizado.", res.data);

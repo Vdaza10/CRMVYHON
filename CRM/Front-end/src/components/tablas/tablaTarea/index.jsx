@@ -74,13 +74,20 @@ const [buscar, setBuscar] = useState("")
 
     const ReflejarDatos = async () => {
         // ev.preventDefault();
+     
         const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`);
         setTarea(tareas.data);
     };
 
     const TabladeleteTarea = async (item) => {
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
         const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`
+        `${process.env.REACT_APP_URL_BACKEND}/tareastabla/desactivar/${item.idTarea}`,{
+            headers:{
+                Authorization:`${tokensincomillas}`
+            }
+        }
         );
         console.log("Contacto eliminado con éxito.", res.data);
 

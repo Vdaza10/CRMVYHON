@@ -21,7 +21,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const emailInputRef = useRef(null);
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
 
 
   useEffect(() => {
@@ -33,12 +33,12 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     }
   }, [userData]);
 
-  useEffect(() => {
-    const tokenFromLocalStorage = localStorage.getItem("token");
-    if (tokenFromLocalStorage) {
-      setToken(tokenFromLocalStorage);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const tokenFromLocalStorage = localStorage.getItem("token");
+  //   if (tokenFromLocalStorage) {
+  //     setToken(tokenFromLocalStorage);
+  //   }
+  // }, []);
 
 
   const updateUser = async () => {
@@ -57,7 +57,9 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
       localStorage.setItem("user", JSON.stringify(updatedUserData));
     }
     try {
-      const res = await Axios.patch(
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
+       await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/users/${userData.idRegistro}`,
         {
           nombreUsuario: nombreUsuario,
@@ -66,12 +68,12 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
           contraseña: contraseña,
         },
         {
-          headers:{Authorization:`Bearer ${token}`} 
+          headers:{Authorization:` ${tokensincomillas}`} 
         }
       );
 
       // Actualiza los datos en el localStorage después de una actualización exitosa
-      setToken(res.data.token)
+      // setToken(res.data.token)
       
       if(onUserUpdate){
         onUserUpdate();

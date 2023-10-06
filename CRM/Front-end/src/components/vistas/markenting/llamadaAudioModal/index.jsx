@@ -28,8 +28,12 @@ const Audiollamada = ({ estado, cambiarEstado }) => {
   useEffect(() => {
     const fetchNegocio = async () => {
       try {
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
         const response = await Axios.get(
-          `${process.env.REACT_APP_URL_BACKEND}/negocio`
+          `${process.env.REACT_APP_URL_BACKEND}/negocio`,{
+            headers:{ Authorization:`${tokensincomillas}`}
+          }
         );
         setNegocio(response.data);
       } catch (error) {
