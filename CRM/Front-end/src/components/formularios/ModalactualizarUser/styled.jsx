@@ -8,6 +8,8 @@ width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* z-index: 1; */
+    top: 0;
 `
 export const ContenedorModal = styled.div`
     width: 35%;

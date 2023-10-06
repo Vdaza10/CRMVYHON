@@ -87,13 +87,13 @@ function Retorno4({contacto}) {
           }
         }
       );
+      setTimeout(() => {
+        window.location.href = "/contactos";
+      }, 1000);
       return res.data
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => {
-      window.location.href = "/contactos";
-    }, 1000);
   };
 
 

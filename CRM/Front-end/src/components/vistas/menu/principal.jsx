@@ -94,7 +94,7 @@
         <Ajustes>
             <RiSettings4Fill style={{fontSize:"35px", cursor:"pointer"}}
             onClick={desplegablePerfil}
-            isOpen={perfilDesplegable}>
+            openstatus={perfilDesplegable ? "true" : undefined} >
             </RiSettings4Fill>{" "}
           {/* se veran reflejada las vistas al momento de darle click */}
             <Menudesplegable perfilDesplegable={perfilDesplegable}>

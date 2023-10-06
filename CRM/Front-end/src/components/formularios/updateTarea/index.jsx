@@ -74,15 +74,15 @@ const UpdateTarea = ({ tarea }) => {
                     headers:{Authorization:`${tokensincomillas}`}
                 }
             );
+            setTimeout(() => {
+            window.location.href = "/tareas";
+        }, 1000);
                 return res.data
         } catch (error) {
             console.error(error);
         }
-        setTimeout(() => {
-            window.location.href = "/tareas";
-        }, 1000);
+        
     };
-
 
     return (
         <div>

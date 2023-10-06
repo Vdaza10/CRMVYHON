@@ -101,7 +101,7 @@ export const Seleccionar = styled.input`
     height: 18px;
     margin-right: 10px;
 `
-export const TextoImput = styled.p`
+export const TextoImput = styled.div`
     font-size: 15px;
     color: var( --colorTitulo);
     margin: 0;

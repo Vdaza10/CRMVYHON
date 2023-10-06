@@ -26,9 +26,11 @@ export const Cajaheader = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-bottom: 1px solid black;
   border-radius: 100px 100px 0px 0px;
   box-shadow: #0f0e0ef0 0px 4px 6px 0px;
+  border-top: 1px solid #ffffff94 ;
+
+
   
 `;
 export const Parrafo1 = styled.button`
@@ -54,6 +56,7 @@ export const Main = styled.div`
   width: 100%;
   justify-content: center;
   height: 90%;
+
 `;
 
 export const Container = styled.div`
@@ -62,12 +65,16 @@ export const Container = styled.div`
   display: flex;
   box-shadow: #08080899 10px 12px 6px 1px;
   border-radius: 20px;
+  color: white;
+  border: solid 1px #ffffff94;
+
 `;
 export const ContainPerfil = styled.div`
   height: 100%;
   width: 28%;
-  border-right: 1px solid gray;
+  border-right: solid 1px #ffffff94;
   border-radius: 15px 15px 0px 0px;
+  color: black;
 `;
 export const BoxImgPerfil = styled.div`
   height: 50%;
@@ -187,15 +194,14 @@ export const Cajas = styled.div`
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-  /* background-color: aqua; */
   /* border: solid 1px gray; */
 `
 export const Cajitas = styled.div`
   height: 50%;
   width: 30%;
   display: flex;
-  /* background-color: aqua; */
-  border-bottom: 1px solid #7766552e;
+  border-bottom: 1px solid #f4f4f42d;
+  border-radius: 20px;
 `
 export const ContainerIcono = styled.div`
   height: 100%;
@@ -203,12 +209,10 @@ export const ContainerIcono = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #ff7700; */
-  /* border: solid 1px red; */
 
   .Iconos{
     font-size: 35px;
-    color: #17163a;
+    color: white;
   }
 `
 export const ContainerLetra = styled.div`
@@ -233,14 +237,6 @@ export const ContainerLetra = styled.div`
 export const Inforpass = styled.div`
   width: 90%;
   background-color: red;
-`
-export const Password = styled.input`
-  width: 40%;
-  outline:none;
-  border: 0;
-  background-color: #eee9e6;
-  
-
 `
 
 

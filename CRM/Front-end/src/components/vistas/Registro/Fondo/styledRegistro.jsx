@@ -62,7 +62,7 @@ export const Ladero2 = styled.div`
     height: 50% ;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     /* background-color: antiquewhite; */
     @media screen and ( max-width: 800px){
@@ -90,7 +90,7 @@ export const Ingresar = styled.p`
     }
 `
 
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
     font-size: 17px;
     font-weight: 500;
     font-style: italic;
@@ -98,7 +98,7 @@ export const Parrafo = styled.p`
     text-align: center;
     color: #fff;
 `
-export const Parrafo1 = styled.p`
+export const Parrafo1 = styled.div`
     font-size: 20px;
     font-style: italic;
     display: flex;

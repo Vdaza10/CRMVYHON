@@ -56,13 +56,12 @@ function Retorno2() {
                   src={imagen}
                   alt="img" style={{ width: "450px", height: "450px" }}
                 />
-                <Parrafo>
-                  <h3>Crea negocios</h3>
-                </Parrafo>
-                <Parrafo>
-                  Crea un nuevo negocio sin importar sus contactos, empresas y
-                  negocios existentes.
-                </Parrafo>
+                
+                  <h3>Crea negocios</h3> 
+                  <Parrafo>Crea un nuevo negocio sin importar sus contactos, empresas y
+                  negocios existentes.</Parrafo>
+                
+                
                 <Boton onClick={() => setActive(!active)}>Crear negocio</Boton>
                 {/* Muestra el componente CrearNegocios si 'active' es true */}
                 {active && <CrearNegocios />}
