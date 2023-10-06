@@ -17,8 +17,14 @@ const CrearTarea = () => {
 
 
     const fetchNegocio = async () => {
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
         try {
-            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
+            const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`,{
+                headers: {
+                    Authorization : ` ${tokensincomillas}`
+                }
+            });
             setNegocio(response.data);
 
         } catch (error) {
@@ -45,6 +51,8 @@ const CrearTarea = () => {
             });
             return
         }
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
             Axios.post(`${process.env.REACT_APP_URL_BACKEND}/tareas`, {
                 negocio: selectedNegocio.idNegocio,
                 asunto: asunto,
@@ -52,6 +60,8 @@ const CrearTarea = () => {
                 tipoTarea: tipotarea,
                 fecha: fecha,
                 hora: hora,
+            },{
+                headers:{Authorization:`${tokensincomillas}`}
             })
                 .then((response) => {
                     setTimeout(() => {

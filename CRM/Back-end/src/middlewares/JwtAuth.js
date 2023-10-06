@@ -4,7 +4,7 @@ import { SECRET } from "../config.js";
 
 
 export const validatetoken = async (req,res,next) => {
-    const accessToken = req.header("Authorization");
+    const accessToken = req.header('Authorization');
 
     console.log(accessToken, "este es token en validar❤️❤️")
 
@@ -12,8 +12,8 @@ export const validatetoken = async (req,res,next) => {
     try {
         const validtoken = jwt.verify(accessToken,SECRET);
         console.log(validtoken,"👌👌👌");
-        req.Username = validtoken.username
-        req.UserId = validtoken.idRegistro;
+        // req.Username = validtoken.username
+        // req.UserId = validtoken.idRegistro;
        
         
 

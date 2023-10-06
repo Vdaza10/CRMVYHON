@@ -5,6 +5,7 @@ const Fondo = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+
 `
 const Contenedor = styled.div`
     width: 100%;

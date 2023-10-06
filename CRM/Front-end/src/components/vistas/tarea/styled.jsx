@@ -28,7 +28,7 @@
     background-color: white;
 `
 
-    export const Parrafo = styled.p`
+    export const Parrafo = styled.div`
     font-size: 20px;
     font-style: italic;
     display: flex;

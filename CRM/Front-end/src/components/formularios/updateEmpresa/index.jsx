@@ -10,19 +10,18 @@ function EmpresaUpdate({ empresa }) {
   const [url, setUrl] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [segmentos, setSegmentos] = useState([]); // Estado para almacenar todos los segmentos disponibles
-  
-  // const modalRef = useRef(null);
-  // const [modalAbierta, setModalAbierta] = useState(true);
 
     useEffect(() =>{
       // Función para obtener los segmentos desde la base de datos
     const fetchSegmentos = async () => {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
       try {
-          const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/segmento`);
+          const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/segmento`,{
+              headers: {Authorization: `${tokensincomillas}`},
+          });
           setSegmentos(response.data);
-          console.log(response.data);
       } catch (error) {
-          console.error("Error al obtener segmentos:", error);
       }
     };
 
@@ -57,6 +56,8 @@ function EmpresaUpdate({ empresa }) {
 
   const actualizarEmpresa = async () => {
     try {
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
       const res = await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/companytabla/${empresa.idEmpresa}`,
         {
@@ -64,15 +65,17 @@ function EmpresaUpdate({ empresa }) {
           segmento: selectSegmento, // Utiliza el segmento seleccionado
           url,
           descripcion,
+        },{
+          headers:{ Authorization:`${tokensincomillas}`}
         }
       );
       console.log("Empresa actualizada.", res.data);
+      setTimeout(() => {
+        window.location.href = "/empresas";
+      }, 1000);
     } catch (error) {
-      console.error(error);
     }
-    setTimeout(() => {
-      window.location.href = "/empresas";
-    }, 1000);
+    
   };
 
   return (

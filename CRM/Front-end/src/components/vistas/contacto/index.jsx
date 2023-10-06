@@ -52,11 +52,11 @@ function Retorno3() {
         {contacto.length <= 0 ? (
             <>
             {/* Componente de menú */}
-          
+        
                 <Container>
                     <img src={imagen} alt="img" style={{ width: '450px', height: '240px', marginTop: "110px"}} />
                     <h2>No hemos encontrado contactos en tu cuenta ni con los filtros <br /> que seleccionaste</h2>
-                    <Parrafo> Crear contactos para llevar el registro y los datos de todas las personas <br />con las que negocias. o prueba a cambiar los filtros seleccionados para encontrar <br /> nuevos resultados   </Parrafo>
+                    <Parrafo> Crear contactos para llevar el registro y los datos de todas las personas <br />con las que negocias. o prueba a cambiar los filtros seleccionados para encontrar <br /> nuevos resultados  </Parrafo>
                     {/* Botón para crear contactos */}
                     <Boton onClick={() => setActive(!active)}>Crear contactos</Boton>                    
                     {/* Renderiza el componente Retorno4 si active es true */}

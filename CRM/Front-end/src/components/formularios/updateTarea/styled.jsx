@@ -23,7 +23,7 @@ export const Caja1 = styled.div`
     justify-content: space-between;
     align-items: center;
 `
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
     font-size: 18px;
     font-style: italic;
     display: flex;
@@ -40,11 +40,11 @@ export const Caja2 = styled.div`
     height: 75%;
     padding-left: 20px;
 `
-export const Parrafo1 = styled.p`
+export const Parrafo1 = styled.div`
     font-size: 15px;
     font-style: italic;
 `
-export const Input = styled.input`
+export const Input1 = styled.input`
     height: 6%;
     width: 94%;
     font-size: 17px;
