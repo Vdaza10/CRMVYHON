@@ -8,7 +8,6 @@ export const crearContacto = async (req, res) => {
             "INSERT INTO contacto (nombreContacto, cargo, telefono, correo, contactoEmpresa) VALUES (?,?,?,?,?)",
             [nombreContacto, cargo, telefono, correo, contactoEmpresa]
         );
-        console.log(rows);
         res.send({
             id: rows.insertId,
             nombreContacto,

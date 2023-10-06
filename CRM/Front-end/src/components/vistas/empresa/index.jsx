@@ -36,7 +36,6 @@ function Retorno7() {
     const Getempresa = async() =>{
         const token = localStorage.getItem('user')
         const tokensincomillas = token.replace(/"/g,"")
-        console.log(tokensincomillas,"💕💕");
         const empresas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/companytabla`
             ,{      
                 headers:{

@@ -76,7 +76,6 @@ const [buscar, setBuscar] = useState("")
     try {
       const token = localStorage.getItem('user')
       const tokensincomillas = token.replace(/"/g,"")
-      console.log(tokensincomillas,"💕💕");
       const empresas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/companytabla`
       ,{      
           headers:{
@@ -84,7 +83,6 @@ const [buscar, setBuscar] = useState("")
           }
       }
       )
-      console.log(empresas,"luz💕💕");
     setEmpresa(empresas.data);
     } catch (error) {
       console.log("error de axio en la query");

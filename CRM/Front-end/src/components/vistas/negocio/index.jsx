@@ -34,7 +34,6 @@ function Retorno2() {
     try {
       const token = localStorage.getItem('user')
       const tokensincomillas = token.replace(/"/g,"")
-      console.log(tokensincomillas,"💕💕");
       const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negociotabla`,{      
         headers:{
           Authorization: tokensincomillas

@@ -38,7 +38,6 @@ function Retorno5() {
         // ev.preventDefault();
         const token = localStorage.getItem('user')
         const tokensincomillas = token.replace(/"/g,"")
-        console.log(tokensincomillas,"💕💕");
         const tareas = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/tareasTabla`,{      
             headers:{
               Authorization: tokensincomillas

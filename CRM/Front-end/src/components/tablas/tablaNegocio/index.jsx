@@ -57,7 +57,6 @@ function TablaNegocio() {
   //Inicio, Función de busqueda
   const BarraDeBusqueda = (e) => {
     setBuscar(e.target.value);
-    console.log(e.target.value);
   };
 
   //Metodo de filtrado tabla negocio
