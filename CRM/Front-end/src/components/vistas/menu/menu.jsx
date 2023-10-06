@@ -26,9 +26,7 @@ export const Menucontainer = styled.ul`
   width: 65%;
   list-style: none;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* background-color: red; */
 `;
 export const MenuItem = styled.li`
   cursor: pointer;
