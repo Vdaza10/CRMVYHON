@@ -14,7 +14,7 @@ const VentanaModal3 = ({ estado3, cambiarEstado3}) => {
             setTimeout(() => {
     
             // Redirige a la página de inicio
-            window.location.href = "/"  
+            window.location.href = "/registrarse"  
             
             },1000);
         };
