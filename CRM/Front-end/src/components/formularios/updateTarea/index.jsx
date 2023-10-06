@@ -19,8 +19,12 @@ const UpdateTarea = ({ tarea }) => {
 
     useEffect(() => {
         const fetchNegocio = async () => {
+            const token = localStorage.getItem('user')
+            const tokensincomillas = token.replace(/"/g,"")
             try {
-                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`);
+                const response = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/negocio`,{
+                    headers: {Authorization: ` ${tokensincomillas}`},
+                });
                 setNegocio(response.data);
             } catch (error) {
                 console.error("Error al obtener Negocio:", error);
@@ -54,6 +58,8 @@ const UpdateTarea = ({ tarea }) => {
     }
 
     const actualizarTarea = async () => {
+        const token = localStorage.getItem('user')
+        const tokensincomillas = token.replace(/"/g,"")
         try {
             const res = await Axios.patch(
                 `${process.env.REACT_APP_URL_BACKEND}/tareastabla/${tarea.idTarea}`,
@@ -64,6 +70,8 @@ const UpdateTarea = ({ tarea }) => {
                     tipoTarea,
                     fecha,
                     hora,
+                },{
+                    headers:{Authorization:`${tokensincomillas}`}
                 }
             );
             setTimeout(() => {

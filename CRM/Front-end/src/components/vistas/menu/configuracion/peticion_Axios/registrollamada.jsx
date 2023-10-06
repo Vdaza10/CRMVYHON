@@ -1,7 +1,8 @@
 import Axios from "axios"
+
 export const getEnero = async(setEnero)=>{
     try {
-        const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/enero`);
+        const res = await Axios.get(`${process.env.REACT_APP_URL_BACKEND}/enero`,);
         setEnero(res.data)
     } catch (error) {
         console.error("error enero",error);

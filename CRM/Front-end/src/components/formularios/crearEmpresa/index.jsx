@@ -66,7 +66,9 @@ function Retorno8() {
         });
         return;
       }
-
+      const token = localStorage.getItem('user')
+      const tokensincomillas = token.replace(/"/g,"")
+      console.log(tokensincomillas,"❤️❤️❤️");
       try {
         const response = await axios.post(
           `${process.env.REACT_APP_URL_BACKEND}/company`,
@@ -75,11 +77,11 @@ function Retorno8() {
             segmento: selectedSegmento, // Usando el valor seleccionado
             url: url,
             descripcion: descripcion,
-          },//{
-          //   headers:{
-          //     Authorization:localStorage.getItem("Authorization"),
-          //   }
-          // }
+          },{
+            headers:{
+              Authorization:`${tokensincomillas}`,
+            }
+           }
        
         );
         setTimeout(() => {

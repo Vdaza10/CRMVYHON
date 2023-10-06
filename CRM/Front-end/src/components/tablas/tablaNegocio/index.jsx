@@ -96,9 +96,13 @@ function TablaNegocio() {
   };
 
   const TabladeleteNegocio = async (item) => {
+    const token = localStorage.getItem('user')
+    const tokensincomillas = token.replace(/"/g,"")
     try {
       const res = await Axios.put(
-        `${process.env.REACT_APP_URL_BACKEND}/negociotabla/desactivar/${item.idNegocio}`
+        `${process.env.REACT_APP_URL_BACKEND}/negociotabla/desactivar/${item.idNegocio}`,{
+          headers:{ Authorization:`${tokensincomillas}` }
+        }
       );
       console.log("Negocio eliminado con éxito.", res.data);
       ReflejarDatos(); // Refresca la lista de negocios después de eliminar uno
