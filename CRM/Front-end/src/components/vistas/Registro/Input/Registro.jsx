@@ -63,16 +63,23 @@ const Registrarse = () => {
         nombreEmpresa: empresa,
       })
         .then((response) => {
-          console.log(response.data);
-          if (response.data.error) {
-            setCorreoExistente(true);
-            VentanaModal4();
-          } else {
-            VentanaModal();
-          }
+            // VentanaModal4()
+            VentanaModal()
         })
         .catch((error) => {
-          console.log(error);
+          console.clear() //quita en la consola el error por el status 400
+          if (error.response.status === 400) {
+            // VentanaModal()
+            VentanaModal4()
+            setCorreoExistente(true);
+          }else{
+            swal({
+              title: "Error",
+              text: "Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.",
+              icon: "error",
+            });
+          }
+          
         });
     } else {
       swal({
@@ -102,7 +109,7 @@ const Registrarse = () => {
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
-                const regex = /[a-zA-]/;
+                const regex = /[a-zA-Z]/;
                 if (!regex.test(inputValue)) {
                   event.preventDefault();
                 }
