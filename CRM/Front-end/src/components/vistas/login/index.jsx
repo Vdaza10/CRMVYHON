@@ -15,6 +15,8 @@ function Login() {
   const Login = (ev) => {
     ev.preventDefault();
     setError(null);
+    setErrorContraseña(null);
+    setErrorCorreo(null);
     if (email && password) {
     
       Axios.post(`${process.env.REACT_APP_URL_BACKEND}/login`, {
@@ -39,13 +41,13 @@ function Login() {
           alert("el usuario no existe");
         });
     } else
-      if (email == false && password == false) {
+      if (!email && !password) {
       setError(`ingrese tanto el usuario como la contraseña`);
     }else
-    if(email == false) {
+    if(!email) {
       setErrorCorreo(`ingresar correo`);
     } else 
-    if (password == false){
+    if (!password){
       setErrorContraseña(`ingresar contraseña`);
     }
   };
