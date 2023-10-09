@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Div, Column, Container, Task, ButtonCont, H2 } from './style';
+import { Div, Column, Container, Task, ButtonCont, H2, State, TitleClient, DataOrders, Data, Button } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
 
@@ -99,53 +99,71 @@ const Pedidos = () => {
     <Div>        
       <ButtonCont>
         {<FormularioPedido onTaskCreated={handleTaskCreated} />}
-      </ButtonCont> 
+      </ButtonCont>
+      <State><H2>Por hacer</H2>
+        <H2>En progreso</H2>
+        <H2>Completados</H2>
+        <H2>realizado</H2>
+      </State>
       <Container>
-
         <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
-          <H2>Por hacer</H2>
           {tasks?.todo && tasks?.todo.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('todo', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+            <DataOrders>
+              <Data>{task?.monto}</Data>
+              <Data>{task?.fecha}</Data>
+              <Button onClick={() => handleDeleteTask('todo', index)}>Eliminar</Button>
+            </DataOrders>
             </Task>
           ))}
         </Column>
-
+      
         <Column onDrop={(event) => handleDrop(event, 'inProgress')} onDragOver={(event) => event.preventDefault()}>
-          <H2>En progreso</H2>
           {tasks?.inProgress && tasks?.inProgress.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'inProgress', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+              <DataOrders>
+                <Data>{task?.monto}</Data>
+                <Data>{task?.fecha}</Data>
+                <Button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</Button>
+              </DataOrders>
+              
             </Task>
           ))}
         </Column>
 
         <Column onDrop={(event) => handleDrop(event, 'done')} onDragOver={(event) => event.preventDefault()}>
-          <H2>Completados</H2>
           {tasks?.done && tasks?.done.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'done', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('done', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+              <DataOrders>
+                <Data>{task?.monto}</Data>
+                <Data>{task?.fecha}</Data>
+                <Button onClick={() => handleDeleteTask('done', index)}>Eliminar</Button>
+              </DataOrders>
+              
             </Task>
           ))}
         </Column>
 
         <Column onDrop={(event) => handleDrop(event, 'newColumn')} onDragOver={(event) => event.preventDefault()}>
-          <H2>realizado</H2>
           {tasks?.newColumn && tasks?.newColumn.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'newColumn', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('newColumn', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+              <DataOrders>
+                <Data>{task?.monto}</Data>
+                <Data>{task?.fecha}</Data>
+                <Button onClick={() => handleDeleteTask('newColumn', index)}>Eliminar</Button>
+              </DataOrders>
             </Task>
           ))}
         </Column>
