@@ -44,8 +44,9 @@ export const Input = styled.input`
   height: 8%;
   margin-left: 10%;
   border: none;
-  color: white;
+  color: #000000;
   padding-left: 5px;
+  font-size: 18px;
   background-color: var(--color-input);
 `;
 export const Olvidar = styled.div`
