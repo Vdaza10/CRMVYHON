@@ -1,12 +1,11 @@
 import styled from "styled-components";
-
 export const ContainerPrincipal = styled.div`
-  height: 80%;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: bisque; */
+  /* background-color: #ccd1d2; */
 `;
 
 export const ContainerSecundario = styled.div`
@@ -15,7 +14,7 @@ export const ContainerSecundario = styled.div`
   min-height: 50px;
   overflow-y: auto;
   overflow-x: hidden;
-  /* background-color: aqua; */
+  /* background-color: #00ffff; */
 `;
 
 export const Heder = styled.div`
