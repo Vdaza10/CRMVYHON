@@ -5,6 +5,7 @@ export const Fondo = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
@@ -18,6 +19,8 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 10px;
+
 `
 export const Cajaheader = styled.div`
   height: 90%;
