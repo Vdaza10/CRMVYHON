@@ -6,13 +6,13 @@ export const Div = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #ffffff;
+  background: linear-gradient(180deg, var(--color-fondoo) 0%, #545454 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="##545454",GradientType=1);
 `;
 
 export const ButtonCont = styled.div`
   width: 90%;
   height: 10%;
-  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,12 @@ export const State = styled.div`
   justify-content: center;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  background-color: #ffffff4d;
+  box-shadow: 2px 5px 2px 1px;
+  border-radius: 15px;
+  ; 
+
 `;
 
 export const Container = styled.div`
@@ -33,13 +38,16 @@ export const Container = styled.div`
   height: 80%;
   display: flex;
   justify-content: space-between;
+  background-color: #ffffff4d;
+  box-shadow: 0px 0px 10px 3px #342e2e;
+  border-radius: 15px;
 `;
 
 export const Column = styled.div`
   width: 24%;
   max-height: 100%;
   border-radius: 10px;
-  border: solid 1px;
+  border-right: solid 1px #707070bd;
   display: flex;
   gap: 10px;
   padding-top: 20px;
@@ -53,23 +61,24 @@ export const Column = styled.div`
 
 export const H2 = styled.h2`
   font-size: 25px;
-  color: #6AB7BD;
-  border-bottom: solid #6AB7BD;
   text-align: center;
   margin: 5px;
+  color: white;
+
 `;
 
 export const Task = styled.div`
   height: 20%;
   width: 90%;
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  color: white;
+  background-color: #467E84;
+  border-radius: 20px 5px 20px 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    background-color: #ffffff;
+    background-color: #515A5B;
+    color: white;
     transform: scale(1.05);
   }
 `;
@@ -97,9 +106,7 @@ export const Data = styled.div`
   text-align: center;
 `;
 
-export const Button = styled.button`
-
-`;
+export const Button = styled.button``;
 
 export const DeleteButton = styled.button`
   background-color: #ff4d4d;
@@ -133,7 +140,7 @@ export const FormLabel = styled.label`
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #6AB7BD;
+  color: #6ab7bd;
 `;
 
 export const FormInput = styled.input`
@@ -145,7 +152,7 @@ export const FormInput = styled.input`
 
 export const FormButton = styled.button`
   width: 100%;
-  background-color: #6AB7BD;
+  background-color: #6ab7bd;
   color: white;
   border: none;
   border-radius: 5px;
@@ -154,7 +161,6 @@ export const FormButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #4E8B8D;
+    background-color: #4e8b8d;
   }
 `;
-
