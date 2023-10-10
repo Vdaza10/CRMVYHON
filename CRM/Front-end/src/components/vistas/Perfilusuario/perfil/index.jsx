@@ -53,6 +53,7 @@ function PerfilUsuario() {
     setMostrarnotificacion(!mostrarnotifcacion);
   };
 
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -62,6 +63,7 @@ function PerfilUsuario() {
         console.log(token);
         setUserData(token);
         setLoading(false);
+        console.log(userToken,"❤️❤️❤️");
       } catch (error) {
         console.error("Error al decodificar el token:", error);
         navigate("/");
