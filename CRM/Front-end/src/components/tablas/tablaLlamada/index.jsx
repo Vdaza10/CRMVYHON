@@ -11,7 +11,7 @@ function Tablallamada(){
   const [llamadaAbierta, setLlamadaAbierta] = useState(false);
     const[llamada, setLlamada] = useState([])
     const [loading, setLoading] = useState(true)
-    const [buscar, setBuscar] = useState("")
+
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -30,6 +30,34 @@ function Tablallamada(){
           navigate('/');
       }
   },[navigate])
+  const [buscar, setBuscar] = useState("")
+
+    //Inicio, Función de busqueda
+    const BarraDeBusqueda = (e) => {
+      setBuscar(e.target.value);
+     
+    };
+
+  let resBusqueda = [];
+
+  if (!buscar) {
+  resBusqueda = llamada|| [];
+} else {
+  resBusqueda = llamada.filter(
+      (dato) =>
+      (dato.cedula && dato.cedula.toString().toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.nombreNegocio&& dato.nombreNegocio.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.nombre&& dato.nombre.toLowerCase().includes(buscar.toLowerCase())) ||
+      (dato.apellido && dato.apellido.toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.telefono && dato.telefono.toString().toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.telefonoFijo && dato.telefonoFijo.toString().toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.direccion && dato.direccion.toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.correo && dato.correo.toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.llamadaInicio && dato.llamadaInicio.toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.llamadaFinal && dato.llamadaFinal.toLowerCase().includes(buscar.toLowerCase()))||
+      (dato.duracionLlamada&& dato.duracionLlamada.toLowerCase().includes(buscar.toLowerCase()))
+);
+}
 
 const llamadas = async () =>{
 
@@ -50,25 +78,9 @@ useEffect(() => {
     llamadas();
   }, []);
 
-  //Inicio, Función de busqueda
-  const BarraDeBusqueda = (e) => {
-    setBuscar(e.target.value);
-   
-  };
-  //Metodo de filtrado tabla empresa
-  let resBusqueda = [];
 
-  if (!buscar) {
-  resBusqueda = llamada|| [];
-} else {
-  resBusqueda = llamada.filter(
-      (dato) =>
-      (dato.nombreEmpresa  && dato.nombreEmpresa.toLowerCase().includes(buscar.toLowerCase())) ||
-      (dato.segmento && dato.segmento.toLowerCase().includes(buscar.toLowerCase())) ||
-      (dato.url && dato.url.toLowerCase().includes(buscar.toLowerCase())) ||
-      (dato.descripcion && dato.descripcion.toLowerCase().includes(buscar.toLowerCase()))
-);
-}
+  //Metodo de filtrado tabla empresa
+
 
 
 const Borrar = () =>{

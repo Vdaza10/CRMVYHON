@@ -1,25 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Fondo,
-  Header,
-  Parrafo1,
-  Main,
-  Container,
-  Cajaheader,
-  ContainPerfil,
-  BoxImgPerfil,
-  ImgPerfil,
-  InforPerfil,
-  Boxperfil,
-  HeaderInfor,
-  EditButton,
-  BodyInfor,
-  BoxInfo,
-  InforperfilLetra,
-  Cajas,
-  Cajitas,
-  ContainerIcono,
-  ContainerLetra,
+import {Fondo,Header,Parrafo1,Main,Container,Cajaheader,ContainPerfil,BoxImgPerfil,ImgPerfil,InforPerfil,Boxperfil,HeaderInfor,EditButton,BodyInfor,BoxInfo,InforperfilLetra,Cajas,Cajitas,ContainerIcono,ContainerLetra,
 
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
@@ -59,7 +39,7 @@ function PerfilUsuario() {
     if (userToken) {
       try {
         const token = jwt_decode(userToken);
-        console.log(token);
+        // console.log(token);
         setUserData(token);
         setLoading(false);
       } catch (error) {
@@ -95,7 +75,7 @@ function PerfilUsuario() {
         
       // console.log(response.data.length, "aqui data")
     } catch (error) {
-      console.error('Error al obtener los datos del perfil:', error);
+      // console.error('Error al obtener los datos del perfil:', error);
     }
   }
 
@@ -305,7 +285,7 @@ DatosPerfilReflejar()
                     </BoxInfo>
                         )
                       ) : (
-                         <BoxInfo>
+                        <BoxInfo>
                         <HeaderInfor>
                           <h3>Información adicional</h3>
                           <EditButton onClick={() => {setModalAbierta(!modalAbierta)}}>Editar</EditButton>

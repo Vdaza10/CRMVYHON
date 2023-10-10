@@ -30,7 +30,7 @@ export const Contenedor1 = styled.nav`
     align-items: center;
 `
 export const Logo = styled.img`
-    height: 55px;
+    height: 60px;
 `;
 
 export const Menucontainer = styled.ul`
@@ -64,7 +64,7 @@ export const Informacion = styled.div`
 `
 //contendor tarjetas
 export const ContainerTarjetas = styled.div`
-    height: 90%;
+    height: 100%;
     width: 100%;
     display : flex;
     justify-items: center;
@@ -83,13 +83,15 @@ export const ContainerTarjetas = styled.div`
     }   
 ` 
 export const ContenedorImagen = styled.div`
-    height: 30%;
-    width: 55%;
-    border-radius: 5px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+`
+export const IMG = styled.img`
+    height: 230px;
 `
 export const TarjetasInformativas = styled.div`
     height: 80%;
