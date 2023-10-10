@@ -221,7 +221,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     }
     try {
     
-       await Axios.patch(
+      await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/users/${userData.idRegistro}`,
         {
           nombreUsuario: nombreUsuario,

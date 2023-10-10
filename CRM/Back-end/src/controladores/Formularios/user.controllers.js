@@ -161,7 +161,7 @@ export const updateUsers = async (req, res) => {
         [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
         );
         // const contraseñaEncrypt = rows[0].contraseña
-        
+        const verify = await comparePassword(contraseña, contraseñaEnBaseDeDatos);
         console.log(encrypt,"❤️❤️❤️");
         
         if(!verify){
