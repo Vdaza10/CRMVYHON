@@ -202,12 +202,6 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     }
   }, [userData]);
 
-  // useEffect(() => {
-  //   const tokenFromLocalStorage = localStorage.getItem("token");
-  //   if (tokenFromLocalStorage) {
-  //     setToken(tokenFromLocalStorage);
-  //   }
-  // }, []);
 
 
   const updateUser = async () => {
@@ -226,9 +220,8 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
       localStorage.setItem("user", JSON.stringify(updatedUserData));
     }
     try {
-      const token = localStorage.getItem('user')
-      const tokensincomillas = token.replace(/"/g,"")
-        await Axios.patch(
+    
+       await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/users/${userData.idRegistro}`,
         {
           nombreUsuario: nombreUsuario,
@@ -236,9 +229,7 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
           correo: correo,
           contraseña: contraseña,
         },
-        {
-          headers:{Authorization:` ${tokensincomillas}`} 
-        }
+        
       );
 
       // Actualiza los datos en el localStorage después de una actualización exitosa
@@ -250,9 +241,9 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     } catch (error) {
       console.error(error, "no actualiza");
     }
-    setTimeout(()=>{
-      window.location.href = "/perfilusuario";
-    },1000)
+    // setTimeout(()=>{
+    //   window.location.href = "/perfilusuario";
+    // },1000)
 
   };
 
