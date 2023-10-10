@@ -162,6 +162,12 @@ DatosPerfilReflejar()
                       <Boxperfil>
                         <InforPerfil>
                           <InforperfilLetra>
+                            <h4>name:</h4>
+                          </InforperfilLetra>
+                          <p>{userData.username}</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <InforperfilLetra>
                             <h4>Email:</h4>
                           </InforperfilLetra>
                           <p>{userData.email}</p>
