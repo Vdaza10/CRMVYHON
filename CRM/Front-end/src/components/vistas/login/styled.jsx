@@ -23,7 +23,7 @@ export const Contenedor = styled.div`
   width: 25em;
   height: 30em;
   border-radius: 15px;
-  box-shadow: 2px 2px 13px 5px rgba(50, 50, 50, 0.654);
+  box-shadow: 2px 2px 13px 5px rgba(50, 50, 50, 0.654); 
 `;
 export const Titulo = styled.h1`
   text-align: center;
@@ -62,7 +62,7 @@ export const Olvidar = styled.div`
 
 export const Button = styled.button`
   background-color: var(--color-button);
-  margin-top: 7px;
+  margin-top: 7px; 
   /* margin-bottom: 7px; */
   color: white;
   width: 55%;
