@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FormularioContainer = styled.form`
   width: 80%;
   height: 80%;
   display: flex;
   align-items: center;
+
 `;
 
 export const FormGroup = styled.div`
@@ -12,7 +13,6 @@ export const FormGroup = styled.div`
   height: 50%;
   display: flex;
   padding: 0;
-  margin-left: -20px;
 `;
 
 export const Div = styled.div`
@@ -20,25 +20,30 @@ export const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const Label = styled.h4`
-  text-align: center;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 20px;
 `;
 
 export const Input = styled.input`
   border-radius: 5px;
-  border: solid none;
-  width: 50%;
-  padding:5px;
+  height: 30px;
+  border: none;
+  width: 350px;
+  font-size: 17px;
+  text-align: center;
+  color: #1c1b1bcc;
 `;
 
 export const Button = styled.button`
   border-radius: 5px;
   border: none;
-  height: 30px;
-  width: 70px;
-  background-color: green;
+  height: 35px;
+  width: 200px;
+  background-color: #e8e3e3;
+  cursor: pointer;
 `;
