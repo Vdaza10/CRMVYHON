@@ -20,7 +20,7 @@ export const Contenedor = styled.div`
   background-color: white;
 `;
 export const Logo = styled.img`
-  width: 250px;
+  width: 350px;
   margin-bottom: 10px;
 `;
 export const BoxLogo = styled.div`

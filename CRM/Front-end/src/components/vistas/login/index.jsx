@@ -62,10 +62,10 @@ function Login() {
 
   return (
     <Fondo>
-      <Contenedor>
         <BoxLogo>
           <Logo src={logo} alt="logo" />
         </BoxLogo>
+      <Contenedor>
         <Formulario>
           <Titulo>Bienvenidos</Titulo>
           <Message>{error}</Message>
