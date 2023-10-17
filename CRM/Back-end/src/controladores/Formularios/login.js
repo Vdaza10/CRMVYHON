@@ -31,7 +31,6 @@ export const Login = async(req,res) =>{
             expiresIn: "7d",
             }
         );
-        console.log(accessToken, "🎶🎶🎶");
         res.json(accessToken)
     } catch (error) {
         console.log(error)

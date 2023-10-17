@@ -40,10 +40,8 @@ function PerfilUsuario() {
     if (userToken) {
       try {
         const token = jwt_decode(userToken);
-        // console.log(token);
         setUserData(token);
         setLoading(false);
-        console.log(userToken,"❤️❤️❤️");
       } catch (error) {
         console.error("Error al decodificar el token:", error);
         navigate("/");

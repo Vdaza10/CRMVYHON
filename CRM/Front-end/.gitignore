@@ -1,7 +1,7 @@
 # Ignorar directorios node_modules y build
 /node_modules
 /build
-
+.env
 # Ignorar archivos de cobertura
 /coverage
 
