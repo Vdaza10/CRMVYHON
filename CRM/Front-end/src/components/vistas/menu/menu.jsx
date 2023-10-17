@@ -9,6 +9,7 @@ export const Contenedor = styled.div`
   color: var(--colorTitulo);
   display: flex;
   align-items: center;
+  background-color: #004968;
   
 `;
 export const Navegacion = styled.nav`
@@ -16,10 +17,12 @@ export const Navegacion = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1% 1%;
+  /* background-color: aliceblue; */
 
 `;
 export const Logo = styled.img`
   height: 55px;
+  /* background-color: red; */
 `;
 export const Menucontainer = styled.ul`
   height: 100%;
@@ -27,6 +30,7 @@ export const Menucontainer = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
+  /* background-color: green; */
 `;
 export const MenuItem = styled.li`
   cursor: pointer;
@@ -41,6 +45,7 @@ export const MenuItem = styled.li`
     text-decoration: underline;
   }
   font-size: 20px;
+
 `;
 
 export const Flecha = styled.li`
@@ -53,14 +58,32 @@ export const Ajustes = styled.div`
   height: 60px;
   width: 40px;
   color: white;
-  position: absolute;
   display: flex;
   align-items: center;
-  position: absolute;
   right: 0px;
-  margin-inline-end: 100px;
   justify-content: flex-end;
-  @media screen and (max-width: 700px) {
-    margin-inline-end: 40px;
-  }
+  /* background-color: aqua; */
 `;
+
+export const TamañoIcono = styled.div`
+  /* background-color: aqua; */
+  height: 100px;
+  width: 85px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+`
+export const Perfil = styled.div`
+  /* background-color: #ff9102; */
+  height: 65px;
+  width: 15%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-evenly; */
+`

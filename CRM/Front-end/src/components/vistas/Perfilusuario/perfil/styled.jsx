@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FondoVistas from "../../../img/Fondos.svg";
 // fondo
 export const Fondo = styled.div`
   height: 100%;
@@ -6,10 +7,13 @@ export const Fondo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%);
+  flex-direction: column;  
+  background-image: url(${FondoVistas});
+  /* background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%); */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
+
 `;
+
 
 //Header y su contenido
 export const Header = styled.header`

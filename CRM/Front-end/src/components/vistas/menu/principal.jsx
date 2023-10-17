@@ -114,13 +114,16 @@
 
 import React, { useState,useRef } from "react";
 import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
-import {Contenedor,Logo, MenuItem,Menucontainer,Navegacion, Ajustes,
+import {Contenedor,Logo, MenuItem,Menucontainer,Navegacion, Ajustes, TamañoIcono,Perfil
 } from "./menu";
-import imagen from "../../img/logito.svg";
+import imagen from "../../img/Logo VY-02.svg";
 import Retorno1 from "../menu/configuracion";
-import { RiSettings4Fill } from "react-icons/ri";
+// import { RiSettings4Fill } from "react-icons/ri";
 import "../../../App.css"
-
+// import {BiSolidBell} from "react-icons/bi"
+import DensityMediumRoundedIcon from '@mui/icons-material/DensityMediumRounded';
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 
 const Menu = () => {
 // Estado para controlar la visibilidad del menú desplegable de perfil
@@ -147,6 +150,12 @@ return (
     <>
     <Contenedor>
     {/* Barra de navegación */}
+    <TamañoIcono>
+        {/* <BiMenu></BiMenu> */}
+       <DensityMediumRoundedIcon></DensityMediumRoundedIcon>
+    </TamañoIcono>
+   
+    
         <Navegacion>
             <Link to="/vistaprincipal">
                 <Logo src={imagen}></Logo>
@@ -210,18 +219,28 @@ return (
         </NavLink>
     </Menucontainer>
 
-    <Ajustes>
-        <RiSettings4Fill style={{fontSize:"35px", cursor:"pointer"}}
-        onClick={()=>setActivo(!activo)}>
-        </RiSettings4Fill>    
-      {/* se veran reflejada las vistas al momento de darle click */}
-    </Ajustes>
-    {activo && <div ref={modalRef}><Retorno1/></div>}
+
+    <Perfil> 
+        <div style={{display:"flex", alignItems:"center"}}>
+            <PermIdentityOutlinedIcon style={{fontSize:"35px"}}/>Usuario 
+        </div>
+        <Ajustes>
+            <NotificationsOutlinedIcon style={{fontSize:"35px", cursor:"pointer"}}
+            onClick={()=>setActivo(!activo)}>
+            </NotificationsOutlinedIcon>    
+        {/* se veran reflejada las vistas al momento de darle click */}
+        </Ajustes>
+    </Perfil>    
+    {activo && <div ref={modalRef}><Retorno1/></div>} 
 </Contenedor> 
+
+
 <div style={{height:"90vh", width:"100%"}}>
     <Outlet/>
 </div> 
+
 </>
+
 );
 };
 export default Menu;

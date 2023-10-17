@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {Fondo,Header,Parrafo1,Main,Container,Cajaheader,ContainPerfil,BoxImgPerfil,ImgPerfil,InforPerfil,Boxperfil,HeaderInfor,EditButton,BodyInfor,BoxInfo,InforperfilLetra,Cajas,Cajitas,ContainerIcono,ContainerLetra,
-
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
