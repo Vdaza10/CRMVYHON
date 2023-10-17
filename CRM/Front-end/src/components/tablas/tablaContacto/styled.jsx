@@ -1,56 +1,117 @@
 import styled from "styled-components";
+import FondoVistas from "../../img/Fondos.svg"
 
 export const ContainerPrincipal = styled.div`
-  height: 80%;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 350) {
-    height: 100%;
-    width: 100%;
+  background-image: url(${FondoVistas});
+`;
+export const CajaContenido= styled.div`
+  height: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00000019;
+  border-right: solid white 1px;
+  .Tabla{
+    height:73%;
+    width: 90%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+    background-color: white;
+    border-radius: 12px;
+
+    .CajaCheckbox{
+    width:7%;
+  }
   }
 `;
+export const Heder = styled.div`
+  height: 20%;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: white 1px solid;
+`;
+export const HederCaja1 = styled.div`
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const HederCaja2 = styled.div`
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
 
-export const ContainerSecundario = styled.div`
+  h1{
+    color: white;
+    font-weight: 300;
+  }
+  .EstiloIconos{
+    font-size: 25px;
+    color: white;
+  }
+`;
+export const HederContenido = styled.div`
+  height: 100%;
+  width: 70%;  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+`;
+
+export const BarraNavegacion = styled.div`
+  height: 70%;
   width: 90%;
-  max-height: 75%;
+  border-radius: 15px;
+  background-color: white;
+`;
+export const ContainerInput = styled.div`
+  width: 50%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff75;
+  border: solid 1px white;
+`;
+
+export const ImagenUser = styled.img`
+  height: 90%;
+  border-radius: 50px;
+  height: 70%;
+  margin-right: 6px;
+`
+export const ContainerSecundario = styled.div`
+  width: 100%;
+  max-height: 85%;
   min-height: 50px;
   overflow-y: auto;
   overflow-x: hidden;
 `;
 
-export const Heder = styled.div`
-  height: 15%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-
-  h1 {
-    margin: 0;
-    margin-left: 2%;
-    margin-bottom: 15px;
-    font-size: 30px;
-    font-weight: 300;
-  }
-`;
-
-export const ContainerInput = styled.div`
-  border-bottom: 1px solid gray;
-  width: 12%;
-  height: 40%;
-  margin-right: 2%;
-  margin-top: 10px;
+export const CajaIconos= styled.div`
+  height: 35px;
+  width: 35px;
+  border-radius: 2px;
+  border: solid 1px white;
+  margin-right: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
-`;
+  background-color:#ffffff75 ;
+`
+
 export const Input = styled.input`
   height: 90%;
   width: 80%;
@@ -62,29 +123,43 @@ export const Input = styled.input`
 `;
 
 export const HederTabla = styled.div`
-  background-color: #9a9a9a;
+  background-color: #9a9a9ad7;
   height: 8%;
-  width: 90%;
+  width: 100%;
   display: flex;
   border-bottom: 1px solid gray;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: white;
+  
 `;
 export const Caja1 = styled.div`
   height: 100%;
-  width: 17%;
+  width: 16%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  .Parrafo{
+    color: white;
+  }
 `;
+
+export const  Checkbox = styled.input`
+  height: 20px;
+  width: 20px;
+`
 
 export const Parrafo = styled.div`
   margin: 0;
   font-size: 18px;
   font-weight: 500;
   margin-left: 7px;
+  color: gray;
 `;
 
 export const BodyTabla = styled.div`
-  height: 50px;
+  height: 80px;
   width: 100%;
   display: flex;
   border-bottom: 1px solid gray;
@@ -101,23 +176,24 @@ export const CajaIcono = styled.div`
 
 export const FooterTabla = styled.span`
   height: 8%;
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
 `;
 
 export const Boton = styled.button`
-  background-color: #818587;
+  background-color: #1308ec;
   color: #eaeff1;
-  width: 10%;
-  height: 60%;
-  display: flex;
+  width: 100px;
+  height: 35px;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 2px;
+  justify-content: center; */
+  border-radius: 7px;
   border: none;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   font-family: "Roboto Serif", serif;
   &:hover {
@@ -135,3 +211,10 @@ export const Icon = styled.div`
   margin-right: 20px;
   color: black;
 `;
+
+// export const FooterTabla = styled.div`
+//   height: 8%;
+//   width: 100%;
+//   border-bottom: gray solid 1px ;
+//   border-top: gray solid 1px;
+// `;
