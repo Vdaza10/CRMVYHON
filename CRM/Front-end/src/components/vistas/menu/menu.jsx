@@ -64,15 +64,3 @@ export const Ajustes = styled.div`
     margin-inline-end: 40px;
   }
 `;
-
-export const Menudesplegable = styled.div`
-  display: ${({ perfilDesplegable }) => (perfilDesplegable ? "block" : "none")};
-  width: 250px;
-  height: 560%;
-  list-style: none;
-  position: absolute;
-  top: 133%;
-  left: -111px;
-  padding: 0;
-  background-color: white;
-`;

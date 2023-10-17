@@ -1,17 +1,30 @@
 import React, { useState } from "react";
-import {Fondo,Contenedor,Titulo,Parrafo,Input,Button,Olvidar,ContainerUltimo,Message} from "./styled";
+import {
+  Fondo,
+  Contenedor,
+  Titulo,
+  Parrafo,
+  Input,
+  Button,
+  Olvidar,
+  ContainerUltimo,
+  Message,
+  Formulario,
+  Label,
+  Logo,
+  BoxLogo,
+} from "./styled";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import "../../../App.css"
+import "../../../App.css";
+import logo from "../../img/Logo VY-02.svg";
 
 function Login() {
-
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [errorCorreo,setErrorCorreo ] = useState(null);
-  const [errorContraseña,setErrorContraseña ] = useState(null);
+  const [errorCorreo, setErrorCorreo] = useState(null);
+  const [errorContraseña, setErrorContraseña] = useState(null);
   const Login = (ev) => {
     ev.preventDefault();
     setError(null);
@@ -24,15 +37,14 @@ function Login() {
         contraseña: password,
       })
         .then((response) => {
-          const result = response.data
+          const result = response.data;
           if (response.data === "") {
             alert("Bienvenido VYHON");
           } else {
             localStorage.setItem("user", JSON?.stringify(result));
             setTimeout(() => {
               window.location.href = "/vistaprincipal";
-            
-            }, 1000)
+            }, 1000);
           }
         })
         .catch((error) => {
@@ -40,66 +52,63 @@ function Login() {
           // alert("Error en la solicitud");
           alert("el usuario no existe");
         });
-    } else
-      if (!email && !password) {
+    } else if (!email && !password) {
       setError(`ingrese tanto el usuario como la contraseña`);
-    }else
-    if(!email) {
+    } else if (!email) {
       setErrorCorreo(`ingresar correo`);
-    } else 
-    if (!password){
+    } else if (!password) {
       setErrorContraseña(`ingresar contraseña`);
     }
   };
 
   return (
-        <Fondo>
-          <Contenedor>
-            <Titulo>!Welcome to VYHON!</Titulo>
-            <Message>{error}</Message>
+    <Fondo>
+        <BoxLogo>
+          <Logo src={logo} alt="logo" />
+        </BoxLogo>
+      <Contenedor>
+        <Formulario>
+          <Titulo>Bienvenidos</Titulo>
+          <Message>{error}</Message>
 
-            <Parrafo>
-              <h4 style={{ margin: "0" }}>Email</h4>
-            </Parrafo>
-
+          <Label htmlFor="email">
+            <Parrafo>Email</Parrafo>
             <Input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               name="email"
-            ></Input>
+            />
             <Message>{errorCorreo}</Message>
+          </Label>
 
-            <Parrafo>
-              <h4 style={{ margin: "0" }}>password</h4>
-            </Parrafo>
-
+          <Label htmlFor="password">
+            <Parrafo>Password</Parrafo>
             <Input
               type="Password"
               onChange={(e) => setPassword(e.target.value)}
               name="password"
-            ></Input>
-            <Message>{errorContraseña}</Message>
+            />
+          </Label>
+          <Message>{errorContraseña}</Message>
 
-            <ContainerUltimo>
-              <Button type="submit" onClick={Login}>
-                Log in 
-              </Button>
-              <Link to={"/recuperar"} style={{ color: "white" }}>
-                <Olvidar >
-                  <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
-                </Olvidar>
-              </Link>
-              <Link to={"/registrarse"} style={{ color: "white" }}>
-                <Olvidar>
-                  <h4 style={{ color: "white", margin: "0" }}>
-                  Sign up
-                  </h4>                  
-                </Olvidar>
-              </Link>
-            </ContainerUltimo>
-          </Contenedor>
-        </Fondo>
-
-)
+          <ContainerUltimo>
+            <Button type="submit" onClick={Login}>
+              Log in
+            </Button>
+            <Link to={"/recuperar"} style={{ color: "white" }}>
+              <Olvidar>
+                <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
+              </Olvidar>
+            </Link>
+            <Link to={"/registrarse"} style={{ color: "white" }}>
+              <Olvidar>
+                <h4 style={{ color: "white", margin: "0" }}>Sign up</h4>
+              </Olvidar>
+            </Link>
+          </ContainerUltimo>
+        </Formulario>
+      </Contenedor>
+    </Fondo>
+  );
 }
-      export default Login;
+export default Login;

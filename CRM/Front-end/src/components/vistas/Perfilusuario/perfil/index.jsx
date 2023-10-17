@@ -33,6 +33,7 @@ function PerfilUsuario() {
     setMostrarnotificacion(!mostrarnotifcacion);
   };
 
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -42,6 +43,7 @@ function PerfilUsuario() {
         // console.log(token);
         setUserData(token);
         setLoading(false);
+        console.log(userToken,"❤️❤️❤️");
       } catch (error) {
         console.error("Error al decodificar el token:", error);
         navigate("/");
@@ -158,6 +160,12 @@ DatosPerfilReflejar()
                         <ImgPerfil></ImgPerfil>
                       </BoxImgPerfil>
                       <Boxperfil>
+                        <InforPerfil>
+                          <InforperfilLetra>
+                            <h4>name:</h4>
+                          </InforperfilLetra>
+                          <p>{userData.username}</p>
+                        </InforPerfil>
                         <InforPerfil>
                           <InforperfilLetra>
                             <h4>Email:</h4>
