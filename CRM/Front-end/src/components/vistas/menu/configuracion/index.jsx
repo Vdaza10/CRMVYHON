@@ -82,7 +82,7 @@ function Retorno1() {
   
 
   const verPerfil = () => {
-    setPerfilVisible(!perfilVisible);
+    setPerfilVisible(false)
   };
 
   const Logout = () => {
@@ -117,7 +117,7 @@ const modalRef = useRef(null);
         return () => {
         document.removeEventListener("mousedown", handleOutsideClick);
         };
-    }, [modalAbierta,setModalAbierta]);
+    }, [modalAbierta]);
 
   return (
     <>

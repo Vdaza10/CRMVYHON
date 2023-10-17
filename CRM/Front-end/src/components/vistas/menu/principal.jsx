@@ -6,7 +6,7 @@
 //     import Retorno1 from "../menu/configuracion";
 //     import { RiSettings4Fill } from "react-icons/ri";
 //     import "../../../App.css"
-    
+
 //     const Menu = () => {
 //     // Estado para controlar la visibilidad del menú desplegable de perfil
 //     const [perfilDesplegable, setPerfilDesplegable] = useState(false);
@@ -17,14 +17,11 @@
 //         setPerfilDesplegable(!perfilDesplegable);
 //     };
 
-
-
 //     const [, /* selectedOption */ setSelectedOption] = useState("inicio");
 //     const opcionElegida = (Option) => {
 //         setSelectedOption(Option);
 //     };
 
-    
 //     return (
 //         <>
 //         <Contenedor>
@@ -102,127 +99,138 @@
 //             <Retorno1/>
 //             </Menudesplegable>
 //         </Ajustes>
-//     </Contenedor> 
+//     </Contenedor>
 //     <div style={{height:"90vh", width:"100%"}}>
 //         <Outlet/>
-//     </div>       
+//     </div>
 //     </>
 // );
 // };
 // export default Menu;
 
-
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
-import {Contenedor,Logo, MenuItem,Menucontainer,Navegacion, Ajustes,
+import {
+  Contenedor,
+  Logo,
+  MenuItem,
+  Menucontainer,
+  Navegacion,
+  Ajustes,
 } from "./menu";
 import imagen from "../../img/logito.svg";
 import Retorno1 from "../menu/configuracion";
 import { RiSettings4Fill } from "react-icons/ri";
-import "../../../App.css"
-
+import "../../../App.css";
 
 const Menu = () => {
-// Estado para controlar la visibilidad del menú desplegable de perfil
+  // Estado para controlar la visibilidad del menú desplegable de perfil
 
-const location = useLocation();
-const currentPath = location.pathname;
-/* nos llevara a una vista con otras opciones */
+  const location = useLocation();
+  const currentPath = location.pathname;
+  /* nos llevara a una vista con otras opciones */
 
-const [activo, setActivo] = useState(false);
+  const [activo, setActivo] = useState(false);
 
-const [, /* selectedOption */ setSelectedOption] = useState("inicio");
-const opcionElegida = (Option) => {
+  const [, /* selectedOption */ setSelectedOption] = useState("inicio");
+  const opcionElegida = (Option) => {
     setSelectedOption(Option);
-};
+  };
 
-const modalRef = useRef(null);
-const handleOutsideClick = (event) => {
-if (modalRef.current && !modalRef.current.contains(event.target)) {
-setActivo(false);
-}
-};
+  const modalRef = useRef(null);
+  const handleOutsideClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setActivo(false);
+    }
+  };
 
-return (
+  return (
     <>
-    <Contenedor>
-    {/* Barra de navegación */}
+      <Contenedor>
+        {/* Barra de navegación */}
         <Navegacion>
-            <Link to="/vistaprincipal">
-                <Logo src={imagen}></Logo>
-            </Link>
+          <Link to="/vistaprincipal">
+            <Logo src={imagen}></Logo>
+          </Link>
         </Navegacion>
-    <Menucontainer>
-        {/*utilizamos el <NavLink> de react para asi indicar la navegacion */}
-        <NavLink
+        <Menucontainer>
+          {/*utilizamos el <NavLink> de react para asi indicar la navegacion */}
+          <NavLink
             to="/empresas"
             style={{
-            color: currentPath === "/empresas" ? "#6AB7BD" : "#ffffff",
-            textDecoration: "none",
+              color: currentPath === "/empresas" ? "#6AB7BD" : "#ffffff",
+              textDecoration: "none",
             }}
-            onClick={() => opcionElegida("empresas")}>
+            onClick={() => opcionElegida("empresas")}
+          >
             <MenuItem>Companies</MenuItem>
-        </NavLink>
-        <NavLink
+          </NavLink>
+          <NavLink
             to="/contactos"
             style={{
-            color: currentPath === "/contactos" ? "#6AB7BD" : "#ffffff",
-            textDecoration: "none",
+              color: currentPath === "/contactos" ? "#6AB7BD" : "#ffffff",
+              textDecoration: "none",
             }}
-            onClick={() => opcionElegida("contactos")}>
+            onClick={() => opcionElegida("contactos")}
+          >
             <MenuItem>Contacts</MenuItem>
-        </NavLink>
-        <NavLink
+          </NavLink>
+          <NavLink
             to="/negocios"
             style={{
-            color: currentPath === "/negocios" ? "#6AB7BD" : "#ffffff",
-            textDecoration: "none",
+              color: currentPath === "/negocios" ? "#6AB7BD" : "#ffffff",
+              textDecoration: "none",
             }}
-            onClick={() => opcionElegida("negocios")}>
+            onClick={() => opcionElegida("negocios")}
+          >
             <MenuItem>Business</MenuItem>
-        </NavLink>
-        <NavLink
+          </NavLink>
+          <NavLink
             to="/tareas"
             style={{
-            color: currentPath === "/tareas" ? "#6AB7BD" : "#ffffff",
-            textDecoration: "none",
+              color: currentPath === "/tareas" ? "#6AB7BD" : "#ffffff",
+              textDecoration: "none",
             }}
-            onClick={() => opcionElegida("tareas")}>
+            onClick={() => opcionElegida("tareas")}
+          >
             <MenuItem>Tasks</MenuItem>
-        </NavLink>
-        <NavLink
+          </NavLink>
+          <NavLink
             to="/pedidos"
             style={{
-            color: currentPath === "/pedidos" ? "#6AB7BD" : "#ffffff",
-            textDecoration: "none",
+              color: currentPath === "/pedidos" ? "#6AB7BD" : "#ffffff",
+              textDecoration: "none",
             }}
-            onClick={() => opcionElegida("pedidos")}>
+            onClick={() => opcionElegida("pedidos")}
+          >
             <MenuItem>Pedidos</MenuItem>
-        </NavLink>
-        <NavLink
-        to="/call"
+          </NavLink>
+          <NavLink
+            to="/call"
             style={{
-            color: currentPath === "/call" ? "#6AB7BD" : "#ffffff",
-            textDecoration: "none",
+              color: currentPath === "/call" ? "#6AB7BD" : "#ffffff",
+              textDecoration: "none",
             }}
-            onClick={() => opcionElegida("call")}>
+            onClick={() => opcionElegida("call")}
+          >
             <MenuItem>call log</MenuItem>
-        </NavLink>
-    </Menucontainer>
+          </NavLink>
+        </Menucontainer>
 
-    <Ajustes>
-        <RiSettings4Fill style={{fontSize:"35px", cursor:"pointer"}}
-        onClick={()=>setActivo(!activo)}>
-        </RiSettings4Fill>    
-      {/* se veran reflejada las vistas al momento de darle click */}
-    </Ajustes>
-    {activo && <div ref={modalRef}><Retorno1/></div>}
-</Contenedor> 
-<div style={{height:"90vh", width:"100%"}}>
-    <Outlet/>
-</div> 
-</>
-);
+        <Ajustes  onClick={() => setActivo(!activo)}>
+          <RiSettings4Fill style={{ fontSize: "35px", cursor: "pointer" }} />
+          {/* se veran reflejada las vistas al momento de darle click */}
+        </Ajustes>
+        {activo && (
+          <div ref={modalRef}>
+            <Retorno1 />
+          </div>
+        )}
+      </Contenedor>
+      <div style={{ height: "90vh", width: "100%" }}>
+        <Outlet />
+      </div>
+    </>
+  );
 };
 export default Menu;
-

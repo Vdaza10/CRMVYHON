@@ -50,10 +50,9 @@ export const Flecha = styled.li`
 `;
 
 export const Ajustes = styled.div`
-  height: 60px;
-  width: 40px;
   color: white;
   position: absolute;
+  background-color: red;
   display: flex;
   align-items: center;
   position: absolute;
