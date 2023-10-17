@@ -183,14 +183,16 @@ Container,
 import { GrClose } from "react-icons/gr";
 import IPerfil from "../../img/perfil.jpg";
 import Axios from "axios";
+import {Link, useNavigate} from "react-router-dom"
 
-const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
+const UserEditar = ({ status, changeStatus, userData }) => {
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const emailInputRef = useRef(null);
-  // const [token, setToken] = useState("");
+  const [token, setToken] = useState("");
+  const Navegate = useNavigate()
 
 
   useEffect(() => {
@@ -212,16 +214,13 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
     } else{
       const updatedUserData = {
         ...userData,
-        nombreUsuario,
-        nombreEmpresa,
-        correo,
-        contraseña
+        nombreUsuario
       };
       localStorage.setItem("user", JSON.stringify(updatedUserData));
     }
     try {
     
-      await Axios.patch(
+    const res =  await Axios.patch(
         `${process.env.REACT_APP_URL_BACKEND}/users/${userData.idRegistro}`,
         {
           nombreUsuario: nombreUsuario,
@@ -231,19 +230,18 @@ const UserEditar = ({ status, changeStatus, userData, onUserUpdate }) => {
         },
         
       );
-
-      // Actualiza los datos en el localStorage después de una actualización exitosa
-      // setToken(res.data.token)
+    setTimeout(()=>{
+      window.location.href = "/perfilusuario";
+      Navegate("/perfilusuario")
+      setToken(res.data.token)
+    },1000)
+      //Actualiza los datos en el localStorage después de una actualización exitosa
       
-      if(onUserUpdate){
-        onUserUpdate();
-      }
+
     } catch (error) {
       console.error(error, "no actualiza");
     }
-    // setTimeout(()=>{
-    //   window.location.href = "/perfilusuario";
-    // },1000)
+
 
   };
 

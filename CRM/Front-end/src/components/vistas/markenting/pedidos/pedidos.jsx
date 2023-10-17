@@ -4,20 +4,19 @@ import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
 
 const Pedidos = () => {
-
   const [tasks, setTasks] = useState({
     todo: [],
     inProgress: [],
     done: [],
     newColumn: [],
   });
-  
   const [, setLoading] = useState(true);
-  
+
   const handleDragStart = (event, taskType, taskIndex) => {
     event.dataTransfer.setData('taskType', taskType);
     event.dataTransfer.setData('taskIndex', taskIndex);
   };
+
 
   const handleDrop = async (event, targetTaskType) => {
     const sourceTaskType = event.dataTransfer.getData('taskType');
@@ -29,10 +28,30 @@ const Pedidos = () => {
     updatedTasks[sourceTaskType].splice(sourceTaskIndex, 1);
     updatedTasks[targetTaskType].push(movedTask);
 
-    setTasks(updatedTasks);
+    const taskId = movedTask.id;
 
-    localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
-  };
+  try {
+    const response = await axios.patch(
+      `${process.env.REACT_APP_URL_BACKEND}/pedidos/${taskId}`,
+      { estado: targetTaskType }
+    );
+
+    if (response.status === 200) {
+      const updatedTasks = { ...tasks };
+      movedTask.estado = targetTaskType;
+      updatedTasks[targetTaskType].push(movedTask);
+      if (sourceTaskType !== targetTaskType) {
+        const indexToRemove = updatedTasks[sourceTaskType].findIndex(task => task.id === taskId);
+        updatedTasks[sourceTaskType].splice(indexToRemove, 1);
+      }
+      localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
+    } else {
+      console.error('Error al actualizar el estado de la tarea en el servidor.');
+    }
+  } catch (error) {
+    console.error('Error al hacer la solicitud al servidor:', error);
+  } setTasks(updatedTasks);
+};
 
   const handleTaskCreated = async (newTaskData) => {
     try {
@@ -61,9 +80,8 @@ const Pedidos = () => {
     updatedTasks[taskType].splice(taskIndex, 1);
 
     setTasks(updatedTasks);
-
-    localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
   };
+
   useEffect(() => {
     const loadTasks = async () => {
       try {
@@ -100,13 +118,14 @@ const Pedidos = () => {
       <ButtonCont>
         {<FormularioPedido onTaskCreated={handleTaskCreated} />}
       </ButtonCont>
-      <State><H2>Por hacer</H2>
+      <State>
         <H2>En progreso</H2>
         <H2>Completados</H2>
         <H2>realizado</H2>
       </State>
       <Container>
-        <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
+        <Column 
+        onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
           {tasks?.todo && tasks?.todo.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
               <TitleClient>
@@ -115,6 +134,7 @@ const Pedidos = () => {
             <DataOrders>
               <Data>{task?.monto}</Data>
               <Data>{task?.fecha}</Data>
+              <Data>{task?.estado}</Data>
               <Button onClick={() => handleDeleteTask('todo', index)}>Eliminar</Button>
             </DataOrders>
             </Task>
@@ -130,6 +150,7 @@ const Pedidos = () => {
               <DataOrders>
                 <Data>{task?.monto}</Data>
                 <Data>{task?.fecha}</Data>
+                <Data>{task?.estado}</Data>
                 <Button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</Button>
               </DataOrders>
               
@@ -146,28 +167,13 @@ const Pedidos = () => {
               <DataOrders>
                 <Data>{task?.monto}</Data>
                 <Data>{task?.fecha}</Data>
+                <Data>{task?.estado}</Data>
                 <Button onClick={() => handleDeleteTask('done', index)}>Eliminar</Button>
               </DataOrders>
               
             </Task>
           ))}
         </Column>
-
-        <Column onDrop={(event) => handleDrop(event, 'newColumn')} onDragOver={(event) => event.preventDefault()}>
-          {tasks?.newColumn && tasks?.newColumn.map((task, index) => (
-            <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'newColumn', index)}>
-              <TitleClient>
-                <div>{task?.cliente}</div>
-              </TitleClient>
-              <DataOrders>
-                <Data>{task?.monto}</Data>
-                <Data>{task?.fecha}</Data>
-                <Button onClick={() => handleDeleteTask('newColumn', index)}>Eliminar</Button>
-              </DataOrders>
-            </Task>
-          ))}
-        </Column>
-
       </Container>
     </Div>
   );

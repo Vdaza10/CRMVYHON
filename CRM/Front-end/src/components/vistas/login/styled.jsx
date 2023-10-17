@@ -67,7 +67,7 @@ export const Olvidar = styled.p`
 
 export const Button = styled.button`
   background-color: var(--color-button);
-  margin-top: 7px;
+  margin-top: 7px; 
   /* margin-bottom: 7px; */
   color: white;
   width: 55%;

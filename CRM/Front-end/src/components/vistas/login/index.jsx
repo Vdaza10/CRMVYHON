@@ -17,7 +17,7 @@ import {
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import "../../../App.css";
-import logo from "../../img/logito.svg";
+import logo from "../../img/Logo VY-02.svg";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -30,7 +30,8 @@ function Login() {
     setError(null);
     setErrorContraseña(null);
     setErrorCorreo(null);
-    if (email && password) {
+    if (email && password) { 
+    
       Axios.post(`${process.env.REACT_APP_URL_BACKEND}/login`, {
         correo: email,
         contraseña: password,

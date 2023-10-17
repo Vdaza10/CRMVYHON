@@ -21,16 +21,21 @@ export const ButtonCont = styled.div`
 export const State = styled.div`
   height: 5%;
   width: 90%;
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  align-items: center;
   margin-bottom: 10px;
   background-color: #ffffff4d;
   box-shadow: 2px 5px 2px 1px;
   border-radius: 15px;
-  ; 
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+`;
 
+export const H2 = styled.h2`
+  width: 30%;
+  font-size: 25px;
+  margin: 5px;
+  color: white;
+  text-align: center;
 `;
 
 export const Container = styled.div`
@@ -44,7 +49,7 @@ export const Container = styled.div`
 `;
 
 export const Column = styled.div`
-  width: 24%;
+  width: 30%;
   max-height: 100%;
   border-radius: 10px;
   border-right: solid 1px #707070bd;
@@ -59,13 +64,7 @@ export const Column = styled.div`
   }
 `;
 
-export const H2 = styled.h2`
-  font-size: 25px;
-  text-align: center;
-  margin: 5px;
-  color: white;
 
-`;
 
 export const Task = styled.div`
   height: 20%;

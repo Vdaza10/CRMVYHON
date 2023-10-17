@@ -150,14 +150,14 @@ export const actualizarContraseña = async (req, res) => {
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
     try {
-        const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-        const encrypt = await encryptPassword(contraseña)
+        const { nombreUsuario } = req.body;
+        // const encrypt = await encryptPassword(contraseña)
         const [rows]  = await pool.query(
-            'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-        [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
+            'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario) WHERE idRegistro = ?',
+        [nombreUsuario, idRegistro]
         );
         // const contraseñaEncrypt = rows[0].contraseña
-        const verify = await comparePassword(contraseña, contraseñaEnBaseDeDatos);
+        // const verify = await comparePassword(contraseña, contraseñaEnBaseDeDatos);
         console.log(encrypt,"❤️❤️❤️");
         
         if(!verify){
@@ -166,9 +166,6 @@ export const updateUsers = async (req, res) => {
         res.json({
                 id:rows.idRegistro,
                 nombreUsuario,
-                nombreEmpresa,
-                correo,
-                contraseña
             })
 
     } catch (error) {
