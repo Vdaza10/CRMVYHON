@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import {
-  Contenedor,
-  Contenedor2,
   Titulo,
-  Contenedor1,
+  FormRegistro,
   Input,
   Boton,
   Checkbox,
   TextoCheckbox,
   Seleccionar,
-  TextoImput,
-  ContaienrBoton,
+  LabelText,
+  Fondo,
+  BoxForm,
+  LogitoImg,
+  BoxLogo,
 } from "./styled"; // Importa tus estilos desde el archivo "styled"
 import Axios from "axios";
 import validator from "validator";
@@ -18,6 +19,8 @@ import VentanaModal1 from "../../../modales/mensajeRegistro";
 import UserExiste from "../../../modales/mensajeRegistroYaExiste";
 import swal from "sweetalert";
 import "../../../../App.css";
+import { Link } from "react-router-dom";
+import Logito from '../../../img/logito.svg'
 
 const Registrarse = () => {
   const [password, setPassword] = useState("");
@@ -63,23 +66,22 @@ const Registrarse = () => {
         nombreEmpresa: empresa,
       })
         .then((response) => {
-            // VentanaModal4()
-            VentanaModal()
+          // VentanaModal4()
+          VentanaModal();
         })
         .catch((error) => {
-          console.clear() //quita en la consola el error por el status 400
+          console.clear(); //quita en la consola el error por el status 400
           if (error.response.status === 400) {
             // VentanaModal()
-            VentanaModal4()
+            VentanaModal4();
             setCorreoExistente(true);
-          }else{
+          } else {
             swal({
               title: "Error",
               text: "Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.",
               icon: "error",
             });
           }
-          
         });
     } else {
       swal({
@@ -91,21 +93,16 @@ const Registrarse = () => {
   };
 
   return (
-    <>
-      <Contenedor>
-        <Contenedor2>
-          <Titulo>
-            <h2 style={{ fontWeight: "500", fontStyle: "italic" }}>
-              Sign up for Vyhon
-            </h2>
-          </Titulo>
+    <Fondo>
+      <BoxForm>
+        <BoxLogo>
 
-          <Contenedor1 style={{ marginTop: "20px" }}>
-            <TextoImput>
-              <h3 style={{ margin: "0", fontWeight: "500" }}>
-                ¿What's your name?
-              </h3>
-            </TextoImput>
+        <LogitoImg src={Logito} alt="Logito" />
+        </BoxLogo>
+        <FormRegistro>
+          <Titulo>Sign up for Vyhon</Titulo>
+          <LabelText>
+            ¿What's your name?
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
@@ -118,16 +115,11 @@ const Registrarse = () => {
                 setNombre(event.target.value);
               }}
               type="text"
-           
-            ></Input>
-          </Contenedor1>
+            />
+          </LabelText>
 
-          <Contenedor1>
-            <TextoImput>
-              <h3 style={{ margin: "0", fontWeight: "500" }}>
-                ¿What company you work for?
-              </h3>
-            </TextoImput>
+          <LabelText>
+            ¿What company you work for?
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
@@ -141,15 +133,10 @@ const Registrarse = () => {
               }}
               type="text"
               required
-            ></Input>
-          </Contenedor1>
-
-          <Contenedor1>
-            <TextoImput>
-              <h3 style={{ margin: "0", fontWeight: "500" }}>
-                ¿What is your email?
-              </h3>
-            </TextoImput>
+            />
+          </LabelText>
+          <LabelText>
+            ¿What is your email?
             <Input
               onKeyPress={(event) => {
                 const inputValue = event.key;
@@ -162,55 +149,55 @@ const Registrarse = () => {
               type="email"
               required
               className={!emailValid && buttonClicked ? "invalid-email" : ""}
-            ></Input>
-            {mostrarAlertaCorreo && (
-              <div style={{color:"red"}} className="alert alert-danger" role="alert">
-                ingrese todos los carracteres 
-              </div>
-            )}
-            {correoExistente && (
-              <span
-                style={{
-                  fontWeight: "bold",
-                  color: "green",
-                }}
-              >
-                {email}
-              </span>
-            )}
-          </Contenedor1>
+            />
+          </LabelText>
+          {mostrarAlertaCorreo && (
+            <div
+              style={{ color: "red" }}
+              className="alert alert-danger"
+              role="alert"
+            >
+              ingrese todos los carracteres
+            </div>
+          )}
+          {correoExistente && (
+            <span
+              style={{
+                fontWeight: "bold",
+                color: "green",
+              }}
+            >
+              {email}
+            </span>
+          )}
 
-          <Contenedor1>
-            <TextoImput>
-              <h3 style={{ margin: "0", fontWeight: "500" }}>
-                Create a password for your account
-              </h3>
-            </TextoImput>
+          <LabelText>
+            Create a password for your account
             <Input
               onChange={(event) => {
                 setPassword(event.target.value);
               }}
               type="password"
               required
-            ></Input>
-          </Contenedor1>
+            />
+          </LabelText>
 
           <Checkbox>
             <Seleccionar type="checkbox" required></Seleccionar>
             <TextoCheckbox>
-              I agree with the terms of use of the software and know
-              <br />
-              the privacy policy
+              I agree with the terms of use of the software and know the privacy
+              policy
             </TextoCheckbox>
           </Checkbox>
 
-          <ContaienrBoton>
-            <Boton type="submit" onClick={Registro}>
-              Create Account
-            </Boton>
-          </ContaienrBoton>
-        </Contenedor2>
-      </Contenedor>
+          <Boton type="submit" onClick={Registro}>
+            Create Account
+          </Boton>
+      <Link to={"/login"}>
+        <p>Log in to your account</p>
+      </Link>
+        </FormRegistro>
+      </BoxForm>
       <VentanaModal1
         estado={estadoModal1}
         cambiarEstado={cambiarEstadoModal1}
@@ -219,7 +206,8 @@ const Registrarse = () => {
         estado={estadoModal4}
         cambiarEstado={cambiarEstadoModal4}
       ></UserExiste>
-    </>
+
+    </Fondo>
   );
 };
 

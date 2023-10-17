@@ -62,9 +62,9 @@ function Login() {
 
   return (
     <Fondo>
-        <BoxLogo>
-          <Logo src={logo} alt="logo" />
-        </BoxLogo>
+      <BoxLogo>
+        <Logo src={logo} alt="logo" />
+      </BoxLogo>
       <Contenedor>
         <Formulario>
           <Titulo>Bienvenidos</Titulo>
@@ -94,15 +94,11 @@ function Login() {
             <Button type="submit" onClick={Login}>
               Log in
             </Button>
-            <Link to={"/recuperar"} style={{ color: "white" }}>
-              <Olvidar>
-                <h4 style={{ margin: "0" }}>Did you forget your password?</h4>
-              </Olvidar>
+            <Link to={"/recuperar"}>
+              <Olvidar>Did you forget your password?</Olvidar>
             </Link>
-            <Link to={"/registrarse"} style={{ color: "white" }}>
-              <Olvidar>
-                <h4 style={{ color: "white", margin: "0" }}>Sign up</h4>
-              </Olvidar>
+            <Link to={"/registrarse"}>
+              <Olvidar>Sign up</Olvidar>
             </Link>
           </ContainerUltimo>
         </Formulario>

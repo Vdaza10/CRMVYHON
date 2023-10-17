@@ -11,7 +11,7 @@ export const Fondo = styled.div`
 `;
 
 export const Contenedor = styled.div`
-  width: 28%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,6 @@ export const Contenedor = styled.div`
 `;
 export const Logo = styled.img`
   width: 350px;
-  margin-bottom: 10px;
 `;
 export const BoxLogo = styled.div`
   width: 100%;
@@ -39,41 +38,31 @@ export const Formulario = styled.form`
   flex-direction: column;
 `;
 export const Titulo = styled.h1`
-  text-align: center;
-  font-style: italic;
   color: #4f4f4f;
 `;
 export const Label = styled.label`
-  width: 100%;
-  height: 20%;
+  height: 25%;
   color: #929191;
-  align-items: center;
   flex-direction: column;
   display: flex;
 `;
 export const Parrafo = styled.div`
-  width: 65%;
-  height: 20%;
+  width: 85%;
+  height: 22%;
   display: flex;
   align-items: center;
 `;
 export const Input = styled.input`
   width: 350px;
-  height: 35px;
+  height: 40px;
   border: none;
   color: #000000;
   font-size: 18px;
   background-color: var(--color-input);
 `;
-export const Olvidar = styled.div`
-  /* text-decoration: none; */
+export const Olvidar = styled.p`
   color: #4f4f4f;
-  font-size: 15px;
-  width: 100%;
-  height: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 export const Button = styled.button`
@@ -86,6 +75,7 @@ export const Button = styled.button`
   border: none;
   font-size: 17px;
   cursor: pointer;
+
   &:hover {
     background-color: var(--color-buttonHover);
     color: gray;
