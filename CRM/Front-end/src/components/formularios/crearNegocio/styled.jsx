@@ -56,7 +56,7 @@ export const Caja2 = styled.div`
     padding-left: 20px;
   }
 `;
-export const Parrafo1 = styled.p`
+export const Parrafo1 = styled.div`
   font-size: 15px;
   font-style: italic;
   color: #fff;
