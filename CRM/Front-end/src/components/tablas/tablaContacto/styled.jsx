@@ -40,11 +40,25 @@ export const Heder = styled.div`
   border-bottom: white 1px solid;
 `;
 export const HederCaja1 = styled.div`
-  height: 50%;
+  /* height: 50%;
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center; */
+  height: 50%;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #f6f6f6;
+  list-style: none;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  margin-top: 15px;
+  
+  
+  
+
+  
 `;
 export const HederCaja2 = styled.div`
   height: 50%;
@@ -72,11 +86,28 @@ export const HederContenido = styled.div`
 `;
 
 export const BarraNavegacion = styled.div`
-  height: 70%;
+  /* height: 70%;
   width: 90%;
   border-radius: 15px;
-  background-color: white;
+  background-color: #b67373;
+  list-style: none;
+  align-items: center; */
+  cursor: pointer;
+  
+  transition: all 0.2s ease;
+  &:last-child {
+    margin-right: 45px;
+  }
+  &:hover {
+    width: 65%;
+    color: var(--color-MenuItem);
+    transform: scale(1.2); 
+    text-decoration: underline;
+  }
+  font-size: 20px;
+  
 `;
+
 export const ContainerInput = styled.div`
   width: 50%;
   height: 35px;

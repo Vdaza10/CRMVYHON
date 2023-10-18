@@ -136,14 +136,14 @@ const modalRef = useRef(null);
             </Cajita>
           </Caja1>
           <Caja2 style={{marginTop:"10px"}}>
-            <Link to="/perfilusuario" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
+            {/* <Link to="/perfilusuario" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
               <h3 style={{fontStyle: "italic",fontSize: "16px",color: "white",marginLeft: "7px"}}>profile{" "}</h3>
-            </Link>
+            </Link> */}
           </Caja2>
           <Caja2>
-          <Link to="/grafica" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
+          {/* <Link to="/grafica" onClick={verPerfil} style={{ textDecoration: "none", color: "white"}}>
               <h3 style={{fontStyle: "italic",fontSize: "16px",color: "#ffffff",marginLeft: "7px"}}>Graphic history{" "}</h3>
-            </Link>
+            </Link> */}
           </Caja2>
           <Caja4>
               <Button onClick={Logout}>Go out</Button>

@@ -32,6 +32,7 @@ import ContactoUpdate from "../../formularios/updateContacto";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import imagenUser from "../../img/perfil.jpg"
+import { NavLink } from "react-router-dom";
 
 function TablaContacto() {
     const [active, setActive] = useState(false);
@@ -163,8 +164,27 @@ function TablaContacto() {
                         <CajaContenido>
                             <Heder>
                                 <HederCaja1>
-                                    <BarraNavegacion></BarraNavegacion>
+                                    <NavLink style={{textDecoration: "none"}}>
+                                        <BarraNavegacion>Negociaciones</BarraNavegacion>
+                                    </NavLink>
+
+                                    <NavLink style={{textDecoration: "none"}}> 
+                                        <BarraNavegacion>Invetario</BarraNavegacion>
+                                    </NavLink>
+
+                                    <NavLink style={{textDecoration: "none"}}>
+                                        <BarraNavegacion>clientes</BarraNavegacion>   
+                                    </NavLink>
+                                    <NavLink style={{textDecoration: "none"}}> 
+                                        <BarraNavegacion>ventas</BarraNavegacion>
+                                    </NavLink>
+
+                                    <NavLink to="/grafica" style={{textDecoration: "none"}}> 
+                                        <BarraNavegacion>analitica</BarraNavegacion>
+                                    </NavLink>
+                                    
                                 </HederCaja1>
+                                      
                                 <HederCaja2>
                                     <HederContenido>
                                     <h1>Contactos  <HiUsers className="EstiloIconos"></HiUsers></h1>

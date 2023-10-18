@@ -76,7 +76,7 @@ export const TamañoIcono = styled.div`
   
 `
 export const Perfil = styled.div`
-  /* background-color: #ff9102; */
+  background-color: #ff9102;
   height: 65px;
   width: 15%;
   border-radius: 15px;
@@ -86,4 +86,8 @@ export const Perfil = styled.div`
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: space-evenly; */
+`
+export const ContenedorPerfil = styled.div`
+display: flex;
+align-items: center;
 `

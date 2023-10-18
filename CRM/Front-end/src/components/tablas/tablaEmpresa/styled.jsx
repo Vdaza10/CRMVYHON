@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import FondoVistas from "../../img/Fondos.svg";
+
 export const ContainerPrincipal = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url(${FondoVistas});
   /* background-color: #ccd1d2; */
 `;
 

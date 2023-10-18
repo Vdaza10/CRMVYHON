@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FondoVistas from "../../img/Fondos.svg";
 
 export const ContainerPrincipal = styled.div`
   height: 80%;
@@ -6,6 +7,7 @@ export const ContainerPrincipal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url(${FondoVistas});
 `;
 
 export const ContainerSecundario = styled.div`

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FondoVistas from "../../../../img/Fondos.svg";
 export const Container = styled.div`
   height: 100%;
   width: 100%;
@@ -6,7 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg,var(--color-fondoo) 0%,#c1afaf 100%);
+  background-image: url(${FondoVistas});
+  /* background: linear-gradient(180deg,var(--color-fondoo) 0%,#c1afaf 100%); */
 
 `;
 

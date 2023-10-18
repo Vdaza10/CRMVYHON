@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FondoVistas from "../../img/Fondos.svg";
 
 export const ContainerPrincipal = styled.div`
   height: 80%;
@@ -14,6 +15,7 @@ export const ContainerPrincipal = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
   }
+  background-image: url(${FondoVistas});
 `;
 
 export const Heder = styled.div`

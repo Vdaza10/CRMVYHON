@@ -114,7 +114,7 @@
 
 import React, { useState,useRef } from "react";
 import { Link, NavLink, useLocation, Outlet } from "react-router-dom";
-import {Contenedor,Logo, MenuItem,Menucontainer,Navegacion, Ajustes, TamañoIcono,Perfil
+import {Contenedor,Logo, MenuItem,Menucontainer,Navegacion, Ajustes, TamañoIcono,Perfil, ContenedorPerfil
 } from "./menu";
 import imagen from "../../img/Logo VY-02.svg";
 import Retorno1 from "../menu/configuracion";
@@ -221,9 +221,13 @@ return (
 
 
     <Perfil> 
-        <div style={{display:"flex", alignItems:"center"}}>
-            <PermIdentityOutlinedIcon style={{fontSize:"35px"}}/>Usuario 
-        </div>
+        <ContenedorPerfil>
+            <Link to="/perfilusuario"style={{ textDecoration: "none", color: "white"}}>
+            <PermIdentityOutlinedIcon style={{fontSize:"35px"}}/>usuario
+            </Link>
+         
+        </ContenedorPerfil>
+            
         <Ajustes>
             <NotificationsOutlinedIcon style={{fontSize:"35px", cursor:"pointer"}}
             onClick={()=>setActivo(!activo)}>
