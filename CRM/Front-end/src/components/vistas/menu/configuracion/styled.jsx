@@ -8,16 +8,18 @@ export const DivContainer = styled.div`
 
 export const Container = styled.div`
   background-color: #5b5b5b;
-
-  width: 99%;
-  height: 100%;
+  width: 15%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   position: absolute;
   z-index: 1;
+  top: 95px;
+  right: 4px;
   border-radius: 0px 0px 0px 50px;
   box-shadow: 0px 5px 10px 7px #00000054;
   justify-content: space-evenly;
+  
 `;
 export const Caja1 = styled.div`
   height: 35%;

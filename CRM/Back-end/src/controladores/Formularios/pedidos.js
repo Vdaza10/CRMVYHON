@@ -3,7 +3,7 @@ import { pool } from "../../db.js";
 export const crearPedidos = async (req, res) => {
   try {
     const { cliente, monto, fecha } = req.body;
-    const estado = 'cotizado';
+    const estado = 'en progreso';
     const [rows] = await pool.query(
       "INSERT INTO pedidos (cliente, monto, fecha, estado) VALUES (?, ?, ?, ?)",
       [cliente, monto, fecha, estado]
@@ -23,8 +23,6 @@ export const crearPedidos = async (req, res) => {
     return res.status(500).json({ message: "Algo anda mal" });
   }
 };
-
-
 
   export const getPedidos = async (req, res) => {
     try {
@@ -70,11 +68,11 @@ export const updatePedidos = async (req, res) => {
 
 
 export const deletePedidos = async (req, res) => {
-    try {
-        const deletedata = await pool.query('DELETE FROM pedidos WHERE idPedido = ?',
-        [req.params.id]);
-        res.status(200).json({ message: 'Empresa eliminada correctamente' });
-    } catch (error) {
-        res.status(500).json({ message: 'Error al eliminar la empresa' });
-    }
+  try {
+    const deletedata = await pool.query('DELETE FROM pedidos WHERE idPedido = ?', [req.params.id]);
+    res.status(200).json({ message: 'Pedido eliminado correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar el pedido:', error);
+    res.status(500).json({ message: 'Error interno del servidor' });
+  }
 };

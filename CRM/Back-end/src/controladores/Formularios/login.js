@@ -1,6 +1,5 @@
 import { compare } from "../../helpers/Bycrypt.js"; // Asegúrate de que la ruta y el nombre del archivo sean correctos
 import { pool } from "../../db.js";
-// import { Secret } from "../../db.js";
 import { SECRET } from "../../config.js";
 import jwt from "jsonwebtoken";
 //login 
@@ -20,28 +19,20 @@ export const Login = async(req,res) =>{
     try {
         const {correo,contraseña} = req.body;     
         const [rows] = await pool.query('SELECT * FROM registro where correo = ?',[correo]);
-        
-        if (rows.length === 0) {
-            return res.status(404).json({ message: "Usuario no encontrado" });
-        }
         const contraseñaEncrypt = rows[0].contraseña
         const verify = await compare(contraseña,contraseñaEncrypt)
-
         if(!verify){
             return res.status(404).json({message: "contraseña invalida"})
         }
-        
-
-        const Authorization = jwt.sign(
+        const accessToken = jwt.sign(
             { idRegistro: rows[0].idRegistro, username: rows[0].nombreUsuario, email: rows[0].correo, password: rows[0].contraseña, nombreEmpresa: rows[0].nombreEmpresa, date: rows[0].fecha_ingreso},
             SECRET,
             {
             expiresIn: "7d",
             }
         );
-
-        console.log(Authorization, "🎶🎶🎶");
-        res.json(Authorization)
+        console.log(accessToken, "🎶🎶🎶");
+        res.json(accessToken)
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: 'Algo va mal'})

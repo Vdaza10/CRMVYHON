@@ -20,7 +20,6 @@ export const getUsers = async(req,res) =>{
 
     } catch (error) {     
         return res.status(500).json({message: 'Algo va mal'})
-        console.log(error.message.res.status(500));
     }
 }
 export const getUsersid = async(req,res)=>{
@@ -32,29 +31,39 @@ export const getUsersid = async(req,res)=>{
     }
 }
 
+
 export const createUsers = async (req, res) => {
     try {
+        
         const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-            const encrypt = await encryptPassword(contraseña)
-                const [rows] = await pool.query(
-                'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
-                [nombreUsuario, nombreEmpresa, correo, encrypt]
-            );
+        const existe = 'SELECT correo FROM registro where correo = ? '
+        const evaluar = [correo];
+        const [resultado] = await pool.query(existe, evaluar);
+        const encrypt = await encryptPassword(contraseña)
+        if (resultado.length > 0) {
+            return res.json({ error: "correo_existe" });
+        }
 
-            return res.json({
-                id: rows.insertId,
-                nombreUsuario,
-                nombreEmpresa,
-                correo,
-                contraseña,
-                mensaje: "registro_exitoso"
-            });
+        const [rows] = await pool.query(
+            'INSERT INTO registro (nombreUsuario, nombreEmpresa, correo, contraseña) VALUES (?,?,?,?)',
+            [nombreUsuario, nombreEmpresa, correo, encrypt]
+        );
+
+        return res.json({
+            id: rows.insertId,
+            nombreUsuario,
+            nombreEmpresa,
+            correo,
+            contraseña,
+            mensaje: "registro_exitoso"
+        });
     } catch (error) {
-    
         console.error(error); // Puedes agregar un registro del error para debug
-        return res.status(500).json({ message: 'Algo va mal...' });
-    }
+        return res.status(500).json({ message: 'Algo va mal' });
 }
+}
+
+
 export const recuperar = async (req, res) => {
     try {
         const { correo } = req.body;
@@ -125,7 +134,6 @@ export const actualizarContraseña = async (req, res) => {
         const {email} = req.params;
         const {contraseña} = req.body;
         const encrypt = await encryptPassword(contraseña)
-        console.log(encrypt,"❤️❤️❤️")
         const existeUsuario = 'SELECT * FROM registro WHERE correo = ?'
         const [usuario] = await pool.query(existeUsuario, [email]);
         if (usuario.length === 0){
@@ -142,31 +150,23 @@ export const actualizarContraseña = async (req, res) => {
 export const updateUsers = async (req, res) => {
     const { idRegistro } = req.params;
     try {
-        const { nombreUsuario, nombreEmpresa, correo, contraseña } = req.body;
-    
+        const { nombreUsuario } = req.body;
+        // const encrypt = await encryptPassword(contraseña)
         const [rows]  = await pool.query(
-            'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario), nombreEmpresa = COALESCE(?, nombreEmpresa), correo = COALESCE(?, correo), contraseña = COALESCE(?, contraseña) WHERE idRegistro = ?',
-        [nombreUsuario,nombreEmpresa,correo, encrypt,idRegistro]
+            'UPDATE registro SET nombreUsuario = COALESCE(?, nombreUsuario) WHERE idRegistro = ?',
+        [nombreUsuario, idRegistro]
         );
-        encrypt = await encryptPassword(contraseña)
-        console.log(encrypt, "contraseña incriptada exitosa");
-        const refreshToken = jwt.sign(
-            { idRegistro: idRegistro,username:nombreUsuario, email: correo, password:contraseña  },
-            Secret,
-            {
-            expiresIn: "1h",
-            }
-        );
-    
-        res.json({refreshToken,
-            data:{
-                idRegistro,
+        // const contraseñaEncrypt = rows[0].contraseña
+        // const verify = await comparePassword(contraseña, contraseñaEnBaseDeDatos);
+        console.log(encrypt,"❤️❤️❤️");
+        
+        if(!verify){
+            return res.status(404).json({message: "contraseña invalida"})
+        }
+        res.json({
+                id:rows.idRegistro,
                 nombreUsuario,
-                nombreEmpresa,
-                correo,
-                contraseña
-            }})
-        console.log(refreshToken,"lalala");
+            })
 
     } catch (error) {
         console.error(error);
@@ -182,3 +182,5 @@ export const updateUsers = async (req, res) => {
         });
     }
     };
+
+

@@ -1,8 +1,7 @@
-import { Routes, Route, BrowserRouter} from "react-router-dom";
-import "./App.css"
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "./App.css";
 
 import Inicio from "../src/components/vistas/Inicialvyhon/inicio";
-import Registro from "./components/vistas/Registro/Fondo/registroPrincipal";
 import Recuperar from "./components/vistas/recuperarContraseña/index";
 import Vistaprincipal from "./components/vistas/carrusel/principal";
 import Retorno7 from "../src/components/vistas/empresa";
@@ -18,17 +17,18 @@ import Pedidos from "./components/vistas/markenting/pedidos/pedidos";
 import Campañasms from "./components/vistas/markenting/campañasms/campaña";
 import Grafica from "./components/vistas/menu/configuracion/graficas/index";
 import CampañaCorreo from "./components/vistas/markenting/campañacorreo/campaña";
+import Registro from "./components/vistas/Registro/Input/Registro";
 // import llamadaAudioModal from "./components/vistas/markenting/llamadaAudioModal/index"
 import Tablallamada from "./components/tablas/tablaLlamada";
-import "./App.css"
-import Menu from "../src/components/vistas/menu/principal"
+import "./App.css";
+import Menu from "../src/components/vistas/menu/principal";
 import CambioContraseña from "./components/vistas/cambiarContraseña/cambio";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route  path="/restablecer" element={<CambioContraseña/>}></Route>
+        <Route path="/restablecer" element={<CambioContraseña />}></Route>
         {/* Rutas pricipales*/}
         <Route path="/" element={<Inicio />}>
           {" j"}
@@ -42,15 +42,15 @@ function App() {
         <Route path="/login" element={<Login />}>
           {" l"}
         </Route>
-          
+
         {/* Rutas del menu*/}
-        <Route element={<Menu/>}>
+        <Route element={<Menu />}>
           <Route path="/vistaprincipal" element={<Vistaprincipal />}></Route>
           <Route path="/empresas" element={<Retorno7 />}></Route>
           <Route path="/contactos" element={<Retorno3 />}></Route>
           <Route path="/negocios" element={<Retorno2 />}></Route>
           <Route path="/tareas" element={<Retorno5 />}></Route>
-          <Route path="/call" element={<Tablallamada/>}></Route>
+          <Route path="/call" element={<Tablallamada />}></Route>
           {/* Rutas de marketeting*/}
           <Route path="/Marketing" element={<Campaña />}></Route>
           <Route path="/camunicacion" element={<Comunucacion />}></Route>
@@ -58,12 +58,10 @@ function App() {
           <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
           <Route path="/camapañasms" element={<Campañasms />}></Route>
           <Route path="/pedidos" element={<Pedidos />}></Route>
-          <Route path="/perfilusuario" element={<PerfilUsuario/>}></Route>          
-          <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>   
-          <Route path="/grafica" element={<Grafica />}></Route>       
+          <Route path="/perfilusuario" element={<PerfilUsuario />}></Route>
+          <Route path="/campañacorreo" element={<CampañaCorreo />}></Route>
+          <Route path="/grafica" element={<Grafica />}></Route>
         </Route>
-        
-        
       </Routes>
     </BrowserRouter>
   );

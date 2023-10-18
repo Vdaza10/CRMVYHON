@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Div, Column, Container, Task, ButtonCont, H2 } from './style';
+import { Div, Column, Container, Task, ButtonCont, H2, State, TitleClient, DataOrders, Data, Button } from './style';
 import FormularioPedido from '../../../formularios/CrearPedido';
 import axios from 'axios';
+
 const Pedidos = () => {
   const [tasks, setTasks] = useState({
     todo: [],
@@ -9,62 +10,62 @@ const Pedidos = () => {
     done: [],
     newColumn: [],
   });
-  const [loading, setLoading] = useState(true);
-
-
+  const [, setLoading] = useState(true);
 
   const handleDragStart = (event, taskType, taskIndex) => {
     event.dataTransfer.setData('taskType', taskType);
     event.dataTransfer.setData('taskIndex', taskIndex);
   };
 
+
   const handleDrop = async (event, targetTaskType) => {
     const sourceTaskType = event.dataTransfer.getData('taskType');
     const sourceTaskIndex = event.dataTransfer.getData('taskIndex');
-  
-    const movedTask = tasks[sourceTaskType][sourceTaskIndex];
+
     const updatedTasks = { ...tasks };
+    const movedTask = updatedTasks[sourceTaskType][sourceTaskIndex];
+
     updatedTasks[sourceTaskType].splice(sourceTaskIndex, 1);
     updatedTasks[targetTaskType].push(movedTask);
-  
-    setTasks(updatedTasks);
-    updateTasksInLocalStorage(updatedTasks);
-  
-    try {
-      await axios.put(`${process.env.REACT_APP_URL_BACKEND}/pedidos/${movedTask.id}`, {
-        estado: targetTaskType.toLowerCase(),
-      });
-      console.log('Estado de la tarea actualizado correctamente en el servidor');
-    } catch (error) {
-      console.error('Error al actualizar el estado de la tarea en el servidor:', error);
-    }
-  };
 
-  const updateTasksInLocalStorage = (updatedTasks) => {
-    localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
-  };
+    const taskId = movedTask.id;
+
+  try {
+    const response = await axios.patch(
+      `${process.env.REACT_APP_URL_BACKEND}/pedidos/${taskId}`,
+      { estado: targetTaskType }
+    );
+
+    if (response.status === 200) {
+      const updatedTasks = { ...tasks };
+      movedTask.estado = targetTaskType;
+      updatedTasks[targetTaskType].push(movedTask);
+      if (sourceTaskType !== targetTaskType) {
+        const indexToRemove = updatedTasks[sourceTaskType].findIndex(task => task.id === taskId);
+        updatedTasks[sourceTaskType].splice(indexToRemove, 1);
+      }
+      localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
+    } else {
+      console.error('Error al actualizar el estado de la tarea en el servidor.');
+    }
+  } catch (error) {
+    console.error('Error al hacer la solicitud al servidor:', error);
+  } setTasks(updatedTasks);
+};
 
   const handleTaskCreated = async (newTaskData) => {
     try {
-      // Verificar si la tarea ya existe en la lista actual de tareas
-      const taskExists = tasks.todo.some(task => task.id === newTaskData.id);
+      const taskExists = tasks.todo.some((task) => task.id === newTaskData.id);
 
       if (!taskExists) {
-        setTasks((prevTasks) => {
-          return {
-            ...prevTasks,
-            todo: [...prevTasks.todo, newTaskData],
-          };
-        });
+        const updatedTasks = {
+          ...tasks,
+          todo: [...tasks.todo, newTaskData],
+        };
 
-        updateTasksInLocalStorage((prevTasks) => {
-          return {
-            ...prevTasks,
-            todo: [...prevTasks.todo, newTaskData],
-          };
-        });
+        setTasks(updatedTasks);
 
-        console.log('Tarea creada exitosamente:', newTaskData);
+        localStorage.setItem('tasks_v7', JSON.stringify(updatedTasks));
       } else {
         console.log('La tarea ya existe en la lista.');
       }
@@ -75,103 +76,104 @@ const Pedidos = () => {
 
   const handleDeleteTask = (taskType, taskIndex) => {
     const updatedTasks = { ...tasks };
+
     updatedTasks[taskType].splice(taskIndex, 1);
+
     setTasks(updatedTasks);
-    updateTasksInLocalStorage(updatedTasks);
   };
 
   useEffect(() => {
     const loadTasks = async () => {
       try {
-        const storedTasks = JSON.parse(localStorage.getItem('tasks_v7'));
-        const initialTasks = storedTasks
-          ? storedTasks
-          : {
-              todo: [],
-              inProgress: [],
-              done: [],
-              newColumn: [],
-            };
+        const savedTasks = JSON.parse(localStorage.getItem('tasks_v7'));
 
-        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos`);
-        const tasksData = response.data;
+        if (savedTasks) {
+          setTasks(savedTasks);
+        } else {
+          const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/pedidos`);
+          const tasksData = response.data;
 
-        const updatedTasks = {
-          todo: [...initialTasks.todo, ...tasksData.filter(task => task.estado === 'todo')],
-          inProgress: [...initialTasks.inProgress, ...tasksData.filter(task => task.estado === 'inProgress')],
-          done: [...initialTasks.done, ...tasksData.filter(task => task.estado === 'done')],
-          newColumn: [...initialTasks.newColumn, ...tasksData.filter(task => task.estado === 'newColumn')],
-        };
+          const categorizedTasks = {
+            todo: tasksData.filter((task) => task.estado === 'cotizado'),
+            inProgress: tasksData.filter((task) => task.estado === 'en progreso'),
+            done: tasksData.filter((task) => task.estado === 'done'),
+            newColumn: tasksData.filter((task) => task.estado === 'cancelado'),
+          };
 
-        setTasks(updatedTasks);
-        setLoading(false);
-        updateTasksInLocalStorage(updatedTasks);
+          setTasks(categorizedTasks);
 
-        console.log('Tareas cargadas:', updatedTasks);
+          localStorage.setItem('tasks_v7', JSON.stringify(categorizedTasks));
+        }
       } catch (error) {
         console.error('Error al obtener las tareas:', error);
+      } finally {
         setLoading(false);
       }
     };
-
     loadTasks();
-  }, []);
+  }, []); //
 
   return (
     <Div>        
       <ButtonCont>
         {<FormularioPedido onTaskCreated={handleTaskCreated} />}
-      </ButtonCont> 
+      </ButtonCont>
+      <State>
+        <H2>En progreso</H2>
+        <H2>Completados</H2>
+        <H2>realizado</H2>
+      </State>
       <Container>
-
-        <Column onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
-          <H2>Por hacer</H2>
+        <Column 
+        onDrop={(event) => handleDrop(event, 'todo')} onDragOver={(event) => event.preventDefault()}>
           {tasks?.todo && tasks?.todo.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'todo', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('todo', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+            <DataOrders>
+              <Data>{task?.monto}</Data>
+              <Data>{task?.fecha}</Data>
+              <Data>{task?.estado}</Data>
+              <Button onClick={() => handleDeleteTask('todo', index)}>Eliminar</Button>
+            </DataOrders>
             </Task>
           ))}
         </Column>
-
+      
         <Column onDrop={(event) => handleDrop(event, 'inProgress')} onDragOver={(event) => event.preventDefault()}>
-          <H2>En progreso</H2>
           {tasks?.inProgress && tasks?.inProgress.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'inProgress', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+              <DataOrders>
+                <Data>{task?.monto}</Data>
+                <Data>{task?.fecha}</Data>
+                <Data>{task?.estado}</Data>
+                <Button onClick={() => handleDeleteTask('inProgress', index)}>Eliminar</Button>
+              </DataOrders>
+              
             </Task>
           ))}
         </Column>
 
         <Column onDrop={(event) => handleDrop(event, 'done')} onDragOver={(event) => event.preventDefault()}>
-          <H2>Completados</H2>
           {tasks?.done && tasks?.done.map((task, index) => (
             <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'done', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('done', index)}>Eliminar</button>
+              <TitleClient>
+                <div>{task?.cliente}</div>
+              </TitleClient>
+              <DataOrders>
+                <Data>{task?.monto}</Data>
+                <Data>{task?.fecha}</Data>
+                <Data>{task?.estado}</Data>
+                <Button onClick={() => handleDeleteTask('done', index)}>Eliminar</Button>
+              </DataOrders>
+              
             </Task>
           ))}
         </Column>
-
-        <Column onDrop={(event) => handleDrop(event, 'newColumn')} onDragOver={(event) => event.preventDefault()}>
-          <H2>realizado</H2>
-          {tasks?.newColumn && tasks?.newColumn.map((task, index) => (
-            <Task key={index} draggable onDragStart={(event) => handleDragStart(event, 'newColumn', index)}>
-              <div>{task?.cliente}</div>
-              <div>{task?.monto}</div>
-              <div>{task?.fecha}</div>
-              <button onClick={() => handleDeleteTask('newColumn', index)}>Eliminar</button>
-            </Task>
-          ))}
-        </Column>
-
       </Container>
     </Div>
   );

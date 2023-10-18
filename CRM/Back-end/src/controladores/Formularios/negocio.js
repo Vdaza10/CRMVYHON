@@ -6,7 +6,6 @@ export const crearNegocio = async (req, res) => {
             "INSERT INTO negocio (nombreNegocio, etapas, fuente, empresa, contacto) VALUES (?,?,?,?,?)",
             [nombreNegocio, etapas, fuente, empresa, contacto]
         );
-        console.log(rows);
         res.send({
             id: rows.insertId,
             nombreNegocio, 

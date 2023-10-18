@@ -18,7 +18,7 @@ router.post('/users', userCrtl.createUsers);
 router.post('/user',userCrtl.recuperar);
 router.patch('/users/:idRegistro', userCrtl.updateUsers);
 router.delete('/users', userCrtl.deleteUsers);
-router.put('/user/:email', userCrtl.actualizarContraseña)
+router.put('/user/:email', userCrtl.actualizarContraseña)    
 
 
 //Login
@@ -27,25 +27,24 @@ router.get('/login/getClient/',  logincrtl.getLogin);
 
 
 //empresa// 
-router.post('/company',empresaCrtl.createEmpresa);
-router.get('/company', empresaCrtl.getEmpresas);
-router.get('/company/:id', empresaCrtl.getEmpresaId);
-router.patch('/company/:id', empresaCrtl.updateEmpresas)
-router.delete('/company/:id', empresaCrtl.deleteEmpresas);
+router.post('/company',validatetoken,empresaCrtl.createEmpresa);
+router.get('/company',validatetoken ,empresaCrtl.getEmpresas);
+router.get('/company/:id',validatetoken, empresaCrtl.getEmpresaId);
+router.delete('/company/:id',validatetoken, empresaCrtl.deleteEmpresas);
 
 //contacto//
-router.post('/contacto',contactoCrtl.crearContacto)
-router.get('/contacto',contactoCrtl.getContacto);
-router.get('/contacto/:id', contactoCrtl.getContactoId);
-router.patch('/contacto/:id', contactoCrtl.updateContacto);
-router.delete('/contacto/:id', contactoCrtl.deleteContacto);
+router.post('/contacto',validatetoken,contactoCrtl.crearContacto)
+router.get('/contacto',validatetoken,contactoCrtl.getContacto);
+router.get('/contacto/:id',validatetoken, contactoCrtl.getContactoId);
+router.patch('/contacto/:id',validatetoken, contactoCrtl.updateContacto);
+router.delete('/contacto/:id',validatetoken ,contactoCrtl.deleteContacto);
 
 //negocio//
-router.post('/negocio' ,negocioCrtl.crearNegocio)
-router.get('/negocio', negocioCrtl.getNegocio);
-router.get('/negocio/:id', negocioCrtl.getNegocioId);
-router.patch('/negocio/:id', negocioCrtl.updateNegocio);
-router.delete('/negocio/:id', negocioCrtl.deleteNegocio); 
+router.post('/negocio' ,validatetoken ,negocioCrtl.crearNegocio)
+router.get('/negocio',validatetoken , negocioCrtl.getNegocio);
+router.get('/negocio/:id',validatetoken , negocioCrtl.getNegocioId);
+router.patch('/negocio/:id',validatetoken , negocioCrtl.updateNegocio);
+router.delete('/negocio/:id',validatetoken , negocioCrtl.deleteNegocio); 
 
 
 //segmento//

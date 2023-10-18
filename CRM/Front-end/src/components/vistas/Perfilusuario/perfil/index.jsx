@@ -1,26 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Fondo,
-  Header,
-  Parrafo1,
-  Main,
-  Container,
-  Cajaheader,
-  ContainPerfil,
-  BoxImgPerfil,
-  ImgPerfil,
-  InforPerfil,
-  Boxperfil,
-  HeaderInfor,
-  EditButton,
-  BodyInfor,
-  BoxInfo,
-  InforperfilLetra,
-  Cajas,
-  Cajitas,
-  ContainerIcono,
-  ContainerLetra,
-
+import {Fondo,Header,Parrafo1,Main,Container,Cajaheader,ContainPerfil,BoxImgPerfil,ImgPerfil,InforPerfil,Boxperfil,HeaderInfor,EditButton,BodyInfor,BoxInfo,InforperfilLetra,Cajas,Cajitas,ContainerIcono,ContainerLetra,
 } from "./styled";
 import { HiCake } from 'react-icons/hi';
 import { BiSolidUser,BiSolidMessageEdit } from 'react-icons/bi';
@@ -32,21 +11,19 @@ import { useLocation, useNavigate} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Notificacion from "../notificaciones/notificaciones";
 import DatosPerfil from "../../../formularios/crearDatosPerfil";
-import Audiollamada from "../../markenting/llamadaAudioModal/index"
 import Axios from "axios";
 
 function PerfilUsuario() {
   const [modalDatos, setModalDatos] = useState(false);
   const [modalAbierta, setModalAbierta] = useState(false);
-  const [llamadaAbierta, setLlamadaAbierta] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({});
   const [userToken, setUserToken] = useState(localStorage.getItem("user"));
   const guardarId =  userData.idRegistro
-   console.log(guardarId, "guardarId")
+    // console.log(guardarId, "guardarId")
   const [registro, setRegistro] = useState(false) 
   const [reflejarDatos,setReflejarDatos] = useState([]) 
-  console.log(reflejarDatos,"aqui yuli");
+  // console.log(reflejarDatos,"aqui yuli");
   const [mostrarnotifcacion, setMostrarnotificacion] = useState(true);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -55,14 +32,17 @@ function PerfilUsuario() {
     setMostrarnotificacion(!mostrarnotifcacion);
   };
 
+
   let navigate = useNavigate();
 
   useEffect(() => {
     if (userToken) {
       try {
         const token = jwt_decode(userToken);
+        // console.log(token);
         setUserData(token);
         setLoading(false);
+        console.log(userToken,"❤️❤️❤️");
       } catch (error) {
         console.error("Error al decodificar el token:", error);
         navigate("/");
@@ -96,14 +76,15 @@ function PerfilUsuario() {
         
       // console.log(response.data.length, "aqui data")
     } catch (error) {
-      console.error('Error al obtener los datos del perfil:', error);
+      // console.error('Error al obtener los datos del perfil:', error);
     }
   }
 
-//   setTimeout(() => {
-//     // fetchDatosPerfil()
-//   }, 0)
-// ;
+  // setTimeout(() => {
+  //   
+  // }, 0)
+  fetchDatosPerfil()
+;
 
 
 useEffect(() => {
@@ -121,12 +102,12 @@ DatosPerfilReflejar()
 }, [guardarId])
 
 
-useEffect(()=>{
-    fetchDatosPerfil()
-},[guardarId])
+// useEffect(()=>{
+//     fetchDatosPerfil()
+// },[guardarId])
 
 
-console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
+// console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
 
   return (
     <>
@@ -139,13 +120,6 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
           {mostrarnotifcacion ? (
             <>
               <Fondo>
-                <Audiollamada 
-                estado={llamadaAbierta}
-                cambiarEstado={setLlamadaAbierta}
-                >
-
-                </Audiollamada>
-
                 <UserEditar
                   status={modalAbierta}
                   changeStatus={setModalAbierta}
@@ -187,6 +161,12 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                       <Boxperfil>
                         <InforPerfil>
                           <InforperfilLetra>
+                            <h4>name:</h4>
+                          </InforperfilLetra>
+                          <p>{userData.username}</p>
+                        </InforPerfil>
+                        <InforPerfil>
+                          <InforperfilLetra>
                             <h4>Email:</h4>
                           </InforperfilLetra>
                           <p>{userData.email}</p>
@@ -198,6 +178,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <input style={{outline:"none",border:"0", backgroundColor:"#eee9e6"}}
                           type="password"
                           value={userData.password}
+                          readOnly // no se puede quitar esto porque da error en la consola del navegador y evita ediciones no deeadas
                         />
                           {/* <Password type="password" value={userData.password}/> */}
                         </InforPerfil>
@@ -214,7 +195,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <BoxInfo>
                         <HeaderInfor>
                           <h3>Informacion Personal</h3>
-                          <EditButton>Editar</EditButton>
+                          <EditButton onClick={() => {setModalAbierta(!modalAbierta)}}>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
                           <Cajas>
@@ -293,7 +274,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                               </ContainerIcono>
                               <ContainerLetra>
                                 <h4>Lugar de residencia</h4>
-                                <p>{reflejarDatos.lugarResidencia}</p>
+                                <p>{reflejarDatos[0].lugarResidencia}</p>
                               </ContainerLetra>
                             </Cajitas>
                           </Cajas>
@@ -303,7 +284,7 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                           <BoxInfo>
                         <HeaderInfor>
                           <h3>Información adicional</h3>
-                          <EditButton>Editar</EditButton>
+                          <EditButton onClick={() => {setModalAbierta(!modalAbierta)}}>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
                         <h1>Cargando...</h1>
@@ -311,10 +292,10 @@ console.log(reflejarDatos,'❤️❤️❤️❤️❤️');
                     </BoxInfo>
                         )
                       ) : (
-                         <BoxInfo>
+                        <BoxInfo>
                         <HeaderInfor>
                           <h3>Información adicional</h3>
-                          <EditButton>Editar</EditButton>
+                          <EditButton onClick={() => {setModalAbierta(!modalAbierta)}}>Editar</EditButton>
                         </HeaderInfor>
                         <BodyInfor>
                         <h3>NO HAY DATOS ADICIONALES</h3>

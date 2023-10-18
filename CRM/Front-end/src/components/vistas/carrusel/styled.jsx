@@ -33,7 +33,7 @@ export const Carrusel = styled.div`
 `
 export const Tarjeta1 = styled.div`
 width: 320px;
-height: 435px;
+height: 455px;
 background-color: #5e6163c9;
 transition: all 1s ease;
 border-radius: 30px;

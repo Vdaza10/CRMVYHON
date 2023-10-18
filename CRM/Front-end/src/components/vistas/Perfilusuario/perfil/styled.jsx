@@ -1,14 +1,19 @@
 import styled from "styled-components";
+import FondoVistas from "../../../img/Fondos.svg";
 // fondo
 export const Fondo = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%);
+  align-items: center;
+  flex-direction: column;  
+  background-image: url(${FondoVistas});
+  /* background: linear-gradient(180deg, var(--color-fondoo) 0%, #5a5b5c 100%); */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color-background),endColorstr="#2e2e2e",GradientType=1);
+
 `;
+
 
 //Header y su contenido
 export const Header = styled.header`
@@ -18,6 +23,8 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 10px;
+
 `
 export const Cajaheader = styled.div`
   height: 90%;
@@ -29,9 +36,6 @@ export const Cajaheader = styled.div`
   border-radius: 100px 100px 0px 0px;
   box-shadow: #0f0e0ef0 0px 4px 6px 0px;
   border-top: 1px solid #ffffff94 ;
-
-
-  
 `;
 export const Parrafo1 = styled.button`
   height: 40px;
@@ -45,7 +49,6 @@ export const Parrafo1 = styled.button`
   &:hover {
     color: black;
     cursor: pointer;
-    background-color: #4193c9a6;
     border-radius: 10px;
     border-radius: 0px 25px 0px 25px;
     font-family: "Times New Roman", Times, serif;

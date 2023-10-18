@@ -3,11 +3,9 @@ import { pool } from "../../db.js";
 export const getBucar = async(req,res) => {
     try {
         const {id} = req.params
-        // console.log(id, "id")
         const [rows] = await pool.query('SELECT registro from datospersonales WHERE registro = ?',[id])
 
         res.json(rows)
-        // console.log()
     } catch (error) {
         console.error(error)
     return res.status(500).json({ message: "Algo anda mal" });
@@ -17,11 +15,9 @@ export const getBucar = async(req,res) => {
 export const getDatosPerfil = async(req,res) => {
     try {
         const {id} = req.params
-        // console.log(id)
         const [rows] = await pool.query('SELECT datospersonales.identificacion,registro.idRegistro,tipo_documento.tipo_documento,datospersonales.fechaNacimiento,datospersonales.nacionalidad,datospersonales.Telefono,datospersonales.lugarResidencia,datospersonales.edad,sexo.sexo FROM datospersonales INNER JOIN registro ON datospersonales.registro = registro.idRegistro INNER JOIN tipo_documento ON datospersonales.tipo_documento = tipo_documento.id_personal INNER JOIN sexo ON datospersonales.sexo = sexo.id_sexo WHERE datospersonales.registro = ?',[id])
 
         res.json(rows)
-        console.log()
     } catch (error) {
         console.error(error)
     return res.status(500).json({ message: "Algo anda mal" });
@@ -37,8 +33,6 @@ export const datosAdicionalesPerfil = async (req, res) =>{
             "INSERT INTO datospersonales (identificacion,registro,tipo_documento,fechaNacimiento,nacionalidad,Telefono,lugarResidencia,edad,sexo) VALUES (? ,(SELECT idRegistro FROM registro WHERE idRegistro = ?) , (SELECT tipo_documento.id_personal FROM tipo_documento where id_personal = ?),? ,? ,? ,? , FLOOR(DATEDIFF(NOW(), fechaNacimiento) / 365),(SELECT sexo.id_sexo FROM sexo WHERE id_sexo = ?));",
             [identificacion,idRegistro,tipo_documento,fechaNacimiento,nacionalidad,Telefono,lugarResidencia,sexo,edad]
             );
-            console.log(rows);
-
             res.send({
                 identificacion,
                 tipo_documento,
@@ -51,7 +45,6 @@ export const datosAdicionalesPerfil = async (req, res) =>{
             });
 
     } catch (error) {
-        console.log(error,"paila");
         return res.status(500).json({messege: "algo va mal"})
     }
 }
